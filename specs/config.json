@@ -1,7 +1,12 @@
 {
   "font": "Source Sans 3",
   "background": null,
-  "padding": 0,
+  "padding": {
+    "top": 5,
+    "left": 5,
+    "right": 20,
+    "bottom": 5
+  },
   "axis": {
     "labelFontSize": 12,
     "titleFontSize": 13,
@@ -36,8 +41,16 @@
     "subtitlePadding": 6,
     "offset": 10
   },
-  "view": { "stroke": null },
+  "view": {
+    "stroke": null
+  },
   "range": {
-    "category": ["#C0392B", "#E8B10A", "#7CB342", "#7E57C2", "#5A5A5A"]
+    "category": [
+      "#C0392B",
+      "#E8B10A",
+      "#7CB342",
+      "#7E57C2",
+      "#5A5A5A"
+    ]
   }
 }
