@@ -46,3 +46,17 @@ datasets listed above.
 
 Code and visualisations: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 Underlying data remains under its original licence as cited above.
+
+# Local preview
+
+Double-click `serve.cmd`, or run:
+
+```bash
+python -m http.server 8777
+```
+
+then open <http://localhost:8777>.
+
+**Opening `index.html` directly from the file system will not work** — the browser blocks
+the page from fetching the spec and data files over `file://`, so every chart comes up
+empty. Always go through a local server.
