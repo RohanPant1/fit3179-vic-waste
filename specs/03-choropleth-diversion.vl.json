@@ -7,8 +7,8 @@
   },
   "hconcat": [
     {
-      "width": 620,
-      "height": 460,
+      "width": 560,
+      "height": 420,
       "data": {
         "url": "data/vic_lga.topo.json",
         "format": {
@@ -112,8 +112,8 @@
       }
     },
     {
-      "width": 250,
-      "height": 250,
+      "width": 215,
+      "height": 215,
       "title": {
         "text": "Metropolitan Melbourne",
         "fontSize": 13,

@@ -94,6 +94,10 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 section { margin-block: 5rem; }
 
+/* headings need room beneath them; p and h* both sit at margin 0 */
+section > h2 { margin-bottom: 1rem; }
+section > .prose { margin-bottom: 1.5rem; }
+
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
