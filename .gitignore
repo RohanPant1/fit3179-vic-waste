@@ -1,0 +1,8 @@
+# build artefacts
+anchor.png
+*.svg.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

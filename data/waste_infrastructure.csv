@@ -1,0 +1,665 @@
+Facility Name,Facility Owner,Facility Type,Infrastructure Type,Address,Suburb,LGA,Latitude,Longitude
+BE Bioenergy,Yarrock,Reprocessor,Thermal energy from waste,713 Yarrock Road,Kaniva,West Wimmera,-36.264183,141.189763
+Rupanyup Transfer Station,Yarriambiack Shire Council,Resource Recovery Centre,Transfer station,32 Boyds Rd,Rupanyup,Yarriambiack,-36.61576037,142.634276
+Minyip Transfer Station,Yarriambiack Shire Council,Resource Recovery Centre,Transfer station,332 Minyip-Rich Avon Road,Minyip,Yarriambiack,-36.4671417,142.6327274
+Beulah Transfer Station,Yarriambiack Shire Council,Resource Recovery Centre,Transfer station,28 Beulah Tip Road,Beulah,Yarriambiack,-35.93097778,142.4408611
+Hopetoun Transfer Station,Yarriambiack Shire Council,Resource Recovery Centre,Transfer station,8 Tip Road,Hopetoun,Yarriambiack,-35.736704,142.346648
+Murtoa Transfer Station & Resource Recovery Centre,Yarriambiack Shire Council,Resource Recovery Centre,Transfer station,1281 Wimmera Highway,Murtoa,Yarriambiack,-36.62198333,142.4967
+Tempy Landfill and Resource Recovery Centre,Yarriambiack Shire Council,Resource Recovery Centre,Transfer station,3270 Sunraysia Highway ,Tempy,Yarriambiack,-35.359321,142.428256
+Warracknabeal Transfer Station,Yarriambiack Shire Council,Resource Recovery Centre,Transfer station,108 Tip Road,Warracknabeal ,Yarriambiack,-36.226349,142.407726
+Woomelang Transfer Station,Yarriambiack Shire Council,Resource Recovery Centre,Transfer station,121 Church Street ,Woomelang,Yarriambiack,-35.696939,142.67586
+Patchewollock Transfer Station,Yarriambiack Shire Council,Resource Recovery Centre,Transfer station,38 Patchewollock Tip Road,Patchewollock,Yarriambiack,-35.371129,142.20475
+ReWaste,Yarra Valley Water,Reprocessor,Anaerobic digestion,525 Craigieburn Road,Wollert,Whittlesea,-37.61075358,144.9762668
+Coldstream Recycling & Waste Transfer Station,Yarra Ranges Recycling Services,Resource Recovery Centre,Transfer station,Corner Ingram Road & Leonard Road,Lilydale,Yarra Ranges,-37.73815,145.396595
+Wesburn Recycling and Waste Transfer Centre,Yarra Ranges Recycling Services,Resource Recovery Centre,Transfer station,689 Old Warburton Road,Wesburn,Yarra Ranges,-37.774807,145.649131
+Yarra Recycling Centre,Yarra City Council,Resource Recovery Centre,Transfer station,168 Roseneath Street,Clifton Hill,Yarra,-37.793908,145.000839
+Werribee Landfill,Wyndham City Council,Landfill,Landfill putrescible,470 Wests Road,Werribee,Wyndham,-37.939053,144.59441
+Wyndham Refuse Disposal Facility,Wyndham City Council,Resource Recovery Centre,Transfer station,470 Wests Road,Werribee,Wyndham,-37.939053,144.59441
+Worm Hit,Worm Hit Pty Ltd,Reprocessor,Organics recycling,1 Beasley Drive,Koorlong ,Mildura,-34.3487432,142.0278384
+Wodonga Waste Transfer Station,Wodonga City Council,Resource Recovery Centre,Transfer station,29 Kane Road,Wodonga,Wodonga,-36.117,146.9044
+Wodonga Abattoir,Wodonga Abattoir Pty Ltd,Reprocessor,Organics recycling,54 Kelly Street,Wodonga,Wodonga,-36.112472,146.876886
+Wimmera Wastebusters Recycling,Wimmera Wastebusters Recycling,Reprocessor,Plastics reprocessing,44 Golf Course Rd,Horsham ,Horsham,-36.735218,142.200462
+Whitehorse Recycling & Waste Centre,Whitehorse City Council,Resource Recovery Centre,Transfer station,Corner Burwood Highway & Morack Road,Vermont South,Whitehorse,-37.861882,145.19567
+Johnstons Road Quarry,Whelans Group Investments,Reprocessor,C&D waste recycling,175 Johnstons Road,Bairnsdale,East Gippsland,-37.874684,147.630147
+Wheel-A-Waste,Wheel-A-Waste Pty Ltd,Reprocessor,C&D waste recycling,Lot 1 Skip Lane,Wonthaggi,Bass Coast,-38.587388,145.590823
+Westvic Waste & Recycling,Westvic Waste,Resource Recovery Centre,Transfer station,3 Hammond Place,Warrnambool,Warrnambool,-38.36617,142.45578
+WestonVic Waste,WestonVic,Reprocessor,C&D waste recycling,8 Turnbull Drive,Horsham,Horsham,-36.737625,142.15221
+Western Waste Management,Western Waste Management,Resource Recovery Centre,Transfer station,11-27 Marriner Street,Colac East,Colac Otway,-38.329549,143.612899
+Western Land Reclamation ,Western Land Reclamation Pty Ltd,Landfill,Landfill inert,159 Bunting Road,Brooklyn,Brimbank,-37.81084515,144.8382736
+Western Composting Technology,Western Composting Technology Pty Ltd,Reprocessor,Organics recycling,165 Daldy Road,Shepparton North,Greater Shepparton,-36.3234931,145.3767463
+Goroke Transfer Station,West Wimmera Shire Council,Resource Recovery Centre,Transfer station,Kiely Street,Goroke,West Wimmera,-36.69783556,141.4781183
+Edenhope Transfer Station,West Wimmera Shire Council,Resource Recovery Centre,Transfer station,70 Moss Street,Edenhope,West Wimmera,-37.037428,141.282225
+Apsley Transfer Station,West Wimmera Shire Council,Resource Recovery Centre,Transfer station,Apsley-Casterton Road,Apsley,West Wimmera,-36.9746256,141.0706452
+Kaniva Transfer Station,West Wimmera Shire Council,Resource Recovery Centre,Transfer station,South Lillimur Road,Kaniva,West Wimmera,-36.3848,141.2255
+Chetwynd Transfer Station,West Wimmera Shire Council,Resource Recovery Centre,Transfer station,Chetwynd-Cemetary Road,Chetwynd,West Wimmera,-37.27896572,141.3826954
+Dergholm Transfer Station,West Wimmera Shire Council,Resource Recovery Centre,Transfer station,Quinn Road,Dergholm,West Wimmera,-37.36926344,141.2186672
+Harrow Transfer Station,West Wimmera Shire Council,Resource Recovery Centre,Transfer station,Off Nhill-Harrow Road,Harrow,West Wimmera,-37.13546784,141.5942841
+Welvic Australia,Welvic Australia Pty Ltd,Reprocessor,Plastics reprocessing,"Gate 6, Tillburn Road",Deer Park,Brimbank,-37.77776417,144.7766469
+Kilmany Resource Recovery Centre,Wellington Shire Council,Reprocessor,C&D waste recycling,Velore Road,Kilmany,Wellington,-38.103092,146.920064
+Stratford Transfer Station,Wellington Shire Council,Resource Recovery Centre,Transfer station,93 Wyndham Street,Stratford,Wellington,-37.95760827,147.0932087
+Dargo Transfer Station,Wellington Shire Council,Resource Recovery Centre,Transfer station,Kings Road,Dargo,Wellington,-37.45984735,147.244325
+Heyfield Transfer Station,Wellington Shire Council,Resource Recovery Centre,Transfer station,Rifle Range Road,Heyfield,Wellington,-37.974343,146.763321
+Kilmany Landfill,Wellington Shire Council,Landfill,Landfill putrescible,Velore Road,Kilmany,Wellington,-38.102931,146.9274395
+Loch Sport Transfer Station,Wellington Shire Council,Resource Recovery Centre,Transfer station,22 Progress Road,Loch Sport,Wellington,-38.064742,147.552742
+Maffra Landfill,Wellington Shire Council,Landfill,Landfill putrescible,Sellings Road,Maffra,Wellington,-37.9126585,146.9861545
+Maffra Resource Recovery Centre,Wellington Shire Council,Resource Recovery Centre,Transfer station,Sellings Rd,Maffra,Wellington,-37.912559,146.986143
+Seaspray Transfer Station,Wellington Shire Council,Resource Recovery Centre,Transfer station,34 Tip Road,Seaspray,Wellington,-38.366509,147.192214
+Yarram Transfer Station,Wellington Shire Council,Resource Recovery Centre,Transfer station,Hyland Way,Yarram,Wellington,-38.54132,146.702445
+WDEA - Nigretta of Hamilton,WDEA Works,Reprocessor,E-waste recycling,4 Peck Street,Hamilton,Southern Grampians,-37.72716681,142.0043304
+WDEA Enterprises,WDEA Works,Reprocessor,E-waste recycling,11 Albert Street,Warrnambool,Warrnambool,-38.372018,142.460186
+Wastebusters Recycling,Wastebusters,Resource Recovery Centre,Transfer station,44 Golf Course Road,Horsham,Horsham,-36.735571,142.200273
+Warrnambool Transfer Station,Warrnambool City Council,Resource Recovery Centre,Transfer station,10 Mason Street,Warrnambool,Warrnambool,-38.3771992,142.536447
+Wangaratta Organics Processing Facility,Wangaratta Rural City Council,Reprocessor,Organics recycling,Byawatha Road West,North Wangaratta,Wangaratta,-36.32230996,146.3782801
+Bowser Landfill,Wangaratta Rural City Council,Landfill,Landfill putrescible,5 Coleman Road,Bowser,Wangaratta,-36.3181915,146.3671645
+Eldorado Transfer Station,Wangaratta Rural City Council,Resource Recovery Centre,Transfer station,3 Woolshed Road,Eldorado,Wangaratta,-36.31815556,146.5299361
+Markwood Transfer Station,Wangaratta Rural City Council,Resource Recovery Centre,Transfer station,145 Forest Lane,Markwood,Wangaratta,-36.46787778,146.4762167
+Moyhu Transfer Station,Wangaratta Rural City Council,Resource Recovery Centre,Transfer station,569 Boggy Creek Road,Moyhu,Wangaratta,-36.63578703,146.3520599
+Wangaratta Transfer Station,Wangaratta Rural City Council,Resource Recovery Centre,Transfer station,45-65 Sandford Road,Wangaratta,Wangaratta,-36.369497,146.289708
+Wadref Humified Compost Pty Ltd (T/A Humus Composting Euroa),Wadref Humified Compost Pty Ltd (T/A Humus Composting Euroa),Reprocessor,Organics recycling,Lot 2 Lomers Road,Euroa,Strathbogie,-36.7339154,145.5813136
+Advanced Circular Polymers,Visy,Reprocessor,Plastics reprocessing,235 Hume Highway ,Somerton,Hume,-37.6242755,144.9480921
+Visy Glass (Laverton North),Visy,Reprocessor,Glass beneficiation,46-48 Dohertys Road,Laverton North,Wyndham,-37.82968,144.806586
+Visy Glass (Spotswood),Visy,Reprocessor,Glass reprocessing (blast furnace),20-40 Booker Street,Spotswood,Hobsons Bay,-37.831408,144.8927
+Visy Recycling MRF (Geelong),Visy,Reprocessor,Paper & cardboard recovery,282 Thompson Road,North Geelong,Greater Geelong,-38.107875,144.344183
+Visy Recycling MRF (Heidelberg),Visy,MRF,Materials recovery facility,Corner Waterdale Road and Banksia Street,Heidelberg ,Banyule,-37.756448,145.04335
+Visy Recycling MRF (Springvale),Visy,MRF,Materials recovery facility,708 Princes Highway,Springvale ,Greater Dandenong,-37.944038,145.171484
+Visy Wastepaper & Waste Management (Coolaroo),Visy,Reprocessor,Thermal energy from waste,13 Reo Crescent,Coolaroo,Hume,-37.64524512,144.9357411
+Visy Paper Mill (Coolaroo),Visy,Reprocessor,Paper & cardboard reprocessing,13 Reo Crescent,Coolaroo,Hume,-37.64524512,144.9357411
+Visy Paper Mill (Resevoir),Visy,Reprocessor,Paper & cardboard reprocessing,22 Radford Road,Reservoir,Darebin,-37.711268,144.982665
+Viscount Plastics,Viscount Plastics,Reprocessor,Plastics reprocessing,15 Mills Road,Braeside,Kingston,-37.99324649,145.1092143
+Vinidex Pty Ltd,Vinidex Pty Ltd,Reprocessor,Plastics reprocessing,231-245 St Albans Rd,Sunshine,Brimbank,-37.76408488,144.8159433
+Vicfam Plastics,Vicfam Plastics,Reprocessor,Plastics reprocessing,20-22 Somerleigh Road,Laverton North,Wyndham,-37.81791252,144.8158939
+Veolia Bulla Organics Facility,Veolia Environmental Services Pty Ltd,Reprocessor,Organics recycling,600 Sunbury Road,Bulla,Hume,-37.6184645,144.7839797
+Hallam Road Landfill,Veolia Environmental Services Pty Ltd,Landfill,Landfill putrescible,274 Hallam Road,Hampton Park,Casey,-38.05392746,145.2673205
+Veolia Werribee Transfer Station,Veolia Environmental Services Pty Ltd,Resource Recovery Centre,Transfer station,470 Wests Road,Werribee,Wyndham,-37.940038,144.5827
+Veolia Natural Recovery Systems Dandenong,Veolia Environmental Services Pty Ltd,Reprocessor,Organics recycling,15 Berends Drive,Dandenong,Greater Dandenong,-38.0294047,145.1978741
+Veolia C&I Transfer Station,Veolia Environmental Services Pty Ltd,Reprocessor,Organics recycling,72 Ordish Road,Dandenong South,Greater Dandenong,-38.022039,145.192387
+Earthsure (CPT plant),Veolia Environmental Services Pty Ltd,Hazardous waste,Chemical physical treatment (CPT) plant,890 Taylors Road,Dandenong South,Greater Dandenong,-38.0401335,145.228086
+Earthsure (POPs thermal destruction),Veolia Environmental Services Pty Ltd,Hazardous waste,Persistent organic pollutants (non-soil) thermal destruction facility,890 Taylors Road,Dandenong South,Greater Dandenong,-38.0401335,145.228086
+Earthsure (soils thermal treatment),Veolia Environmental Services Pty Ltd,Hazardous waste,Soils thermal treatment facility,890 Taylors Road,Dandenong South,Greater Dandenong,-38.0401335,145.228086
+Echuca MRF,Veolia Environmental Services Pty Ltd,MRF,Materials recovery facility,11 Reliance Court,Echuca,Campaspe,-36.148171,144.761935
+Hampton Park Resource Recovery Park - Outlook Environmental Public Drop-off Transfer Station,Veolia Environmental Services Pty Ltd,Resource Recovery Centre,Transfer station,274 Hallam Road,Hampton Park,Casey,-38.05338,145.267151
+Patho Landfill,Veolia Environmental Services Pty Ltd,Landfill,Landfill putrescible,Patho Station Road,Patho,Campaspe,-36.0375645,144.438963
+Veolia Taylors Road Landfill,Veolia Environmental Services Pty Ltd,Landfill,Hazardous waste landfill facility,890 Taylors Road,Dandenong South,Greater Dandenong,-38.0401335,145.228086
+Veolia Technical Waste Services Brooklyn (CPT plant),Veolia Environmental Services Pty Ltd,Hazardous waste,Chemical physical treatment (CPT) plant,15-19 McDonald Road,Brooklyn,Brimbank,-37.81410077,144.8460619
+Veolia Technical Waste Services Brooklyn (POPs thermal destruction),Veolia Environmental Services Pty Ltd,Hazardous waste,Persistent organic pollutants (non-soil) thermal destruction facility,15-19 McDonald Road,Brooklyn,Brimbank,-37.81410077,144.8460619
+Veolia Technical Waste Services Brooklyn (soils thermal treatment),Veolia Environmental Services Pty Ltd,Hazardous waste,Soils thermal treatment facility,15-19 McDonald Road,Brooklyn,Brimbank,-37.81410077,144.8460619
+Shepparton Liquid Treatment Plant,Veolia Environmental Services Pty Ltd,Hazardous waste,Oil/water treatment (OWT) facility,165 Daldy Road,Shepparton North,Greater Shepparton,-36.32384827,145.3765529
+Van Wyk Flowers,Van Wyk Flower Supply Pty Ltd,Reprocessor,Thermal energy from waste,605 Thompsons Road,Lyndhurst,Greater Dandenong,-38.072197,145.2054674
+Bio Gro (Dandenong),Van Schaik's Bio Gro,Reprocessor,Organics recycling,80-82 Ordish Road,Dandenong South,Greater Dandenong,-38.023576,145.1923413
+Bio Gro (Newbridge),Van Schaik's Bio Gro,Reprocessor,Organics recycling,1477 Yorkshire Road,Newbridge,Loddon,-36.7076981,143.9585202
+Valoriza Dandenong South Composting Facility,Valoriza Environment Australia,Reprocessor,Organics recycling,42-46 Villas Road,Dandenong South,Greater Dandenong,-38.033962,145.201501
+Upparel,Upparel,Reprocessor,Textiles recycling,33 MacBeth St,Braeside,Kingston,-38.00389515,145.1129419
+United Star Resource,United Star Resource,Reprocessor,E-waste recycling,494 Boundary Road,Derrimut,Brimbank,-37.81030202,144.7540718
+Unipod,Unipod Pty Ltd,Reprocessor,Plastics reprocessing,8 Foundation Road,Truganina,Wyndham,-37.814229,144.765682
+UniGrain Smeaton Mill,UniGrain Pty Ltd,Reprocessor,Thermal energy from waste,3720 Creswick / Newstead Road,Smeaton,Hepburn,-37.3490599,143.9422058
+Tyre Crumb ,Tyre Crumb,Hazardous waste,End-of-life tyres facility,175-215 Maygar Boulevard,Broadmeadows,Hume,-37.686211,144.940863
+Tru-Blu Oil,Tru-Blu Oil Australia Pty Ltd,Hazardous waste,Hazardous waste packaging facility,6 Dunlop Street,Bayswater,Knox,-37.84069696,145.2756703
+Trigg Dairy ,Trigg Ron Farming,Reprocessor,Anaerobic digestion,50 Lesters Road,Bungaree,Moorabool,-37.5630984,143.9988041
+Traralgon Concrete Products,Traralgon Concrete Products,Reprocessor,C&D waste recycling,14-28 Dunbar Road,Traralgon,Latrobe,-38.182158,146.56747
+Corryong Resource Recovery Centre and Landfill,Towong Shire Council,Resource Recovery Centre,Transfer station,289 Sugarloaf Road,Corryong,Towong,-36.220985,147.890697
+Tallangatta Resource Recovery Centre,Towong Shire Council,Resource Recovery Centre,Transfer station,767 Hardys Road,Tallangatta,Towong,-36.205275,147.337534
+Timberzoo,Timberzoo Pty Ltd,Reprocessor,Organics recycling,385 Portarlington Road,Moolap,Greater Geelong,-38.1695347,144.4271181
+Quality Drum Services,The Trustee for Doggle Unit Trust,Hazardous waste,Hazardous waste packaging facility,11-17 Dilop Drive,Epping,Whittlesea,-37.643379,145.019025
+Pomala Pty Ltd,The Midfield Group,Reprocessor,Organics recycling,402 Woolsthorpe-Ballangeich Road,Woolsthorpe,Moyne,-38.1712511,142.4921058
+Midfield Meat International,The Midfield Group,Reprocessor,Anaerobic digestion,Corner Scott Street and McMeekin Road,Warrnambool,Warrnambool,-38.374481,142.4570729
+The Green Centre,The Green Centre,Reprocessor,Organics recycling,48 Stadium Drive,Keilor Park,Brimbank,-37.7137351,144.8553536
+Good Dirt Lethbridge,The Good Dirt Company,Reprocessor,Organics recycling,678 Tall Tree Road,Lethbridge,Golden Plains,-37.9743315,144.0579768
+The DocShop,The Doc Shop Pty Ltd,Resource Recovery Centre,Transfer station,6/16 Rocla Road,Traralgon,Latrobe,-38.181396,146.56528
+Dasma MRF,The Dasma Group,MRF,Materials recovery facility,75 Tramway Road,Morwell,Latrobe,-38.239457,146.438138
+Camperdown Compost Company,The Camperdown Compost Company,Reprocessor,Organics recycling,Blind Creek Road,Bookaar,Corangamite,-38.1729657,143.0717794
+Teys Australia Charlton Feedlot,Teys Australia Southern Pty Ltd,Reprocessor,Organics recycling,224 Yeungroon Woosang Road ,Charlton,Buloke,-36.3588406,143.4109519
+Textile Recyclers Australia,Textile Recyclers Australia,Reprocessor,Textiles recycling,6 Freight Rd,Ravenhall,Melton,-37.77584635,144.7513853
+"TES-AMM (Mulgrave), E-waste recycling)",TES-AMM Australia Pty Ltd,Reprocessor,E-waste recycling,15 Glenvale Crescent,Mulgrave,Monash,-37.921469,145.160357
+TES-AMM (Somerton),TES-AMM Australia Pty Ltd,Reprocessor,E-waste recycling,23 Fillo Drive,Somerton,Hume,-37.64239502,144.9570923
+Tatura Shavings & Sawdust (fka Seymour Shavings & Sawdust Supplies),Tatura Shavings & Sawdust,Reprocessor,Organics recycling,735 Girgarre East Rd,Tatura,Greater Shepparton,-36.45452284,145.1407234
+Tank Services Australia,Tank Services Australia,Hazardous waste,Hazardous waste packaging facility,27-35 McDonald Road,Brooklyn,Brimbank,-37.81286,144.847213
+Kwik Tip Bins,Tambo Waste,Resource Recovery Centre,Transfer station,1 Wellington Park Way,Sale,Wellington,-38.099358,147.096193
+Tambo Bairnsdale,Tambo Waste,MRF,Materials recovery facility,56 McMillan Street,Bairnsdale,East Gippsland,-37.82299586,147.6564877
+Tambo Waste (Lakes Entrance),Tambo Waste,MRF,Materials recovery facility,58 Whiters Street,Lakes Entrance,East Gippsland,-37.87104134,148.001551
+Avalon Waste Resource Recovery Centre,Sycle,Reprocessor,C&D waste recycling,45 Beach Road,Avalon,Greater Geelong,-38.01048699,144.4693811
+Fyansford Waste Waste Management Facility (C&D recycling) (Geelong Landfill Pty Ltd),Sycle,Reprocessor,C&D waste recycling,Lower Paper Mills Road,Fyansford,Greater Geelong,-38.14431,144.30219
+Fyansford Waste Waste Management Facility (Landfill),Sycle,Landfill,Landfill inert,Lower Paper Mills Road,Fyansford,Greater Geelong,-38.14431,144.30219
+Swan Hill Rural City Council (Transfer Station),Swan Hill Rural City Council,Resource Recovery Centre,Transfer station,6859 Swan Hill-Sea Lake Road ,Swan Hill,Swan Hill,-35.349929,143.509847
+Swan Hill Rural City Council (landfill),Swan Hill Rural City Council,Landfill,Landfill putrescible,6859 Swan Hill-Sea Lake Road ,Swan Hill,Swan Hill,-35.349929,143.509847
+Ultima Transfer Station (Organics),Swan Hill Rural City Council,Reprocessor,Organics recycling,4330 Sea Lake-Swan Hill Rd,Ultima,Swan Hill,-35.45491624,143.279272
+Swan Hill Big Green Shed,Swan Hill Rural City Council,Resource Recovery Centre,Transfer station,6859 Swan Hill-Sea Lake Road,Swan Hill,Swan Hill,-35.346242,143.511842
+Robinvale Resource Recovery Centre,Swan Hill Rural City Council,Resource Recovery Centre,Transfer station,899 Robinvale – Sealake Rd,Bannerton,Swan Hill,-34.680733,142.778585
+Manangatang Transfer Station,Swan Hill Rural City Council,Resource Recovery Centre,Transfer station,126 Moondah Road,Manangatang,Swan Hill,-35.04599,142.8965
+Piangil Transfer Station,Swan Hill Rural City Council,Resource Recovery Centre,Transfer station,246 Hayward Road,Piangil,Swan Hill,-35.075739,143.310848
+Robinvale Landfill,Swan Hill Rural City Council,Landfill,Landfill unlicensed,899 Robinvale – Sealake Road,Bannerton,Swan Hill,-34.680733,142.778585
+Ultima Transfer Station (Transfer station),Swan Hill Rural City Council,Resource Recovery Centre,Transfer station,4330 Sea Lake Road,Ultima,Swan Hill,-35.454618,143.280649
+Sustainable Plastics Solutions,Sustainable Plastic Solutions Pty Ltd,Reprocessor,Plastics reprocessing,979 Hensley Park Rd,Hensley Park ,Southern Grampians,-37.64830686,142.0584085
+Anglesea Landfill,Surf Coast Shire Council,Landfill,Landfill putrescible,50 Coalmine Road,Anglesea,Surf Coast,-38.38506,144.19862
+Anglesea Resource Recovery Centre,Surf Coast Shire Council,Resource Recovery Centre,Transfer station,50 Coalmine Road,Anglesea,Surf Coast,-38.38506,144.19862
+Lorne Transfer Station,Surf Coast Shire,Resource Recovery Centre,Transfer station,370 Erskine Falls Road,Lorne,Surf Coast,-38.5293,143.947
+Winchelsea Resource Recovery Centre,Surf Coast Shire,Resource Recovery Centre,Transfer station,55 Cressy Road,Winchelsea,Surf Coast,-38.23927954,143.9745201
+Surecrop Monbulk,Surecrop Pty Ltd,Reprocessor,Organics recycling,114 Old Emerald Road,Monbulk,Yarra Ranges,-37.8667299,145.4268072
+Suez ResourceCo Epping,Suez ResourceCo,Reprocessor,C&D waste recycling,480 Cooper Street,Epping,Whittlesea,-37.646751,144.97923
+Avenel Resource Recovery Centre,Strathbogie Shire Council,Resource Recovery Centre,Transfer station,145 Monea Road,Avenel,Strathbogie,-36.878944,145.241833
+Euroa Resource Recovery Centre,Strathbogie Shire Council,Resource Recovery Centre,Transfer station,46 Euroa Tip Road,Euroa,Strathbogie,-36.76125777,145.5510687
+Graytown Resource Recovery Centre,Strathbogie Shire Council,Resource Recovery Centre,Transfer station,1487 South Costerfield - Graytown Road,Graytown,Strathbogie,-36.83677635,144.9313752
+Longwood Resource Recovery Centre,Strathbogie Shire Council,Resource Recovery Centre,Transfer station,85 Maxfield Street,Longwood,Strathbogie,-36.80210966,145.4174325
+Nagambie Resource Recovery Centre,Strathbogie Shire Council,Resource Recovery Centre,Transfer station,854 McDonalds Road,Nagambie,Strathbogie,-36.79472644,145.1950465
+Ruffy Resourcey Recovery Centre,Strathbogie Shire Council,Resource Recovery Centre,Transfer station,2 Red Gate Lane,Ruffy,Strathbogie,-36.939551,145.476751
+Violet Town Resource Recovery Centre,Strathbogie Shire Council,Resource Recovery Centre,Transfer station,190 McDiarmids Road,Violet Town,Strathbogie,-36.6483265,145.7005204
+Stonnington Waste Transfer Station,Stonnington City Council,Resource Recovery Centre,Transfer station,43 Weir Street,Glen Iris,Stonnington,-37.848769,145.043011
+SRS Metals,SRS Metals Pty Ltd,Reprocessor,E-waste recycling,304/308 Mahoneys Road,Thomastown,Whittlesea,-37.69132495,144.98034
+Spotswood Holdings,Spotswood Holdings Pty Ltd,Reprocessor,Organics recycling,6 King Street,Yarra Glen,Yarra Ranges,-37.6552848,145.3596994
+Balmoral Resource Recovery Centre,Southern Grampians Shire Council,Resource Recovery Centre,Transfer station,55 Horsham Road,Balmoral,Southern Grampians,-37.241857,141.838658
+Branxholme Transfer Station,Southern Grampians Shire Council,Resource Recovery Centre,Transfer station,92 Branxholme-Byaduk Road,Branxholme,Southern Grampians,-37.86238,141.80776
+Cavendish Transfer Station,Southern Grampians Shire Council,Resource Recovery Centre,Transfer station,2478 Henty Highway,Cavendish,Southern Grampians,-37.52941,142.03405
+Coleraine Resource Recovery Centre,Southern Grampians Shire Council,Resource Recovery Centre,Transfer station,42 Robertson Street,Coleraine,Southern Grampians,-37.60366,141.70162
+Dunkeld Resource Recovery Centre,Southern Grampians Shire Council,Resource Recovery Centre,Transfer station,7 Bellicourt Road,Dunkeld,Southern Grampians,-37.6584,142.34886
+Glenthompson Resource Recovery Centre,Southern Grampians Shire Council,Resource Recovery Centre,Transfer station,Corner of Glenthompson Stock Route and Boundary Road,Glenthompson,Southern Grampians,-37.62327571,142.5520377
+Hamilton Resource Recovery Centre,Southern Grampians Shire Council,Resource Recovery Centre,Transfer station,68 Elijah Street,Hamilton,Southern Grampians,-37.7465389,141.99663
+Penshurst Transfer Station,Southern Grampians Shire Council,Resource Recovery Centre,Transfer station,5408 Hamilton Highway,Penshurst,Southern Grampians,-37.86403588,142.320813
+Foster Transfer Station,South Gippsland Shire Council,Resource Recovery Centre,Transfer station,South Gippsland Hwy,Foster,South Gippsland,-38.649272,146.210413
+Koonwarra Landfill,South Gippsland Shire Council,Landfill,Landfill putrescible,275 Koonwarra-Inverloch Road,Koonwarra,South Gippsland,-38.5583285,145.9222205
+Koonwarra Transfer Station,South Gippsland Shire Council,Resource Recovery Centre,Transfer station,Koonwarra-Inverloch Road,Koonwarra,South Gippsland,-38.447186,145.992218
+Korumburra Transfer Station,South Gippsland Shire Council,Resource Recovery Centre,Transfer station,Silkstone Road,Korumburra,South Gippsland,-38.446692,145.835205
+Mirboo North Transfer Station,South Gippsland Shire Council,Resource Recovery Centre,Transfer station,15 Railway Road,Mirboo North,South Gippsland,-38.401094,146.172041
+Venus Bay Transfer Station,South Gippsland Shire Council,Resource Recovery Centre,Transfer station,Corner Canterbury Road and No 3 Beach Road,Venus Bay,South Gippsland,-38.6963,145.8099722
+Walkerville Transfer Station,South Gippsland Shire Council,Resource Recovery Centre,Transfer station,Fish Creek Road,Walkerville,South Gippsland,-38.826722,145.997576
+Socobell O.E.M Pty Ltd,Socobell O.E.M Pty Ltd,Reprocessor,Plastics reprocessing,555 Somerville Road,Sunshine West,Brimbank,-37.80676869,144.8259852
+SJ Sheahan,SJ Sheahan Pty Ltd,Reprocessor,Organics recycling,948 Bolinda-Darraweit Rd,Darraweit Guim,Macedon Ranges,-37.43024156,144.8483384
+Sims Metals Management (Broadmeadows) ,Sims Limited,Reprocessor,Metals recovery,1904 Hume Highway,Broadmeadows,Hume,-37.65969363,144.9553629
+Sims Metals Management (Brooklyn),Sims Limited,Reprocessor,Metals recovery,44-60 Mcdonald Road,Brooklyn,Hobsons Bay,-37.81002155,144.8482209
+Sims Metals Management (Geelong),Sims Limited,Reprocessor,Metals recovery,266 Thompsons Road,North Geelong,Greater Geelong,-38.10861291,144.3445139
+Sims Metals Management (Noble Park),Sims Limited,Reprocessor,Metals recovery,442 Princes Highway,Noble Park,Greater Dandenong,-37.95808995,145.1857629
+Sims Metals Management (Traralgon),Sims Limited,Reprocessor,Metals recovery,70-74 Eastern Road,Traralgon East,Latrobe,-38.18067838,146.5658201
+Siltech PMR,Siltech PMR Pty Ltd,Reprocessor,Metals recovery,220 Barry Road,Campbellfield,Hume,-37.665425,144.957214
+Signode,Signode Australia & New Zealand,Reprocessor,Plastics reprocessing,30 Fulton Drive,Derrimut,Brimbank,-37.809071,144.780473
+Shred-X Vic,Shred-X,Reprocessor,E-waste recycling,30 Plummer Road,Laverton North,Wyndham,-37.818277,144.813629
+Select Harvests - Almond Division,Select Harvests,Reprocessor,Thermal energy from waste,4444B Hattah-Robinvale Road,Wemen,Swan Hill,-34.745981,142.7199932
+M. Schott Drum Recyclers,Selaras Kechil Nominees Pty Ltd,Hazardous waste,Hazardous waste packaging facility,137-139 Bakers Road,Coburg North,Merri-bek,-37.726408,144.952994
+Scipher,Scipher Technologies Pty Ltd,Reprocessor,E-waste recycling,7 Mills Road,Dandenong,Greater Dandenong,-37.98990245,145.1952641
+Schutz Australia (haz packaging),Schutz Australia Pty Ltd,Hazardous waste,Hazardous waste packaging facility,13-15 Burr Court,Laverton North,Wyndham,-37.81776427,144.8046477
+Schutz Australia (plastics),Schutz Australia Pty Ltd,Reprocessor,Plastics reprocessing,13-15 Burr Court,Laverton North,Wyndham,-37.81776427,144.8046477
+SBI Inert Landfill,SBI Group,Landfill,Landfill inert,950 Ballarto Road,Cranbourne,Casey,-38.125963,145.262557
+Smart Recycling (Brooklyn),S.M.A.R.T Recycling Pty Ltd,Reprocessor,C&D waste recycling,455A Somerville Rd,Brooklyn,Brimbank,-37.8092409,144.8457475
+Smart Recycling (Epping),S.M.A.R.T Recycling Pty Ltd,Reprocessor,C&D waste recycling,480 Cooper Street,Epping,Whittlesea,-37.64310551,144.9778148
+Smart Recycling (Dandenong South),S.M.A.R.T Recycling Pty Ltd,Reprocessor,C&D waste recycling,161 Portlink Drive,Dandenong South,Greater Dandenong,-38.053593,145.24344
+Waste Converters Recycling,S.M.A.R.T Recycling Pty Ltd,Reprocessor,C&D waste recycling,161 Portlink Drive ,Dandenong South,Greater Dandenong,-38.0549083,145.2422165
+Ryan & McNulty Sawmillers,Ryan & McNulty Pty Ltd,Reprocessor,Thermal energy from waste,123 Sydney Rd,Benalla,Benalla,-36.5431546,146.0091446
+Rubber Recycling,Rubber Recycling,Hazardous waste,End-of-life tyres facility,29-31 Plummer Rd,Laverton North,Wyndham,-37.81864421,144.8147225
+RPM Pipes,RPM Pipes,Reprocessor,Plastics reprocessing,280 Lancaster Road,Kyabram,Campaspe,-36.31363,145.097018
+Royal Children's Hospital,Royal Children's Hospital,Reprocessor,Thermal energy from waste,50 Flemington Road,Parkville,Melbourne,-37.7935372,144.9491384
+Eastern Recycling & Waste Transfer Station,Rossi Recycling Pty Ltd,Resource Recovery Centre,Transfer station,22 Palmerstown Road West,Ringwood,Maroondah,-37.8252,145.217
+RMAX Rigid Cellular Plastics,RMAX Rigid Cellular ,Reprocessor,Plastics reprocessing,2-4 Mephan Street,Maribyrnong,Maribyrnong,-37.78533419,144.8873373
+Kingston Waste Transfer Station,Rhino Bins,Resource Recovery Centre,Transfer station,24-30 Fonceca Street,Mordialloc,Kingston,-37.990172,145.10446
+ResourceCo (Brooklyn),ResourceCo,Reprocessor,C&D waste recycling,125 Bunting Road,Brooklyn,Brimbank,-37.811165,144.840416
+Hampton Park Resource Recovery Precinct - ResourceCo Construction & Demolition,ResourceCo,Reprocessor,C&D waste recycling,795 South Gippsland Highway,Hampton Park,Casey,-38.06152,145.264745
+Tyrecycle ,ResourceCo,Hazardous waste,End-of-life tyres facility,30-56 Encore Avenue,Somerton,Hume,-37.63474,144.952416
+Resource Resolution,Resource Resolution Pty Ltd,Reprocessor,Organics recycling,19 Winter Road,Girgarre,Campaspe,-36.3985198,144.9834936
+ReSource,ReSource Pty Ltd,Reprocessor,E-waste recycling,70 Swann Drive,Derrimut,Brimbank,-37.801872,144.778851
+Re-Source,Re-Source,Reprocessor,E-waste recycling,70 Swann Drive,Derrimut,Brimbank,-37.80097659,144.7788241
+"Repurpose It (Epping, C&D waste recycling)",Repurpose It,Reprocessor,C&D waste recycling,460 Cooper Street,Epping,Whittlesea,-37.646751,144.97923
+Repurpose It (Montrose),Repurpose It,Reprocessor,Organics recycling,54 Fussell Road,Montrose,Yarra Ranges,-37.8215044,145.3256144
+Repurpose It (Hallam),Repurpose It,Reprocessor,Organics recycling,88-102 Ogrady Road,Hallam,Casey,-38.0179334,145.2555432
+"Repurpose It (Epping, organics recycling)",Repurpose It,Reprocessor,Organics recycling,460 Cooper Street,Epping,Whittlesea,-37.64051054,144.9782316
+"Repurpose It (Epping, Chemical physical treatment (CPT) plant)",Repurpose It,Hazardous waste,Chemical physical treatment (CPT) plant,460 Cooper Street,Epping,Whittlesea,-37.6462749,144.9804871
+"Repurpose It (Epping, Glass reprocessing)",Repurpose It,Reprocessor,Glass reprocessing (crushing),460 Cooper Street,Epping,Whittlesea,-37.646887,144.981989
+REPLAS,Repeat Plastics Australia Pty Ltd,Reprocessor,Plastics reprocessing,50 Elsworth Street,Canadian,Ballarat,-37.58313715,143.8735896
+Renex (POPs destruction),Renex Group Pty Ltd ,Hazardous waste,Persistent organic pollutants (non-soil) thermal destruction facility,109-131 Ordish Road,Dandenong South,Greater Dandenong,-38.027499,145.192777
+Renex (soils thermal treatment),Renex Group Pty Ltd ,Hazardous waste,Soils thermal treatment facility,109-131 Ordish Road,Dandenong South,Greater Dandenong,-38.027499,145.192777
+REMONDIS Dandenong South Liquid Processing Plant,REMONDIS Australia,Reprocessor,Organics recycling,26-28 Souffi Place,Dandenong South,Greater Dandenong,-38.0321019,145.1974555
+REMONDIS Dandenong South Liquid Processing Plant (OWT),REMONDIS Australia,Hazardous waste,Oil/water treatment (OWT) facility,26-28 Souffi Place,Dandenong South,Greater Dandenong,-38.031815,145.197081
+REMONDIS Somerton Liquid Processing Plant,REMONDIS Australia,Hazardous waste,Chemical physical treatment (CPT) plant,41-47 Freight Drive,Somerton,Hume,-37.64059144,144.9639408
+Reid Brothers Sawmill,Reid Brothers ,Reprocessor,Thermal energy from waste,30-42 Little Yarra Road,Yarra Junction,Yarra Ranges,-37.78641,145.6167318
+Re.Group Hallam Container and Plastics Sorting Facility,Re-Group Pty Ltd,Reprocessor,Plastics recovery,87-93 Wedgewood Road,Hallam,Casey,-38.013067,145.254664
+"Re-Group (Dandenong, Glass beneficiation)",Re-Group Pty Ltd,Reprocessor,Glass beneficiation,126-134 Thomas Murrell Crescent,Dandenong South,Greater Dandenong,-38.02202264,145.1936873
+"Re-Group (Dandenong, MRF)",Re-Group Pty Ltd,MRF,Materials recovery facility,126-134 Thomas Murrell Crescent,Dandenong South,Greater Dandenong,-38.021922,145.19362
+"Re-Group (Coburg SSF, bailing facility)",Re-Group Pty Ltd,Reprocessor,Paper & cardboard recovery,172 Newlands Road,Coburg North,Merri-bek,-37.723148,144.975921
+Regional Recycle,Regional Recycle and Lewis Group,Reprocessor,C&D waste recycling,313 Hamilton Highway,Fyansford,Greater Geelong,-38.14359973,144.2927774
+Red3,Red 3 Pty Ltd,Reprocessor,Plastics reprocessing,"Factory 1, 5 Gladstone Road",Dandenong,Greater Dandenong,-37.97402147,145.2067459
+Quantum Recycling Solutions,Quantum Recycling Solutions Pty Ltd,Reprocessor,E-waste recycling,16 Sonia Street ,Carrum Downs,Frankston,-38.096235,145.162021
+"Ecycle Solutions (Dandenong South, E-waste recycling)",QLS Group,Reprocessor,E-waste recycling,398-418 Hammond Road,Dandenong South,Greater Dandenong,-38.031918,145.2019
+"Ecycle Solutions (Dandenong South, Plastics reprocessing)",QLS Group,Reprocessor,Plastics reprocessing,398-418 Hammond Road,Dandenong South,Greater Dandenong,-38.031918,145.2019
+Pyrenees Timber,Pyrenees Timber Pty Ltd,Reprocessor,Thermal energy from waste,392 Amphitheatre Road,Chute,Pyrenees,-37.3378317,143.3790096
+Avoca Transfer Station,Pyrenees Shire Council,Resource Recovery Centre,Transfer station,82 Russell Street,Avoca,Pyrenees,-37.087127,143.4828
+Beaufort Transfer Station,Pyrenees Shire Council,Resource Recovery Centre,Transfer station,2 Tip Road,Beaufort,Pyrenees,-37.425393,143.396499
+Landsborough Transfer Station,Pyrenees Shire Council,Resource Recovery Centre,Transfer station,2161 Ararat-St Arnaud Road,Landsborough,Pyrenees,-37.015309,143.134839
+Snake Valley Transfer Station,Pyrenees Shire Council,Resource Recovery Centre,Transfer station,298 Snake Valley-Morchup Road,Snake Valley,Pyrenees,-37.623074,143.575262
+Pelletmate,Proviro Group,Reprocessor,Organics recycling,77 Buckley Grove,Moolap,Greater Geelong,-38.1636158,144.4288089
+Precious Plastic Melbourne,Precious Plastic,Reprocessor,Plastics reprocessing,22A Rooks Road,Nunawading,Whitehorse,-37.8198338,145.1852057
+Precious Plastic Monash,Precious Plastic,Reprocessor,Plastics reprocessing,"17 Alliance Lane, Monash University",Clayton,Monash,-37.90892534,145.1336446
+Potters Industries,Potters Industries Pty Ltd,Reprocessor,Glass reprocessing (crushing),100-102 Boundary Road,Sunshine West,Brimbank,-37.8153902,144.8131774
+Port Phillip Resource Recovery Centre,Port Phillip City Council,Resource Recovery Centre,Transfer station,78 White Street,South Melbourne,Port Phillip,-37.828091,144.943376
+Polymer Processors,Polymer Processors,Reprocessor,Plastics reprocessing,11 Japaddy Street,Mordialloc,Kingston,-37.989187,145.105382
+Polyfoam Australia,Polyfoam Australia Pty Ltd,Reprocessor,Plastics reprocessing,11 Brooklyn Avenue,Dandenong,Greater Dandenong,-37.99326803,145.198702
+Platinum Recycling,Platinum Recycling,Reprocessor,E-waste recycling,35 Hawker Street,Airport West,Moonee Valley,-37.72265292,144.8881545
+Plasgain,Plasgain,Reprocessor,Plastics reprocessing,Clancy Rd,Drouin,Baw Baw,-38.12123629,145.8311246
+Pipeconnex,Pipeconnex Pty Ltd,Reprocessor,Plastics reprocessing,13 Cahill St,Dandenong South,Greater Dandenong,-38.026716,145.200552
+Pinegro (Morwell),Pinegro Products Pty Ltd,Reprocessor,Organics recycling,300 Monash Way,Morwell ,Latrobe,-38.263486,146.4201655
+Pinegro (Mt Wallace),Pinegro Products Pty Ltd,Reprocessor,Organics recycling,Lot 32 Glenmore Road,Ballan,Moorabool,-37.71042325,144.3124698
+PineGro Green Waste (Moe),Pinegro Products Pty Ltd,Reprocessor,Organics recycling,31 Walhalla Road,Moe,Latrobe,-38.1616767,146.2599611
+PineGro Green Waste (Traralgon),Pinegro Products Pty Ltd,Reprocessor,Organics recycling,50 Rocla Road,Traralgon East,Latrobe,-38.1851001,146.5666195
+PhoneCycle,PhoneCycle Pty Ltd,Reprocessor,E-waste recycling,2/290 Blackburn Road,Doncaster East,Manningham,-37.78143824,145.1638486
+Pental,Pental,Reprocessor,Organics recycling,48 Drummond Road,Shepparton,Greater Shepparton,-36.3701606,145.4231396
+PCP Global Recycling,PCP Global Recycling Pty Ltd,Reprocessor,Plastics reprocessing,21 Little Boundary Road,Laverton North,Wyndham,-37.820995,144.820782
+Paul Volk Contracting,Paul Volk Contracting Pty Ltd,Reprocessor,C&D waste recycling,37 McMillan Street,Lucknow,East Gippsland,-37.823383,147.65864
+Paddy's Bricks,Paddy’s Bricks,Reprocessor,C&D waste recycling,352-358 Kororoit Creed Road,Williamstown North,Hobsons Bay,-37.85448184,144.8614227
+Pact Packaging (Laverton),Pact Group,Hazardous waste,Hazardous waste packaging facility,25 Little Boundary Road,Laverton North,Wyndham,-37.820224,144.820043
+Pact Packaging (Sunshine),Pact Group,Hazardous waste,Hazardous waste packaging facility,6-8 Normanby Avenue,Sunshine West,Brimbank,-37.812102,144.813581
+Pact Recycling (Cheltenham),Pact Group,Reprocessor,Plastics reprocessing,103 Bernard Street,Cheltenham,Kingston,-37.954396,145.074266
+Paarhammer Windows and Doors,Paarhammer Pty Ltd,Reprocessor,Thermal energy from waste,53 Haddon Drive,Ballan,Moorabool,-37.6146512,144.238296
+Oztek Holdings,Oztek Holdings Pty LTd,Reprocessor,Organics recycling,158 Plemings Road,Barnawatha,Indigo,-36.1184549,146.6993997
+Oz Tyre Recyclers,OZ Industries Pty Ltd,Hazardous waste,End-of-life tyres facility,21 Reo Crescent,Campbellfield,Hume,-37.646319,144.939492
+Mornington Outlook Recovery Centre,Outlook Environmental,Resource Recovery Centre,Transfer station,337 Racecourse Road,Mornington,Mornington Peninsula,-38.236325,145.0658944
+Outlook Environmental (Officer),Outlook Environmental,Reprocessor,E-waste recycling,4 Hickson Road,Officer,Cardinia,-38.067011,145.406419
+"Australian Paper (Maryvale, Organics recycling)",Opal Australian Paper,Reprocessor,Organics recycling,Traralgon West Road,Maryvale,Latrobe,-38.1875016,146.4703219
+Olympic Polymers (Clayton South),Olympic Polymers Pty Ltd,Reprocessor,Plastics reprocessing,86 Fairbank Road,Clayton South,Kingston,-37.9419,145.129
+Olima Fibre Processors,Olima Fibre Processors Pty Ltd,Reprocessor,Plastics reprocessing,254 Canterbury Road,Bayswater North,Maroondah,-37.830045,145.275013
+O F Resource Recovery,O F Packaging,Reprocessor,Paper & cardboard recovery,32 Plummer Road,Laverton North,Wyndham,-37.818754,144.814123
+Nutrisoil,Nutrisoil Pty Ltd,Reprocessor,Organics recycling,343 Whytes Road ,Baranduda,Wodonga,-36.1633294,146.9616862
+Halls Gap Transfer Station,Northern Grampians Shire Council,Resource Recovery Centre,Transfer station,4300 Ararat-Halls Gap Road,Halls Gap,Northern Grampians,-37.11163056,142.5824194
+St Arnaud Transfer Station,Northern Grampians Shire Council,Resource Recovery Centre,Transfer station,329 Old Wedderburn Road,St Arnaud,Northern Grampians,-36.590533,143.327382
+Stawell Transfer Station,Northern Grampians Shire Council,Resource Recovery Centre,Transfer station,36 Lavett Road,Stawell,Northern Grampians,-37.072681,142.810042
+Norstar (Laverton North),Norstar Steel Recyclers,Reprocessor,Metals recovery,191-205 Dohertys Rd,Laverton North,Wyndham,-36.044259,144.753827
+Norstar (Bayswater North),Norstar Steel Recyclers,Reprocessor,Metals recovery,160-162 Colchester Rd,Bayswater North,Maroondah,-37.81621572,145.3051524
+Norstar (Bendigo),Norstar Steel Recyclers,Reprocessor,Metals recovery,13-19 Piper Lane,East Bendigo,Greater Bendigo,-36.7449308,144.3232878
+Norstar (Dandenong South),Norstar Steel Recyclers,Reprocessor,Metals recovery,37 Redgum Dve,Dandenong South,Greater Dandenong,-38.02398283,145.1967182
+Norstar (Reservoir),Norstar Steel Recyclers,Reprocessor,Metals recovery,41-51 Banbury Rd,Reservoir,Darebin,-37.71075823,144.9892639
+Nillumbik Recycling Centre,Nillumbik Shire Council,Resource Recovery Centre,Transfer station,290 Yan Yean Road,Plenty,Nillumbik,-37.654946,145.126088
+Bio Briquettes,Newstead Briquetting Company,Reprocessor,Refuse derived fuel,4 Fitt Court ,East Bendigo,Greater Bendigo,-36.74959125,144.3103259
+Neerim South Quarry & Concrete Recycling,Neerim South Quarry & Excavations Pty Ltd,Reprocessor,C&D waste recycling,11 Sheffield Road,Neerim South,Baw Baw,-38.005801,145.836551
+Nationwide Connect Recycling,Nationwide Connect Pty Ltd,Reprocessor,Plastics reprocessing,5 Gipps Court,Epping,Whittlesea,-37.647451,145.012763
+National Resource Recovery,National Resource Recovery Pty Ltd,Hazardous waste,Chemical physical treatment (CPT) plant,20 Jersey Road,Bayswater,Knox,-37.8405716,145.2790676
+Alexandra landfill,Murrindindi Shire Council,Landfill,Landfill putrescible,124 Mount Pleasant Road,Alexandra,Murrindindi,-37.21248924,145.7246176
+Alexandra Resource Recovery Centre,Murrindindi Shire Council,Resource Recovery Centre,Transfer station,119 Mt Pleasant Road,Alexandra,Murrindindi,-37.20849034,145.7220064
+Eildon Resource Recovery Centre,Murrindindi Shire Council,Resource Recovery Centre,Transfer station,100 Jerusalem Creek Road,Eildon,Murrindindi,-37.23550226,145.9309443
+Kinglake Resource Recovery Centre,Murrindindi Shire Council,Resource Recovery Centre,Transfer station,205 Watsons Road,Kinglake West,Murrindindi,-37.46069411,145.2751427
+Marysville Resource Recovery Centre,Murrindindi Shire Council,Resource Recovery Centre,Transfer station,2 Sunds Mill Court,Marysville,Murrindindi,-37.50626835,145.7391304
+Yea Resource Recovery Centre,Murrindindi Shire Council,Resource Recovery Centre,Transfer station,617 Ghin Ghin Road,Yea,Murrindindi,-37.15781695,145.3764348
+Cobungra Landfill,Mt Hotham Alpine Report,Landfill,Landfill unlicensed,2127 Great Alpine Road,Cobungra,East Gippsland,-37.097103,147.422773
+Caramut Waste Facility,Moyne Shire Council,Resource Recovery Centre,Transfer station,Sawmill Road,Caramut,Moyne,-37.95727,142.52566
+Hawkesdale Waste Facility,Moyne Shire Council,Resource Recovery Centre,Transfer station,116 Baird Street,Hawkesdale,Moyne,-38.102108,142.328169
+Killarney Landfill,Moyne Shire Council,Landfill,Landfill unlicensed,12 Badhams Road,Crossley,Moyne,-38.31809,142.29754
+Macarthur Waste Facility,Moyne Shire Council,Resource Recovery Centre,Transfer station,Myamym - Macarthur Road,Macarthur,Moyne,-38.012605,141.975249
+Mortlake Resource Recovery Centre,Moyne Shire Council,Resource Recovery Centre,Transfer station,Connewarren Lane,Mortlake,Moyne,-38.06898,142.76917
+Peterborough Resource Recovery Centre,Moyne Shire Council,Resource Recovery Centre,Transfer station,MacGillivray Road,Peterborough,Moyne,-38.59386,142.86812
+Woolsthorpe Transfer Station & Resource Recovery,Moyne Shire Council,Resource Recovery Centre,Transfer station,Mt Taurus Road,Woolsthorpe,Moyne,-38.211851,142.419335
+Woorndoo Waste Facility,Moyne Shire Council,Resource Recovery Centre,Transfer station,Cameron Street,Woorndoo,Moyne,-38.22443,142.42437
+Killarney Resource Recovery Centre,Moyne Shire Council,Resource Recovery Centre,Transfer station,12 Badhams Road,Crossley,Moyne,-38.31799652,142.2989197
+Mt Hotham Resource Recovery Centre,Mount Hotham Alpine Resort Management Board,Resource Recovery Centre,Transfer station,4 Workshop Access,Hotham,Mt Hotham,-37.097257,147.422711
+Boggy Corner Waste Transfer Station (Transfer Station),Mount Buller and Mount Stirling Resort Management Board,Resource Recovery Centre,Transfer station,Boggy Corner,Mount Buller,Mount Buller Alpine Resort,-37.13482714,146.4520439
+Boggy Corner Waste Transfer Station (Organics),Mount Buller and Mount Stirling Resort Management Board,Reprocessor,Organics recycling,Boggy Corner,Mount Buller,Mount Buller Alpine Resort,-37.13482714,146.4520439
+Maldon Transfer Station,Mount Alexander Shire ,Resource Recovery Centre,Transfer station,Morris Street,Maldon,Mount Alexander,-36.993654,144.079715
+Castlemaine Resource Recovery Centre,Mount Alexander Shire,Resource Recovery Centre,Transfer station,Sluicers Road,Castlemaine,Mount Alexander,-37.077897,144.193612
+Mornington Resource Recovery  Centre,Mornington Peninsula Shire Council,Resource Recovery Centre,Transfer station,134 Watt Road,Mornington,Mornington Peninsula,-38.234591,145.065457
+Rye Landfill,Mornington Peninsula Shire Council,Landfill,Landfill putrescible,280 Truemans Road,Fingal,Mornington Peninsula,-38.401757,144.860689
+Rye Landfill & Resource Recovery Centre,Mornington Peninsula Shire Council,Resource Recovery Centre,Transfer station,280 Trueman Road,Rye,Mornington Peninsula,-38.391339,144.855792
+Rye Resource Recovery Centre and Landfill ,Mornington Peninsula Shire Council,Reprocessor,Organics recycling,280 Truemans Road,Fingal,Mornington Peninsula,-38.391364,144.855553
+Tyabb Resource Recovery Centre,Mornington Peninsula Shire Council,Resource Recovery Centre,Transfer station,21 Mckirdys Road,Tyabb,Mornington Peninsula,-38.25993265,145.2196584
+Bacchus Marsh Transfer Station,Moorabool Shire Council,Resource Recovery Centre,Transfer station,15 Kennedy Place and 50 Osborne Street,Maddingley,Moorabool,-37.691272,144.423598
+Ballan Transfer Station,Moorabool Shire Council,Resource Recovery Centre,Transfer station,118 Monteville Lane,Ballan,Moorabool,-37.60175,144.2697
+Mount Egerton Transfer Station,Moorabool Shire Council,Resource Recovery Centre,Transfer station,Corner Ballan-Egerton Road & Yendon-Egerton Road,Mount Egerton,Moorabool,-37.633779,144.107514
+Monash Waste Transfer & Recycling Station,Monash City Council,Resource Recovery Centre,Transfer station,380 Ferntree Gully Road,Notting Hill,Monash,-37.90153,145.140496
+Barmah Transfer Station,Moira Shire Council,Resource Recovery Centre,Transfer station,10 Racecourse Road,Barmah,Moira,-36.00675108,144.9644558
+Cobram Landfill,Moira Shire Council,Landfill,Landfill putrescible,56 Pye Road,Cobram,Moira,-35.9553275,145.696043
+Nathalia Resource Recovery Centre,Moira Shire Council,Resource Recovery Centre,Transfer station,26 Balls Road,Nathalia,Moira,-36.08152892,145.1861061
+Numurkah Transfer Station,Moira Shire Council,Resource Recovery Centre,Transfer station,367 Naring Road,Numurkah,Moira,-36.0679597,145.4915539
+St James Transfer Station,Moira Shire Council,Resource Recovery Centre,Transfer station,75 Kelly Road,St James,Moira,-36.27822,145.877536
+Strathmerton Transfer Station,Moira Shire Council,Resource Recovery Centre,Transfer station,4772 Murray Valley Highway,Strathmerton,Moira,-35.92472583,145.5226664
+Yabba Transfer Station,Moira Shire Council,Resource Recovery Centre,Transfer station,1350 Yabba South Road,Yabba,Moira,-36.240343,145.649974
+Yarrawonga Resource Recovery Centre,Moira Shire Council,Resource Recovery Centre,Transfer station,81 Channel Road,Yarrawonga,Moira,-36.022002,146.000864
+Cobram Resource Recovery Centre,Moira Shire Council,Resource Recovery Centre,Transfer station,56 Pye Road,Cobram,Moira,-35.9553275,145.696043
+Broadford Resource Recovery Centre,Mitchell Shire Council,Resource Recovery Centre,Transfer station,315 Mia Mia Road,Broadford,Mitchell,-37.22276641,145.0744214
+Mitchell Landfill,Mitchell Shire Council,Landfill,Landfill putrescible,470 Seymour-Tooborac Road,Hilldene,Mitchell,-37.029435,145.08141
+Pyalong Resource Recovery Centre,Mitchell Shire Council,Resource Recovery Centre,Transfer station,Ladderhill Road,Pyalong,Mitchell,-37.1154272,144.8661004
+Seymour Resource Recovery Centre,Mitchell Shire Council,Resource Recovery Centre,Transfer station,470 Seymour-Tooborac Road,Hilldene,Mitchell,-37.029435,145.08141
+Wallan Resource Recovery Centre,Mitchell Shire Council,Resource Recovery Centre,Transfer station,4-5 Freeway Drive,Wallan,Mitchell,-37.4170752,145.0011295
+Cullulleraine Transfer Station,Mildura Rural City Council,Resource Recovery Centre,Transfer station,Sturt Highway,Cullulleraine,Mildura,-34.273332,141.60764
+Mildura Landfill,Mildura Rural City Council,Landfill,Landfill putrescible,15 Scherger Drive,Mildura,Mildura,-34.1850615,142.1422685
+Mildura Resource Recovery Centre,Mildura Rural City Council,Resource Recovery Centre,Transfer station,Ontario Avenue,Mildura,Mildura,-34.185062,142.142269
+Murrayville Transfer Station,Mildura Rural City Council,Resource Recovery Centre,Transfer station,Recreation Road,Murrayville,Mildura,-35.257509,141.178252
+Nangiloc Transfer Station,Mildura Rural City Council,Resource Recovery Centre,Transfer station,Castle Crossing Road,Nangiloc,Mildura,-34.49881,142.358744
+Ouyen Landfill,Mildura Rural City Council,Landfill,Landfill unlicensed,Dunkley Road,Ouyen,Mildura,-35.094,142.327337
+Ouyen Resource Recovery Centre,Mildura Rural City Council,Resource Recovery Centre,Transfer station,Dunkley Road,Ouyen,Mildura,-35.094,142.327337
+Underbool Transfer Station,Mildura Rural City Council,Resource Recovery Centre,Transfer station,Cemetery Road,Underbool,Mildura,-35.178426,141.807047
+Walpeup Transfer Station,Mildura Rural City Council,Resource Recovery Centre,Transfer station,Murphy Road,Walpeup,Mildura,-35.142302,142.028651
+Werrimull Transfer Station,Mildura Rural City Council,Resource Recovery Centre,Transfer station,King Street,Werrimull,Mildura,-34.38907,141.59263
+National Polystyrene Systems,Metecno Pty Ltd,Reprocessor,Plastics reprocessing,329A St. Albans Rd,Sunshine,Brimbank,-37.7752093,144.8251116
+Meredith Dairy,Meredith Dairy,Reprocessor,Thermal energy from waste,106 Cameron Road,Meredith,Golden Plains,-37.8353217,143.9642907
+Drouin Waste Recyclers (C&D recycling),Meluca Group,Reprocessor,C&D waste recycling,81 Weerong Road,Drouin,Baw Baw,-38.122448,145.83346
+Drouin Waste Recyclers (Transfer station),Meluca Group,Resource Recovery Centre,Transfer station,81 Weerong Road,Drouin,Baw Baw,-38.122448,145.83346
+Melton Recycling Facility,Melton City Council,Resource Recovery Centre,Transfer station,33 Ferris Road,Cobblebank,Melton,-37.702888,144.610114
+Megara,Megara Australia Pty Ltd,Reprocessor,Plastics reprocessing,261 Frankston-Dandenong Road,Dandenong South ,Greater Dandenong,-38.02519959,145.2147151
+Altona North Recycling (Masalovski Group),Masalovski Group,Reprocessor,C&D waste recycling,55 McArthurs Road,Altona North,Hobsons Bay,-37.835192,144.8358419
+Martogg (Frankston-Dandenong Road),Martogg Group,Reprocessor,Plastics reprocessing,185-195 Frankston-Dandenong Road,Dandenong South,Greater Dandenong,-38.017839,145.215061
+Martogg (South Park Drive),Martogg Group,Reprocessor,Plastics reprocessing,63 South Park Drive,Dandenong South,Greater Dandenong,-38.01747961,145.1987457
+Mansfield Resource Recovery Centre,Mansfield Shire Council,Resource Recovery Centre,Transfer station,163 Monkey Gully Road,Mansfield,Mansfield,-37.09305,146.0906
+Mansfield Constructions,Mansfield Constructions Pty Ltd,Reprocessor,C&D waste recycling,73 Dead Horse Lane,Mansfield,Mansfield,-37.0799819,146.0872461
+Kyneton Transfer Station,Macedon Ranges Shire Council,Resource Recovery Centre,Transfer station,140 Redesdale Road,Kyneton,Macedon Ranges,-37.225008,144.457706
+Romsey Transfer Station,Macedon Ranges Shire Council,Resource Recovery Centre,Transfer station,21 Johnston Court,Romsey,Macedon Ranges,-37.361233,144.768183
+Woodend Transfer Station,Macedon Ranges Shire Council,Resource Recovery Centre,Transfer station,149 Quarry Road,Woodend,Macedon Ranges,-37.368303,144.541153
+Boort landfill,Loddon Shire Council,Landfill,Landfill unlicensed,Off Boort-Quambatook Road,Boort,Loddon,-36.109467,143.721294
+Boort landfill and recycle,Loddon Shire Council,Resource Recovery Centre,Transfer station,Off Boort-Quambatook Road,Boort,Loddon,-36.109467,143.721294
+Dingee Transfer Station,Loddon Shire Council,Resource Recovery Centre,Transfer station,Lawry's Road,Dingee,Loddon,-36.35637778,144.242891
+Inglewood Transfer Station,Loddon Shire Council,Resource Recovery Centre,Transfer station,Inglewood-Salisbury Road,Inglewood,Loddon,-36.564603,143.879189
+Newbridge Landfill,Loddon Shire Council,Landfill,Landfill unlicensed,Ryan Street,Newbridge,Loddon,-36.743602,143.890383
+Newbridge landfill and recycle,Loddon Shire Council,Resource Recovery Centre,Transfer station,Ryan Street,Newbridge,Loddon,-36.743602,143.890383
+Pyramid Hill Landfill,Loddon Shire Council,Landfill,Landfill unlicensed,Ballast Road,Pyramid Hill,Loddon,-36.064349,144.139112
+Pyramid Hill Landfill and recycle,Loddon Shire Council,Resource Recovery Centre,Transfer station,Ballast Road,Pyramid Hill,Loddon,-36.064349,144.139112
+Wedderburn Transfer Station,Loddon Shire Council,Resource Recovery Centre,Transfer station,Godfrey Street,Wedderburn,Loddon,-36.422706,143.603717
+Local Mix Concrete,Local Mix Concrete Pty Ltd,Reprocessor,C&D waste recycling,10 Hays Road,Moolap,Greater Geelong,-38.15705,144.43312
+Envirostream (PF metals) (TA Livium),Lithium Australia NL,Reprocessor,E-waste recycling,17/19 Maria Street,Laverton North,Wyndham,-37.837268,144.787851
+Latrobe Valley Enterprises,Latrobe Valley Enterprises,Resource Recovery Centre,Transfer station,547 Princes Drive,Morwell,Latrobe,-38.231432,146.440407
+Hyland Landfill,Latrobe City Council,Landfill,Landfill putrescible,Hyland Highway,Loy Yang,Latrobe,-38.25121269,146.5587835
+Moe Transfer Station,Latrobe City Council,Resource Recovery Centre,Transfer station,280 Haunted Hills,Newborough,Latrobe,-38.196646,146.29783
+Morwell Transfer Station,Latrobe City Council,Resource Recovery Centre,Transfer station,73 Porter's Road,Morwell,Latrobe,-38.2559,146.4257
+Traralgon Transfer Station,Latrobe City Council,Resource Recovery Centre,Transfer station,1 Liddiard Road,Traralgon,Latrobe,-38.21376,146.55033
+Yinnar Transfer Station,Latrobe City Council,Resource Recovery Centre,Transfer station,260 Whitelaws Track,Yinnar South,Latrobe,-38.349158,146.324886
+KTS Recycling,KTS Recycling,Reprocessor,Mattress recycling,251 George Street,Wantirna South,Knox,-37.8831,145.213
+Knox Transfer Station,Knox City Council,Resource Recovery Centre,Transfer station,251 George Street,Wantirna South,Knox,-37.8831,145.213
+Kinross Farms,Kinross Farms,Reprocessor,Organics recycling,578 Drysdale Road,Euroa,Strathbogie,-36.7521561,145.4983692
+Kia-Ora Piggery,Kia-Ora Piggery Pty Ltd,Reprocessor,Anaerobic digestion,413 Yarrawalla West Road,Yarrawalla,Loddon,-36.177266,143.9959063
+Kennedy Quarry,Kennedy Haulage,Reprocessor,C&D waste recycling,Smiths Road,Driffield,Latrobe,-38.29882338,146.274796
+Crowbar Demolitions,Keith McCrae,Reprocessor,C&D waste recycling,225 Grahamvale Road,Shepparton,Greater Shepparton,-36.34166728,145.4313776
+Kartaway Bin and Skip Hire,Kartaway,Resource Recovery Centre,Transfer station,12-14 Tarnard Drive,Braeside,Kingston,-37.989114,145.109598
+East Brunswick Transfer Station,Kartaway,Resource Recovery Centre,Transfer station,32 Kirkdale Street,Brunswick East,Merri-bek,-37.770515,144.982393
+Kangaroo Plastics Technology,Kangaroo Plastics Technology Pty Ltd,Reprocessor,Plastics reprocessing,202-204 Northbourne Road,Campbellfield,Hume,-37.64773474,144.9574853
+Just Biodiesel Pty Ltd,Just Biodiesel Pty Ltd,Reprocessor,Refuse derived fuel,158 Plemings Road,Barnawatha,Indigo,-36.1184549,146.6993997
+Mallacoota WasteWater Treatment Plant,John Anderson,Reprocessor,Organics recycling,Genoa-Mallacoota Rd,Mallacoota,East Gippsland,-37.546616,149.728239
+Jackson's Earth Moving & Concrete Recyclers,Jackson's Earthmoving,Reprocessor,C&D waste recycling,17 Kendall Street,Wodonga,Wodonga,-36.1784092,146.8421497
+JJ's Waste & Recycling (Bendigo) (OWT),J.J. Richards & Sons Pty Ltd,Hazardous waste,Oil/water treatment (OWT) facility,5-11 Piper Lane,East Bendigo,Greater Bendigo,-36.744478,144.32291
+Integrated Recycling,Integrated Recycling,Reprocessor,Plastics reprocessing,316 Etiwanda Avenue,Mildura ,Mildura,-34.196372,142.169285
+InfraBuild Steel Manufacturing,InfraBuild,Reprocessor,Steel reprocessing,105-123 Dohertys Road,Laverton,Hobsons Bay,-37.82868584,144.7910537
+InfraBuild Wire Manufacturing,InfraBuild,Reprocessor,Other metals reprocessing,21 Walchs Road,North Shore,Greater Geelong,-38.09349316,144.376239
+Beechworth Transfer Station,Indigo Shire Council,Resource Recovery Centre,Transfer station,1620 Diffey Road,Beechworth,Indigo,-36.373708,146.677448
+Rutherglen Transfer Station,Indigo Shire Council,Resource Recovery Centre,Transfer station,53 Cornishtown Road,Rutherglen,Indigo,-36.073422,146.489422
+Bolinda Road Resource Recovery Centre,Hume City Council,Resource Recovery Centre,Transfer station,1-71 Bolinda Road,Campbellfield,Hume,-37.684858,144.967241
+Sunbury Resource Recovery Centre,Hume City Council,Resource Recovery Centre,Transfer station,515 Riddell Road,Sunbury,Hume,-37.551131,144.684866
+Sunbury Landfill ,Hume City Council,Landfill,Landfill putrescible,515 Riddell Road,Sunbury,Hume,-37.554718,144.699348
+Huhtamaki,Huhtamaki Group,Reprocessor,Paper & cardboard reprocessing,Level 1//75 Raglan Street,Preston,Darebin,-37.748973,145.003043
+Horsham Green Waste Processing,Horsham Rural City Council,Reprocessor,Organics recycling,93 Kenny Road,Horsham,Horsham,-36.741672,142.185811
+Horsham Transfer Station & Resource Recovery Centre,Horsham Rural City Council,Resource Recovery Centre,Transfer station,93 Kenny Road,Haven,Horsham,-36.741672,142.185811
+Mount Zero Transfer Station,Horsham Rural City Council,Resource Recovery Centre,Transfer station,Wonwondah-Dadswells Bridge Road,Laharum,Horsham,-36.871306,142.355129
+Quantong Transfer Station,Horsham Rural City Council,Resource Recovery Centre,Transfer station,497 Lanes Avenue,Quantong,Horsham,-36.756413,142.04402
+Toolondo Transfer Station,Horsham Rural City Council,Resource Recovery Centre,Transfer station,Telangatuk East Rocklands Road,Toolondo,Horsham,-36.993956,141.933478
+Dooen Landfill,Horsham Rural City Council,Landfill,Landfill putrescible,81 Ladlows Road,Dooen,Horsham,-36.60708435,142.2563251
+Hopley Recycling,Hopley Group,Reprocessor,C&D waste recycling,6 Prospect Road ,Bendigo,Greater Bendigo,-36.743579,144.313602
+Hi-Quality Landfill,Hi-Quality Group,Landfill,Landfill inert,570-650 Sunbury Road,Bulla,Hume,-37.60627051,144.7840747
+Dimboola Transfer Station,Hindmarsh Shire Council,Resource Recovery Centre,Transfer station,"High Street, Dimboola Warracknabeal Road",Dimboola,Hindmarsh,-36.449309,142.049829
+Jeparit Transfer Station,Hindmarsh Shire Council,Resource Recovery Centre,Transfer station,Jeparit East Road,Jeparit,Hindmarsh,-36.134532,141.994778
+Nhill Transfer Station,Hindmarsh Shire Council,Resource Recovery Centre,Transfer station,Nhill-Netherby Road,Nhill,Hindmarsh,-36.31796,141.6637
+Rainbow Transfer Station,Hindmarsh Shire Council,Resource Recovery Centre,Transfer station,240 Kruger Rd,Rainbow,Hindmarsh,-35.90835186,141.9708598
+Hermetia Biosystems,Hermetia Biosystems Pty Ltd,Reprocessor,Organics recycling,76 Ordish Road,Dandenong South,Dandenong South,-38.02275981,145.1914617
+Creswick Transfer Station (RRC),Hepburn Shire Council,Resource Recovery Centre,Transfer station,Ring Road,Creswick,Hepburn,-37.414729,143.886057
+Daylesford Transfer Station and Landfill,Hepburn Shire Council,Resource Recovery Centre,Transfer station,16 Ajax Road,Daylesford,Hepburn,-37.334377,144.130618
+Trentham Transfer Station,Hepburn Shire Council,Resource Recovery Centre,Transfer station,Cosmo Road (145 Blackwood Road),Trentham,Hepburn,-37.414729,143.886057
+Creswick Transfer Station (Organics),Hepburn Shire Council,Reprocessor,Anaerobic digestion,Ring Road,Creswick,Hepburn,-37.4241222,143.8912368
+Wollert Landfill (Transfer Station),Heidelberg Materials Australia Resource Recovery Pty Ltd,Resource Recovery Centre,Transfer station,55 Bridge Inn Road,Wollert,Whittlesea,-37.586671,145.046205
+Wollert Landfill (Landfill),Heidelberg Materials Australia Resource Recovery Pty Ltd,Landfill,Landfill putrescible,55 Bridge Inn Road,Wollert,Whittlesea,-37.5941365,145.038485
+Hancock Victorian Plantations,Hancock Victorian Plantations,Reprocessor,Thermal energy from waste,555 Ti Tree Road,Hedley,Wellington,-38.6339805,146.5434777
+GT Recycling,GT Recycling,Reprocessor,Plastics reprocessing,100 Point Henry Road,Moolap,Greater Geelong,-38.16032,144.430156
+Devil Bend Landfill,Grosvenor Lodge Pty Ltd,Landfill,Landfill inert,435 Balnarring Road,Tuerong,Mornington Peninsula,-38.295004,145.0769435
+Montrose Transfer Station,Grosvenor Lodge Pty Ltd,Resource Recovery Centre,Transfer station,69-71 Canterbury Road,Montrose,Yarra Ranges,-37.81542,145.326299
+Greenlife Oil Holdings,Greenlife Oil Holdings Pty Ltd,Hazardous waste,Organics recycling,78-82 Spalding Avenue,Sunshine North,Brimbank,-37.75002,144.840528
+Greenchip Recycling,Greenchip Recycling,Reprocessor,Organics recycling,219 Whytes Road,Baranduda,Wodonga,-36.15399943,146.9527114
+Green Collect,Green Collect,Reprocessor,E-waste recycling,"Unit 1, 75A Ashley Street",Braybrook,Maribyrnong,-37.791151,144.862989
+The Mulch Centre,Green Care Mulching,Reprocessor,Organics recycling,72-80 Buckley Grove,Moolap,Greater Geelong,-38.1640999,144.4299332
+Ardmona Resource Recovery Centre,Greater Shepparton City Council,Resource Recovery Centre,Transfer station,770 Turnbull Road,Ardmona,Greater Shepparton,-36.403737,145.313041
+Cosgrove Landfill,Greater Shepparton City Council,Landfill,Landfill putrescible,200 Cosgrove-Lemnos Road,Cosgrove,Greater Shepparton,-36.3474025,145.599398
+Murchison Resource Recovery Centre,Greater Shepparton City Council,Resource Recovery Centre,Transfer station,15 Cassidy Road,Murchison,Greater Shepparton,-36.62383978,145.1917805
+Shepparton Resource Recovery Centre,Greater Shepparton City Council,Resource Recovery Centre,Transfer station,125 Wanganui Road,Shepparton,Greater Shepparton,-36.34766163,145.3880051
+Drysdale Landfill,Greater Geelong City Council,Landfill,Landfill putrescible,82-180 Becks Road,Drysdale,Greater Geelong,-38.16925,144.62752
+Drysdale Resource Recovery Centre,Greater Geelong City Council,Resource Recovery Centre,Transfer station,82-180 Becks Road,Drysdale,Greater Geelong,-38.16925,144.62752
+North Geelong Resource Recovery Centre and Transfer Station,Greater Geelong City Council,Resource Recovery Centre,Transfer station,100 Duoro Street,North Geelong,Greater Geelong,-38.115341,144.349435
+Eaglehawk Landfill,Greater Bendigo City Council,Landfill,Landfill putrescible,191-193 Upper California Gully Road,Eaglehawk,Greater Bendigo,-36.659505,144.212341
+Eaglehawk Recovery & Sales Yard,Greater Bendigo City Council,Resource Recovery Centre,Transfer station,191-193 Upper Califronia Gully Road,Eaglehawk,Greater Bendigo,-36.72777,144.2464
+Goornong Transfer Station,Greater Bendigo City Council,Resource Recovery Centre,Transfer station,55-59 Englishs Rd,Goornong,Greater Bendigo,-36.616425,144.518528
+Heathcote Landfill,Greater Bendigo City Council,Landfill,Landfill unlicensed,61 Golden Gully Road,Heathcote,Greater Bendigo,-36.935361,144.696822
+Heathcote Transfer Station,Greater Bendigo City Council,Resource Recovery Centre,Transfer station,61 Golden Gully Road,Heathcote,Greater Bendigo,-36.935361,144.696822
+Strathfieldsaye Transfer Station,Greater Bendigo City Council,Resource Recovery Centre,Transfer station,998 Wellington Street,Strathfieldsaye,Greater Bendigo,-36.80961,144.359261
+Goulburn River Trout,Goulburn River Trout,Reprocessor,Organics recycling,1680 Goulburn Valley Highway,Alexandra,Murrindindi,-37.2355024,145.7696774
+Rokewood Transfer Station,Golden Plains Shire Council,Resource Recovery Centre,Transfer station,141 Meadows Road,Rokewood,Golden Plains,-37.912242,143.714996
+Casteron Landfill & Transfer Station,Glenelg Shire Council,Resource Recovery Centre,Transfer station,291 Bahgallah Road,Casterton,Glenelg,-37.6108,141.38945
+Dartmoor Resource Recovery Centre,Glenelg Shire Council,Resource Recovery Centre,Transfer station,209 Bowds Lane,Dartmoor,Glenelg,-37.90267,141.2292
+Heywood Transfer Station,Glenelg Shire Council,Resource Recovery Centre,Transfer station,400-376 Catons Flat Road,Heywood,Glenelg,-38.13803611,141.5970611
+Jarrad's Road Resource Recovery Centre,Glenelg Shire Council,Resource Recovery Centre,Transfer station,Jarrads Road,Merino,Glenelg,-37.74241667,141.5227222
+Nelson Resource Recovery Centre,Glenelg Shire Council,Resource Recovery Centre,Transfer station,162 North Nelson Road,Nelson,Glenelg,-38.03253,141.00985
+Portland Landfill and Transfer Station,Glenelg Shire Council,Resource Recovery Centre,Transfer station,210 Cape Nelson Road,Portland,Glenelg,-38.36992,141.60281
+Glen Landfill,Glen Landfill Pty Ltd,Landfill,Landfill putrescible,75 Quarry Road,Langwarrin,Frankston,-38.140849,145.1991845
+Gippsland Greenhouse Produce,Gippsland Greenhouse Produce Pty Ltd,Reprocessor,Thermal energy from waste,1566 Princes Highway,Yarragon ,Baw Baw,-38.2066962,146.095034
+Gippsland Concrete Recycling (Traralgon),Gippsland Concrete Recyclers,Reprocessor,C&D waste recycling,22-44 Rocla Road,Traralgon East,Latrobe,-38.18779751,146.5665274
+Plascorp,Geofabrics Australasia,Reprocessor,Plastics reprocessing,45 Chambers Rd,Altona North,Hobsons Bay,-37.838419,144.842006
+Geelong Disabled People's Industries,Geelong Disabled People's Industries,Reprocessor,E-waste recycling,6-8 Baxter Road,North Geelong,Greater Geelong,-38.124661,144.350202
+Geelong GO Composting Facility ,Geelong City Council,Reprocessor,Organics recycling,400 Staceys Road,Anakie,Greater Geelong,-38.00850963,144.3031513
+Pine Mulch Haulage,Gary Ryan,Reprocessor,Organics recycling,57-79 Rocla Road,Traralgon,Latrobe,-38.1819889,146.5672881
+Supreme Soils,Gardners Ag Services,Reprocessor,Organics recycling,800 Katandra Main Road,Katandra,Greater Shepparton,-36.2391678,145.5798837
+Garden State Mulching Services,Garden State Mulching Services Pty Ltd,Reprocessor,Organics recycling,257 George Street ,Wantirna South,Knox,-37.8826128,145.2135493
+Garden Recycling Centre,Garden Recycling Centre,Reprocessor,Organics recycling,154 Learmonth Street,Alfredton,Ballarat,-37.5672069,143.808512
+Garden City Plastics,Garden City Plastics,Reprocessor,Plastics reprocessing,10 E J Court,Dandenong South,Greater Dandenong,-38.00638912,145.2495319
+Denyers Pit,Gannawarra Shire Council,Landfill,Landfill putrescible,55 Denyer Road,Kerang,Gannawarra,-35.7625785,143.77815
+Cohuna Transfer Station,Gannawarra Shire Council,Resource Recovery Centre,Transfer station,Chuggs Road,Cohuna,Gannawarra,-35.818988,144.214539
+Kerang Transfer Station,Gannawarra Shire Council,Resource Recovery Centre,Transfer station,Kerang-Murrabit Road,Kerang,Gannawarra,-35.719978,143.925742
+Lalbert Transfer Station,Gannawarra Shire Council,Resource Recovery Centre,Transfer station,Wood Avenue,Lalbert,Gannawarra,-35.67091,143.363274
+Quambatook Transfer Station,Gannawarra Shire Council,Resource Recovery Centre,Transfer station,Meering Road,Quambatook,Gannawarra,-35.852129,143.500307
+Future Recycling Hallam (Metal Recycling),Future Recycling,Reprocessor,Metals recovery,57-61 Star Cres,Hallam,Casey,-38.0166775,145.268515
+Future Recycling Hallam (Waste Transfer Station),Future Recycling,Resource Recovery Centre,Transfer station,57-61 Star Cres,Hallam,Casey,-38.0166775,145.268515
+Future Recycling Transfer Station,Future Recycling,Resource Recovery Centre,Transfer station,30-32 Exchange drive,Pakenham,Cardinia,-38.096939,145.493219
+Fulton Hogan (Warrnambool),Fulton Hogan,Reprocessor,Glass reprocessing (crushing),385 Koroit St,Warrnambool,Warrnambool,-38.37476212,142.4633793
+Fulton Hogan Depot (Warrnambool),Fulton Hogan,Reprocessor,Glass reprocessing (crushing),20 Mason Street,Warrnambool,Warrnambool,-38.37778916,142.5386113
+Frews Abattoir ,Frew Group,Reprocessor,Thermal energy from waste,46 Abattoir Rd,Stawell,Northern Grampians,-37.0555913,142.7578005
+Frankston Regional Recycling and Recovery Centre,Frankston City Council,Resource Recovery Centre,Transfer station,20 Harold Road,Skye,Frankston,-38.124124,145.218326
+Foott Waste and Recycling,Foott Waste Solutions,Reprocessor,Paper & cardboard recovery,10 Carroll Road,Shepparton,Greater Shepparton,-36.387905,145.434859
+Vicfoam,Foamex Group Pty Ltd,Reprocessor,Plastics reprocessing,430 Barry Road,Coolaroo,Hume,-37.66545253,144.9394921
+Foamex (Bayswater North),Foamex Group,Reprocessor,Plastics reprocessing,31-33 Gatwick Road,Bayswater North,Maroondah,-37.8173585,145.2976913
+Iplex Piplelines,Fletcher Building Group,Reprocessor,Plastics reprocessing,9-15 Radford Road,Reservoir,Darebin,-37.71024,144.982619
+Murphy Fresh,Flavorite Group,Reprocessor,Thermal energy from waste,1098 Mansfield-Whitfield Road,Mansfield,Mansfield,-36.969651,146.118927
+Falls Creek Village Transfer Station 1,Falls Creek Alpine Resort Management Board,Resource Recovery Centre,Transfer station,2 Treatment Plant Road,Falls Creek,Falls Creek Alpine Resort,-36.86198647,147.2797715
+Falls Creek Village Transfer Station 2,Falls Creek Alpine Resort Management Board,Resource Recovery Centre,Transfer station,Bogong High Plains Road,Falls Creek,Alpine,-36.80434609,147.2275075
+Ewastec,Ewastec Pty Ltd,Reprocessor,E-waste recycling,9 Apsley Place,Seaford,Frankston,-38.113635,145.143619
+EQ Plastics,EQ Plastics,Reprocessor,Plastics reprocessing,16 Egan Road,Dandenong,Greater Dandenong,-37.994504,145.194161
+Epsom Sand and Soil,Epsom Sand and Soil,Reprocessor,Organics recycling,452 Epsom-Barnadown Road ,Wellsford,Greater Bendigo,-36.6888991,144.3580317
+SOLVE Altona (POPs thermal destruction),Enviropacific,Hazardous waste,Persistent organic pollutants (non-soil) thermal destruction facility,541-583 Kororoit Creek Road,Altona ,Hobsons Bay,-37.846655,144.80256
+SOLVE Altona (soils thermal treatment),Enviropacific,Hazardous waste,Soils thermal treatment facility,541-583 Kororoit Creek Road,Altona ,Hobsons Bay,-37.846655,144.80256
+Enviroflex,Enviroflex,Reprocessor,Paper & cardboard recovery,Unit 6 & 7/65 Barry Street,Bayswater,Knox,-37.847847,145.283506
+Encore Tissue,Encore Tissue (Aust) Pty Ltd,Reprocessor,Paper & cardboard reprocessing,37 Gilbertson Road,Laverton North,Wyndham,-37.82252816,144.794008
+Emmans Granulators,Emmans Granulators,Reprocessor,Plastics reprocessing,46-48 Radford Rd,Reservoir,Darebin,-37.7084205,144.9831704
+ELT Recycling,ELT Recycling Australia Pty Ltd,Hazardous waste,End-of-life tyres facility,147-149 Northbourne Road,Campbellfield,Hume,-37.65061267,144.9656954
+Elmore Compost & Organics (organics),Elmore Compost & Organics,Reprocessor,Organics recycling,1203 Goornong-Mayreef Road,Elmore,Greater Bendigo,-36.5074594,144.5027465
+Elecsome PV Recycling,Elecsome Pty Ltd,Reprocessor,E-waste recycling,14A Velore Rd,Kilmany,Wellington,-38.102588,146.922372
+Ecodynamics Mulch,Ecodynamics Group,Reprocessor,Organics recycling,480 Cooper Street,Epping,Whittlesea,-37.6454105,144.9780494
+Eco1 Waste Recycle Centre,Eco1 Waste Recycle Centre,Resource Recovery Centre,Transfer station,75 Maygar Boulevard,Broadmeadows,Hume,-37.683194,144.938942
+EcoGroup,Eco Recyclers Pty Ltd,Reprocessor,C&D waste recycling,60-72 Garden Road,Clayton,Monash,-37.922017,145.146379
+Eastern Concrete Recycling,Eastern Concrete Recycling,Reprocessor,C&D waste recycling,78 McMillan Street,Bairnsdale,East Gippsland,-37.82349909,147.6568805
+Bairnsdale Landfill,East Gippsland Shire Council,Landfill,Landfill putrescible,200 Johnstons Road,Forge Creek,East Gippsland,-37.880001,147.6262
+Bairnsdale Resource Recovery Centre,East Gippsland Shire Council,Resource Recovery Centre,Transfer station,200 Johnstons Rd,Forge Creek,East Gippsland,-37.87967,147.626012
+Bemm River Transfer Station,East Gippsland Shire Council,Resource Recovery Centre,Transfer station,2 Alans Track,Bemm River,East Gippsland,-37.754571,148.954691
+Bonang Transfer Station,East Gippsland Shire Council,Resource Recovery Centre,Transfer station,9053 Bonang Road,Bonang,East Gippsland,-37.20245,148.72566
+Bruthen Transfer Station,East Gippsland Shire Council,Resource Recovery Centre,Transfer station,109 Great Alpine Road,Bruthen,East Gippsland,-37.70164,147.834053
+Buchan Recycling & Recovery Transfer Centre,East Gippsland Shire Council,Resource Recovery Centre,Transfer station,2337 Bruthen - Buchan Road,Buchan,East Gippsland,-37.523451,148.160823
+Cann River Landfill,East Gippsland Shire Council,Landfill,Landfill unlicensed,20 Coast Road,Cann River,East Gippsland,-37.56976757,149.122456
+Genoa Transfer Station,East Gippsland Shire Council,Resource Recovery Centre,Transfer station,13 Nash Camp Track,Genoa,East Gippsland,-37.45964,149.59978
+Lakes Entrance Transfer Station,East Gippsland Shire Council,Resource Recovery Centre,Transfer station,5 Thorpes Lane,Lakes Entrance,East Gippsland,-37.858294,148.006782
+Lindenow South Transfer Station,East Gippsland Shire Council,Resource Recovery Centre,Transfer station,90 Snobbs Road,Walpa,East Gippsland,-37.81463611,147.4224194
+Mallacoota Transfer Station,East Gippsland Shire Council,Resource Recovery Centre,Transfer station,Betka Road,Mallacoota,East Gippsland,-37.573121,149.746047
+Marlo Transfer Station,East Gippsland Shire Council,Resource Recovery Centre,Transfer station,99 Curlip Drive,Marlo,East Gippsland,-37.79165,148.549683
+Metung Transfer Station,East Gippsland Shire Council,Resource Recovery Centre,Transfer station,130 Rosherville Road,Metung,East Gippsland,-37.852133,147.861536
+Omeo Transfer Station,East Gippsland Shire Council,Resource Recovery Centre,Transfer station,18 Margetts Street,Omeo,East Gippsland,-37.099722,147.604601
+Orbost Transfer Station,East Gippsland Shire Council,Resource Recovery Centre,Transfer station,351 Bonang Road,Orbost,East Gippsland,-37.672272,148.472983
+Swifts Creek Transfer Station,East Gippsland Shire Council,Resource Recovery Centre,Transfer station,237 Cassilis Road,Swifts Creek,East Gippsland,-37.268307,147.698429
+Wairewa Transfer Station,East Gippsland Shire Council,Resource Recovery Centre,Transfer station,Carl Smith Road,Wairewa,East Gippsland,-37.6904,148.1904
+Benambra Transfer Station,East Gippsland Shire Council,Resource Recovery Centre,Transfer station,142 Tip Road,Benambra,Benambra,-36.95691737,147.6949495
+Bendoc Transfer Station,East Gippsland Shire Council,Resource Recovery Centre,Transfer station,54 Clarkeville Road,Bendoc,Bendoc,-37.15338771,148.8827268
+Dunlop Flooring,Dunlop Flooring,Reprocessor,Plastics reprocessing,380 Dohertys Road,Truganina,Wyndham,-37.82525588,144.7593006
+Donmix Ventnor,Donmix Concrete,Reprocessor,C&D waste recycling,793 Back Beach Road,Ventnor,Bass Coast,-38.501623,145.182121
+Envirodrum,Donaldson & Associates Pty Ltd,Hazardous waste,Hazardous waste packaging facility,46 Jessica Road,Campbellfield,Hume,-37.658359,144.959382
+Designer Timber Products,Designer Timber Products,Reprocessor,C&D waste recycling,51 Winterton Road,Clayton,Monash,-37.92518,145.136653
+Delta Group,Delta Group,Reprocessor,C&D waste recycling,473 Sommerville Road,Brooklyn,Brimbank,-37.80720225,144.8365172
+Delorean Energy Vic One Bioenergy Plant,Delorean Corporation,Reprocessor,Anaerobic digestion,"211 and, 223 Hill Road",Stanhope,Campaspe,-36.4702488,145.0066714
+Container Save,DCML Hodgson Pty Ltd ,Hazardous waste,Hazardous waste packaging facility,14 Stephenson Road,Seaford,Frankston,-38.100444,145.152197
+Drumsavers,DCML Hodgson Pty Ltd ,Hazardous waste,Hazardous waste packaging facility,Unit 2/28 Concord Crescent,Carrum Downs,Frankston,-38.102018,145.167867
+Davo's Worm Farms,Davo's Worm Farms,Reprocessor,Organics recycling,50 Henders Road,Broomfield,Hepburn,-37.3787785,143.9072197
+Darebin Resource Recovery Centre,Darebin City Council,Resource Recovery Centre,Transfer station,30 Kurnai Avenue,Reservoir,Darebin,-37.720778,144.981773
+"D&R Henderson (Winton, Anaerobic digestion)",D&R Henderson,Reprocessor,Anaerobic digestion,3672/42 Benalla - Yarrawonga Road,Winton,Benalla,-36.5263822,146.0393712
+"D&R Henderson (Winton, Organics recycling)",D&R Henderson,Reprocessor,Organics recycling,3672/42 Benalla - Yarrawonga Road,Winton,Benalla,-36.5263822,146.0393712
+Cryogrind,Cryogrind,Reprocessor,Plastics reprocessing,20/12 Moon Street,Moolap,Greater Geelong,-38.165335,144.41275
+Crushed Glass Concepts,Crushed Glass Concepts,Reprocessor,Glass reprocessing (crushing),18 Industrial Drive,Pakenham,Cardinia,-38.101935,145.494889
+CRDC and WeCollect,CRDC Global,Reprocessor,Plastics reprocessing,213 Sunshine Road,Tottenham,Maribyrnong,-37.7991671,144.8523626
+Mushroom Exchange,Costa Group,Reprocessor,Organics recycling,347 Zanelli Road,Nagambie,Strathbogie,-36.7890114,145.2545635
+Corex Plastics Australia,Corex Group,Reprocessor,Plastics reprocessing,261 Frankston - Dandenong Road,Dandenong South,Greater Dandenong,-38.02533657,145.2147878
+Corangamite Regional Landfill (Composting),Corangamite Shire Council,Reprocessor,Organics recycling,605 County Boundary West Road,Naroghid,Corangamite,-38.2710232,143.0768582
+Corangamite Regional Landfill (landfill),Corangamite Shire Council,Landfill,Landfill putrescible,605 County Boundary Road,Naroghid,Corangamite,-38.27278,143.04848
+Corangamite Resource Recovery Centre,Corangamite Shire Council,Resource Recovery Centre,Transfer station,605 County Boundary Road,Naroghid,Corangamite,-38.27278,143.04848
+Derrinallum Transfer Station,Corangamite Shire Council,Resource Recovery Centre,Transfer station,240 Heards Road,Derrinallum,Corangamite,-37.96977,143.1934
+Port Campbell Transfer Station,Corangamite Shire Council,Resource Recovery Centre,Transfer station,57 McRae Street,Port Campbell,Corangamite,-38.61951,143.00524
+Simpson Transfer Station,Corangamite Shire Council,Resource Recovery Centre,Transfer station,150 Princetown Road,Simpson,Corangamite,-38.50095,143.20871
+Skipton Transfer Station,Corangamite Shire Council,Resource Recovery Centre,Transfer station,98 Beaufort Road,Skipton,Corangamite,-37.67502338,143.3619132
+Timboon Transfer Station,Corangamite Shire Council,Resource Recovery Centre,Transfer station,5 Timboon-Curdies River Road,Timboon,Corangamite,-38.495064,142.98113
+E-Worx,Community Axis Enterprises,Reprocessor,E-waste recycling,134 Golf Course Road,Horsham,Horsham,-36.737625,142.19116
+Coloured Recycled Glass,Coloured Recycle Group,Reprocessor,Glass reprocessing (crushing),109A Metrolink Circuit,Campbellfield,Hume,-37.652021,144.970915
+Alvie Resource Recovery Centre,Colac Otway Shire Council,Resource Recovery Centre,Transfer station,977 Corangamite Lake Road,Alvie,Colac Otway,-38.25136,143.52228
+Apollo Bay Resource Recovery Centre,Colac Otway Shire Council,Resource Recovery Centre,Transfer station,10-18 Arthur Court,Apollo Bay,Colac Otway,-38.755858,143.654411
+Birregurra Resource Recovery Centre,Colac Otway Shire Council,Resource Recovery Centre,Transfer station,75 Scouller Street,Birregurra,Colac Otway,-38.33322,143.79275
+Cob & Co Recyclers,Cob & Co,Resource Recovery Centre,Transfer station,25 Dickson Street,Warrnambool,Warrnambool,-38.371157,142.45468
+CMA Ecocyle,CMA Corporation,Reprocessor,E-waste recycling,5-11 Reo Crescent,Campbellfield,Hume,-37.64698161,144.9384171
+CMA Ecocyle (mercury facility),CMA Corporation,Hazardous waste,Mercury facility,5-11 Reo Crescent,Campbellfield,Hume,-37.64698161,144.9384171
+Clyde Compost,Clyde Composts Pty Ltd,Reprocessor,Organics recycling,2080 South Gippsland Hwy,Devon Meadows,Casey,-38.16376811,145.3312669
+Close the Loop (e-waste),Close the Loop,Reprocessor,E-waste recycling,208 Hume Highway,Somerton,Hume,-37.62252,144.951613
+Close the Loop (Plastics reprocessing),Close the Loop,Reprocessor,Plastics reprocessing,2-20 Radford Road,Reservoir,Darebin,-37.62252,144.951613
+Cleanaway (Coolaroo MRF),Cleanaway Pty Ltd,MRF,Materials recovery facility,94 Maffra Street,Coolaroo,Hume,-37.657821,144.940081
+"Cleanaway (Laverton, MRF)",Cleanaway Pty Ltd,MRF,Materials recovery facility,32 Gilbertson Road,Laverton North,Wyndham,-37.821854,144.795121
+"Cleanaway (Laverton, Plastics reprocessing)",Cleanaway Pty Ltd,Reprocessor,Plastics reprocessing,32 Gilbertson Road,Laverton North,Wyndham,-37.821854,144.795121
+Cleanaway Altona,Cleanaway Pty Ltd,Reprocessor,Plastics reprocessing,72-80 Harcourt Road,Altona North,Hobsons Bay,-37.85032525,144.7814195
+Cleanaway Brooklyn Resource Recovery Centre,Cleanaway Pty Ltd,Resource Recovery Centre,Transfer station,174 Old Geelong Road,Brooklyn,Brimbank,-37.819318,144.828311
+Cleanaway Campbellfield Contaminated Water and Workshop Waste Services,Cleanaway Pty Ltd,Hazardous waste,Chemical physical treatment (CPT) plant,126 Barry Road,Campbellfield,Hume,-37.66791,144.965013
+Cleanaway Clayton South Resource Recovery Centre,Cleanaway Pty Ltd,Resource Recovery Centre,Transfer station,Deals Road & Fraser Road,Clayton south,Kingston,-37.946708,145.120296
+Cleanaway Dandenong Liquid Waste Services,Cleanaway Pty Ltd,Hazardous waste,Chemical physical treatment (CPT) plant,88-92 Ordish Road,Dandenong,Greater Dandenong,-38.0256086,145.192464
+"Cleanaway Dandenong Oil, Workshop, and Parts Washer Waste Services",Cleanaway Pty Ltd,Hazardous waste,Oil re-refining facility,19-21 Berends Drive,Dandenong South,Greater Dandenong,-38.02940742,145.1959674
+Cleanaway Daniels Dandenong South - Medical Waste Services,Cleanaway Pty Ltd,Hazardous waste,Clinical waste treatment facility,34-36 Cahill Street,Dandenong South,Greater Dandenong,-38.02630492,145.1965178
+Cleanaway Daniels Laverton North Medical Waste Services,Cleanaway Pty Ltd,Hazardous waste,Clinical waste facility thermal destruction,110 Dohertys Road,Laverton North ,Wyndham,-37.828308,144.791452
+Cleanaway Laverton Technical Waste Services,Cleanaway Pty Ltd,Hazardous waste,Chemical physical treatment (CPT) plant,83 Dohertys Road,Laverton North,Wyndham,-37.830879,144.794458
+Cleanaway Lysterfield Resource Recovery Centre,Cleanaway Pty Ltd,Resource Recovery Centre,Transfer station,840 Wellington Road,Lysterfield,Yarra Ranges,-37.942062,145.319472
+Cleanaway Ravenhall Melbourne Regional Landfill,Cleanaway Pty Ltd,Landfill,Landfill putrescible,1100-1152 Christies Road,Ravenhall,Melton,-37.791581,144.73026
+Cleanaway Thomastown Grease Trap Services,Cleanaway Pty Ltd,Hazardous waste,Organics recycling,11 Chaffey Street,Thomastown,Whittlesea,-37.6898105,145.004858
+Stawell Landfill,Cleanaway Pty Ltd,Landfill,Landfill putrescible,492-494 Pomonal Rd,Stawell,Northern Grampians,-37.10016747,142.7342053
+Cleanaway South East Organics Facility (SEOF),Cleanaway Pty Ltd,Reprocessor,Organics recycling,88 Ordish Road ,Dandenong South,Greater Dandenong,-38.0256086,145.192464
+Smythesdale Landfill,Cleanaway Pty Ltd,Landfill,Landfill putrescible,Glenelg Highway,Smythesdale,Golden Plains,-37.6255435,143.7012185
+Cleanaway Environmental Services Melbourne,Cleanaway Pty Ltd,Hazardous waste,Chemical physical treatment (CPT) plant,84-86 Lara Way,Campbellfield,Hume,-37.6665222,144.9674208
+Citywide Transfer Station and Resource Recovery Centre,CityWide,Resource Recovery Centre,Transfer station,437 Dynon Road,West Melbourne,Melbourne,-37.80282,144.913749
+Moonee Valley Transfer Station,City of Moonee Valley,Resource Recovery Centre,Transfer station,188 Holmes Road,Aberfeldie,Moonee Valley,-37.764239,144.902919
+City Circle (Dandenong),City Circle Group,Reprocessor,C&D waste recycling,128-148 Ordish Road,Dandenong South,Greater Dandenong,-38.028497,145.192107
+"City Circle (Brooklyn, C&D waste recycling)",City Circle Group,Reprocessor,C&D waste recycling,165-156 Jones Road ,Brooklyn,Brimbank,-37.813499,144.833494
+City Circle (Melton),City Circle Group,Reprocessor,C&D waste recycling,17-31 Ferris Road,Melton South,Melton,-37.707098,144.601802
+"City Circle (Brooklyn, Thermal energy from waste)",City Circle Group,Reprocessor,Thermal energy from waste,166-156 Jones Road,Brooklyn,Brimbank,-37.8117381,144.8351408
+Circular Plastics Australia (Altona),Circular Plastics Australia,Reprocessor,Plastics reprocessing,31-38 Horsburgh Drive,Altona North,Hobsons Bay,-37.84070872,144.8101297
+Chris Bev Pty Ltd,Chris Bev Pty Ltd,Reprocessor,C&D waste recycling,18-26 Wallis Street,Delacombe,Ballarat,-37.57407364,143.8211685
+Central Recycling (Organics),Central Recycling Pty Ltd,Reprocessor,Organics recycling,Redesdale Road,Kyneton,Macedon Ranges,-37.23046851,144.45053
+Central Recycling (OWT),Central Recycling Pty Ltd,Hazardous waste,Oil/water treatment (OWT) facility,Redesdale Road,Kyneton,Macedon Ranges,-37.23046851,144.45053
+Bealiba Transfer Station,Central Goldfields Shire Council,Resource Recovery Centre,Transfer station,48 White Hills Road,Bealiba,Central Goldfields,-36.79278056,143.5446028
+Dunolly Transfer Station,Central Goldfields Shire Council,Resource Recovery Centre,Transfer station,1656 Maryborough Dunolly Road,Dunolly,Central Goldfields,-36.87952,143.75321
+Talbot Transfer Station,Central Goldfields Shire Council,Resource Recovery Centre,Transfer station,41 Rocky Flat Road,Talbot,Central Goldfields,-37.16561389,143.713575
+Carisbrook Transfer Station,Central Goldfields Shire Council,Reprocessor,Organics recycling,125 Williams Road,Carisbrook,Central Goldfields,-37.0569249,143.7932509
+Gippsland Water,Central Gippsland Regional Water,Landfill,Landfill putrescible,1954 Longford-Loch Sport Road,Dutson,Wellington,-38.19605162,147.292318
+Gippsland Regional Organics,Central Gippsland Regional Water,Reprocessor,Organics recycling,1954 Longford-Loch Sport Road,Dutson,Wellington,-38.1963007,147.2923152
+Geocycle (alternative fuels facility),Cement Australia,Hazardous waste,Alternative fuels facility,92 Ordish Road,Dandenong ,Greater Dandenong,-38.026244,145.192179
+Geocycle (POPs thermal destruction),Cement Australia,Hazardous waste,Persistent organic pollutants (non-soil) thermal destruction facility,92 Ordish Road,Dandenong ,Greater Dandenong,-38.026244,145.192179
+Castlegate James,Castlegate James,Reprocessor,Organics recycling,4 Wiltshire Lane,Delacombe,Ballarat,-37.570511,143.809237
+Carrington Plastics,Carrington Plastics Pty Ltd,Reprocessor,Plastics reprocessing,2 Vimy Street,Reservoir,Darebin,-37.710372,144.984538
+Cardboard Collection Services,Cardboard Collection Services,Reprocessor,Paper & cardboard recovery,11 Cahill Street,Dandenong South,Greater Dandenong,-38.026644,145.200868
+Colbinabbin Resource Recovery Centre,Campaspe Shire Council,Resource Recovery Centre,Transfer station,89 Cemetery Road,Colbinabbin,Campaspe,-36.59675814,144.8006114
+Echuca Resource Recovery Centre,Campaspe Shire Council,Resource Recovery Centre,Transfer station,510 McKenzie Road,Echuca,Campaspe,-36.19205843,144.7703762
+Gunbower Resource Recovery Centre,Campaspe Shire Council,Resource Recovery Centre,Transfer station,4134 Murray Valley Highway,Gunbower,Campaspe,-35.96260982,144.376861
+Kyabram - Mt Scobie Resource Recovery Centre,Campaspe Shire Council,Resource Recovery Centre,Transfer station,479 Everard Road,Kyabram,Campaspe,-36.31263,144.9805
+Lockington Resource Recovery Centre,Campaspe Shire Council,Resource Recovery Centre,Transfer station,1671 O’Donnell Road (corner Keane Road),Lockington,Campaspe,-36.33457059,144.5067254
+Rochester Resource Recovery Centre,Campaspe Shire Council,Resource Recovery Centre,Transfer station,139 High Street,Rochester,Campaspe,-36.35106085,144.7103156
+Rushworth Resource Recovery Centre,Campaspe Shire Council,Resource Recovery Centre,Transfer station,186 Nine Mile Road,Rushworth,Campaspe,-36.60120071,145.0007154
+Toolleen Resource Recovery Centre,Campaspe Shire Council,Resource Recovery Centre,Transfer station,22 Cornella Toolleen Road,Toolleen,Campaspe,-36.72174175,144.6852873
+Altona Transfer Station,Calleja Group,Resource Recovery Centre,Transfer station,30 Baldwin Road,Altona North,Hobsons Bay,-37.840206,144.818432
+M.B.C. Recyling Services,Calleja Group,Reprocessor,C&D waste recycling,11 Tilleys Road,Maddingley,Moorabool,-37.69944971,144.4461394
+Maddingley Brown Coal Landfill,Calleja Group,Landfill,Landfill putrescible,11 Tilleys Road,Maddingley,Moorabool,-37.69944971,144.4461394
+"Maddingley Brown Coal (Maddingley, Organics recycling)",Calleja Group,Reprocessor,Organics recycling,11 Tilleys Road,Maddingley,Moorabool,-37.69686165,144.446874
+Coburg Transfer Station,Calleja Group,Resource Recovery Centre,Transfer station,172 Newlands Road,Coburg North,Merri-bek,-37.723148,144.975921
+Calder Permaculture,Calder Permaculture,Reprocessor,Organics recycling,131 Kinghorn Lane,Nyah West,Swan Hill,-35.1736432,143.3584421
+Birchip Landfill,Buloke Shire Council,Landfill,Landfill unlicensed,2094 Birchip-Corack Road,Birchip,Buloke,-36.01243056,142.9375833
+Birchip Resource Recovery Centre,Buloke Shire Council,Resource Recovery Centre,Transfer station,2094 Birchip-Corack Road,Birchip,Buloke,-36.01243056,142.9375833
+Charlton Transfer Station,Buloke Shire Council,Resource Recovery Centre,Transfer station,212 Charlton St Arnaud Road ,Charlton,Buloke,-36.284343,143.335486
+Donald Landfill,Buloke Shire Council,Landfill,Landfill unlicensed,2006 Depot Road,Donald,Buloke,-36.37992778,142.9223667
+Donald Resource Recovery Centre,Buloke Shire Council,Resource Recovery Centre,Transfer station,2006 Depot Road,Donald,Buloke,-36.37992778,142.9223667
+Sea Lake Transfer Station,Buloke Shire Council,Resource Recovery Centre,Transfer station,Robinvale-Sea Lake Road,Sea Lake,Buloke,-35.459765,142.854835
+Watchem Transfer Station,Buloke Shire Council,Resource Recovery Centre,Transfer station,40 Morton Street,Watchem,Buloke,-36.155521,142.866426
+Wycheproof Transfer Station,Buloke Shire Council,Resource Recovery Centre,Transfer station,281 Mackies Road Wycheproof,Wycheproof,Buloke,-36.062456,143.25821
+Brimbank Resource Recovery Centre,Brimbank City Council,Resource Recovery Centre,Transfer station,Stadium Drive,Keilor Park,Brimbank,-37.712933,144.849997
+Branin (plastics),Branin Pty Ltd,Reprocessor,Plastics reprocessing,7 Apoinga Street,Dandenong South,Greater Dandenong,-38.0356394,145.2059851
+Branin (organics),Branin Pty Ltd,Reprocessor,Organics recycling,7 Apoinga Street,Dandenong South,Greater Dandenong,-38.0356394,145.2059851
+Boroondara Recycling and Waste Centre,Boroondara City Council,Resource Recovery Centre,Transfer station,648 Riversdale Road,Camberwell,Boroondara,-37.834846,145.070356
+Boral Recycling,Boral,Reprocessor,C&D waste recycling,80 Reservoir Road,Mount Duneed,Greater Geelong,-38.22573,144.26579
+Blow It Mulch & Mega Mulch,Blow It Mulch,Reprocessor,Organics recycling,6309 Maroondah Highway,Yarck,Murrindindi,-37.1225226,145.6172295
+Biomix,Biomix,Reprocessor,Organics recycling,980 Two Tree Road,Stanhope,Campaspe,-36.4984491,144.9246154
+Konstruct Recycling,Bingo Industries,Reprocessor,C&D waste recycling,63-67 Gardens Road,Clayton,Monash,-37.92130546,145.1459718
+Bingo Recycling Centre - West Melbourne,Bingo Industries,Reprocessor,C&D waste recycling,372-374 Dynon Road,West Melbourne,Melbourne,-37.80159737,144.9189184
+Beveridge Scoria Quarry,Beveridge Scoria,Reprocessor,C&D waste recycling,61 Minton Street,Beveridge,Mitchell,-37.46851487,144.9784771
+"Berrybank Farm (Windermere, Anaerobic digestion)",Berrybank Piggery (Charles Ife Pty Ltd),Reprocessor,Anaerobic digestion,34 Hendersons Road,Windemere,Ballarat,-37.46425098,143.7108228
+"Berrybank Farm (Windermere, Organics recycling)",Berrybank Piggery (Charles Ife Pty Ltd),Reprocessor,Organics recycling,34 Hendersons Road,Windemere,Ballarat,-37.46425098,143.7108228
+Benalla Landfill ,Benalla Rural City Council,Landfill,Landfill putrescible,90 Old Farnley Road,Benalla,Benalla,-36.511418,145.998539
+Benalla Resource Recovery Centre,Benalla Rural City Council,Resource Recovery Centre,Transfer station,90 Old Farnley Road,Benalla,Benalla,-36.511326,146.001273
+Bellarine Tree Services,Bellarine Tree Services,Reprocessor,Organics recycling,23 Albert Street,Moolap,Greater Geelong,-38.183333,144.433333
+Beaver Bricks Fitzroy North ,Beaver Bricks,Reprocessor,C&D waste recycling,54 Rae Street,Fitzroy North,Yarra,-37.791606,144.978812
+Beaufort Hospital,Beaufort Skipton Health Service,Reprocessor,Thermal energy from waste,28 Havelock Street,Beaufort,Pyrenees,-37.4308576,143.3824534
+Bayside Waste & Recycling Centre,Bayside City Council,Resource Recovery Centre,Transfer station,144 Talinga Road,Cheltenham,Bayside,-37.962331,145.036117
+Erica Transfer Station,Baw Baw Shire Council,Resource Recovery Centre,Transfer station,Mathiesons Road,Erica,Baw Baw,-37.981676,146.371649
+Lardner Transfer Station,Baw Baw Shire Council,Resource Recovery Centre,Transfer station,Simpson Road North,Lardner,Baw Baw,-38.222795,145.864151
+Neerim South Transfer Station,Baw Baw Shire Council,Resource Recovery Centre,Transfer station,Neerim East Road,Neerim South,Baw Baw,-38.00929,145.96819
+Trafalgar Transfer Station,Baw Baw Shire Council,Resource Recovery Centre,Transfer station,200 Giles Road,Trafalgar South,Baw Baw,-38.22151389,146.14795
+Cowes Recycling Bank,Bass Coast Shire Council,Resource Recovery Centre,Transfer station,Cnr Settlement Road and Dunsmore Road,Cowes,Bass Coast,-38.45705,145.24819
+Grantville Landfill and Transfer Station,Bass Coast Shire Council,Resource Recovery Centre,Transfer station,1685 Bass Highway,Grantville,Bass Coast,-38.420836,145.519635
+Grantville Transfer Station & Landfill ,Bass Coast Shire Council,Landfill,Landfill putrescible,1685 Bass Highway,Grantville,Bass Coast,-38.420836,145.5196345
+Inverloch Transfer Station,Bass Coast Shire Council,Resource Recovery Centre,Transfer station,Old Ford Road,Inverloch,Bass Coast,-38.626627,145.743454
+Wonthaggi Transfer Station,Bass Coast Shire Council,Resource Recovery Centre,Transfer station,180 Cameron Street,Wonthaggi,Bass Coast,-38.622315,145.579956
+Bass Coast Rubbish Removal & Bin Hire,Bass Coast Rubbish Removal & Bin Hire,Reprocessor,C&D waste recycling,11 Pine Grove,Wonthaggi,Bass Coast,-38.621855,145.586237
+Barton's Waste Transfer Station,Barton's Waste,Resource Recovery Centre,Transfer station,20 Harrington Road,Warrnambool,Warrnambool,-38.36772,142.45041
+Pronto Recycling (Barro),Barro Group,Reprocessor,C&D waste recycling,McIntyre Road,Kealba,Brimbank,-37.74248932,144.8312184
+Sunshine Landfill,Barro Group,Landfill,Landfill inert,McIntyre Road,Kealba,Brimbank,-37.74248932,144.8312184
+Banyule Waste Recovery Centre,Banyule City Council,Resource Recovery Centre,Transfer station,Corner Waterdale Road and Banksia Street,Bellfield,Banyule,-37.756523,145.044339
+Ballarat Regional Industries,Ballarat Regional Industries,Reprocessor,Plastics reprocessing,4 Neerim Crescent,Wendouree,Ballarat,-37.516269,143.84161
+Ballarat Concrete Recycling,Ballarat Concrete Recycling,Reprocessor,C&D waste recycling,3 Tannery Lane,Mount Pleasant,Ballarat,-37.573796,143.848181
+Ballarat Green Waste Interchange,Ballarat City Council,Reprocessor,Organics recycling,Ballarat Airport,Mitchell Park,Ballarat,-37.5143885,143.7892342
+Ballarat Transfer Station,Ballarat City Council,Resource Recovery Centre,Transfer station,119 Gillies Street,Ballarat,Ballarat,-37.566412,143.816162
+B A Page Drums Recycling,B A Page Drums Recycling Pty Ltd,Hazardous waste,Hazardous waste packaging facility,12 Seaview Parade,Williamstown,Hobsons Bay,-37.85538374,144.8554278
+Insulfluf,Azelia Insulation Pty Ltd,Reprocessor,Paper & cardboard reprocessing,13 Union Road,Dandenong South,Greater Dandenong,-38.007989,145.205561
+AutoCycle,Autocycle International,Hazardous waste,End-of-life tyres facility,87-107 Toll Dr,Altona North,Hobsons Bay,-37.848314,144.828212
+Australian Tartaric Products Co-generation Plant ,Australian Tartaric Products,Reprocessor,Thermal energy from waste,Boonoonar Road,Colignan,Mildura,-34.55,142.383333
+Australian Sustainable Hardwoods ,Australian Sustainable Hardwoods (ASH),Reprocessor,Thermal energy from waste,4 Weir Road,Heyfield,Wellington,-37.9785803,146.7944572
+Australian Recycling Corporation Landfill,Australian Recycling Corporation,Landfill,Landfill inert,500 Sunbury Road,Bulla,Hume,-37.624783,144.791524
+Aussie Compost Company,Aussie Compost Company,Reprocessor,Organics recycling,307 Koonwarra-Pound Creek Road,Pound Creek,South Gippsland,-38.6031244,145.884364
+AKD Softwoods ,Associated Kiln Driers Pty Ltd,Reprocessor,Thermal energy from waste,7-15 Forest Street,Colac,Colac Otway,-38.3374839,143.6050628
+Argus Recycling,Argus Recycling,Reprocessor,Organics recycling,60-62 Ordish Road,Dandenong,Greater Dandenong,-38.0218412,145.1925814
+Ararat Resource Recovery Centre (RRC),Ararat Rural City Council,Resource Recovery Centre,Transfer station,22 Surface Hill Road,Ararat,Ararat,-37.296535,142.930471
+Elmhurst  Landfill ,Ararat Rural City Council,Landfill,Landfill unlicensed,Mckay Street,Elmhurst,Ararat,-37.189547,143.252574
+Elmhurst Resource Recovery Centre,Ararat Rural City Council,Resource Recovery Centre,Transfer station,Mckay Street,Elmhurst,Ararat,-37.189547,143.252574
+Lake Bolac Landfill ,Ararat Rural City Council,Landfill,Landfill unlicensed,230 Graham Road,Lake Bolac,Ararat,-37.702585,142.828006
+Lake Bolac Resource Recovery Centre,Ararat Rural City Council,Resource Recovery Centre,Transfer station,230 Graham Road,Lake Bolac,Ararat,-37.702585,142.828006
+Moyston Resource Recovery Centre,Ararat Rural City Council,Resource Recovery Centre,Transfer station,Rubbish Tip Road,Moyston,Ararat,-37.29171,142.7344
+Pomonal Resource Recovery Centre,Ararat Rural City Council,Resource Recovery Centre,Transfer station,Pomonal East Road,Pomonal,Ararat,-37.195185,142.637199
+Willaura Resource Recovery Centre,Ararat Rural City Council,Resource Recovery Centre,Transfer station,460 Wickcliffe - Willaura Road,Willaura,Ararat,-37.577953,142.733021
+Tatyoon  Landfill ,Ararat Rural City Council,Landfill,Landfill unlicensed,Camp Road (Off Porters Bridge Road),Tatyoon,Ararat,-37.535064,142.956367
+Streatham Landfill ,Ararat Rural City Council,Landfill,Landfill unlicensed,Nerrin-Nerrin Floodway Road,Streatham,Ararat,-37.680696,143.041231
+Ararat Resource Recovery Centre (Composting),Ararat Rural City Council,Reprocessor,Organics recycling,22 Surface Hill Road,Ararat,Ararat,-37.296535,142.930471
+"Australian Paper Recovery (Truganina, MRF)",APR,MRF,Materials recovery facility,9 Felstead Drive,Truganina,Wyndham,-37.822761,144.761072
+Australian Paper Recovery (Thomastown),APR,Reprocessor,Paper & cardboard recovery,8 - 10 Aylward Avenue,Thomastown,Whittlesea,-37.69160224,144.993492
+Australian Paper Recovery (Dandenong),APR,Reprocessor,Paper & cardboard recovery,60-64 Thomas Murrell Crescent,Dandenong South,Greater Dandenong,-38.021194,145.197083
+"Australian Paper Recovery (Truganina, Paper recycling)",APR,Reprocessor,Paper & cardboard recovery,9 Felstead Drive,Truganina,Wyndham,-37.822761,144.761072
+Apex Waste Control,Apex Waste Control,Reprocessor,C&D waste recycling,69 Bunting Road,Brooklyn,Brimbank,-37.8116337,144.841557
+Andpak,Andpak,Reprocessor,Plastics reprocessing,731-733 Koorlong Avenue,Irymple,Mildura,-34.237076,142.166967
+Altona North Landfill,Altona North Landfill Pty Ltd,Landfill,Landfill inert,55 McArthurs Road,Altona North,Hobsons Bay,-37.839331,144.83439
+Mount Beauty Transfer Station and Recycling Centre,Alpine Shire Council,Resource Recovery Centre,Transfer station,21 Maddisons Lane,Mount Beauty,Alpine,-36.7293,147.174674
+Myrtleford Transfer Station,Alpine Shire Council,Resource Recovery Centre,Transfer station,6 Morrisons Lane,Myrtleford,Alpine,-36.54316,146.762195
+Porepunkah Transfer Station and Recycling Centre,Alpine Shire Council,Resource Recovery Centre,Transfer station,Tip Road,Porepunkah,Alpine,-36.69481,146.958276
+Alpine MDF ,Alpine MDF Industries Pty Ltd,Reprocessor,Thermal energy from waste,Lot 1 Crosher Lane,North Wangaratta ,Wangaratta,-36.33556952,146.3733945
+Allstone Quarries (C&D),Allstone Quarries Pty Ltd,Reprocessor,C&D waste recycling,1 Turner Street,Eaglehawk,Greater Bendigo,-36.7306606,144.2468483
+Alex Fraser (Clarinda),Alex Fraser Group,Reprocessor,C&D waste recycling,275 Kingston Road,Clarinda,Kingston,-37.9560299,145.1072564
+Alex Fraser (Epping),Alex Fraser Group,Reprocessor,C&D waste recycling,29 Graystone Court,Epping,Whittlesea,-37.650741,144.9822514
+"Alex Fraser (Laverton, Glass reprocessing)",Alex Fraser Group,Reprocessor,Glass reprocessing (crushing),9 Alex Fraser Drive,Laverton North,Wyndham,-37.8306067,144.768137
+"Alex Fraser (Laverton, C&D waste recycling)",Alex Fraser Group,Reprocessor,C&D waste recycling,9 Alex Fraser Drive,Laverton North,Wyndham,-37.8306067,144.768137
+Alberton Timber ,Alberton Timber & Treatment Plant Pty Ltd,Reprocessor,Thermal energy from waste,S Gippsland Hwy,Alberton,Wellington,-38.6107258,146.6633253
+Australian Growing Solutions Tyabb,AGS,Reprocessor,Organics recycling,15-21 Mckirdys Road,Tyabb,Mornington Peninsula,-38.2600379,145.215159
+Advanced Resource Recycling,Advanced Resource Recycling Pty Ltd,Reprocessor,E-waste recycling,160 Camp Road,Broadmeadows,Hume,-37.6842416,144.940391
+Robertson's Farmgate (AD & HM Robertson Pty Ltd),AD & HM Robertson Pty Ltd,Reprocessor,Organics recycling,800 Blackgate Road,Mount Duneed,Surf Coast,-38.284467,144.3122465
+Active Group Solutions (Ecoactive),Acitve Group Solutions (Ecoactive),Reprocessor,E-waste recycling,26 Harker St,Burwood,Whitehorse,-37.85386291,145.105119
+Ace Waste (Melbourne),Ace Waste Pty Ltd,Hazardous waste,Clinical waste facility thermal destruction,64 Ordish Road,Dandenong  South,Greater Dandenong,-38.020412,145.192351
+Ace recycling (Dandenong),Ace Recycling Group,Reprocessor,E-waste recycling,32-34 Bennet Street,Dandenong,Greater Dandenong,-37.98722713,145.1992215
+Ace Recycling (Williamstown),Ace Recycling Group,Reprocessor,E-waste recycling,63 Albermarle Street,Williamstown,Hobsons Bay,-37.85086052,144.8587539
+A1 Concrete Recycling,A1 Civil Pty Ltd,Reprocessor,C&D waste recycling,12 Weerong Road,Drouin,Baw Baw,-38.11668396,145.8315294

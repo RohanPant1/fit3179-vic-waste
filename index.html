@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Where Victoria's Rubbish Goes</title>
+  <meta name="description" content="Kerbside waste and recycling across all 79 Victorian councils: volumes, diversion rates, service costs and how they have changed.">
+  <meta name="author" content="Rohan Pant">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="eyebrow">Victorian councils &middot; kerbside waste</span>
+    <h1>Where Victoria's rubbish goes</h1>
+    <p class="standfirst">
+      Every year Victoria's 79 councils collect about 2.35&nbsp;million tonnes of rubbish,
+      recycling and food scraps from the kerb. Half of it never reaches landfill &mdash;
+      but which half depends a great deal on where you live.
+    </p>
+  </header>
+
+  <!-- ===================================================================
+       §1  How much, and what's in it
+       =================================================================== -->
+  <section id="scale">
+    <h2>How much, and what's in it</h2>
+    <p class="prose">
+      <!-- TODO narrative -->
+    </p>
+    <div class="grid-2">
+      <figure class="chart"><div id="vis-01-waffle"></div></figure>
+      <figure class="chart"><div id="vis-02-streamgraph"></div></figure>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       §2  Where it's good, where it isn't  — ANCHOR
+       =================================================================== -->
+  <section id="map">
+    <h2>Where it's good, where it isn't</h2>
+    <p class="prose">
+      Councils are required to report how much of what they collect is kept out of
+      landfill. Across the state the median council diverts about half. The map shows
+      no clean line between the city and the country.
+    </p>
+
+    <figure class="chart">
+      <div id="vis-03-choropleth"></div>
+      <figcaption>
+        Diversion is the share of kerbside material that does not go to landfill &mdash;
+        recycling, garden and food organics, and glass. Metropolitan Melbourne's councils
+        are shown separately because they are too small to read at state scale.
+        <span class="source">
+          Source: Local Government Performance Reporting Framework (indicator WC5),
+          Local Government Victoria, 2024&ndash;25.
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="chart"><div id="vis-04-beeswarm"></div></figure>
+  </section>
+
+  <!-- ===================================================================
+       §3  It's the bins
+       =================================================================== -->
+  <section id="bins">
+    <h2>It's the bins</h2>
+    <p class="prose">
+      <!-- TODO narrative: the turn -->
+    </p>
+    <figure class="chart"><div id="vis-05-rollout"></div></figure>
+    <div class="grid-2">
+      <figure class="chart"><div id="vis-06-ridgeline"></div></figure>
+      <figure class="chart"><div id="vis-07-nogreenbin"></div></figure>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       §4  How it changed, and what it costs
+       =================================================================== -->
+  <section id="change">
+    <h2>How it changed, and what it costs</h2>
+    <p class="prose">
+      <!-- TODO narrative -->
+    </p>
+    <div class="grid-2">
+      <figure class="chart"><div id="vis-08-heatmap"></div></figure>
+      <figure class="chart"><div id="vis-09-trajectory"></div></figure>
+      <figure class="chart"><div id="vis-10-costmap"></div></figure>
+      <figure class="chart"><div id="vis-11-parallel"></div></figure>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       §5  Why some councils can't
+       =================================================================== -->
+  <section id="infrastructure">
+    <h2>Why some councils can't</h2>
+    <p class="prose">
+      <!-- TODO narrative -->
+    </p>
+    <figure class="chart"><div id="vis-12-facilities"></div></figure>
+  </section>
+
+  <!-- ===================================================================
+       Metadata
+       =================================================================== -->
+  <footer>
+    <h2>About this visualisation</h2>
+
+    <p>
+      By <strong>Rohan Pant</strong>, October 2026. Created for FIT3179 Data
+      Visualisation, Monash University. Built with Vega-Lite; the specification for every
+      chart is in the
+      <a href="https://github.com/RohanPant1/fit3179-vic-waste/tree/main/specs">specs folder</a>
+      of this repository.
+    </p>
+
+    <h2 style="margin-top:1.5rem">Data sources</h2>
+    <ul>
+      <li>
+        Recycling Victoria,
+        <em>Victorian Local Government Annual Waste Services Survey</em>, release 2025.03
+        (2001&ndash;02 to 2023&ndash;24).
+        <a href="https://discover.data.vic.gov.au/dataset/victorian-local-government-waste-data-dashboard">data.vic.gov.au</a>.
+        CC&nbsp;BY&nbsp;4.0.
+      </li>
+      <li>
+        Local Government Victoria,
+        <em>Local Government Performance Reporting Framework full council dataset</em>,
+        November 2025 release (2020&ndash;21 to 2024&ndash;25).
+        <a href="https://discover.data.vic.gov.au/dataset/local-government-performance-reporting">data.vic.gov.au</a>.
+        CC&nbsp;BY&nbsp;4.0.
+      </li>
+      <li>
+        Recycling Victoria,
+        <em>Victoria's waste and resource recovery infrastructure map data</em>, March 2025.
+        <a href="https://discover.data.vic.gov.au/dataset/victoria-s-waste-and-resource-recovery-infrastructure-map-data">data.vic.gov.au</a>.
+        CC&nbsp;BY&nbsp;4.0.
+      </li>
+      <li>
+        Australian Bureau of Statistics,
+        <em>Local Government Areas 2025</em>, ASGS Edition 3, GDA2020.
+        <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files">abs.gov.au</a>.
+        CC&nbsp;BY&nbsp;4.0.
+      </li>
+    </ul>
+
+    <h2>Use of generative AI</h2>
+    <p>
+      <!-- TODO: replace with an accurate statement before submitting. -->
+      Generative AI (Claude) was used to research data sources, debug Vega-Lite
+      specifications, and copy-edit narrative text. All data analysis was computed directly
+      from the source datasets listed above.
+    </p>
+  </footer>
+
+</div>
+
+<script src="js/embed.js"></script>
+</body>
+</html>
