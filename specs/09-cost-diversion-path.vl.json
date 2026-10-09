@@ -1,0 +1,115 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "Councils that divert more tend to pay less",
+    "subtitle": "Each line traces one council from 2020\u201321 to 2024\u201325. The large dot is the latest year."
+  },
+  "width": 540,
+  "height": 380,
+  "data": {
+    "url": "data/council_cost_diversion_2020_2025.csv"
+  },
+  "transform": [
+    {
+      "filter": {
+        "field": "Council",
+        "oneOf": [
+          "Mildura Rural City",
+          "Greater Bendigo City",
+          "Knox City",
+          "Melbourne City",
+          "Yarra City",
+          "Macedon Ranges Shire",
+          "Casey City"
+        ]
+      }
+    },
+    {
+      "filter": "isValid(datum.garbage_cost_per_bin) && isValid(datum.lgprf_diversion_pct)"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "garbage_cost_per_bin",
+      "type": "quantitative",
+      "title": "Cost per garbage bin ($ a year)",
+      "scale": {
+        "domain": [
+          40,
+          340
+        ]
+      }
+    },
+    "y": {
+      "field": "lgprf_diversion_pct",
+      "type": "quantitative",
+      "title": "Diverted from landfill (%)",
+      "scale": {
+        "domain": [
+          15,
+          80
+        ]
+      }
+    },
+    "color": {
+      "field": "Council",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "scheme": "dark2"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 1.8,
+        "opacity": 0.85,
+        "point": {
+          "filled": true,
+          "size": 26
+        }
+      },
+      "encoding": {
+        "order": {
+          "field": "financial_year"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.financial_year === '2024-2025'"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 150,
+        "stroke": "white",
+        "strokeWidth": 1.5
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.financial_year === '2024-2025'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "dx": 9,
+        "dy": -9,
+        "align": "left",
+        "fontSize": 11,
+        "fontWeight": 600
+      },
+      "encoding": {
+        "text": {
+          "field": "Council"
+        }
+      }
+    }
+  ]
+}

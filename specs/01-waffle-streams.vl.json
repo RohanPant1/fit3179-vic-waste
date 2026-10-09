@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "The green bin now outweighs the recycling bin",
+    "subtitle": "Each square is 1% of Victoria's 2.35 million tonnes of kerbside collection, 2023\u201324"
+  },
+  "width": 320,
+  "height": 320,
+  "data": {
+    "url": "data/waffle_streams.csv"
+  },
+  "mark": {
+    "type": "square",
+    "size": 680
+  },
+  "encoding": {
+    "x": {
+      "field": "col",
+      "type": "ordinal",
+      "axis": null
+    },
+    "y": {
+      "field": "row",
+      "type": "ordinal",
+      "axis": null,
+      "scale": {
+        "reverse": false
+      }
+    },
+    "color": {
+      "field": "stream",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Garbage",
+          "Mixed recycling",
+          "Organics",
+          "Glass"
+        ],
+        "range": [
+          "#C0392B",
+          "#E8B10A",
+          "#7CB342",
+          "#7E57C2"
+        ]
+      },
+      "legend": {
+        "title": null,
+        "orient": "right"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "stream",
+        "title": "Stream"
+      }
+    ]
+  }
+}

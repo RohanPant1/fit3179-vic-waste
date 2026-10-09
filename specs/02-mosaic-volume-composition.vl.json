@@ -1,0 +1,122 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "How each council type splits its tonnage",
+    "subtitle": "Share of total kerbside tonnage by stream, 2023\u201324. Types ordered by total tonnage."
+  },
+  "width": 600,
+  "height": 330,
+  "data": {
+    "url": "data/council_snapshot_latest.csv"
+  },
+  "transform": [
+    {
+      "fold": [
+        "garbage_t",
+        "organics_t",
+        "recycling_t",
+        "glass_t"
+      ],
+      "as": [
+        "stream",
+        "tonnes"
+      ]
+    },
+    {
+      "calculate": "datum.stream === 'garbage_t' ? 'Garbage' : datum.stream === 'organics_t' ? 'Organics' : datum.stream === 'recycling_t' ? 'Mixed recycling' : 'Glass'",
+      "as": "Stream"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "tonnes",
+          "as": "t"
+        }
+      ],
+      "groupby": [
+        "group",
+        "Stream"
+      ]
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "t",
+          "as": "group_t"
+        }
+      ],
+      "groupby": [
+        "group"
+      ]
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "stroke": "white",
+    "strokeWidth": 1
+  },
+  "encoding": {
+    "x": {
+      "field": "group",
+      "type": "nominal",
+      "sort": {
+        "field": "group_t",
+        "order": "descending"
+      },
+      "axis": {
+        "title": null,
+        "labelAngle": 0,
+        "labelFontSize": 12,
+        "domain": false,
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "t",
+      "type": "quantitative",
+      "stack": "normalize",
+      "axis": {
+        "format": "%",
+        "title": "Share of that type's tonnage"
+      }
+    },
+    "color": {
+      "field": "Stream",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Garbage",
+          "Mixed recycling",
+          "Organics",
+          "Glass"
+        ],
+        "range": [
+          "#C0392B",
+          "#E8B10A",
+          "#7CB342",
+          "#7E57C2"
+        ]
+      },
+      "legend": {
+        "title": null
+      }
+    },
+    "tooltip": [
+      {
+        "field": "group",
+        "title": "Council type"
+      },
+      {
+        "field": "Stream"
+      },
+      {
+        "field": "t",
+        "type": "quantitative",
+        "format": ",.0f",
+        "title": "Tonnes"
+      }
+    ]
+  }
+}

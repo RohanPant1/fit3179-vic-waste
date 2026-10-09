@@ -1,0 +1,102 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "How much each council puts out",
+    "subtitle": "Kilograms of kerbside material per household per year, 2023\u201324"
+  },
+  "width": 560,
+  "height": 420,
+  "data": {
+    "url": "data/vic_lga.topo.json",
+    "format": {
+      "type": "topojson",
+      "feature": "vic_lga"
+    }
+  },
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -36,
+      -38
+    ],
+    "rotate": [
+      -145,
+      0,
+      0
+    ]
+  },
+  "transform": [
+    {
+      "lookup": "properties.lga_code",
+      "from": {
+        "data": {
+          "url": "data/council_snapshot_latest.csv",
+          "format": {
+            "type": "csv",
+            "parse": {
+              "lga_code": "string"
+            }
+          }
+        },
+        "key": "lga_code",
+        "fields": [
+          "Council",
+          "group",
+          "total_kerbside_t",
+          "households"
+        ]
+      }
+    },
+    {
+      "calculate": "1000 * datum.total_kerbside_t / datum.households",
+      "as": "kg_per_household"
+    }
+  ],
+  "mark": {
+    "type": "geoshape",
+    "stroke": "#FFFFFF",
+    "strokeWidth": 0.5
+  },
+  "encoding": {
+    "color": {
+      "field": "kg_per_household",
+      "type": "quantitative",
+      "scale": {
+        "type": "threshold",
+        "domain": [
+          600,
+          750,
+          900,
+          1050,
+          1200
+        ],
+        "range": [
+          "#eff3ff",
+          "#c6dbef",
+          "#9ecae1",
+          "#6baed6",
+          "#3182bd",
+          "#08519c"
+        ]
+      },
+      "legend": {
+        "title": "kg / household"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "Council"
+      },
+      {
+        "field": "group",
+        "title": "Type"
+      },
+      {
+        "field": "kg_per_household",
+        "type": "quantitative",
+        "format": ".0f",
+        "title": "kg/household"
+      }
+    ]
+  }
+}

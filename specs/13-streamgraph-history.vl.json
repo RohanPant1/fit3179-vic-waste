@@ -1,0 +1,209 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "The green bin reshaped Victoria's kerbside in twenty years",
+    "subtitle": "Tonnes collected by stream, 2001\u201302 to 2023\u201324"
+  },
+  "width": 620,
+  "height": 300,
+  "layer": [
+    {
+      "data": {
+        "url": "data/statewide_by_year.csv"
+      },
+      "transform": [
+        {
+          "fold": [
+            "garbage_t",
+            "organics_t",
+            "recycling_t",
+            "glass_t"
+          ],
+          "as": [
+            "stream",
+            "tonnes"
+          ]
+        },
+        {
+          "calculate": "datum.stream === 'garbage_t' ? 'Garbage' : datum.stream === 'organics_t' ? 'Organics' : datum.stream === 'recycling_t' ? 'Mixed recycling' : 'Glass'",
+          "as": "Stream"
+        }
+      ],
+      "mark": {
+        "type": "area",
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "x": {
+          "field": "year_end",
+          "type": "quantitative",
+          "axis": {
+            "format": "d",
+            "title": null,
+            "tickCount": 8,
+            "labelFontSize": 12
+          }
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "tonnes",
+          "stack": "center",
+          "axis": null
+        },
+        "color": {
+          "field": "Stream",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Garbage",
+              "Mixed recycling",
+              "Organics",
+              "Glass"
+            ],
+            "range": [
+              "#C0392B",
+              "#E8B10A",
+              "#7CB342",
+              "#7E57C2"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top-left",
+            "offset": 4
+          }
+        },
+        "tooltip": [
+          {
+            "field": "year_end",
+            "type": "quantitative",
+            "title": "Year"
+          },
+          {
+            "field": "Stream"
+          },
+          {
+            "field": "tonnes",
+            "type": "quantitative",
+            "format": ",.0f",
+            "title": "Tonnes"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2018
+          },
+          {
+            "year": 2019
+          },
+          {
+            "year": 2021
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          3,
+          3
+        ],
+        "color": "#5A5A5A",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2018,
+            "t": "China stops taking our recycling"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 4,
+        "fontSize": 10.5,
+        "color": "#3A3A3A",
+        "baseline": "top",
+        "y": 6
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2019,
+            "t": "SKM collapses"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 4,
+        "fontSize": 10.5,
+        "color": "#3A3A3A",
+        "baseline": "top",
+        "y": 30
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2021,
+            "t": "Glass bins begin"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 4,
+        "fontSize": 10.5,
+        "color": "#3A3A3A",
+        "baseline": "top",
+        "y": 54
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "Missing out on a green bin is not about disadvantage",
+    "subtitle": "Socio-economic position of councils with and without kerbside organics. The distributions overlap."
+  },
+  "width": 520,
+  "height": 230,
+  "data": {
+    "url": "data/council_snapshot_latest.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.has_organics == 'True' || datum.has_organics === true ? 'Has a green bin' : 'No green bin'",
+      "as": "service"
+    },
+    {
+      "density": "seifa_disadvantage",
+      "groupby": [
+        "service"
+      ],
+      "extent": [
+        850,
+        1120
+      ],
+      "bandwidth": 22,
+      "as": [
+        "dx",
+        "dy"
+      ]
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "interpolate": "monotone",
+        "opacity": 0.55,
+        "line": {
+          "strokeWidth": 2
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "dx",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              850,
+              1120
+            ]
+          },
+          "title": "SEIFA index of disadvantage (1000 = national average)"
+        },
+        "y": {
+          "field": "dy",
+          "type": "quantitative",
+          "stack": null,
+          "axis": null
+        },
+        "color": {
+          "field": "service",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "No green bin",
+              "Has a green bin"
+            ],
+            "range": [
+              "#C0392B",
+              "#7CB342"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top-left",
+            "offset": 2,
+            "labelLimit": 220
+          }
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 968,
+            "t": "median 968"
+          },
+          {
+            "x": 982,
+            "t": "median 982"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          4,
+          3
+        ],
+        "color": "#5A5A5A"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        }
+      }
+    }
+  ]
+}

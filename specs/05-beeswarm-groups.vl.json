@@ -1,0 +1,124 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "The five council types overlap almost completely",
+    "subtitle": "Each dot is one council. Bars mark the group median, 2024\u201325"
+  },
+  "width": 620,
+  "height": 300,
+  "data": {
+    "url": "data/council_snapshot_latest.csv"
+  },
+  "encoding": {
+    "y": {
+      "field": "group",
+      "type": "nominal",
+      "sort": [
+        "Metro",
+        "Interface",
+        "Regional City",
+        "Large Shire",
+        "Small Shire"
+      ],
+      "axis": {
+        "title": null,
+        "labelFontSize": 13,
+        "domain": false,
+        "ticks": false
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "tick",
+        "thickness": 3,
+        "size": 46,
+        "color": "#1A1A1A",
+        "opacity": 0.85
+      },
+      "encoding": {
+        "x": {
+          "aggregate": "median",
+          "field": "lgprf_diversion_pct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              10,
+              80
+            ]
+          },
+          "title": "Diverted from landfill (%)"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 110,
+        "opacity": 0.8,
+        "stroke": "white",
+        "strokeWidth": 0.6
+      },
+      "encoding": {
+        "x": {
+          "field": "lgprf_diversion_pct",
+          "type": "quantitative"
+        },
+        "yOffset": {
+          "field": "jitter",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              -17,
+              17
+            ]
+          }
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "sort": [
+            "Metro",
+            "Interface",
+            "Regional City",
+            "Large Shire",
+            "Small Shire"
+          ],
+          "scale": {
+            "domain": [
+              "Metro",
+              "Interface",
+              "Regional City",
+              "Large Shire",
+              "Small Shire"
+            ],
+            "range": [
+              "#13496B",
+              "#4F93C0",
+              "#E8A33D",
+              "#B5562A",
+              "#6E5887"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "Council"
+          },
+          {
+            "field": "group",
+            "title": "Type"
+          },
+          {
+            "field": "lgprf_diversion_pct",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Diverted (%)"
+          }
+        ]
+      }
+    }
+  ]
+}

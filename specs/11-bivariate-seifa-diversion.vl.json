@@ -1,0 +1,235 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "Better-off councils tend to divert more, but not everywhere",
+    "subtitle": "Socio-economic position against diversion rate. Darker blue-green is both better off and diverting more."
+  },
+  "hconcat": [
+    {
+      "width": 560,
+      "height": 420,
+      "data": {
+        "url": "data/vic_lga.topo.json",
+        "format": {
+          "type": "topojson",
+          "feature": "vic_lga"
+        }
+      },
+      "projection": {
+        "type": "conicEqualArea",
+        "parallels": [
+          -36,
+          -38
+        ],
+        "rotate": [
+          -145,
+          0,
+          0
+        ]
+      },
+      "transform": [
+        {
+          "lookup": "properties.lga_code",
+          "from": {
+            "data": {
+              "url": "data/council_snapshot_latest.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "lga_code": "string"
+                }
+              }
+            },
+            "key": "lga_code",
+            "fields": [
+              "Council",
+              "group",
+              "bivariate_class",
+              "seifa_disadvantage",
+              "lgprf_diversion_pct"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "color": {
+          "field": "bivariate_class",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "low-low",
+              "mid-low",
+              "high-low",
+              "low-mid",
+              "mid-mid",
+              "high-mid",
+              "low-high",
+              "mid-high",
+              "high-high"
+            ],
+            "range": [
+              "#e8e8e8",
+              "#b8d6be",
+              "#73ae80",
+              "#b5c0da",
+              "#90b2b3",
+              "#5a9178",
+              "#6c83b5",
+              "#567994",
+              "#2a5a5b"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "Council"
+          },
+          {
+            "field": "group",
+            "title": "Type"
+          },
+          {
+            "field": "seifa_disadvantage",
+            "type": "quantitative",
+            "format": ".0f",
+            "title": "SEIFA (1000 = average)"
+          },
+          {
+            "field": "lgprf_diversion_pct",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Diverted (%)"
+          }
+        ]
+      }
+    },
+    {
+      "width": 110,
+      "height": 110,
+      "data": {
+        "values": [
+          {
+            "sx": "low",
+            "dy": "low",
+            "c": "low-low"
+          },
+          {
+            "sx": "low",
+            "dy": "mid",
+            "c": "low-mid"
+          },
+          {
+            "sx": "low",
+            "dy": "high",
+            "c": "low-high"
+          },
+          {
+            "sx": "mid",
+            "dy": "low",
+            "c": "mid-low"
+          },
+          {
+            "sx": "mid",
+            "dy": "mid",
+            "c": "mid-mid"
+          },
+          {
+            "sx": "mid",
+            "dy": "high",
+            "c": "mid-high"
+          },
+          {
+            "sx": "high",
+            "dy": "low",
+            "c": "high-low"
+          },
+          {
+            "sx": "high",
+            "dy": "mid",
+            "c": "high-mid"
+          },
+          {
+            "sx": "high",
+            "dy": "high",
+            "c": "high-high"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "field": "sx",
+          "type": "ordinal",
+          "sort": [
+            "low",
+            "mid",
+            "high"
+          ],
+          "axis": {
+            "title": "Better off \u2192",
+            "labels": false,
+            "ticks": false,
+            "domain": false,
+            "titleFontSize": 10
+          }
+        },
+        "y": {
+          "field": "dy",
+          "type": "ordinal",
+          "sort": [
+            "low",
+            "mid",
+            "high"
+          ],
+          "axis": {
+            "title": "Diverts more \u2192",
+            "labels": false,
+            "ticks": false,
+            "domain": false,
+            "titleFontSize": 10
+          }
+        },
+        "color": {
+          "field": "c",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "low-low",
+              "mid-low",
+              "high-low",
+              "low-mid",
+              "mid-mid",
+              "high-mid",
+              "low-high",
+              "mid-high",
+              "high-high"
+            ],
+            "range": [
+              "#e8e8e8",
+              "#b8d6be",
+              "#73ae80",
+              "#b5c0da",
+              "#90b2b3",
+              "#5a9178",
+              "#6c83b5",
+              "#567994",
+              "#2a5a5b"
+            ]
+          },
+          "legend": null
+        }
+      }
+    }
+  ],
+  "spacing": 30
+}

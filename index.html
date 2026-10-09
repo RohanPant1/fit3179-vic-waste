@@ -27,25 +27,26 @@
     </p>
   </header>
 
-  <!-- ===================================================================
-       §1  How much, and what's in it
-       =================================================================== -->
-  <section id="scale">
-    <h2>How much, and what's in it</h2>
+  <!-- =====================================================================
+       §1  Q1 — How much, and what is it made of
+       ===================================================================== -->
+  <section id="volumes">
+    <h2>How much, and what is it made of</h2>
     <p class="prose">
       <!-- TODO narrative -->
     </p>
     <div class="grid-2">
       <figure class="chart"><div id="vis-01-waffle"></div></figure>
-      <figure class="chart"><div id="vis-02-streamgraph"></div></figure>
+      <figure class="chart"><div id="vis-02-mosaic"></div></figure>
     </div>
+    <figure class="chart"><div id="vis-03-kghousehold"></div></figure>
   </section>
 
-  <!-- ===================================================================
-       §2  Where it's good, where it isn't  — ANCHOR
-       =================================================================== -->
-  <section id="map">
-    <h2>Where it's good, where it isn't</h2>
+  <!-- =====================================================================
+       §2  Q2 — How well do councils recycle          ANCHOR
+       ===================================================================== -->
+  <section id="performance">
+    <h2>How well do councils recycle</h2>
     <p class="prose">
       Councils are required to report how much of what they collect is kept out of
       landfill. Across the state the median council diverts about half. The map shows
@@ -53,7 +54,7 @@
     </p>
 
     <figure class="chart">
-      <div id="vis-03-choropleth"></div>
+      <div id="vis-04-choropleth"></div>
       <figcaption>
         Diversion is the share of kerbside material that does not go to landfill &mdash;
         recycling, garden and food organics, and glass. Metropolitan Melbourne's councils
@@ -65,54 +66,61 @@
       </figcaption>
     </figure>
 
-    <figure class="chart"><div id="vis-04-beeswarm"></div></figure>
+    <figure class="chart"><div id="vis-05-beeswarm"></div></figure>
+    <figure class="chart"><div id="vis-06-slope"></div></figure>
   </section>
 
-  <!-- ===================================================================
-       §3  It's the bins
-       =================================================================== -->
+  <!-- =====================================================================
+       §3  The mechanism — it is the bins
+       ===================================================================== -->
   <section id="bins">
-    <h2>It's the bins</h2>
+    <h2>It is the bins</h2>
     <p class="prose">
       <!-- TODO narrative: the turn -->
     </p>
-    <figure class="chart"><div id="vis-05-rollout"></div></figure>
-    <div class="grid-2">
-      <figure class="chart"><div id="vis-06-ridgeline"></div></figure>
-      <figure class="chart"><div id="vis-07-nogreenbin"></div></figure>
-    </div>
+    <figure class="chart"><div id="vis-07-density"></div></figure>
+    <figure class="chart"><div id="vis-08-nogreenbin"></div></figure>
   </section>
 
-  <!-- ===================================================================
-       §4  How it changed, and what it costs
-       =================================================================== -->
+  <!-- =====================================================================
+       §4  Q3 — What it costs
+       ===================================================================== -->
+  <section id="costs">
+    <h2>What it costs</h2>
+    <p class="prose">
+      <!-- TODO narrative -->
+    </p>
+    <figure class="chart"><div id="vis-09-trajectory"></div></figure>
+    <figure class="chart"><div id="vis-10-costmap"></div></figure>
+  </section>
+
+  <!-- =====================================================================
+       §5  Q6 — Does disadvantage track performance
+       ===================================================================== -->
+  <section id="equity">
+    <h2>Does disadvantage track performance</h2>
+    <p class="prose">
+      <!-- TODO narrative -->
+    </p>
+    <figure class="chart"><div id="vis-11-bivariate"></div></figure>
+    <figure class="chart"><div id="vis-12-seifaservice"></div></figure>
+  </section>
+
+  <!-- =====================================================================
+       §6  Q4 + Q7 — What changed, and what moved it
+       ===================================================================== -->
   <section id="change">
-    <h2>How it changed, and what it costs</h2>
+    <h2>What changed, and what moved it</h2>
     <p class="prose">
       <!-- TODO narrative -->
     </p>
-    <div class="grid-2">
-      <figure class="chart"><div id="vis-08-heatmap"></div></figure>
-      <figure class="chart"><div id="vis-09-trajectory"></div></figure>
-      <figure class="chart"><div id="vis-10-costmap"></div></figure>
-      <figure class="chart"><div id="vis-11-parallel"></div></figure>
-    </div>
+    <figure class="chart"><div id="vis-13-streamgraph"></div></figure>
+    <figure class="chart"><div id="vis-14-rollout"></div></figure>
   </section>
 
-  <!-- ===================================================================
-       §5  Why some councils can't
-       =================================================================== -->
-  <section id="infrastructure">
-    <h2>Why some councils can't</h2>
-    <p class="prose">
-      <!-- TODO narrative -->
-    </p>
-    <figure class="chart"><div id="vis-12-facilities"></div></figure>
-  </section>
-
-  <!-- ===================================================================
+  <!-- =====================================================================
        Metadata
-       =================================================================== -->
+       ===================================================================== -->
   <footer>
     <h2>About this visualisation</h2>
 
@@ -150,6 +158,12 @@
         Australian Bureau of Statistics,
         <em>Local Government Areas 2025</em>, ASGS Edition 3, GDA2020.
         <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files">abs.gov.au</a>.
+        CC&nbsp;BY&nbsp;4.0.
+      </li>
+      <li>
+        Australian Bureau of Statistics,
+        <em>Socio-Economic Indexes for Areas (SEIFA) 2021</em>, by Local Government Area.
+        <a href="https://www.abs.gov.au/statistics/people/people-and-communities/socio-economic-indexes-areas-seifa-australia/latest-release">abs.gov.au</a>.
         CC&nbsp;BY&nbsp;4.0.
       </li>
     </ul>
