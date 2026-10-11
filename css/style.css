@@ -1,179 +1,309 @@
 /* ==========================================================================
-   Where Victoria's Rubbish Goes — FIT3179 Data Visualisation 2
-   Design system per Research/06-design-and-styling.md
+   Where Victoria's Rubbish Goes
+   FIT3179 Data Visualisation 2 — Rohan Pant
+
+   Palette comes from the object itself: the four standard Australian bin lids
+   are the only saturated colours on the page, and the neutrals are the
+   grey-green of a wheelie bin body and the grey of kerb concrete.
    ========================================================================== */
 
-/* ---------- self-hosted variable fonts (no third-party dependency) -------- */
+/* ---------- typefaces, self-hosted, no third-party request ---------------- */
 @font-face {
-  font-family: "Source Sans 3";
-  src: url("../fonts/source-sans-3-var.woff2") format("woff2");
-  font-weight: 200 900;
-  font-style: normal;
-  font-display: swap;
+  font-family: "Archivo";
+  src: url("../fonts/archivo.woff2") format("woff2");
+  font-weight: 400 800; font-style: normal; font-display: swap;
 }
 @font-face {
-  font-family: "Source Sans 3";
-  src: url("../fonts/source-sans-3-var-italic.woff2") format("woff2");
-  font-weight: 200 900;
-  font-style: italic;
-  font-display: swap;
+  font-family: "Source Serif 4";
+  src: url("../fonts/source-serif-4.woff2") format("woff2");
+  font-weight: 400 700; font-style: normal; font-display: swap;
 }
 @font-face {
-  font-family: "Space Grotesk";
-  src: url("../fonts/space-grotesk-var.woff2") format("woff2");
-  font-weight: 300 700;
-  font-style: normal;
-  font-display: swap;
+  font-family: "Source Serif 4";
+  src: url("../fonts/source-serif-4-italic.woff2") format("woff2");
+  font-weight: 400 700; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../fonts/ibm-plex-mono-400.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../fonts/ibm-plex-mono-500.woff2") format("woff2");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../fonts/ibm-plex-mono-600.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
 }
 
-/* ---------- tokens ------------------------------------------------------- */
+/* ---------- tokens -------------------------------------------------------- */
 :root {
-  --paper:   #FDFDFB;
-  --surface: #FFFFFF;
-  --ink:     #1A1A1A;
-  --muted:   #5A5A5A;
-  --faint:   #8A8A85;
-  --rule:    #E6E6E1;
+  --depot:     #191E1A;   /* wheelie-bin body, used for the dark bands */
+  --depot-2:   #222923;
+  --concrete:  #E8E9E3;   /* kerb concrete, the light band ground */
+  --surface:   #F7F8F4;   /* chart cards sitting on the concrete */
+  --ink:       #15181A;
+  --ink-soft:  #4A5147;
+  --muted:     #6E7569;
+  --faint:     #9AA096;
+  --rule:      #D2D6CC;
+  --rule-dark: #333B34;
 
-  /* bin-lid palette — the Victorian kerbside standard, used as the data scale */
-  --bin-red:    #C0392B;   /* garbage          */
-  --bin-yellow: #E8B10A;   /* mixed recycling  */
-  --bin-green:  #7CB342;   /* organics / FOGO  */
-  --bin-purple: #7E57C2;   /* glass            */
+  /* the four bin lids — reserved for waste streams, nothing else */
+  --garbage:   #C8372D;
+  --recycling: #E3A008;
+  --organics:  #7FB539;
+  --glass:     #7A52C7;
 
-  --accent: #2E6B3E;
+  --good:      #2E6B3E;
 
-  --measure: 34em;
-  --gap:     2.5rem;
+  --display: "Archivo", system-ui, sans-serif;
+  --serif:   "Source Serif 4", Georgia, serif;
+  --mono:    "IBM Plex Mono", ui-monospace, monospace;
 
-  --sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --display: "Space Grotesk", var(--sans);
+  --measure: 36em;
+  --gutter:  clamp(1.1rem, 4vw, 3rem);
+  --maxw:    1180px;
 }
 
-/* ---------- base --------------------------------------------------------- */
-*,
-*::before,
-*::after { box-sizing: border-box; }
+/* ---------- base ---------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
   margin: 0;
-  background: var(--paper);
+  background: var(--concrete);
   color: var(--ink);
-  font: 400 17px/1.6 var(--sans);
-  font-variant-numeric: tabular-nums;
+  font: 400 17px/1.65 var(--serif);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   margin: 0;
   font-family: var(--display);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.022em;
   text-wrap: balance;
 }
-h1 { font-size: 42px; line-height: 1.1; }
-h2 { font-size: 27px; }
-h3 { font-size: 21px; line-height: 1.3; }
 
 p { margin: 0; }
 
-a { color: var(--accent); }
-a:focus-visible,
-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+a { color: var(--good); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--good); outline-offset: 3px;
+}
 
-/* ---------- layout ------------------------------------------------------- */
-.wrap {
-  max-width: 1180px;
+strong { font-weight: 700; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* ---------- bands: full-bleed, alternating ground ------------------------- */
+.band { width: 100%; padding-block: clamp(3.5rem, 7vw, 6rem); }
+.band--dark  { background: var(--depot); color: #E7EAE4; }
+.band--light { background: var(--concrete); }
+.band--paper { background: var(--surface); }
+
+.inner {
+  max-width: var(--maxw);
   margin-inline: auto;
-  padding-inline: 2rem;
+  padding-inline: var(--gutter);
 }
 
-/* prose stays at a readable measure; charts may go full width */
-.wrap > p,
-.prose { max-width: var(--measure); }
-
-section { margin-block: 5rem; }
-
-/* headings need room beneath them; p and h* both sit at margin 0 */
-section > h2 { margin-bottom: 1rem; }
-section > .prose { margin-bottom: 1.5rem; }
-
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--gap);
-}
-
-.stack { display: grid; gap: 1rem; }
-
-/* ---------- masthead ----------------------------------------------------- */
-.masthead { padding-block: 4rem 0; }
-
+/* ---------- type scale, one size per role --------------------------------- */
 .eyebrow {
   display: block;
-  font-family: var(--display);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font: 600 11px/1 var(--mono);
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.1rem;
 }
+.band--dark .eyebrow { color: #8E9A8C; }
 
-.standfirst {
-  margin-top: 1.5rem;
-  max-width: var(--measure);
-  font-size: 20px;
+.h-hero    { font-size: clamp(2.7rem, 7.5vw, 5.2rem); font-weight: 800; line-height: 0.98; letter-spacing: -0.035em; }
+.h-section { font-size: clamp(1.75rem, 3.4vw, 2.45rem); font-weight: 700; }
+.h-chart   { font-size: 1.0625rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.012em; }
+
+.lede {
+  font-size: clamp(1.1rem, 1.9vw, 1.32rem);
   line-height: 1.55;
-  color: var(--muted);
+  max-width: 32em;
+  color: var(--ink-soft);
 }
+.band--dark .lede { color: #C3CBC1; }
 
-/* ---------- charts ------------------------------------------------------- */
-.chart {
-  margin-block: 2rem;
-  /* wide charts scroll inside their own box, never the page */
-  overflow-x: auto;
+.prose { max-width: var(--measure); }
+.prose + .prose { margin-top: 1rem; }
+
+/* ---------- hero ---------------------------------------------------------- */
+.hero { padding-block: clamp(4.5rem, 11vw, 8.5rem) clamp(3rem, 6vw, 4.5rem); }
+.hero .h-hero { color: #F2F5EF; max-width: 14ch; }
+.hero .lede { margin-top: 1.6rem; }
+
+/* the lid bar — the page's signature device, and a real chart */
+.lidbar {
+  display: flex;
+  height: 30px;
+  margin-top: clamp(2.2rem, 5vw, 3.4rem);
+  border-radius: 2px;
+  overflow: hidden;
 }
+.lidbar span { display: block; height: 100%; }
+.lidbar--thin { height: 8px; margin-top: 0; }
 
-figure { margin: 0; }
-
-figcaption {
-  margin-top: 0.75rem;
-  max-width: 44em;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--muted);
+.lidkey {
+  display: flex; flex-wrap: wrap; gap: 1.1rem 1.9rem;
+  margin-top: 1rem;
+  font: 500 12px/1.4 var(--mono);
+  color: #A9B3A6;
 }
+.band--light .lidkey, .band--paper .lidkey { color: var(--muted); }
+.lidkey i {
+  display: inline-block; width: 11px; height: 11px;
+  border-radius: 2px; margin-right: 0.5rem; vertical-align: baseline;
+}
+.lidkey b { font-weight: 600; color: inherit; }
 
-.source {
+/* ---------- section head -------------------------------------------------- */
+.sectionhead { max-width: 46em; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.sectionhead .h-section { margin-bottom: 1rem; }
+.sectionhead .prose { color: var(--ink-soft); }
+
+/* ---------- the turn: dark interstitial ----------------------------------- */
+.turn .h-section { color: #F2F5EF; max-width: 18ch; font-size: clamp(1.9rem, 4vw, 3rem); }
+.turn .lede { margin-top: 1.4rem; max-width: 34em; }
+
+/* ---------- stat row ------------------------------------------------------ */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border-block: 1px solid var(--rule);
+  margin-top: clamp(2.2rem, 4vw, 3.2rem);
+}
+.band--dark .stats { background: var(--rule-dark); border-color: var(--rule-dark); }
+
+.stat { background: var(--concrete); padding: 1.3rem 1.2rem 1.5rem; }
+.band--dark  .stat { background: var(--depot); }
+.band--paper .stat { background: var(--surface); }
+
+.stat b {
   display: block;
-  margin-top: 0.4rem;
-  font-size: 12px;
+  font: 800 clamp(2rem, 3.6vw, 2.9rem)/1 var(--display);
+  letter-spacing: -0.035em;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 0.45rem;
+}
+.stat span { font-size: 13.5px; line-height: 1.4; color: var(--muted); display: block; }
+.band--dark .stat span { color: #96A094; }
+
+/* ---------- chart cards --------------------------------------------------- */
+.spread {
+  display: grid;
+  grid-template-columns: minmax(0, 1.9fr) minmax(16rem, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.75rem);
+  align-items: start;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+.spread--reverse > .card { order: 2; }
+.spread--full { grid-template-columns: minmax(0, 1fr); }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: clamp(1.2rem, 2.5vw, 2rem); }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 1.2rem 1.3rem 1.4rem;
+  min-width: 0;
+}
+.band--paper .card { background: #FFFFFF; }
+
+.card__head { margin-bottom: 1rem; }
+.card__head .eyebrow { margin-bottom: 0.5rem; }
+.card__head .h-chart { margin-bottom: 0.35rem; }
+.card__head p {
+  font-size: 13.5px; line-height: 1.5; color: var(--muted); max-width: 52em;
+}
+
+.chart { overflow-x: auto; margin-inline: -0.2rem; }
+.chart > div { min-height: 60px; }
+
+.card__foot {
+  margin-top: 0.9rem; padding-top: 0.8rem;
+  border-top: 1px solid var(--rule);
+  font: 400 11.5px/1.5 var(--mono);
   color: var(--faint);
 }
 
-/* ---------- metadata footer ---------------------------------------------- */
-footer {
-  margin-block: 6rem 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--rule);
+/* the note column beside a chart */
+.note { padding-top: 0.4rem; }
+.note h4 {
+  font-size: 12px; font-family: var(--mono); font-weight: 600;
+  letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.7rem;
 }
-footer h2 { font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; }
-footer p,
-footer li { font-size: 13px; line-height: 1.6; color: var(--muted); }
-footer ul { margin: 0.5rem 0 1.5rem; padding-left: 1.1rem; max-width: 46em; }
-footer li { margin-bottom: 0.4rem; }
+.note p { font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
+.note p + p { margin-top: 0.8rem; }
+.note .big {
+  font: 800 2.3rem/1 var(--display); letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums; color: var(--ink);
+  display: block; margin-bottom: 0.3rem;
+}
 
-/* ---------- responsive --------------------------------------------------- */
+/* ---------- bin explainer ------------------------------------------------- */
+.bins { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1.1rem; margin-top: 2rem; }
+.bin {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 3px;
+  padding: 0 0 1rem; overflow: hidden;
+}
+.bin i { display: block; height: 9px; }
+.bin h4 { font-size: 15px; font-weight: 700; margin: 0.95rem 1rem 0.4rem; }
+.bin p { font-size: 13.5px; line-height: 1.5; color: var(--muted); margin: 0 1rem; }
+.bin .amt {
+  display: block; margin: 0.7rem 1rem 0;
+  font: 600 12px/1 var(--mono); color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- glossary / framing -------------------------------------------- */
+.framing { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1.6rem 2.2rem; margin-top: 2.2rem; }
+.framing div h4 {
+  font: 600 11px/1 var(--mono); letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--good); margin-bottom: 0.6rem;
+}
+.framing div p { font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); }
+
+/* ---------- footer -------------------------------------------------------- */
+.colophon { color: #B4BCB1; }
+.colophon .h-section { color: #F2F5EF; font-size: 1.3rem; margin-bottom: 1.4rem; }
+.colophon h4 {
+  font: 600 11px/1 var(--mono); letter-spacing: 0.16em; text-transform: uppercase;
+  color: #8E9A8C; margin: 2rem 0 0.8rem;
+}
+.colophon p, .colophon li { font-size: 13.5px; line-height: 1.65; }
+.colophon ul { margin: 0; padding-left: 1.1rem; max-width: 58em; }
+.colophon li { margin-bottom: 0.5rem; }
+.colophon a { color: #9FD4B4; }
+
+/* ---------- motion, once, and only if welcome ----------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .lidbar span { animation: wipe 900ms cubic-bezier(.2,.7,.3,1) both; }
+  .lidbar span:nth-child(2) { animation-delay: 90ms; }
+  .lidbar span:nth-child(3) { animation-delay: 180ms; }
+  .lidbar span:nth-child(4) { animation-delay: 270ms; }
+  @keyframes wipe { from { transform: scaleX(0); transform-origin: left; } }
+}
+
+/* ---------- responsive ---------------------------------------------------- */
 @media (max-width: 900px) {
-  .grid-2 { grid-template-columns: 1fr; }
-  h1 { font-size: 34px; }
-  .wrap { padding-inline: 1.25rem; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
+  .spread { grid-template-columns: minmax(0, 1fr); }
+  .spread--reverse > .card { order: 0; }
+  body { font-size: 16px; }
 }

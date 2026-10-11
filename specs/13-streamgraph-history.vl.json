@@ -1,10 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": {
-    "text": "The green bin reshaped Victoria's kerbside in twenty years",
-    "subtitle": "Tonnes collected by stream, 2001\u201302 to 2023\u201324"
-  },
-  "width": 620,
+  "width": 980,
   "height": 300,
   "layer": [
     {
@@ -61,17 +57,13 @@
               "Glass"
             ],
             "range": [
-              "#C0392B",
-              "#E8B10A",
-              "#7CB342",
-              "#7E57C2"
+              "#C8372D",
+              "#E3A008",
+              "#7FB539",
+              "#7A52C7"
             ]
           },
-          "legend": {
-            "title": null,
-            "orient": "top-left",
-            "offset": 4
-          }
+          "legend": null
         },
         "tooltip": [
           {
@@ -205,5 +197,6 @@
         }
       }
     }
-  ]
+  ],
+  "background": null
 }

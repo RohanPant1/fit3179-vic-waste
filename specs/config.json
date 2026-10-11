@@ -1,56 +1,52 @@
 {
-  "font": "Source Sans 3",
+  "font": "Archivo",
   "background": null,
   "padding": {
-    "top": 5,
-    "left": 5,
-    "right": 20,
-    "bottom": 5
+    "top": 4,
+    "left": 4,
+    "right": 16,
+    "bottom": 4
   },
   "axis": {
-    "labelFontSize": 12,
-    "titleFontSize": 13,
-    "labelColor": "#5A5A5A",
-    "titleColor": "#1A1A1A",
-    "domainColor": "#E6E6E1",
-    "tickColor": "#E6E6E1",
+    "labelFontSize": 11.5,
+    "titleFontSize": 11.5,
+    "labelColor": "#5E6659",
+    "titleColor": "#2C3329",
+    "domainColor": "#C9CDC4",
+    "tickColor": "#C9CDC4",
     "grid": false,
-    "labelFont": "Source Sans 3",
-    "titleFont": "Source Sans 3",
-    "titleFontWeight": 600
+    "labelFont": "IBM Plex Mono",
+    "titleFont": "Archivo",
+    "titleFontWeight": 600,
+    "titlePadding": 8,
+    "labelPadding": 4
   },
   "legend": {
-    "labelFontSize": 12,
-    "titleFontSize": 12,
-    "labelColor": "#5A5A5A",
-    "titleColor": "#1A1A1A",
-    "titleFont": "Source Sans 3",
-    "labelFont": "Source Sans 3",
+    "labelFontSize": 11,
+    "titleFontSize": 11,
+    "labelColor": "#5E6659",
+    "titleColor": "#2C3329",
+    "titleFont": "Archivo",
+    "labelFont": "IBM Plex Mono",
     "titleFontWeight": 600,
-    "orient": "right"
-  },
-  "title": {
-    "font": "Space Grotesk",
-    "fontSize": 17,
-    "fontWeight": 700,
-    "anchor": "start",
-    "color": "#1A1A1A",
-    "subtitleFont": "Source Sans 3",
-    "subtitleFontSize": 13,
-    "subtitleColor": "#5A5A5A",
-    "subtitlePadding": 6,
-    "offset": 10
+    "orient": "top-left",
+    "padding": 0,
+    "offset": 4,
+    "labelLimit": 300
   },
   "view": {
     "stroke": null
   },
   "range": {
     "category": [
-      "#C0392B",
-      "#E8B10A",
-      "#7CB342",
-      "#7E57C2",
+      "#C8372D",
+      "#E3A008",
+      "#7FB539",
+      "#7A52C7",
       "#5A5A5A"
     ]
+  },
+  "text": {
+    "font": "Archivo"
   }
 }

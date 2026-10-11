@@ -1,10 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": {
-    "text": "A green bin is worth about twenty points of diversion",
-    "subtitle": "Where councils fall on diversion, by how many kerbside bins they offer. 10 councils still have two."
-  },
-  "width": 560,
+  "width": 620,
   "height": 260,
   "data": {
     "url": "data/council_snapshot_latest.csv"
@@ -69,16 +65,19 @@
               "4 bins (+ glass)"
             ],
             "range": [
-              "#C0392B",
-              "#7CB342",
+              "#C8372D",
+              "#7FB539",
               "#1F5F4B"
             ]
           },
           "legend": {
             "title": null,
             "orient": "top-left",
-            "offset": 2,
-            "labelLimit": 260
+            "offset": 4,
+            "labelLimit": 300,
+            "padding": 0,
+            "titleFontSize": 11,
+            "labelFontSize": 11
           }
         },
         "tooltip": [
@@ -134,8 +133,8 @@
               "4 bins (+ glass)"
             ],
             "range": [
-              "#C0392B",
-              "#7CB342",
+              "#C8372D",
+              "#7FB539",
               "#1F5F4B"
             ]
           },
@@ -179,5 +178,6 @@
         }
       }
     }
-  ]
+  ],
+  "background": null
 }

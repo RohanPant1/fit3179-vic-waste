@@ -37,7 +37,10 @@ for spec_path in specs:
     spec["config"] = {**config, **spec.get("config", {})}
     # config.json sets background null so the live page shows through; a PNG
     # needs something opaque or it composites black in any viewer.
-    spec["config"]["background"] = "#FDFDFB"
+    spec["config"]["background"] = "#F7F8F4"
+    # specs set background null so the live card shows through; a top-level
+    # value beats config, so clear it or every preview comes out transparent
+    spec.pop("background", None)
 
     with tempfile.NamedTemporaryFile(
         "w", suffix=".vl.json", dir=HERE, delete=False, encoding="utf-8"

@@ -1,13 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": {
-    "text": "Half of Victoria's kerbside waste never reaches landfill",
-    "subtitle": "Share of kerbside collection diverted from landfill, by council, 2024–25",
-    "subtitleFontSize": 13
-  },
   "hconcat": [
     {
-      "width": 560,
+      "width": 660,
       "height": 420,
       "data": {
         "url": "data/vic_lga.topo.json",
@@ -81,7 +76,11 @@
           "legend": {
             "title": "Diverted (%)",
             "orient": "right",
-            "offset": 4
+            "offset": 4,
+            "labelLimit": 300,
+            "padding": 0,
+            "titleFontSize": 11,
+            "labelFontSize": 11
           }
         },
         "tooltip": [
@@ -109,7 +108,7 @@
       }
     },
     {
-      "width": 215,
+      "width": 250,
       "height": 215,
       "title": {
         "text": "Metropolitan Melbourne",
@@ -218,5 +217,6 @@
     "scale": {
       "color": "shared"
     }
-  }
+  },
+  "background": null
 }

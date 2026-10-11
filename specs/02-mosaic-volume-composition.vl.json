@@ -1,10 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": {
-    "text": "How each council type splits its tonnage",
-    "subtitle": "Share of total kerbside tonnage by stream, 2023\u201324. Types ordered by total tonnage."
-  },
-  "width": 600,
+  "width": 620,
   "height": 330,
   "data": {
     "url": "data/council_snapshot_latest.csv"
@@ -93,15 +89,13 @@
           "Glass"
         ],
         "range": [
-          "#C0392B",
-          "#E8B10A",
-          "#7CB342",
-          "#7E57C2"
+          "#C8372D",
+          "#E3A008",
+          "#7FB539",
+          "#7A52C7"
         ]
       },
-      "legend": {
-        "title": null
-      }
+      "legend": null
     },
     "tooltip": [
       {
@@ -118,5 +112,6 @@
         "title": "Tonnes"
       }
     ]
-  }
+  },
+  "background": null
 }

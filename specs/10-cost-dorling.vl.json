@@ -1,0 +1,188 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "background": null,
+  "width": 900,
+  "height": 500,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -36,
+      -38
+    ],
+    "rotate": [
+      -145,
+      0,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/vic_outline.topo.json",
+        "format": {
+          "type": "topojson",
+          "feature": "vic_outline"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#DFE2DA",
+        "stroke": "#C3C8BD",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "data/council_dorling.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "opacity": 0.95,
+        "stroke": "#F7F8F4",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "households",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "range": [
+              25,
+              1500
+            ]
+          },
+          "legend": null
+        },
+        "color": {
+          "field": "garbage_cost_per_bin",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              100,
+              130,
+              160,
+              200,
+              250
+            ],
+            "range": [
+              "#2E6B3E",
+              "#7FB539",
+              "#D9CB4E",
+              "#E3A008",
+              "#D2622B",
+              "#C8372D"
+            ]
+          },
+          "legend": {
+            "title": "Cost per bin",
+            "orient": "right",
+            "offset": 8,
+            "format": "$.0f",
+            "titleFontSize": 11,
+            "labelFontSize": 11
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Council",
+            "title": "Council"
+          },
+          {
+            "field": "group",
+            "title": "Council type"
+          },
+          {
+            "field": "garbage_cost_per_bin",
+            "type": "quantitative",
+            "format": "$.0f",
+            "title": "Cost per bin"
+          },
+          {
+            "field": "lgprf_diversion_pct",
+            "type": "quantitative",
+            "format": ".0f",
+            "title": "Kept out of landfill (%)"
+          },
+          {
+            "field": "households",
+            "type": "quantitative",
+            "format": ",.0f",
+            "title": "Households"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/council_dorling.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.households > 80000"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 8.5,
+        "font": "IBM Plex Mono",
+        "color": "#15181A",
+        "opacity": 0.8
+      },
+      "encoding": {
+        "longitude": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "lga_name"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 142.0,
+            "y": -34.4,
+            "t": "Melbourne City \u2014 $476 a bin"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontSize": 11.5,
+        "fontWeight": 600,
+        "color": "#C8372D",
+        "font": "Archivo"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    }
+  ]
+}

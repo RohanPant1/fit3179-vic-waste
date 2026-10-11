@@ -1,10 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": {
-    "text": "How much each council puts out",
-    "subtitle": "Kilograms of kerbside material per household per year, 2023\u201324"
-  },
-  "width": 560,
+  "width": 620,
   "height": 420,
   "data": {
     "url": "data/vic_lga.topo.json",
@@ -80,7 +76,13 @@
         ]
       },
       "legend": {
-        "title": "kg / household"
+        "title": "kg / household",
+        "orient": "top-left",
+        "offset": 4,
+        "labelLimit": 300,
+        "padding": 0,
+        "titleFontSize": 11,
+        "labelFontSize": 11
       }
     },
     "tooltip": [
@@ -98,5 +100,6 @@
         "title": "kg/household"
       }
     ]
-  }
+  },
+  "background": null
 }

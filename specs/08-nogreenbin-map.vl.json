@@ -1,10 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": {
-    "text": "Thirteen councils still have no green bin",
-    "subtitle": "Councils without a kerbside organics collection, 2023\u201324"
-  },
-  "width": 620,
+  "width": 980,
   "height": 440,
   "layer": [
     {
@@ -69,12 +65,18 @@
               "Has a green bin"
             ],
             "range": [
-              "#C0392B",
+              "#C8372D",
               "#DCE6DC"
             ]
           },
           "legend": {
-            "title": null
+            "title": null,
+            "orient": "top-left",
+            "offset": 4,
+            "labelLimit": 300,
+            "padding": 0,
+            "titleFontSize": 11,
+            "labelFontSize": 11
           }
         },
         "tooltip": [
@@ -136,5 +138,6 @@
         }
       }
     }
-  ]
+  ],
+  "background": null
 }

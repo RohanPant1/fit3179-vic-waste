@@ -1,10 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": {
-    "text": "The five council types overlap almost completely",
-    "subtitle": "Each dot is one council. Bars mark the group median, 2024\u201325"
-  },
-  "width": 620,
+  "width": 980,
   "height": 300,
   "data": {
     "url": "data/council_snapshot_latest.csv"
@@ -96,7 +92,7 @@
             "range": [
               "#13496B",
               "#4F93C0",
-              "#E8A33D",
+              "#8A8F86",
               "#B5562A",
               "#6E5887"
             ]
@@ -120,5 +116,6 @@
         ]
       }
     }
-  ]
+  ],
+  "background": null
 }

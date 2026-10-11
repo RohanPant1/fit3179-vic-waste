@@ -1,9 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": {
-    "text": "More is collected for recycling, less of it survives",
-    "subtitle": "Share of kerbside recycling collected but never recovered, Victoria"
-  },
   "width": 260,
   "height": 340,
   "data": {
@@ -22,7 +18,7 @@
       "mark": {
         "type": "line",
         "strokeWidth": 3,
-        "color": "#C0392B"
+        "color": "#C8372D"
       },
       "encoding": {
         "x": {
@@ -54,7 +50,7 @@
         "type": "point",
         "filled": true,
         "size": 120,
-        "color": "#C0392B"
+        "color": "#C8372D"
       },
       "encoding": {
         "x": {
@@ -74,7 +70,7 @@
         "dy": -16,
         "fontSize": 15,
         "fontWeight": 700,
-        "color": "#C0392B"
+        "color": "#C8372D"
       },
       "encoding": {
         "x": {
@@ -92,5 +88,6 @@
         }
       }
     }
-  ]
+  ],
+  "background": null
 }

@@ -1,10 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": {
-    "text": "Missing out on a green bin is not about disadvantage",
-    "subtitle": "Socio-economic position of councils with and without kerbside organics. The distributions overlap."
-  },
-  "width": 520,
+  "width": 620,
   "height": 230,
   "data": {
     "url": "data/council_snapshot_latest.csv"
@@ -67,15 +63,18 @@
               "Has a green bin"
             ],
             "range": [
-              "#C0392B",
-              "#7CB342"
+              "#C8372D",
+              "#7FB539"
             ]
           },
           "legend": {
             "title": null,
             "orient": "top-left",
-            "offset": 2,
-            "labelLimit": 220
+            "offset": 4,
+            "labelLimit": 300,
+            "padding": 0,
+            "titleFontSize": 11,
+            "labelFontSize": 11
           }
         }
       }
@@ -108,5 +107,6 @@
         }
       }
     }
-  ]
+  ],
+  "background": null
 }

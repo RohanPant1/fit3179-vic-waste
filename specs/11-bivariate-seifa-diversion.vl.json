@@ -1,12 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": {
-    "text": "Better-off councils tend to divert more, but not everywhere",
-    "subtitle": "Socio-economic position against diversion rate. Darker blue-green is both better off and diverting more."
-  },
   "hconcat": [
     {
-      "width": 560,
+      "width": 760,
       "height": 420,
       "data": {
         "url": "data/vic_lga.topo.json",
@@ -231,5 +227,6 @@
       }
     }
   ],
-  "spacing": 30
+  "spacing": 30,
+  "background": null
 }

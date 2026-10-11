@@ -2,15 +2,15 @@
   "groups": {
     "Metro": "#13496B",
     "Interface": "#4F93C0",
-    "Regional City": "#E8A33D",
+    "Regional City": "#8A8F86",
     "Large Shire": "#B5562A",
     "Small Shire": "#6E5887"
   },
   "bins": {
-    "Garbage": "#C0392B",
-    "Mixed recycling": "#E8B10A",
-    "Organics": "#7CB342",
-    "Glass": "#7E57C2"
+    "Garbage": "#C8372D",
+    "Mixed recycling": "#E3A008",
+    "Organics": "#7FB539",
+    "Glass": "#7A52C7"
   },
   "note": "Bin-lid colours encode waste streams only. Council groups use the blue/amber set so the two never collide."
 }
