@@ -8,7 +8,7 @@
    visitor can sit on a stale chart indefinitely. Bump it when specs or data
    change. */
 
-const BUILD = "2026-10-11g";
+const BUILD = "2026-10-11h";
 
 const CHARTS = [
   { el: "#vis-01-waffle",       spec: "specs/01-waffle-streams.vl.json" },
@@ -24,7 +24,7 @@ const CHARTS = [
   { el: "#vis-11-bivariate",    spec: "specs/11-bivariate-seifa-diversion.vl.json" },
   { el: "#vis-12-seifaservice", spec: "specs/12-seifa-by-service.vl.json" },
   { el: "#vis-13-streamgraph",  spec: "specs/13-streamgraph-history.vl.json" },
-  { el: "#vis-14-rollout",      spec: "specs/14-rollout-smallmultiples.vl.json" }
+  { el: "#vis-14-rollout",      spec: "specs/14-rollout-by-year.vl.json" }
 ];
 
 const stamp = (url) => url + (url.includes("?") ? "&" : "?") + "v=" + BUILD;
