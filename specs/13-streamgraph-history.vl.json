@@ -5,7 +5,10 @@
   "layer": [
     {
       "data": {
-        "url": "data/statewide_by_year.csv"
+        "url": "data/statewide_by_year.csv",
+        "format": {
+          "type": "csv"
+        }
       },
       "transform": [
         {

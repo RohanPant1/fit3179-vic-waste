@@ -3,7 +3,10 @@
   "width": 330,
   "height": 320,
   "data": {
-    "url": "data/waffle_streams.csv"
+    "url": "data/waffle_streams.csv",
+    "format": {
+      "type": "csv"
+    }
   },
   "mark": {
     "type": "square",

@@ -243,7 +243,10 @@
     },
     {
       "data": {
-        "url": "data/council_snapshot_latest.csv"
+        "url": "data/council_snapshot_latest.csv",
+        "format": {
+          "type": "csv"
+        }
       },
       "mark": {
         "type": "circle",
@@ -279,7 +282,10 @@
     },
     {
       "data": {
-        "url": "data/council_cost_diversion_2020_2025.csv"
+        "url": "data/council_cost_diversion_2020_2025.csv",
+        "format": {
+          "type": "csv"
+        }
       },
       "transform": [
         {
@@ -353,7 +359,10 @@
     },
     {
       "data": {
-        "url": "data/council_cost_diversion_2020_2025.csv"
+        "url": "data/council_cost_diversion_2020_2025.csv",
+        "format": {
+          "type": "csv"
+        }
       },
       "transform": [
         {
@@ -428,7 +437,10 @@
     },
     {
       "data": {
-        "url": "data/council_cost_diversion_2020_2025.csv"
+        "url": "data/council_cost_diversion_2020_2025.csv",
+        "format": {
+          "type": "csv"
+        }
       },
       "transform": [
         {
@@ -503,7 +515,10 @@
     },
     {
       "data": {
-        "url": "data/council_cost_diversion_2020_2025.csv"
+        "url": "data/council_cost_diversion_2020_2025.csv",
+        "format": {
+          "type": "csv"
+        }
       },
       "transform": [
         {

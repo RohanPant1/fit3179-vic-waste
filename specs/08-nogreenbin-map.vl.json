@@ -98,7 +98,10 @@
     },
     {
       "data": {
-        "url": "data/council_snapshot_latest.csv"
+        "url": "data/council_snapshot_latest.csv",
+        "format": {
+          "type": "csv"
+        }
       },
       "projection": {
         "type": "conicEqualArea",

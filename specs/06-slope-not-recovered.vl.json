@@ -3,7 +3,10 @@
   "width": 260,
   "height": 340,
   "data": {
-    "url": "data/statewide_by_year.csv"
+    "url": "data/statewide_by_year.csv",
+    "format": {
+      "type": "csv"
+    }
   },
   "transform": [
     {

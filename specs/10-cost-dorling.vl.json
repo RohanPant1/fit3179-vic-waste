@@ -33,7 +33,10 @@
     },
     {
       "data": {
-        "url": "data/council_dorling.csv"
+        "url": "data/council_dorling.csv",
+        "format": {
+          "type": "csv"
+        }
       },
       "mark": {
         "type": "circle",
@@ -124,7 +127,10 @@
     },
     {
       "data": {
-        "url": "data/council_dorling.csv"
+        "url": "data/council_dorling.csv",
+        "format": {
+          "type": "csv"
+        }
       },
       "transform": [
         {

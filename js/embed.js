@@ -8,7 +8,7 @@
    visitor can sit on a stale chart indefinitely. Bump it when specs or data
    change. */
 
-const BUILD = "2026-10-11d";
+const BUILD = "2026-10-11e";
 
 const CHARTS = [
   { el: "#vis-01-waffle",       spec: "specs/01-waffle-streams.vl.json" },

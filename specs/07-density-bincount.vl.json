@@ -3,7 +3,10 @@
   "width": 490,
   "height": 260,
   "data": {
-    "url": "data/council_snapshot_latest.csv"
+    "url": "data/council_snapshot_latest.csv",
+    "format": {
+      "type": "csv"
+    }
   },
   "transform": [
     {
@@ -90,7 +93,10 @@
     },
     {
       "data": {
-        "url": "data/council_snapshot_latest.csv"
+        "url": "data/council_snapshot_latest.csv",
+        "format": {
+          "type": "csv"
+        }
       },
       "transform": [
         {
