@@ -1,475 +1,712 @@
-financial_year,council,lga_code,streams,has_organics,has_glass
-2015-2016,Alpine Shire,20110,2,False,False
-2015-2016,Ararat Rural City,20260,2,False,False
-2015-2016,Ballarat City,20570,2,False,False
-2015-2016,Banyule City,20660,3,True,False
-2015-2016,Bass Coast Shire,20740,2,False,False
-2015-2016,Baw Baw Shire,20830,3,True,False
-2015-2016,Bayside City,20910,3,True,False
-2015-2016,Benalla Rural City,21010,3,True,False
-2015-2016,Boroondara City,21110,3,True,False
-2015-2016,Brimbank City,21180,3,True,False
-2015-2016,Buloke Shire,21270,2,False,False
-2015-2016,Campaspe Shire,21370,3,True,False
-2015-2016,Cardinia Shire,21450,3,True,False
-2015-2016,Casey City,21610,3,True,False
-2015-2016,Central Goldfields Shire,21670,3,True,False
-2015-2016,Colac Otway Shire,21750,3,True,False
-2015-2016,Corangamite Shire,21830,3,True,False
-2015-2016,Darebin City,21890,3,True,False
-2015-2016,East Gippsland Shire,22110,3,True,False
-2015-2016,Frankston City,22170,3,True,False
-2015-2016,Gannawarra Shire,22250,3,True,False
-2015-2016,Glen Eira City,22310,3,True,False
-2015-2016,Glenelg Shire,22410,2,False,False
-2015-2016,Golden Plains Shire,22490,2,False,False
-2015-2016,Greater Bendigo City,22620,2,False,False
-2015-2016,Greater Dandenong City,22670,3,True,False
-2015-2016,Greater Geelong City,22750,3,True,False
-2015-2016,Greater Shepparton City,22830,3,True,False
-2015-2016,Hepburn Shire,22910,2,False,False
-2015-2016,Hindmarsh Shire,22980,2,False,False
-2015-2016,Hobsons Bay City,23110,3,True,False
-2015-2016,Horsham Rural City,23190,2,False,False
-2015-2016,Hume City,23270,3,True,False
-2015-2016,Indigo Shire,23350,3,True,False
-2015-2016,Kingston City,23430,3,True,False
-2015-2016,Knox City,23670,3,True,False
-2015-2016,Latrobe City,23810,3,True,False
-2015-2016,Loddon Shire,23940,2,False,False
-2015-2016,Macedon Ranges Shire,24130,3,True,False
-2015-2016,Manningham City,24210,3,True,False
-2015-2016,Mansfield Shire,24250,2,False,False
-2015-2016,Maribyrnong City,24330,3,True,False
-2015-2016,Maroondah City,24410,3,True,False
-2015-2016,Melbourne City,24600,2,False,False
-2015-2016,Melton City,24650,3,True,False
-2015-2016,Merri-Bek City,24700,3,True,False
-2015-2016,Mildura Rural City,24780,2,False,False
-2015-2016,Mitchell Shire,24850,2,False,False
-2015-2016,Moira Shire,24900,3,True,False
-2015-2016,Monash City,24970,3,True,False
-2015-2016,Moonee Valley City,25060,3,True,False
-2015-2016,Moorabool Shire,25150,2,False,False
-2015-2016,Mornington Peninsula Shire,25340,3,True,False
-2015-2016,Mount Alexander Shire,25430,2,False,False
-2015-2016,Moyne Shire,25490,3,True,False
-2015-2016,Murrindindi Shire,25620,2,False,False
-2015-2016,Nillumbik Shire,25710,3,True,False
-2015-2016,Northern Grampians Shire,25810,2,False,False
-2015-2016,Port Phillip City,25900,2,False,False
-2015-2016,Pyrenees Shire,25990,3,True,False
-2015-2016,Queenscliffe Borough,26080,3,True,False
-2015-2016,South Gippsland Shire,26170,3,True,False
-2015-2016,Southern Grampians Shire,26260,3,True,False
-2015-2016,Stonnington City,26350,3,True,False
-2015-2016,Strathbogie Shire,26430,3,True,False
-2015-2016,Surf Coast Shire,26490,3,True,False
-2015-2016,Swan Hill Rural City,26610,3,True,False
-2015-2016,Towong Shire,26670,2,False,False
-2015-2016,Wangaratta Rural City,26700,3,True,False
-2015-2016,Warrnambool City,26730,2,False,False
-2015-2016,Wellington Shire,26810,2,False,False
-2015-2016,West Wimmera Shire,26890,2,False,False
-2015-2016,Whitehorse City,26980,3,True,False
-2015-2016,Whittlesea City,27070,3,True,False
-2015-2016,Wodonga City,27170,3,True,False
-2015-2016,Wyndham City,27260,3,True,False
-2015-2016,Yarra City,27350,2,False,False
-2015-2016,Yarra Ranges Shire,27450,3,True,False
-2015-2016,Yarriambiack Shire,27630,2,False,False
-2018-2019,Alpine Shire,20110,2,False,False
-2018-2019,Ararat Rural City,20260,2,False,False
-2018-2019,Ballarat City,20570,3,True,False
-2018-2019,Banyule City,20660,3,True,False
-2018-2019,Bass Coast Shire,20740,3,True,False
-2018-2019,Baw Baw Shire,20830,3,True,False
-2018-2019,Bayside City,20910,3,True,False
-2018-2019,Benalla Rural City,21010,3,True,False
-2018-2019,Boroondara City,21110,3,True,False
-2018-2019,Brimbank City,21180,3,True,False
-2018-2019,Buloke Shire,21270,2,False,False
-2018-2019,Campaspe Shire,21370,3,True,False
-2018-2019,Cardinia Shire,21450,3,True,False
-2018-2019,Casey City,21610,3,True,False
-2018-2019,Central Goldfields Shire,21670,3,True,False
-2018-2019,Colac Otway Shire,21750,3,True,False
-2018-2019,Corangamite Shire,21830,3,True,False
-2018-2019,Darebin City,21890,3,True,False
-2018-2019,East Gippsland Shire,22110,3,True,False
-2018-2019,Frankston City,22170,3,True,False
-2018-2019,Gannawarra Shire,22250,3,True,False
-2018-2019,Glen Eira City,22310,3,True,False
-2018-2019,Glenelg Shire,22410,2,False,False
-2018-2019,Golden Plains Shire,22490,2,False,False
-2018-2019,Greater Bendigo City,22620,3,True,False
-2018-2019,Greater Dandenong City,22670,3,True,False
-2018-2019,Greater Geelong City,22750,3,True,False
-2018-2019,Greater Shepparton City,22830,3,True,False
-2018-2019,Hepburn Shire,22910,2,False,False
-2018-2019,Hindmarsh Shire,22980,2,False,False
-2018-2019,Hobsons Bay City,23110,3,True,False
-2018-2019,Horsham Rural City,23190,2,False,False
-2018-2019,Hume City,23270,3,True,False
-2018-2019,Indigo Shire,23350,3,True,False
-2018-2019,Kingston City,23430,3,True,False
-2018-2019,Knox City,23670,3,True,False
-2018-2019,Latrobe City,23810,3,True,False
-2018-2019,Loddon Shire,23940,2,False,False
-2018-2019,Macedon Ranges Shire,24130,3,True,False
-2018-2019,Manningham City,24210,3,True,False
-2018-2019,Mansfield Shire,24250,2,False,False
-2018-2019,Maribyrnong City,24330,3,True,False
-2018-2019,Maroondah City,24410,3,True,False
-2018-2019,Melbourne City,24600,2,False,False
-2018-2019,Melton City,24650,3,True,False
-2018-2019,Merri-Bek City,24700,3,True,False
-2018-2019,Mildura Rural City,24780,2,False,False
-2018-2019,Mitchell Shire,24850,2,False,False
-2018-2019,Moira Shire,24900,3,True,False
-2018-2019,Monash City,24970,3,True,False
-2018-2019,Moonee Valley City,25060,3,True,False
-2018-2019,Moorabool Shire,25150,3,True,False
-2018-2019,Mornington Peninsula Shire,25340,3,True,False
-2018-2019,Mount Alexander Shire,25430,2,False,False
-2018-2019,Moyne Shire,25490,3,True,False
-2018-2019,Murrindindi Shire,25620,2,False,False
-2018-2019,Nillumbik Shire,25710,3,True,False
-2018-2019,Northern Grampians Shire,25810,2,False,False
-2018-2019,Port Phillip City,25900,2,False,False
-2018-2019,Pyrenees Shire,25990,3,True,False
-2018-2019,Queenscliffe Borough,26080,3,True,False
-2018-2019,South Gippsland Shire,26170,3,True,False
-2018-2019,Southern Grampians Shire,26260,3,True,False
-2018-2019,Stonnington City,26350,3,True,False
-2018-2019,Strathbogie Shire,26430,3,True,False
-2018-2019,Surf Coast Shire,26490,3,True,False
-2018-2019,Swan Hill Rural City,26610,3,True,False
-2018-2019,Towong Shire,26670,2,False,False
-2018-2019,Wangaratta Rural City,26700,3,True,False
-2018-2019,Warrnambool City,26730,3,True,False
-2018-2019,Wellington Shire,26810,2,False,False
-2018-2019,West Wimmera Shire,26890,2,False,False
-2018-2019,Whitehorse City,26980,3,True,False
-2018-2019,Whittlesea City,27070,3,True,False
-2018-2019,Wodonga City,27170,3,True,False
-2018-2019,Wyndham City,27260,3,True,False
-2018-2019,Yarra City,27350,2,False,False
-2018-2019,Yarra Ranges Shire,27450,3,True,False
-2018-2019,Yarriambiack Shire,27630,2,False,False
-2020-2021,Alpine Shire,20110,2,False,False
-2020-2021,Ararat Rural City,20260,2,False,False
-2020-2021,Ballarat City,20570,4,True,True
-2020-2021,Banyule City,20660,3,True,False
-2020-2021,Bass Coast Shire,20740,3,True,False
-2020-2021,Baw Baw Shire,20830,3,True,False
-2020-2021,Bayside City,20910,3,True,False
-2020-2021,Benalla Rural City,21010,3,True,False
-2020-2021,Boroondara City,21110,3,True,False
-2020-2021,Brimbank City,21180,3,True,False
-2020-2021,Buloke Shire,21270,2,False,False
-2020-2021,Campaspe Shire,21370,3,True,False
-2020-2021,Cardinia Shire,21450,3,True,False
-2020-2021,Casey City,21610,3,True,False
-2020-2021,Central Goldfields Shire,21670,3,True,False
-2020-2021,Colac Otway Shire,21750,3,True,False
-2020-2021,Corangamite Shire,21830,3,True,False
-2020-2021,Darebin City,21890,3,True,False
-2020-2021,East Gippsland Shire,22110,3,True,False
-2020-2021,Frankston City,22170,3,True,False
-2020-2021,Gannawarra Shire,22250,3,True,False
-2020-2021,Glen Eira City,22310,3,True,False
-2020-2021,Glenelg Shire,22410,2,False,False
-2020-2021,Golden Plains Shire,22490,2,False,False
-2020-2021,Greater Bendigo City,22620,3,True,False
-2020-2021,Greater Dandenong City,22670,3,True,False
-2020-2021,Greater Geelong City,22750,3,True,False
-2020-2021,Greater Shepparton City,22830,3,True,False
-2020-2021,Hepburn Shire,22910,2,False,False
-2020-2021,Hindmarsh Shire,22980,2,False,False
-2020-2021,Hobsons Bay City,23110,4,True,True
-2020-2021,Horsham Rural City,23190,2,False,False
-2020-2021,Hume City,23270,3,True,False
-2020-2021,Indigo Shire,23350,3,True,False
-2020-2021,Kingston City,23430,3,True,False
-2020-2021,Knox City,23670,3,True,False
-2020-2021,Latrobe City,23810,3,True,False
-2020-2021,Loddon Shire,23940,2,False,False
-2020-2021,Macedon Ranges Shire,24130,4,True,True
-2020-2021,Manningham City,24210,3,True,False
-2020-2021,Mansfield Shire,24250,2,False,False
-2020-2021,Maribyrnong City,24330,3,True,False
-2020-2021,Maroondah City,24410,3,True,False
-2020-2021,Melbourne City,24600,3,True,False
-2020-2021,Melton City,24650,3,True,False
-2020-2021,Merri-Bek City,24700,3,True,False
-2020-2021,Mildura Rural City,24780,3,True,False
-2020-2021,Mitchell Shire,24850,2,False,False
-2020-2021,Moira Shire,24900,3,True,False
-2020-2021,Monash City,24970,3,True,False
-2020-2021,Moonee Valley City,25060,3,True,False
-2020-2021,Moorabool Shire,25150,3,True,False
-2020-2021,Mornington Peninsula Shire,25340,3,True,False
-2020-2021,Mount Alexander Shire,25430,2,False,False
-2020-2021,Moyne Shire,25490,4,True,True
-2020-2021,Murrindindi Shire,25620,2,False,False
-2020-2021,Nillumbik Shire,25710,3,True,False
-2020-2021,Northern Grampians Shire,25810,2,False,False
-2020-2021,Port Phillip City,25900,2,False,False
-2020-2021,Pyrenees Shire,25990,3,True,False
-2020-2021,Queenscliffe Borough,26080,2,False,False
-2020-2021,South Gippsland Shire,26170,3,True,False
-2020-2021,Southern Grampians Shire,26260,3,True,False
-2020-2021,Stonnington City,26350,3,True,False
-2020-2021,Strathbogie Shire,26430,3,True,False
-2020-2021,Surf Coast Shire,26490,4,True,True
-2020-2021,Swan Hill Rural City,26610,3,True,False
-2020-2021,Towong Shire,26670,2,False,False
-2020-2021,Wangaratta Rural City,26700,3,True,False
-2020-2021,Warrnambool City,26730,4,True,True
-2020-2021,Wellington Shire,26810,2,False,False
-2020-2021,West Wimmera Shire,26890,2,False,False
-2020-2021,Whitehorse City,26980,3,True,False
-2020-2021,Whittlesea City,27070,3,True,False
-2020-2021,Wodonga City,27170,3,True,False
-2020-2021,Wyndham City,27260,3,True,False
-2020-2021,Yarra City,27350,3,False,True
-2020-2021,Yarra Ranges Shire,27450,3,True,False
-2020-2021,Yarriambiack Shire,27630,2,False,False
-2021-2022,Alpine Shire,20110,2,False,False
-2021-2022,Ararat Rural City,20260,2,False,False
-2021-2022,Ballarat City,20570,3,True,False
-2021-2022,Banyule City,20660,3,True,False
-2021-2022,Bass Coast Shire,20740,3,True,False
-2021-2022,Baw Baw Shire,20830,3,True,False
-2021-2022,Bayside City,20910,3,True,False
-2021-2022,Benalla Rural City,21010,3,True,False
-2021-2022,Boroondara City,21110,3,True,False
-2021-2022,Brimbank City,21180,3,True,False
-2021-2022,Buloke Shire,21270,2,False,False
-2021-2022,Campaspe Shire,21370,3,True,False
-2021-2022,Cardinia Shire,21450,3,True,False
-2021-2022,Casey City,21610,3,True,False
-2021-2022,Central Goldfields Shire,21670,3,True,False
-2021-2022,Colac Otway Shire,21750,4,True,True
-2021-2022,Corangamite Shire,21830,3,True,False
-2021-2022,Darebin City,21890,3,True,False
-2021-2022,East Gippsland Shire,22110,3,True,False
-2021-2022,Frankston City,22170,3,True,False
-2021-2022,Gannawarra Shire,22250,3,True,False
-2021-2022,Glen Eira City,22310,3,True,False
-2021-2022,Glenelg Shire,22410,2,False,False
-2021-2022,Golden Plains Shire,22490,2,False,False
-2021-2022,Greater Bendigo City,22620,3,True,False
-2021-2022,Greater Dandenong City,22670,3,True,False
-2021-2022,Greater Geelong City,22750,3,True,False
-2021-2022,Greater Shepparton City,22830,3,True,False
-2021-2022,Hepburn Shire,22910,3,True,False
-2021-2022,Hindmarsh Shire,22980,2,False,False
-2021-2022,Hobsons Bay City,23110,4,True,True
-2021-2022,Horsham Rural City,23190,2,False,False
-2021-2022,Hume City,23270,3,True,False
-2021-2022,Indigo Shire,23350,3,True,False
-2021-2022,Kingston City,23430,3,True,False
-2021-2022,Knox City,23670,3,True,False
-2021-2022,Latrobe City,23810,3,True,False
-2021-2022,Loddon Shire,23940,2,False,False
-2021-2022,Macedon Ranges Shire,24130,4,True,True
-2021-2022,Manningham City,24210,3,True,False
-2021-2022,Mansfield Shire,24250,2,False,False
-2021-2022,Maribyrnong City,24330,3,True,False
-2021-2022,Maroondah City,24410,3,True,False
-2021-2022,Melbourne City,24600,3,True,False
-2021-2022,Melton City,24650,3,True,False
-2021-2022,Merri-Bek City,24700,3,True,False
-2021-2022,Mildura Rural City,24780,3,True,False
-2021-2022,Mitchell Shire,24850,2,False,False
-2021-2022,Moira Shire,24900,3,True,False
-2021-2022,Monash City,24970,3,True,False
-2021-2022,Moonee Valley City,25060,3,True,False
-2021-2022,Moorabool Shire,25150,3,True,False
-2021-2022,Mornington Peninsula Shire,25340,3,True,False
-2021-2022,Mount Alexander Shire,25430,2,False,False
-2021-2022,Moyne Shire,25490,4,True,True
-2021-2022,Murrindindi Shire,25620,2,False,False
-2021-2022,Nillumbik Shire,25710,3,True,False
-2021-2022,Northern Grampians Shire,25810,2,False,False
-2021-2022,Port Phillip City,25900,3,True,False
-2021-2022,Pyrenees Shire,25990,4,True,True
-2021-2022,Queenscliffe Borough,26080,3,True,False
-2021-2022,South Gippsland Shire,26170,3,True,False
-2021-2022,Southern Grampians Shire,26260,3,True,False
-2021-2022,Stonnington City,26350,3,True,False
-2021-2022,Strathbogie Shire,26430,3,True,False
-2021-2022,Surf Coast Shire,26490,4,True,True
-2021-2022,Swan Hill Rural City,26610,3,True,False
-2021-2022,Towong Shire,26670,2,False,False
-2021-2022,Wangaratta Rural City,26700,3,True,False
-2021-2022,Warrnambool City,26730,4,True,True
-2021-2022,Wellington Shire,26810,2,False,False
-2021-2022,West Wimmera Shire,26890,2,False,False
-2021-2022,Whitehorse City,26980,3,True,False
-2021-2022,Whittlesea City,27070,3,True,False
-2021-2022,Wodonga City,27170,3,True,False
-2021-2022,Wyndham City,27260,3,True,False
-2021-2022,Yarra City,27350,4,True,True
-2021-2022,Yarra Ranges Shire,27450,3,True,False
-2021-2022,Yarriambiack Shire,27630,2,False,False
-2022-2023,Alpine Shire,20110,2,False,False
-2022-2023,Ararat Rural City,20260,4,True,True
-2022-2023,Ballarat City,20570,3,True,False
-2022-2023,Banyule City,20660,3,True,False
-2022-2023,Bass Coast Shire,20740,3,True,False
-2022-2023,Baw Baw Shire,20830,3,True,False
-2022-2023,Bayside City,20910,3,True,False
-2022-2023,Benalla Rural City,21010,3,True,False
-2022-2023,Boroondara City,21110,3,True,False
-2022-2023,Brimbank City,21180,3,True,False
-2022-2023,Buloke Shire,21270,2,False,False
-2022-2023,Campaspe Shire,21370,3,True,False
-2022-2023,Cardinia Shire,21450,3,True,False
-2022-2023,Casey City,21610,3,True,False
-2022-2023,Central Goldfields Shire,21670,3,True,False
-2022-2023,Colac Otway Shire,21750,4,True,True
-2022-2023,Corangamite Shire,21830,3,True,False
-2022-2023,Darebin City,21890,3,True,False
-2022-2023,East Gippsland Shire,22110,3,True,False
-2022-2023,Frankston City,22170,3,True,False
-2022-2023,Gannawarra Shire,22250,3,True,False
-2022-2023,Glen Eira City,22310,3,True,False
-2022-2023,Glenelg Shire,22410,2,False,False
-2022-2023,Golden Plains Shire,22490,2,False,False
-2022-2023,Greater Bendigo City,22620,3,True,False
-2022-2023,Greater Dandenong City,22670,3,True,False
-2022-2023,Greater Geelong City,22750,3,True,False
-2022-2023,Greater Shepparton City,22830,3,True,False
-2022-2023,Hepburn Shire,22910,3,True,False
-2022-2023,Hindmarsh Shire,22980,3,False,True
-2022-2023,Hobsons Bay City,23110,4,True,True
-2022-2023,Horsham Rural City,23190,4,True,True
-2022-2023,Hume City,23270,3,True,False
-2022-2023,Indigo Shire,23350,3,True,False
-2022-2023,Kingston City,23430,3,True,False
-2022-2023,Knox City,23670,3,True,False
-2022-2023,Latrobe City,23810,3,True,False
-2022-2023,Loddon Shire,23940,2,False,False
-2022-2023,Macedon Ranges Shire,24130,4,True,True
-2022-2023,Manningham City,24210,3,True,False
-2022-2023,Mansfield Shire,24250,2,False,False
-2022-2023,Maribyrnong City,24330,3,True,False
-2022-2023,Maroondah City,24410,3,True,False
-2022-2023,Melbourne City,24600,3,True,False
-2022-2023,Melton City,24650,3,True,False
-2022-2023,Merri-Bek City,24700,3,True,False
-2022-2023,Mildura Rural City,24780,3,True,False
-2022-2023,Mitchell Shire,24850,2,False,False
-2022-2023,Moira Shire,24900,3,True,False
-2022-2023,Monash City,24970,3,True,False
-2022-2023,Moonee Valley City,25060,3,True,False
-2022-2023,Moorabool Shire,25150,3,True,False
-2022-2023,Mornington Peninsula Shire,25340,3,True,False
-2022-2023,Mount Alexander Shire,25430,2,False,False
-2022-2023,Moyne Shire,25490,4,True,True
-2022-2023,Murrindindi Shire,25620,2,False,False
-2022-2023,Nillumbik Shire,25710,3,True,False
-2022-2023,Northern Grampians Shire,25810,2,False,False
-2022-2023,Port Phillip City,25900,3,True,False
-2022-2023,Pyrenees Shire,25990,4,True,True
-2022-2023,Queenscliffe Borough,26080,3,True,False
-2022-2023,South Gippsland Shire,26170,3,True,False
-2022-2023,Southern Grampians Shire,26260,3,True,False
-2022-2023,Stonnington City,26350,3,True,False
-2022-2023,Strathbogie Shire,26430,3,True,False
-2022-2023,Surf Coast Shire,26490,4,True,True
-2022-2023,Swan Hill Rural City,26610,3,True,False
-2022-2023,Towong Shire,26670,2,False,False
-2022-2023,Wangaratta Rural City,26700,3,True,False
-2022-2023,Warrnambool City,26730,4,True,True
-2022-2023,Wellington Shire,26810,2,False,False
-2022-2023,West Wimmera Shire,26890,2,False,False
-2022-2023,Whitehorse City,26980,3,True,False
-2022-2023,Whittlesea City,27070,4,True,True
-2022-2023,Wodonga City,27170,3,True,False
-2022-2023,Wyndham City,27260,3,True,False
-2022-2023,Yarra City,27350,4,True,True
-2022-2023,Yarra Ranges Shire,27450,3,True,False
-2022-2023,Yarriambiack Shire,27630,3,False,True
-2023-2024,Alpine Shire,20110,3,True,False
-2023-2024,Ararat Rural City,20260,4,True,True
-2023-2024,Ballarat City,20570,3,True,False
-2023-2024,Banyule City,20660,3,True,False
-2023-2024,Bass Coast Shire,20740,3,True,False
-2023-2024,Baw Baw Shire,20830,3,True,False
-2023-2024,Bayside City,20910,3,True,False
-2023-2024,Benalla Rural City,21010,3,True,False
-2023-2024,Boroondara City,21110,3,True,False
-2023-2024,Brimbank City,21180,3,True,False
-2023-2024,Buloke Shire,21270,2,False,False
-2023-2024,Campaspe Shire,21370,3,True,False
-2023-2024,Cardinia Shire,21450,3,True,False
-2023-2024,Casey City,21610,3,True,False
-2023-2024,Central Goldfields Shire,21670,3,True,False
-2023-2024,Colac Otway Shire,21750,4,True,True
-2023-2024,Corangamite Shire,21830,3,True,False
-2023-2024,Darebin City,21890,3,True,False
-2023-2024,East Gippsland Shire,22110,3,True,False
-2023-2024,Frankston City,22170,4,True,True
-2023-2024,Gannawarra Shire,22250,3,True,False
-2023-2024,Glen Eira City,22310,3,True,False
-2023-2024,Glenelg Shire,22410,2,False,False
-2023-2024,Golden Plains Shire,22490,2,False,False
-2023-2024,Greater Bendigo City,22620,3,True,False
-2023-2024,Greater Dandenong City,22670,3,True,False
-2023-2024,Greater Geelong City,22750,3,True,False
-2023-2024,Greater Shepparton City,22830,4,True,True
-2023-2024,Hepburn Shire,22910,3,True,False
-2023-2024,Hindmarsh Shire,22980,3,False,True
-2023-2024,Hobsons Bay City,23110,4,True,True
-2023-2024,Horsham Rural City,23190,4,True,True
-2023-2024,Hume City,23270,3,True,False
-2023-2024,Indigo Shire,23350,3,True,False
-2023-2024,Kingston City,23430,3,True,False
-2023-2024,Knox City,23670,3,True,False
-2023-2024,Latrobe City,23810,3,True,False
-2023-2024,Loddon Shire,23940,2,False,False
-2023-2024,Macedon Ranges Shire,24130,4,True,True
-2023-2024,Manningham City,24210,3,True,False
-2023-2024,Mansfield Shire,24250,2,False,False
-2023-2024,Maribyrnong City,24330,3,True,False
-2023-2024,Maroondah City,24410,3,True,False
-2023-2024,Melbourne City,24600,3,True,False
-2023-2024,Melton City,24650,3,True,False
-2023-2024,Merri-Bek City,24700,4,True,True
-2023-2024,Mildura Rural City,24780,3,True,False
-2023-2024,Mitchell Shire,24850,2,False,False
-2023-2024,Moira Shire,24900,3,True,False
-2023-2024,Monash City,24970,3,True,False
-2023-2024,Moonee Valley City,25060,3,True,False
-2023-2024,Moorabool Shire,25150,3,True,False
-2023-2024,Mornington Peninsula Shire,25340,3,True,False
-2023-2024,Mount Alexander Shire,25430,2,False,False
-2023-2024,Moyne Shire,25490,4,True,True
-2023-2024,Murrindindi Shire,25620,2,False,False
-2023-2024,Nillumbik Shire,25710,3,True,False
-2023-2024,Northern Grampians Shire,25810,3,True,False
-2023-2024,Port Phillip City,25900,3,True,False
-2023-2024,Pyrenees Shire,25990,4,True,True
-2023-2024,Queenscliffe Borough,26080,3,True,False
-2023-2024,South Gippsland Shire,26170,3,True,False
-2023-2024,Southern Grampians Shire,26260,3,True,False
-2023-2024,Stonnington City,26350,3,True,False
-2023-2024,Strathbogie Shire,26430,3,True,False
-2023-2024,Surf Coast Shire,26490,4,True,True
-2023-2024,Swan Hill Rural City,26610,3,True,False
-2023-2024,Towong Shire,26670,3,True,False
-2023-2024,Wangaratta Rural City,26700,3,True,False
-2023-2024,Warrnambool City,26730,4,True,True
-2023-2024,Wellington Shire,26810,2,False,False
-2023-2024,West Wimmera Shire,26890,2,False,False
-2023-2024,Whitehorse City,26980,3,True,False
-2023-2024,Whittlesea City,27070,4,True,True
-2023-2024,Wodonga City,27170,3,True,False
-2023-2024,Wyndham City,27260,3,True,False
-2023-2024,Yarra City,27350,3,False,True
-2023-2024,Yarra Ranges Shire,27450,3,True,False
-2023-2024,Yarriambiack Shire,27630,3,False,True
+financial_year,council,lga_code,streams,has_organics,has_glass,fogo,year_end,service
+2015-2016,Alpine Shire,20110,2,False,False,False,2016,No green bin
+2015-2016,Ararat Rural City,20260,2,False,False,False,2016,No green bin
+2015-2016,Ballarat City,20570,2,False,False,False,2016,No green bin
+2015-2016,Banyule City,20660,3,True,False,False,2016,Garden only
+2015-2016,Bass Coast Shire,20740,2,False,False,False,2016,No green bin
+2015-2016,Baw Baw Shire,20830,3,True,False,False,2016,Garden only
+2015-2016,Bayside City,20910,3,True,False,False,2016,Garden only
+2015-2016,Benalla Rural City,21010,3,True,False,False,2016,Garden only
+2015-2016,Boroondara City,21110,3,True,False,False,2016,Garden only
+2015-2016,Brimbank City,21180,3,True,False,False,2016,Garden only
+2015-2016,Buloke Shire,21270,2,False,False,False,2016,No green bin
+2015-2016,Campaspe Shire,21370,3,True,False,False,2016,Garden only
+2015-2016,Cardinia Shire,21450,3,True,False,False,2016,Garden only
+2015-2016,Casey City,21610,3,True,False,False,2016,Garden only
+2015-2016,Central Goldfields Shire,21670,3,True,False,False,2016,Garden only
+2015-2016,Colac Otway Shire,21750,3,True,False,True,2016,Food and garden
+2015-2016,Corangamite Shire,21830,3,True,False,False,2016,Garden only
+2015-2016,Darebin City,21890,3,True,False,False,2016,Garden only
+2015-2016,East Gippsland Shire,22110,3,True,False,False,2016,Garden only
+2015-2016,Frankston City,22170,3,True,False,False,2016,Garden only
+2015-2016,Gannawarra Shire,22250,3,True,False,False,2016,Garden only
+2015-2016,Glen Eira City,22310,3,True,False,False,2016,Garden only
+2015-2016,Glenelg Shire,22410,2,False,False,False,2016,No green bin
+2015-2016,Golden Plains Shire,22490,2,False,False,False,2016,No green bin
+2015-2016,Greater Bendigo City,22620,2,False,False,False,2016,No green bin
+2015-2016,Greater Dandenong City,22670,3,True,False,False,2016,Garden only
+2015-2016,Greater Geelong City,22750,3,True,False,False,2016,Garden only
+2015-2016,Greater Shepparton City,22830,3,True,False,False,2016,Garden only
+2015-2016,Hepburn Shire,22910,2,False,False,False,2016,No green bin
+2015-2016,Hindmarsh Shire,22980,2,False,False,False,2016,No green bin
+2015-2016,Hobsons Bay City,23110,3,True,False,False,2016,Garden only
+2015-2016,Horsham Rural City,23190,2,False,False,False,2016,No green bin
+2015-2016,Hume City,23270,3,True,False,False,2016,Garden only
+2015-2016,Indigo Shire,23350,3,True,False,False,2016,Garden only
+2015-2016,Kingston City,23430,3,True,False,False,2016,Garden only
+2015-2016,Knox City,23670,3,True,False,False,2016,Garden only
+2015-2016,Latrobe City,23810,3,True,False,False,2016,Garden only
+2015-2016,Loddon Shire,23940,2,False,False,False,2016,No green bin
+2015-2016,Macedon Ranges Shire,24130,3,True,False,False,2016,Garden only
+2015-2016,Manningham City,24210,3,True,False,False,2016,Garden only
+2015-2016,Mansfield Shire,24250,2,False,False,False,2016,No green bin
+2015-2016,Maribyrnong City,24330,3,True,False,False,2016,Garden only
+2015-2016,Maroondah City,24410,3,True,False,False,2016,Garden only
+2015-2016,Melbourne City,24600,2,False,False,False,2016,No green bin
+2015-2016,Melton City,24650,3,True,False,False,2016,Garden only
+2015-2016,Merri-Bek City,24700,3,True,False,False,2016,Garden only
+2015-2016,Mildura Rural City,24780,2,False,False,False,2016,No green bin
+2015-2016,Mitchell Shire,24850,2,False,False,False,2016,No green bin
+2015-2016,Moira Shire,24900,3,True,False,True,2016,Food and garden
+2015-2016,Monash City,24970,3,True,False,False,2016,Garden only
+2015-2016,Moonee Valley City,25060,3,True,False,False,2016,Garden only
+2015-2016,Moorabool Shire,25150,2,False,False,False,2016,No green bin
+2015-2016,Mornington Peninsula Shire,25340,3,True,False,False,2016,Garden only
+2015-2016,Mount Alexander Shire,25430,2,False,False,False,2016,No green bin
+2015-2016,Moyne Shire,25490,3,True,False,True,2016,Food and garden
+2015-2016,Murrindindi Shire,25620,2,False,False,False,2016,No green bin
+2015-2016,Nillumbik Shire,25710,3,True,False,False,2016,Garden only
+2015-2016,Northern Grampians Shire,25810,2,False,False,False,2016,No green bin
+2015-2016,Port Phillip City,25900,2,False,False,False,2016,No green bin
+2015-2016,Pyrenees Shire,25990,3,True,False,False,2016,Garden only
+2015-2016,Queenscliffe Borough,26080,3,True,False,False,2016,Garden only
+2015-2016,South Gippsland Shire,26170,3,True,False,False,2016,Garden only
+2015-2016,Southern Grampians Shire,26260,3,True,False,False,2016,Garden only
+2015-2016,Stonnington City,26350,3,True,False,False,2016,Garden only
+2015-2016,Strathbogie Shire,26430,3,True,False,False,2016,Garden only
+2015-2016,Surf Coast Shire,26490,3,True,False,False,2016,Garden only
+2015-2016,Swan Hill Rural City,26610,3,True,False,False,2016,Garden only
+2015-2016,Towong Shire,26670,2,False,False,False,2016,No green bin
+2015-2016,Wangaratta Rural City,26700,3,True,False,False,2016,Garden only
+2015-2016,Warrnambool City,26730,2,False,False,False,2016,No green bin
+2015-2016,Wellington Shire,26810,2,False,False,False,2016,No green bin
+2015-2016,West Wimmera Shire,26890,2,False,False,False,2016,No green bin
+2015-2016,Whitehorse City,26980,3,True,False,False,2016,Garden only
+2015-2016,Whittlesea City,27070,3,True,False,False,2016,Garden only
+2015-2016,Wodonga City,27170,3,True,False,False,2016,Garden only
+2015-2016,Wyndham City,27260,3,True,False,False,2016,Garden only
+2015-2016,Yarra City,27350,2,False,False,False,2016,No green bin
+2015-2016,Yarra Ranges Shire,27450,3,True,False,False,2016,Garden only
+2015-2016,Yarriambiack Shire,27630,2,False,False,False,2016,No green bin
+2016-2017,Alpine Shire,20110,2,False,False,False,2017,No green bin
+2016-2017,Ararat Rural City,20260,2,False,False,False,2017,No green bin
+2016-2017,Ballarat City,20570,3,True,False,False,2017,Garden only
+2016-2017,Banyule City,20660,3,True,False,False,2017,Garden only
+2016-2017,Bass Coast Shire,20740,2,False,False,False,2017,No green bin
+2016-2017,Baw Baw Shire,20830,3,True,False,False,2017,Garden only
+2016-2017,Bayside City,20910,3,True,False,False,2017,Garden only
+2016-2017,Benalla Rural City,21010,3,True,False,False,2017,Garden only
+2016-2017,Boroondara City,21110,3,True,False,False,2017,Garden only
+2016-2017,Brimbank City,21180,3,True,False,False,2017,Garden only
+2016-2017,Buloke Shire,21270,2,False,False,False,2017,No green bin
+2016-2017,Campaspe Shire,21370,3,True,False,False,2017,Garden only
+2016-2017,Cardinia Shire,21450,3,True,False,False,2017,Garden only
+2016-2017,Casey City,21610,3,True,False,False,2017,Garden only
+2016-2017,Central Goldfields Shire,21670,3,True,False,False,2017,Garden only
+2016-2017,Colac Otway Shire,21750,3,True,False,True,2017,Food and garden
+2016-2017,Corangamite Shire,21830,3,True,False,False,2017,Garden only
+2016-2017,Darebin City,21890,3,True,False,False,2017,Garden only
+2016-2017,East Gippsland Shire,22110,3,True,False,False,2017,Garden only
+2016-2017,Frankston City,22170,3,True,False,False,2017,Garden only
+2016-2017,Gannawarra Shire,22250,3,True,False,False,2017,Garden only
+2016-2017,Glen Eira City,22310,3,True,False,False,2017,Garden only
+2016-2017,Glenelg Shire,22410,2,False,False,False,2017,No green bin
+2016-2017,Golden Plains Shire,22490,2,False,False,False,2017,No green bin
+2016-2017,Greater Bendigo City,22620,3,True,False,False,2017,Garden only
+2016-2017,Greater Dandenong City,22670,3,True,False,False,2017,Garden only
+2016-2017,Greater Geelong City,22750,3,True,False,False,2017,Garden only
+2016-2017,Greater Shepparton City,22830,3,True,False,False,2017,Garden only
+2016-2017,Hepburn Shire,22910,2,False,False,False,2017,No green bin
+2016-2017,Hindmarsh Shire,22980,2,False,False,False,2017,No green bin
+2016-2017,Hobsons Bay City,23110,3,True,False,False,2017,Garden only
+2016-2017,Horsham Rural City,23190,2,False,False,False,2017,No green bin
+2016-2017,Hume City,23270,3,True,False,False,2017,Garden only
+2016-2017,Indigo Shire,23350,3,True,False,False,2017,Garden only
+2016-2017,Kingston City,23430,3,True,False,False,2017,Garden only
+2016-2017,Knox City,23670,3,True,False,False,2017,Garden only
+2016-2017,Latrobe City,23810,3,True,False,False,2017,Garden only
+2016-2017,Loddon Shire,23940,2,False,False,False,2017,No green bin
+2016-2017,Macedon Ranges Shire,24130,3,True,False,False,2017,Garden only
+2016-2017,Manningham City,24210,3,True,False,False,2017,Garden only
+2016-2017,Mansfield Shire,24250,2,False,False,False,2017,No green bin
+2016-2017,Maribyrnong City,24330,3,True,False,False,2017,Garden only
+2016-2017,Maroondah City,24410,3,True,False,False,2017,Garden only
+2016-2017,Melbourne City,24600,2,False,False,False,2017,No green bin
+2016-2017,Melton City,24650,3,True,False,False,2017,Garden only
+2016-2017,Merri-Bek City,24700,3,True,False,False,2017,Garden only
+2016-2017,Mildura Rural City,24780,2,False,False,False,2017,No green bin
+2016-2017,Mitchell Shire,24850,2,False,False,False,2017,No green bin
+2016-2017,Moira Shire,24900,3,True,False,True,2017,Food and garden
+2016-2017,Monash City,24970,3,True,False,False,2017,Garden only
+2016-2017,Moonee Valley City,25060,3,True,False,False,2017,Garden only
+2016-2017,Moorabool Shire,25150,3,True,False,False,2017,Garden only
+2016-2017,Mornington Peninsula Shire,25340,3,True,False,False,2017,Garden only
+2016-2017,Mount Alexander Shire,25430,2,False,False,False,2017,No green bin
+2016-2017,Moyne Shire,25490,3,True,False,True,2017,Food and garden
+2016-2017,Murrindindi Shire,25620,2,False,False,False,2017,No green bin
+2016-2017,Nillumbik Shire,25710,3,True,False,False,2017,Garden only
+2016-2017,Northern Grampians Shire,25810,2,False,False,False,2017,No green bin
+2016-2017,Port Phillip City,25900,2,False,False,False,2017,No green bin
+2016-2017,Pyrenees Shire,25990,3,True,False,False,2017,Garden only
+2016-2017,Queenscliffe Borough,26080,3,True,False,False,2017,Garden only
+2016-2017,South Gippsland Shire,26170,3,True,False,False,2017,Garden only
+2016-2017,Southern Grampians Shire,26260,3,True,False,False,2017,Garden only
+2016-2017,Stonnington City,26350,3,True,False,False,2017,Garden only
+2016-2017,Strathbogie Shire,26430,3,True,False,False,2017,Garden only
+2016-2017,Surf Coast Shire,26490,3,True,False,False,2017,Garden only
+2016-2017,Swan Hill Rural City,26610,3,True,False,False,2017,Garden only
+2016-2017,Towong Shire,26670,2,False,False,False,2017,No green bin
+2016-2017,Wangaratta Rural City,26700,3,True,False,False,2017,Garden only
+2016-2017,Warrnambool City,26730,2,False,False,False,2017,No green bin
+2016-2017,Wellington Shire,26810,2,False,False,False,2017,No green bin
+2016-2017,West Wimmera Shire,26890,2,False,False,False,2017,No green bin
+2016-2017,Whitehorse City,26980,3,True,False,False,2017,Garden only
+2016-2017,Whittlesea City,27070,3,True,False,False,2017,Garden only
+2016-2017,Wodonga City,27170,3,True,False,False,2017,Garden only
+2016-2017,Wyndham City,27260,3,True,False,False,2017,Garden only
+2016-2017,Yarra City,27350,2,False,False,False,2017,No green bin
+2016-2017,Yarra Ranges Shire,27450,3,True,False,False,2017,Garden only
+2016-2017,Yarriambiack Shire,27630,2,False,False,False,2017,No green bin
+2017-2018,Alpine Shire,20110,2,False,False,False,2018,No green bin
+2017-2018,Ararat Rural City,20260,2,False,False,False,2018,No green bin
+2017-2018,Ballarat City,20570,3,True,False,False,2018,Garden only
+2017-2018,Banyule City,20660,3,True,False,False,2018,Garden only
+2017-2018,Bass Coast Shire,20740,3,True,False,True,2018,Food and garden
+2017-2018,Baw Baw Shire,20830,3,True,False,False,2018,Garden only
+2017-2018,Bayside City,20910,3,True,False,False,2018,Garden only
+2017-2018,Benalla Rural City,21010,3,True,False,True,2018,Food and garden
+2017-2018,Boroondara City,21110,3,True,False,False,2018,Garden only
+2017-2018,Brimbank City,21180,3,True,False,False,2018,Garden only
+2017-2018,Buloke Shire,21270,2,False,False,False,2018,No green bin
+2017-2018,Campaspe Shire,21370,3,True,False,False,2018,Garden only
+2017-2018,Cardinia Shire,21450,3,True,False,False,2018,Garden only
+2017-2018,Casey City,21610,3,True,False,False,2018,Garden only
+2017-2018,Central Goldfields Shire,21670,3,True,False,True,2018,Food and garden
+2017-2018,Colac Otway Shire,21750,3,True,False,True,2018,Food and garden
+2017-2018,Corangamite Shire,21830,3,True,False,True,2018,Food and garden
+2017-2018,Darebin City,21890,3,True,False,False,2018,Garden only
+2017-2018,East Gippsland Shire,22110,3,True,False,False,2018,Garden only
+2017-2018,Frankston City,22170,3,True,False,False,2018,Garden only
+2017-2018,Gannawarra Shire,22250,3,True,False,False,2018,Garden only
+2017-2018,Glen Eira City,22310,3,True,False,True,2018,Food and garden
+2017-2018,Glenelg Shire,22410,2,False,False,False,2018,No green bin
+2017-2018,Golden Plains Shire,22490,2,False,False,False,2018,No green bin
+2017-2018,Greater Bendigo City,22620,3,True,False,True,2018,Food and garden
+2017-2018,Greater Dandenong City,22670,3,True,False,False,2018,Garden only
+2017-2018,Greater Geelong City,22750,3,True,False,False,2018,Garden only
+2017-2018,Greater Shepparton City,22830,3,True,False,True,2018,Food and garden
+2017-2018,Hepburn Shire,22910,2,False,False,False,2018,No green bin
+2017-2018,Hindmarsh Shire,22980,2,False,False,False,2018,No green bin
+2017-2018,Hobsons Bay City,23110,3,True,False,False,2018,Garden only
+2017-2018,Horsham Rural City,23190,2,False,False,False,2018,No green bin
+2017-2018,Hume City,23270,3,True,False,False,2018,Garden only
+2017-2018,Indigo Shire,23350,3,True,False,True,2018,Food and garden
+2017-2018,Kingston City,23430,3,True,False,False,2018,Garden only
+2017-2018,Knox City,23670,3,True,False,False,2018,Garden only
+2017-2018,Latrobe City,23810,3,True,False,False,2018,Garden only
+2017-2018,Loddon Shire,23940,2,False,False,False,2018,No green bin
+2017-2018,Macedon Ranges Shire,24130,3,True,False,False,2018,Garden only
+2017-2018,Manningham City,24210,3,True,False,False,2018,Garden only
+2017-2018,Mansfield Shire,24250,2,False,False,False,2018,No green bin
+2017-2018,Maribyrnong City,24330,3,True,False,False,2018,Garden only
+2017-2018,Maroondah City,24410,3,True,False,False,2018,Garden only
+2017-2018,Melbourne City,24600,2,False,False,False,2018,No green bin
+2017-2018,Melton City,24650,3,True,False,False,2018,Garden only
+2017-2018,Merri-Bek City,24700,3,True,False,False,2018,Garden only
+2017-2018,Mildura Rural City,24780,2,False,False,False,2018,No green bin
+2017-2018,Mitchell Shire,24850,2,False,False,False,2018,No green bin
+2017-2018,Moira Shire,24900,3,True,False,True,2018,Food and garden
+2017-2018,Monash City,24970,3,True,False,False,2018,Garden only
+2017-2018,Moonee Valley City,25060,3,True,False,True,2018,Food and garden
+2017-2018,Moorabool Shire,25150,3,True,False,False,2018,Garden only
+2017-2018,Mornington Peninsula Shire,25340,3,True,False,False,2018,Garden only
+2017-2018,Mount Alexander Shire,25430,2,False,False,False,2018,No green bin
+2017-2018,Moyne Shire,25490,3,True,False,True,2018,Food and garden
+2017-2018,Murrindindi Shire,25620,2,False,False,False,2018,No green bin
+2017-2018,Nillumbik Shire,25710,3,True,False,True,2018,Food and garden
+2017-2018,Northern Grampians Shire,25810,2,False,False,False,2018,No green bin
+2017-2018,Port Phillip City,25900,2,False,False,False,2018,No green bin
+2017-2018,Pyrenees Shire,25990,2,False,False,False,2018,No green bin
+2017-2018,Queenscliffe Borough,26080,3,True,False,False,2018,Garden only
+2017-2018,South Gippsland Shire,26170,3,True,False,False,2018,Garden only
+2017-2018,Southern Grampians Shire,26260,3,True,False,True,2018,Food and garden
+2017-2018,Stonnington City,26350,3,True,False,False,2018,Garden only
+2017-2018,Strathbogie Shire,26430,3,True,False,True,2018,Food and garden
+2017-2018,Surf Coast Shire,26490,3,True,False,False,2018,Garden only
+2017-2018,Swan Hill Rural City,26610,3,True,False,False,2018,Garden only
+2017-2018,Towong Shire,26670,2,False,False,False,2018,No green bin
+2017-2018,Wangaratta Rural City,26700,3,True,False,True,2018,Food and garden
+2017-2018,Warrnambool City,26730,3,True,False,True,2018,Food and garden
+2017-2018,Wellington Shire,26810,2,False,False,False,2018,No green bin
+2017-2018,West Wimmera Shire,26890,2,False,False,False,2018,No green bin
+2017-2018,Whitehorse City,26980,3,True,False,False,2018,Garden only
+2017-2018,Whittlesea City,27070,3,True,False,False,2018,Garden only
+2017-2018,Wodonga City,27170,3,True,False,True,2018,Food and garden
+2017-2018,Wyndham City,27260,3,True,False,True,2018,Food and garden
+2017-2018,Yarra City,27350,2,False,False,False,2018,No green bin
+2017-2018,Yarra Ranges Shire,27450,3,True,False,False,2018,Garden only
+2017-2018,Yarriambiack Shire,27630,2,False,False,False,2018,No green bin
+2018-2019,Alpine Shire,20110,2,False,False,False,2019,No green bin
+2018-2019,Ararat Rural City,20260,2,False,False,False,2019,No green bin
+2018-2019,Ballarat City,20570,3,True,False,False,2019,Garden only
+2018-2019,Banyule City,20660,3,True,False,False,2019,Garden only
+2018-2019,Bass Coast Shire,20740,3,True,False,True,2019,Food and garden
+2018-2019,Baw Baw Shire,20830,3,True,False,False,2019,Garden only
+2018-2019,Bayside City,20910,3,True,False,False,2019,Garden only
+2018-2019,Benalla Rural City,21010,3,True,False,True,2019,Food and garden
+2018-2019,Boroondara City,21110,3,True,False,False,2019,Garden only
+2018-2019,Brimbank City,21180,3,True,False,False,2019,Garden only
+2018-2019,Buloke Shire,21270,2,False,False,False,2019,No green bin
+2018-2019,Campaspe Shire,21370,3,True,False,False,2019,Garden only
+2018-2019,Cardinia Shire,21450,3,True,False,False,2019,Garden only
+2018-2019,Casey City,21610,3,True,False,False,2019,Garden only
+2018-2019,Central Goldfields Shire,21670,3,True,False,True,2019,Food and garden
+2018-2019,Colac Otway Shire,21750,3,True,False,True,2019,Food and garden
+2018-2019,Corangamite Shire,21830,3,True,False,True,2019,Food and garden
+2018-2019,Darebin City,21890,3,True,False,False,2019,Garden only
+2018-2019,East Gippsland Shire,22110,3,True,False,False,2019,Garden only
+2018-2019,Frankston City,22170,3,True,False,False,2019,Garden only
+2018-2019,Gannawarra Shire,22250,3,True,False,False,2019,Garden only
+2018-2019,Glen Eira City,22310,3,True,False,True,2019,Food and garden
+2018-2019,Glenelg Shire,22410,2,False,False,False,2019,No green bin
+2018-2019,Golden Plains Shire,22490,2,False,False,False,2019,No green bin
+2018-2019,Greater Bendigo City,22620,3,True,False,True,2019,Food and garden
+2018-2019,Greater Dandenong City,22670,3,True,False,False,2019,Garden only
+2018-2019,Greater Geelong City,22750,3,True,False,False,2019,Garden only
+2018-2019,Greater Shepparton City,22830,3,True,False,True,2019,Food and garden
+2018-2019,Hepburn Shire,22910,2,False,False,False,2019,No green bin
+2018-2019,Hindmarsh Shire,22980,2,False,False,False,2019,No green bin
+2018-2019,Hobsons Bay City,23110,3,True,False,False,2019,Garden only
+2018-2019,Horsham Rural City,23190,2,False,False,False,2019,No green bin
+2018-2019,Hume City,23270,3,True,False,False,2019,Garden only
+2018-2019,Indigo Shire,23350,3,True,False,True,2019,Food and garden
+2018-2019,Kingston City,23430,3,True,False,False,2019,Garden only
+2018-2019,Knox City,23670,3,True,False,False,2019,Garden only
+2018-2019,Latrobe City,23810,3,True,False,False,2019,Garden only
+2018-2019,Loddon Shire,23940,2,False,False,False,2019,No green bin
+2018-2019,Macedon Ranges Shire,24130,3,True,False,False,2019,Garden only
+2018-2019,Manningham City,24210,3,True,False,False,2019,Garden only
+2018-2019,Mansfield Shire,24250,2,False,False,False,2019,No green bin
+2018-2019,Maribyrnong City,24330,3,True,False,False,2019,Garden only
+2018-2019,Maroondah City,24410,3,True,False,False,2019,Garden only
+2018-2019,Melbourne City,24600,2,False,False,False,2019,No green bin
+2018-2019,Melton City,24650,3,True,False,False,2019,Garden only
+2018-2019,Merri-Bek City,24700,3,True,False,False,2019,Garden only
+2018-2019,Mildura Rural City,24780,2,False,False,False,2019,No green bin
+2018-2019,Mitchell Shire,24850,2,False,False,False,2019,No green bin
+2018-2019,Moira Shire,24900,3,True,False,True,2019,Food and garden
+2018-2019,Monash City,24970,3,True,False,False,2019,Garden only
+2018-2019,Moonee Valley City,25060,3,True,False,True,2019,Food and garden
+2018-2019,Moorabool Shire,25150,3,True,False,False,2019,Garden only
+2018-2019,Mornington Peninsula Shire,25340,3,True,False,False,2019,Garden only
+2018-2019,Mount Alexander Shire,25430,2,False,False,False,2019,No green bin
+2018-2019,Moyne Shire,25490,3,True,False,True,2019,Food and garden
+2018-2019,Murrindindi Shire,25620,2,False,False,False,2019,No green bin
+2018-2019,Nillumbik Shire,25710,3,True,False,True,2019,Food and garden
+2018-2019,Northern Grampians Shire,25810,2,False,False,False,2019,No green bin
+2018-2019,Port Phillip City,25900,2,False,False,False,2019,No green bin
+2018-2019,Pyrenees Shire,25990,3,True,False,False,2019,Garden only
+2018-2019,Queenscliffe Borough,26080,3,True,False,False,2019,Garden only
+2018-2019,South Gippsland Shire,26170,3,True,False,False,2019,Garden only
+2018-2019,Southern Grampians Shire,26260,3,True,False,True,2019,Food and garden
+2018-2019,Stonnington City,26350,3,True,False,False,2019,Garden only
+2018-2019,Strathbogie Shire,26430,3,True,False,True,2019,Food and garden
+2018-2019,Surf Coast Shire,26490,3,True,False,False,2019,Garden only
+2018-2019,Swan Hill Rural City,26610,3,True,False,False,2019,Garden only
+2018-2019,Towong Shire,26670,2,False,False,False,2019,No green bin
+2018-2019,Wangaratta Rural City,26700,3,True,False,True,2019,Food and garden
+2018-2019,Warrnambool City,26730,3,True,False,True,2019,Food and garden
+2018-2019,Wellington Shire,26810,2,False,False,False,2019,No green bin
+2018-2019,West Wimmera Shire,26890,2,False,False,False,2019,No green bin
+2018-2019,Whitehorse City,26980,3,True,False,False,2019,Garden only
+2018-2019,Whittlesea City,27070,3,True,False,False,2019,Garden only
+2018-2019,Wodonga City,27170,3,True,False,True,2019,Food and garden
+2018-2019,Wyndham City,27260,3,True,False,True,2019,Food and garden
+2018-2019,Yarra City,27350,2,False,False,False,2019,No green bin
+2018-2019,Yarra Ranges Shire,27450,3,True,False,False,2019,Garden only
+2018-2019,Yarriambiack Shire,27630,2,False,False,False,2019,No green bin
+2019-2020,Alpine Shire,20110,2,False,False,False,2020,No green bin
+2019-2020,Ararat Rural City,20260,2,False,False,False,2020,No green bin
+2019-2020,Ballarat City,20570,4,True,True,False,2020,Garden only
+2019-2020,Banyule City,20660,3,True,False,False,2020,Garden only
+2019-2020,Bass Coast Shire,20740,3,True,False,True,2020,Food and garden
+2019-2020,Baw Baw Shire,20830,3,True,False,False,2020,Garden only
+2019-2020,Bayside City,20910,3,True,False,True,2020,Food and garden
+2019-2020,Benalla Rural City,21010,3,True,False,True,2020,Food and garden
+2019-2020,Boroondara City,21110,3,True,False,True,2020,Food and garden
+2019-2020,Brimbank City,21180,3,True,False,False,2020,Garden only
+2019-2020,Buloke Shire,21270,2,False,False,False,2020,No green bin
+2019-2020,Campaspe Shire,21370,3,True,False,True,2020,Food and garden
+2019-2020,Cardinia Shire,21450,3,True,False,False,2020,Garden only
+2019-2020,Casey City,21610,3,True,False,False,2020,Garden only
+2019-2020,Central Goldfields Shire,21670,3,True,False,True,2020,Food and garden
+2019-2020,Colac Otway Shire,21750,3,True,False,True,2020,Food and garden
+2019-2020,Corangamite Shire,21830,3,True,False,True,2020,Food and garden
+2019-2020,Darebin City,21890,3,True,False,True,2020,Food and garden
+2019-2020,East Gippsland Shire,22110,3,True,False,False,2020,Garden only
+2019-2020,Frankston City,22170,3,True,False,True,2020,Food and garden
+2019-2020,Gannawarra Shire,22250,3,True,False,False,2020,Garden only
+2019-2020,Glen Eira City,22310,3,True,False,True,2020,Food and garden
+2019-2020,Glenelg Shire,22410,2,False,False,False,2020,No green bin
+2019-2020,Golden Plains Shire,22490,2,False,False,False,2020,No green bin
+2019-2020,Greater Bendigo City,22620,3,True,False,True,2020,Food and garden
+2019-2020,Greater Dandenong City,22670,3,True,False,False,2020,Garden only
+2019-2020,Greater Geelong City,22750,3,True,False,False,2020,Garden only
+2019-2020,Greater Shepparton City,22830,3,True,False,True,2020,Food and garden
+2019-2020,Hepburn Shire,22910,2,False,False,False,2020,No green bin
+2019-2020,Hindmarsh Shire,22980,2,False,False,False,2020,No green bin
+2019-2020,Hobsons Bay City,23110,4,True,True,True,2020,"Food, garden and glass"
+2019-2020,Horsham Rural City,23190,2,False,False,False,2020,No green bin
+2019-2020,Hume City,23270,3,True,False,False,2020,Garden only
+2019-2020,Indigo Shire,23350,3,True,False,True,2020,Food and garden
+2019-2020,Kingston City,23430,3,True,False,True,2020,Food and garden
+2019-2020,Knox City,23670,3,True,False,False,2020,Garden only
+2019-2020,Latrobe City,23810,3,True,False,False,2020,Garden only
+2019-2020,Loddon Shire,23940,2,False,False,False,2020,No green bin
+2019-2020,Macedon Ranges Shire,24130,4,True,True,True,2020,"Food, garden and glass"
+2019-2020,Manningham City,24210,3,True,False,False,2020,Garden only
+2019-2020,Mansfield Shire,24250,2,False,False,False,2020,No green bin
+2019-2020,Maribyrnong City,24330,3,True,False,True,2020,Food and garden
+2019-2020,Maroondah City,24410,3,True,False,False,2020,Garden only
+2019-2020,Melbourne City,24600,2,False,False,False,2020,No green bin
+2019-2020,Melton City,24650,3,True,False,False,2020,Garden only
+2019-2020,Merri-Bek City,24700,3,True,False,True,2020,Food and garden
+2019-2020,Mildura Rural City,24780,2,False,False,False,2020,No green bin
+2019-2020,Mitchell Shire,24850,2,False,False,False,2020,No green bin
+2019-2020,Moira Shire,24900,3,True,False,True,2020,Food and garden
+2019-2020,Monash City,24970,3,True,False,False,2020,Garden only
+2019-2020,Moonee Valley City,25060,3,True,False,True,2020,Food and garden
+2019-2020,Moorabool Shire,25150,3,True,False,False,2020,Garden only
+2019-2020,Mornington Peninsula Shire,25340,3,True,False,False,2020,Garden only
+2019-2020,Mount Alexander Shire,25430,2,False,False,False,2020,No green bin
+2019-2020,Moyne Shire,25490,4,True,True,True,2020,"Food, garden and glass"
+2019-2020,Murrindindi Shire,25620,2,False,False,False,2020,No green bin
+2019-2020,Nillumbik Shire,25710,3,True,False,True,2020,Food and garden
+2019-2020,Northern Grampians Shire,25810,2,False,False,False,2020,No green bin
+2019-2020,Port Phillip City,25900,2,False,False,False,2020,No green bin
+2019-2020,Pyrenees Shire,25990,4,True,True,False,2020,Garden only
+2019-2020,Queenscliffe Borough,26080,3,True,False,False,2020,Garden only
+2019-2020,South Gippsland Shire,26170,3,True,False,False,2020,Garden only
+2019-2020,Southern Grampians Shire,26260,3,True,False,True,2020,Food and garden
+2019-2020,Stonnington City,26350,3,True,False,True,2020,Food and garden
+2019-2020,Strathbogie Shire,26430,3,True,False,True,2020,Food and garden
+2019-2020,Surf Coast Shire,26490,3,True,False,True,2020,Food and garden
+2019-2020,Swan Hill Rural City,26610,3,True,False,False,2020,Garden only
+2019-2020,Towong Shire,26670,2,False,False,False,2020,No green bin
+2019-2020,Wangaratta Rural City,26700,3,True,False,True,2020,Food and garden
+2019-2020,Warrnambool City,26730,4,True,True,True,2020,"Food, garden and glass"
+2019-2020,Wellington Shire,26810,2,False,False,False,2020,No green bin
+2019-2020,West Wimmera Shire,26890,2,False,False,False,2020,No green bin
+2019-2020,Whitehorse City,26980,3,True,False,False,2020,Garden only
+2019-2020,Whittlesea City,27070,3,True,False,True,2020,Food and garden
+2019-2020,Wodonga City,27170,3,True,False,True,2020,Food and garden
+2019-2020,Wyndham City,27260,3,True,False,True,2020,Food and garden
+2019-2020,Yarra City,27350,2,False,False,False,2020,No green bin
+2019-2020,Yarra Ranges Shire,27450,3,True,False,False,2020,Garden only
+2019-2020,Yarriambiack Shire,27630,2,False,False,False,2020,No green bin
+2020-2021,Alpine Shire,20110,2,False,False,False,2021,No green bin
+2020-2021,Ararat Rural City,20260,2,False,False,False,2021,No green bin
+2020-2021,Ballarat City,20570,4,True,True,False,2021,Garden only
+2020-2021,Banyule City,20660,3,True,False,False,2021,Garden only
+2020-2021,Bass Coast Shire,20740,3,True,False,True,2021,Food and garden
+2020-2021,Baw Baw Shire,20830,3,True,False,False,2021,Garden only
+2020-2021,Bayside City,20910,3,True,False,True,2021,Food and garden
+2020-2021,Benalla Rural City,21010,3,True,False,True,2021,Food and garden
+2020-2021,Boroondara City,21110,3,True,False,True,2021,Food and garden
+2020-2021,Brimbank City,21180,3,True,False,False,2021,Garden only
+2020-2021,Buloke Shire,21270,2,False,False,False,2021,No green bin
+2020-2021,Campaspe Shire,21370,3,True,False,True,2021,Food and garden
+2020-2021,Cardinia Shire,21450,3,True,False,True,2021,Food and garden
+2020-2021,Casey City,21610,3,True,False,True,2021,Food and garden
+2020-2021,Central Goldfields Shire,21670,3,True,False,True,2021,Food and garden
+2020-2021,Colac Otway Shire,21750,3,True,False,True,2021,Food and garden
+2020-2021,Corangamite Shire,21830,3,True,False,True,2021,Food and garden
+2020-2021,Darebin City,21890,3,True,False,True,2021,Food and garden
+2020-2021,East Gippsland Shire,22110,3,True,False,False,2021,Garden only
+2020-2021,Frankston City,22170,3,True,False,True,2021,Food and garden
+2020-2021,Gannawarra Shire,22250,3,True,False,False,2021,Garden only
+2020-2021,Glen Eira City,22310,3,True,False,True,2021,Food and garden
+2020-2021,Glenelg Shire,22410,2,False,False,False,2021,No green bin
+2020-2021,Golden Plains Shire,22490,2,False,False,False,2021,No green bin
+2020-2021,Greater Bendigo City,22620,3,True,False,True,2021,Food and garden
+2020-2021,Greater Dandenong City,22670,3,True,False,True,2021,Food and garden
+2020-2021,Greater Geelong City,22750,3,True,False,False,2021,Garden only
+2020-2021,Greater Shepparton City,22830,3,True,False,True,2021,Food and garden
+2020-2021,Hepburn Shire,22910,2,False,False,False,2021,No green bin
+2020-2021,Hindmarsh Shire,22980,2,False,False,False,2021,No green bin
+2020-2021,Hobsons Bay City,23110,4,True,True,True,2021,"Food, garden and glass"
+2020-2021,Horsham Rural City,23190,2,False,False,False,2021,No green bin
+2020-2021,Hume City,23270,3,True,False,True,2021,Food and garden
+2020-2021,Indigo Shire,23350,3,True,False,True,2021,Food and garden
+2020-2021,Kingston City,23430,3,True,False,True,2021,Food and garden
+2020-2021,Knox City,23670,3,True,False,False,2021,Garden only
+2020-2021,Latrobe City,23810,3,True,False,False,2021,Garden only
+2020-2021,Loddon Shire,23940,2,False,False,False,2021,No green bin
+2020-2021,Macedon Ranges Shire,24130,4,True,True,True,2021,"Food, garden and glass"
+2020-2021,Manningham City,24210,3,True,False,False,2021,Garden only
+2020-2021,Mansfield Shire,24250,2,False,False,False,2021,No green bin
+2020-2021,Maribyrnong City,24330,3,True,False,True,2021,Food and garden
+2020-2021,Maroondah City,24410,3,True,False,False,2021,Garden only
+2020-2021,Melbourne City,24600,3,True,False,True,2021,Food and garden
+2020-2021,Melton City,24650,3,True,False,True,2021,Food and garden
+2020-2021,Merri-Bek City,24700,3,True,False,True,2021,Food and garden
+2020-2021,Mildura Rural City,24780,3,True,False,True,2021,Food and garden
+2020-2021,Mitchell Shire,24850,2,False,False,False,2021,No green bin
+2020-2021,Moira Shire,24900,3,True,False,True,2021,Food and garden
+2020-2021,Monash City,24970,3,True,False,True,2021,Food and garden
+2020-2021,Moonee Valley City,25060,3,True,False,True,2021,Food and garden
+2020-2021,Moorabool Shire,25150,3,True,False,False,2021,Garden only
+2020-2021,Mornington Peninsula Shire,25340,3,True,False,False,2021,Garden only
+2020-2021,Mount Alexander Shire,25430,2,False,False,False,2021,No green bin
+2020-2021,Moyne Shire,25490,4,True,True,True,2021,"Food, garden and glass"
+2020-2021,Murrindindi Shire,25620,2,False,False,False,2021,No green bin
+2020-2021,Nillumbik Shire,25710,3,True,False,True,2021,Food and garden
+2020-2021,Northern Grampians Shire,25810,2,False,False,False,2021,No green bin
+2020-2021,Port Phillip City,25900,2,False,False,False,2021,No green bin
+2020-2021,Pyrenees Shire,25990,3,True,False,False,2021,Garden only
+2020-2021,Queenscliffe Borough,26080,2,False,False,False,2021,No green bin
+2020-2021,South Gippsland Shire,26170,3,True,False,False,2021,Garden only
+2020-2021,Southern Grampians Shire,26260,3,True,False,True,2021,Food and garden
+2020-2021,Stonnington City,26350,3,True,False,True,2021,Food and garden
+2020-2021,Strathbogie Shire,26430,3,True,False,True,2021,Food and garden
+2020-2021,Surf Coast Shire,26490,4,True,True,True,2021,"Food, garden and glass"
+2020-2021,Swan Hill Rural City,26610,3,True,False,False,2021,Garden only
+2020-2021,Towong Shire,26670,2,False,False,False,2021,No green bin
+2020-2021,Wangaratta Rural City,26700,3,True,False,True,2021,Food and garden
+2020-2021,Warrnambool City,26730,4,True,True,True,2021,"Food, garden and glass"
+2020-2021,Wellington Shire,26810,2,False,False,False,2021,No green bin
+2020-2021,West Wimmera Shire,26890,2,False,False,False,2021,No green bin
+2020-2021,Whitehorse City,26980,3,True,False,False,2021,Garden only
+2020-2021,Whittlesea City,27070,3,True,False,True,2021,Food and garden
+2020-2021,Wodonga City,27170,3,True,False,True,2021,Food and garden
+2020-2021,Wyndham City,27260,3,True,False,True,2021,Food and garden
+2020-2021,Yarra City,27350,3,False,True,False,2021,No green bin
+2020-2021,Yarra Ranges Shire,27450,3,True,False,False,2021,Garden only
+2020-2021,Yarriambiack Shire,27630,2,False,False,False,2021,No green bin
+2021-2022,Alpine Shire,20110,2,False,False,False,2022,No green bin
+2021-2022,Ararat Rural City,20260,2,False,False,False,2022,No green bin
+2021-2022,Ballarat City,20570,3,True,False,False,2022,Garden only
+2021-2022,Banyule City,20660,3,True,False,True,2022,Food and garden
+2021-2022,Bass Coast Shire,20740,3,True,False,True,2022,Food and garden
+2021-2022,Baw Baw Shire,20830,3,True,False,False,2022,Garden only
+2021-2022,Bayside City,20910,3,True,False,True,2022,Food and garden
+2021-2022,Benalla Rural City,21010,3,True,False,True,2022,Food and garden
+2021-2022,Boroondara City,21110,3,True,False,True,2022,Food and garden
+2021-2022,Brimbank City,21180,3,True,False,True,2022,Food and garden
+2021-2022,Buloke Shire,21270,2,False,False,False,2022,No green bin
+2021-2022,Campaspe Shire,21370,3,True,False,True,2022,Food and garden
+2021-2022,Cardinia Shire,21450,3,True,False,True,2022,Food and garden
+2021-2022,Casey City,21610,3,True,False,True,2022,Food and garden
+2021-2022,Central Goldfields Shire,21670,3,True,False,True,2022,Food and garden
+2021-2022,Colac Otway Shire,21750,4,True,True,True,2022,"Food, garden and glass"
+2021-2022,Corangamite Shire,21830,3,True,False,True,2022,Food and garden
+2021-2022,Darebin City,21890,3,True,False,True,2022,Food and garden
+2021-2022,East Gippsland Shire,22110,3,True,False,False,2022,Garden only
+2021-2022,Frankston City,22170,3,True,False,True,2022,Food and garden
+2021-2022,Gannawarra Shire,22250,3,True,False,False,2022,Garden only
+2021-2022,Glen Eira City,22310,3,True,False,True,2022,Food and garden
+2021-2022,Glenelg Shire,22410,2,False,False,False,2022,No green bin
+2021-2022,Golden Plains Shire,22490,2,False,False,False,2022,No green bin
+2021-2022,Greater Bendigo City,22620,3,True,False,True,2022,Food and garden
+2021-2022,Greater Dandenong City,22670,3,True,False,True,2022,Food and garden
+2021-2022,Greater Geelong City,22750,3,True,False,False,2022,Garden only
+2021-2022,Greater Shepparton City,22830,3,True,False,True,2022,Food and garden
+2021-2022,Hepburn Shire,22910,3,True,False,True,2022,Food and garden
+2021-2022,Hindmarsh Shire,22980,2,False,False,False,2022,No green bin
+2021-2022,Hobsons Bay City,23110,4,True,True,True,2022,"Food, garden and glass"
+2021-2022,Horsham Rural City,23190,2,False,False,False,2022,No green bin
+2021-2022,Hume City,23270,3,True,False,True,2022,Food and garden
+2021-2022,Indigo Shire,23350,3,True,False,True,2022,Food and garden
+2021-2022,Kingston City,23430,3,True,False,True,2022,Food and garden
+2021-2022,Knox City,23670,3,True,False,False,2022,Garden only
+2021-2022,Latrobe City,23810,3,True,False,False,2022,Garden only
+2021-2022,Loddon Shire,23940,2,False,False,False,2022,No green bin
+2021-2022,Macedon Ranges Shire,24130,4,True,True,True,2022,"Food, garden and glass"
+2021-2022,Manningham City,24210,3,True,False,False,2022,Garden only
+2021-2022,Mansfield Shire,24250,2,False,False,False,2022,No green bin
+2021-2022,Maribyrnong City,24330,3,True,False,True,2022,Food and garden
+2021-2022,Maroondah City,24410,3,True,False,False,2022,Garden only
+2021-2022,Melbourne City,24600,3,True,False,True,2022,Food and garden
+2021-2022,Melton City,24650,3,True,False,True,2022,Food and garden
+2021-2022,Merri-Bek City,24700,3,True,False,True,2022,Food and garden
+2021-2022,Mildura Rural City,24780,3,True,False,True,2022,Food and garden
+2021-2022,Mitchell Shire,24850,2,False,False,False,2022,No green bin
+2021-2022,Moira Shire,24900,3,True,False,True,2022,Food and garden
+2021-2022,Monash City,24970,3,True,False,True,2022,Food and garden
+2021-2022,Moonee Valley City,25060,3,True,False,True,2022,Food and garden
+2021-2022,Moorabool Shire,25150,3,True,False,False,2022,Garden only
+2021-2022,Mornington Peninsula Shire,25340,3,True,False,True,2022,Food and garden
+2021-2022,Mount Alexander Shire,25430,2,False,False,False,2022,No green bin
+2021-2022,Moyne Shire,25490,4,True,True,True,2022,"Food, garden and glass"
+2021-2022,Murrindindi Shire,25620,2,False,False,False,2022,No green bin
+2021-2022,Nillumbik Shire,25710,3,True,False,True,2022,Food and garden
+2021-2022,Northern Grampians Shire,25810,2,False,False,False,2022,No green bin
+2021-2022,Port Phillip City,25900,3,True,False,True,2022,Food and garden
+2021-2022,Pyrenees Shire,25990,4,True,True,False,2022,Garden only
+2021-2022,Queenscliffe Borough,26080,3,True,False,False,2022,Garden only
+2021-2022,South Gippsland Shire,26170,3,True,False,False,2022,Garden only
+2021-2022,Southern Grampians Shire,26260,3,True,False,True,2022,Food and garden
+2021-2022,Stonnington City,26350,3,True,False,True,2022,Food and garden
+2021-2022,Strathbogie Shire,26430,3,True,False,True,2022,Food and garden
+2021-2022,Surf Coast Shire,26490,4,True,True,True,2022,"Food, garden and glass"
+2021-2022,Swan Hill Rural City,26610,3,True,False,False,2022,Garden only
+2021-2022,Towong Shire,26670,2,False,False,False,2022,No green bin
+2021-2022,Wangaratta Rural City,26700,3,True,False,True,2022,Food and garden
+2021-2022,Warrnambool City,26730,4,True,True,True,2022,"Food, garden and glass"
+2021-2022,Wellington Shire,26810,2,False,False,False,2022,No green bin
+2021-2022,West Wimmera Shire,26890,2,False,False,False,2022,No green bin
+2021-2022,Whitehorse City,26980,3,True,False,False,2022,Garden only
+2021-2022,Whittlesea City,27070,3,True,False,True,2022,Food and garden
+2021-2022,Wodonga City,27170,3,True,False,True,2022,Food and garden
+2021-2022,Wyndham City,27260,3,True,False,True,2022,Food and garden
+2021-2022,Yarra City,27350,4,True,True,True,2022,"Food, garden and glass"
+2021-2022,Yarra Ranges Shire,27450,3,True,False,False,2022,Garden only
+2021-2022,Yarriambiack Shire,27630,2,False,False,False,2022,No green bin
+2022-2023,Alpine Shire,20110,2,False,False,False,2023,No green bin
+2022-2023,Ararat Rural City,20260,4,True,True,False,2023,Garden only
+2022-2023,Ballarat City,20570,3,True,False,False,2023,Garden only
+2022-2023,Banyule City,20660,3,True,False,True,2023,Food and garden
+2022-2023,Bass Coast Shire,20740,3,True,False,True,2023,Food and garden
+2022-2023,Baw Baw Shire,20830,3,True,False,False,2023,Garden only
+2022-2023,Bayside City,20910,3,True,False,True,2023,Food and garden
+2022-2023,Benalla Rural City,21010,3,True,False,True,2023,Food and garden
+2022-2023,Boroondara City,21110,3,True,False,True,2023,Food and garden
+2022-2023,Brimbank City,21180,3,True,False,True,2023,Food and garden
+2022-2023,Buloke Shire,21270,2,False,False,False,2023,No green bin
+2022-2023,Campaspe Shire,21370,3,True,False,True,2023,Food and garden
+2022-2023,Cardinia Shire,21450,3,True,False,True,2023,Food and garden
+2022-2023,Casey City,21610,3,True,False,True,2023,Food and garden
+2022-2023,Central Goldfields Shire,21670,3,True,False,True,2023,Food and garden
+2022-2023,Colac Otway Shire,21750,4,True,True,True,2023,"Food, garden and glass"
+2022-2023,Corangamite Shire,21830,3,True,False,True,2023,Food and garden
+2022-2023,Darebin City,21890,3,True,False,True,2023,Food and garden
+2022-2023,East Gippsland Shire,22110,3,True,False,False,2023,Garden only
+2022-2023,Frankston City,22170,3,True,False,True,2023,Food and garden
+2022-2023,Gannawarra Shire,22250,3,True,False,False,2023,Garden only
+2022-2023,Glen Eira City,22310,3,True,False,True,2023,Food and garden
+2022-2023,Glenelg Shire,22410,2,False,False,False,2023,No green bin
+2022-2023,Golden Plains Shire,22490,2,False,False,False,2023,No green bin
+2022-2023,Greater Bendigo City,22620,3,True,False,True,2023,Food and garden
+2022-2023,Greater Dandenong City,22670,3,True,False,True,2023,Food and garden
+2022-2023,Greater Geelong City,22750,3,True,False,False,2023,Garden only
+2022-2023,Greater Shepparton City,22830,3,True,False,True,2023,Food and garden
+2022-2023,Hepburn Shire,22910,3,True,False,True,2023,Food and garden
+2022-2023,Hindmarsh Shire,22980,3,False,True,False,2023,No green bin
+2022-2023,Hobsons Bay City,23110,4,True,True,True,2023,"Food, garden and glass"
+2022-2023,Horsham Rural City,23190,4,True,True,True,2023,"Food, garden and glass"
+2022-2023,Hume City,23270,3,True,False,True,2023,Food and garden
+2022-2023,Indigo Shire,23350,3,True,False,True,2023,Food and garden
+2022-2023,Kingston City,23430,3,True,False,True,2023,Food and garden
+2022-2023,Knox City,23670,3,True,False,False,2023,Garden only
+2022-2023,Latrobe City,23810,3,True,False,False,2023,Garden only
+2022-2023,Loddon Shire,23940,2,False,False,False,2023,No green bin
+2022-2023,Macedon Ranges Shire,24130,4,True,True,True,2023,"Food, garden and glass"
+2022-2023,Manningham City,24210,3,True,False,False,2023,Garden only
+2022-2023,Mansfield Shire,24250,2,False,False,False,2023,No green bin
+2022-2023,Maribyrnong City,24330,3,True,False,True,2023,Food and garden
+2022-2023,Maroondah City,24410,3,True,False,True,2023,Food and garden
+2022-2023,Melbourne City,24600,3,True,False,True,2023,Food and garden
+2022-2023,Melton City,24650,3,True,False,True,2023,Food and garden
+2022-2023,Merri-Bek City,24700,3,True,False,True,2023,Food and garden
+2022-2023,Mildura Rural City,24780,3,True,False,True,2023,Food and garden
+2022-2023,Mitchell Shire,24850,2,False,False,False,2023,No green bin
+2022-2023,Moira Shire,24900,3,True,False,True,2023,Food and garden
+2022-2023,Monash City,24970,3,True,False,True,2023,Food and garden
+2022-2023,Moonee Valley City,25060,3,True,False,True,2023,Food and garden
+2022-2023,Moorabool Shire,25150,3,True,False,False,2023,Garden only
+2022-2023,Mornington Peninsula Shire,25340,3,True,False,True,2023,Food and garden
+2022-2023,Mount Alexander Shire,25430,2,False,False,False,2023,No green bin
+2022-2023,Moyne Shire,25490,4,True,True,True,2023,"Food, garden and glass"
+2022-2023,Murrindindi Shire,25620,2,False,False,False,2023,No green bin
+2022-2023,Nillumbik Shire,25710,3,True,False,True,2023,Food and garden
+2022-2023,Northern Grampians Shire,25810,2,False,False,False,2023,No green bin
+2022-2023,Port Phillip City,25900,3,True,False,True,2023,Food and garden
+2022-2023,Pyrenees Shire,25990,4,True,True,False,2023,Garden only
+2022-2023,Queenscliffe Borough,26080,3,True,False,True,2023,Food and garden
+2022-2023,South Gippsland Shire,26170,3,True,False,False,2023,Garden only
+2022-2023,Southern Grampians Shire,26260,3,True,False,True,2023,Food and garden
+2022-2023,Stonnington City,26350,3,True,False,True,2023,Food and garden
+2022-2023,Strathbogie Shire,26430,3,True,False,True,2023,Food and garden
+2022-2023,Surf Coast Shire,26490,4,True,True,True,2023,"Food, garden and glass"
+2022-2023,Swan Hill Rural City,26610,3,True,False,False,2023,Garden only
+2022-2023,Towong Shire,26670,2,False,False,False,2023,No green bin
+2022-2023,Wangaratta Rural City,26700,3,True,False,True,2023,Food and garden
+2022-2023,Warrnambool City,26730,4,True,True,True,2023,"Food, garden and glass"
+2022-2023,Wellington Shire,26810,2,False,False,False,2023,No green bin
+2022-2023,West Wimmera Shire,26890,2,False,False,False,2023,No green bin
+2022-2023,Whitehorse City,26980,3,True,False,False,2023,Garden only
+2022-2023,Whittlesea City,27070,4,True,True,True,2023,"Food, garden and glass"
+2022-2023,Wodonga City,27170,3,True,False,True,2023,Food and garden
+2022-2023,Wyndham City,27260,3,True,False,True,2023,Food and garden
+2022-2023,Yarra City,27350,4,True,True,True,2023,"Food, garden and glass"
+2022-2023,Yarra Ranges Shire,27450,3,True,False,False,2023,Garden only
+2022-2023,Yarriambiack Shire,27630,3,False,True,False,2023,No green bin
+2023-2024,Alpine Shire,20110,3,True,False,True,2024,Food and garden
+2023-2024,Ararat Rural City,20260,4,True,True,False,2024,Garden only
+2023-2024,Ballarat City,20570,3,True,False,False,2024,Garden only
+2023-2024,Banyule City,20660,3,True,False,True,2024,Food and garden
+2023-2024,Bass Coast Shire,20740,3,True,False,True,2024,Food and garden
+2023-2024,Baw Baw Shire,20830,3,True,False,False,2024,Garden only
+2023-2024,Bayside City,20910,3,True,False,True,2024,Food and garden
+2023-2024,Benalla Rural City,21010,3,True,False,True,2024,Food and garden
+2023-2024,Boroondara City,21110,3,True,False,True,2024,Food and garden
+2023-2024,Brimbank City,21180,3,True,False,True,2024,Food and garden
+2023-2024,Buloke Shire,21270,2,False,False,False,2024,No green bin
+2023-2024,Campaspe Shire,21370,3,True,False,True,2024,Food and garden
+2023-2024,Cardinia Shire,21450,3,True,False,True,2024,Food and garden
+2023-2024,Casey City,21610,3,True,False,True,2024,Food and garden
+2023-2024,Central Goldfields Shire,21670,3,True,False,True,2024,Food and garden
+2023-2024,Colac Otway Shire,21750,4,True,True,True,2024,"Food, garden and glass"
+2023-2024,Corangamite Shire,21830,3,True,False,True,2024,Food and garden
+2023-2024,Darebin City,21890,3,True,False,True,2024,Food and garden
+2023-2024,East Gippsland Shire,22110,3,True,False,False,2024,Garden only
+2023-2024,Frankston City,22170,4,True,True,True,2024,"Food, garden and glass"
+2023-2024,Gannawarra Shire,22250,3,True,False,False,2024,Garden only
+2023-2024,Glen Eira City,22310,3,True,False,True,2024,Food and garden
+2023-2024,Glenelg Shire,22410,2,False,False,False,2024,No green bin
+2023-2024,Golden Plains Shire,22490,2,False,False,False,2024,No green bin
+2023-2024,Greater Bendigo City,22620,3,True,False,True,2024,Food and garden
+2023-2024,Greater Dandenong City,22670,3,True,False,True,2024,Food and garden
+2023-2024,Greater Geelong City,22750,3,True,False,False,2024,Garden only
+2023-2024,Greater Shepparton City,22830,4,True,True,True,2024,"Food, garden and glass"
+2023-2024,Hepburn Shire,22910,3,True,False,True,2024,Food and garden
+2023-2024,Hindmarsh Shire,22980,3,False,True,False,2024,No green bin
+2023-2024,Hobsons Bay City,23110,4,True,True,True,2024,"Food, garden and glass"
+2023-2024,Horsham Rural City,23190,4,True,True,True,2024,"Food, garden and glass"
+2023-2024,Hume City,23270,3,True,False,True,2024,Food and garden
+2023-2024,Indigo Shire,23350,3,True,False,True,2024,Food and garden
+2023-2024,Kingston City,23430,3,True,False,True,2024,Food and garden
+2023-2024,Knox City,23670,3,True,False,True,2024,Food and garden
+2023-2024,Latrobe City,23810,3,True,False,False,2024,Garden only
+2023-2024,Loddon Shire,23940,2,False,False,False,2024,No green bin
+2023-2024,Macedon Ranges Shire,24130,4,True,True,True,2024,"Food, garden and glass"
+2023-2024,Manningham City,24210,3,True,False,True,2024,Food and garden
+2023-2024,Mansfield Shire,24250,2,False,False,False,2024,No green bin
+2023-2024,Maribyrnong City,24330,3,True,False,True,2024,Food and garden
+2023-2024,Maroondah City,24410,3,True,False,True,2024,Food and garden
+2023-2024,Melbourne City,24600,3,True,False,True,2024,Food and garden
+2023-2024,Melton City,24650,3,True,False,True,2024,Food and garden
+2023-2024,Merri-Bek City,24700,4,True,True,True,2024,"Food, garden and glass"
+2023-2024,Mildura Rural City,24780,3,True,False,True,2024,Food and garden
+2023-2024,Mitchell Shire,24850,2,False,False,False,2024,No green bin
+2023-2024,Moira Shire,24900,3,True,False,True,2024,Food and garden
+2023-2024,Monash City,24970,3,True,False,True,2024,Food and garden
+2023-2024,Moonee Valley City,25060,3,True,False,True,2024,Food and garden
+2023-2024,Moorabool Shire,25150,3,True,False,False,2024,Garden only
+2023-2024,Mornington Peninsula Shire,25340,3,True,False,True,2024,Food and garden
+2023-2024,Mount Alexander Shire,25430,2,False,False,False,2024,No green bin
+2023-2024,Moyne Shire,25490,4,True,True,True,2024,"Food, garden and glass"
+2023-2024,Murrindindi Shire,25620,2,False,False,False,2024,No green bin
+2023-2024,Nillumbik Shire,25710,3,True,False,True,2024,Food and garden
+2023-2024,Northern Grampians Shire,25810,3,True,False,True,2024,Food and garden
+2023-2024,Port Phillip City,25900,3,True,False,True,2024,Food and garden
+2023-2024,Pyrenees Shire,25990,4,True,True,False,2024,Garden only
+2023-2024,Queenscliffe Borough,26080,3,True,False,True,2024,Food and garden
+2023-2024,South Gippsland Shire,26170,3,True,False,False,2024,Garden only
+2023-2024,Southern Grampians Shire,26260,3,True,False,True,2024,Food and garden
+2023-2024,Stonnington City,26350,3,True,False,True,2024,Food and garden
+2023-2024,Strathbogie Shire,26430,3,True,False,True,2024,Food and garden
+2023-2024,Surf Coast Shire,26490,4,True,True,True,2024,"Food, garden and glass"
+2023-2024,Swan Hill Rural City,26610,3,True,False,False,2024,Garden only
+2023-2024,Towong Shire,26670,3,True,False,True,2024,Food and garden
+2023-2024,Wangaratta Rural City,26700,3,True,False,True,2024,Food and garden
+2023-2024,Warrnambool City,26730,4,True,True,True,2024,"Food, garden and glass"
+2023-2024,Wellington Shire,26810,2,False,False,False,2024,No green bin
+2023-2024,West Wimmera Shire,26890,2,False,False,False,2024,No green bin
+2023-2024,Whitehorse City,26980,3,True,False,True,2024,Food and garden
+2023-2024,Whittlesea City,27070,4,True,True,True,2024,"Food, garden and glass"
+2023-2024,Wodonga City,27170,3,True,False,True,2024,Food and garden
+2023-2024,Wyndham City,27260,3,True,False,True,2024,Food and garden
+2023-2024,Yarra City,27350,3,False,True,False,2024,No green bin
+2023-2024,Yarra Ranges Shire,27450,3,True,False,True,2024,Food and garden
+2023-2024,Yarriambiack Shire,27630,3,False,True,False,2024,No green bin

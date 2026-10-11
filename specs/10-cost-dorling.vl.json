@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "background": null,
-  "width": 900,
+  "width": 880,
   "height": 500,
   "projection": {
     "type": "conicEqualArea",
@@ -39,10 +39,13 @@
         }
       },
       "mark": {
-        "type": "circle",
-        "opacity": 0.95,
-        "stroke": "#F7F8F4",
-        "strokeWidth": 1
+        "type": "point",
+        "shape": "circle",
+        "filled": false,
+        "stroke": "#8A9186",
+        "strokeWidth": 1,
+        "fill": "#FFFFFF",
+        "fillOpacity": 0.55
       },
       "encoding": {
         "longitude": {
@@ -54,13 +57,86 @@
           "type": "quantitative"
         },
         "size": {
-          "field": "households",
+          "field": "total_kerbside_t",
           "type": "quantitative",
           "scale": {
             "type": "linear",
+            "domain": [
+              0,
+              140000
+            ],
             "range": [
-              25,
-              1500
+              0,
+              1700
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "Council",
+            "title": "Council"
+          },
+          {
+            "field": "group",
+            "title": "Council type"
+          },
+          {
+            "field": "total_kerbside_t",
+            "type": "quantitative",
+            "format": ",.0f",
+            "title": "Kerbside waste (tonnes)"
+          },
+          {
+            "field": "diverted_share",
+            "type": "quantitative",
+            "format": ".0%",
+            "title": "Share kept out of landfill"
+          },
+          {
+            "field": "garbage_cost_per_bin",
+            "type": "quantitative",
+            "format": "$.0f",
+            "title": "Cost per bin"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/council_dorling.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "opacity": 0.95,
+        "stroke": null
+      },
+      "encoding": {
+        "longitude": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "diverted_t",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              0,
+              140000
+            ],
+            "range": [
+              0,
+              1700
             ]
           },
           "legend": null
@@ -105,22 +181,22 @@
             "title": "Council type"
           },
           {
+            "field": "total_kerbside_t",
+            "type": "quantitative",
+            "format": ",.0f",
+            "title": "Kerbside waste (tonnes)"
+          },
+          {
+            "field": "diverted_share",
+            "type": "quantitative",
+            "format": ".0%",
+            "title": "Share kept out of landfill"
+          },
+          {
             "field": "garbage_cost_per_bin",
             "type": "quantitative",
             "format": "$.0f",
             "title": "Cost per bin"
-          },
-          {
-            "field": "lgprf_diversion_pct",
-            "type": "quantitative",
-            "format": ".0f",
-            "title": "Kept out of landfill (%)"
-          },
-          {
-            "field": "households",
-            "type": "quantitative",
-            "format": ",.0f",
-            "title": "Households"
           }
         ]
       }
@@ -134,15 +210,20 @@
       },
       "transform": [
         {
-          "filter": "datum.households > 80000"
+          "filter": "datum.total_kerbside_t > 85000"
         }
       ],
       "mark": {
         "type": "text",
-        "fontSize": 8.5,
+        "fontSize": 9,
         "font": "IBM Plex Mono",
         "color": "#15181A",
-        "opacity": 0.8
+        "opacity": 1,
+        "dy": -3,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 2.5,
+        "fillOpacity": 1,
+        "strokeOpacity": 0.7
       },
       "encoding": {
         "longitude": {
@@ -162,9 +243,14 @@
       "data": {
         "values": [
           {
-            "x": 142.0,
-            "y": -34.4,
-            "t": "Melbourne City \u2014 $476 a bin"
+            "x": 141.0,
+            "y": -34.25,
+            "t": "Circle size is how much a council collects. The filled part is what it keeps out of landfill."
+          },
+          {
+            "x": 141.0,
+            "y": -34.58,
+            "t": "A thin ring means most of it is buried. Colour is the cost of a garbage bin."
           }
         ]
       },
@@ -172,9 +258,8 @@
         "type": "text",
         "align": "left",
         "fontSize": 11.5,
-        "fontWeight": 600,
-        "color": "#C8372D",
-        "font": "Archivo"
+        "color": "#3E453B",
+        "font": "Source Serif 4"
       },
       "encoding": {
         "longitude": {

@@ -1,577 +1,259 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "background": null,
+  "params": [
+    {
+      "name": "year",
+      "value": 2024,
+      "bind": {
+        "input": "range",
+        "min": 2016,
+        "max": 2024,
+        "step": 1,
+        "name": "Financial year ending  "
+      }
+    }
+  ],
   "vconcat": [
     {
-      "hconcat": [
-        {
-          "width": 290,
-          "height": 208,
-          "projection": {
-            "type": "conicEqualArea",
-            "parallels": [
-              -36,
-              -38
-            ],
-            "rotate": [
-              -145,
-              0,
-              0
-            ]
-          },
-          "title": {
-            "text": "2015\u20132016",
-            "fontSize": 12,
-            "fontWeight": 600,
-            "anchor": "start",
-            "offset": 4,
-            "subtitle": null
-          },
-          "data": {
-            "url": "data/rollout_by_year.csv",
-            "format": {
-              "type": "csv",
-              "parse": {
-                "lga_code": "string",
-                "streams": "number"
-              }
-            }
-          },
-          "transform": [
-            {
-              "filter": "datum.financial_year == '2015-2016'"
-            },
-            {
-              "lookup": "lga_code",
-              "from": {
-                "data": {
-                  "url": "data/vic_lga.topo.json",
-                  "format": {
-                    "type": "topojson",
-                    "feature": "vic_lga"
-                  }
-                },
-                "key": "properties.lga_code"
-              },
-              "as": "geo"
-            }
-          ],
-          "mark": {
-            "type": "geoshape",
-            "stroke": "#FFFFFF",
-            "strokeWidth": 0.25
-          },
-          "encoding": {
-            "shape": {
-              "field": "geo",
-              "type": "geojson"
-            },
-            "color": {
-              "field": "streams",
-              "type": "ordinal",
-              "scale": {
-                "domain": [
-                  2,
-                  3,
-                  4
-                ],
-                "range": [
-                  "#E4E2DA",
-                  "#7FB539",
-                  "#1F5F4B"
-                ]
-              }
-            },
-            "tooltip": [
-              {
-                "field": "council",
-                "title": "Council"
-              },
-              {
-                "field": "streams",
-                "type": "quantitative",
-                "title": "Bins"
-              }
-            ]
+      "width": 820,
+      "height": 440,
+      "projection": {
+        "type": "conicEqualArea",
+        "parallels": [
+          -36,
+          -38
+        ],
+        "rotate": [
+          -145,
+          0,
+          0
+        ]
+      },
+      "data": {
+        "url": "data/rollout_by_year.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lga_code": "string",
+            "year_end": "number"
           }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.year_end == year"
         },
         {
-          "width": 290,
-          "height": 208,
-          "projection": {
-            "type": "conicEqualArea",
-            "parallels": [
-              -36,
-              -38
+          "lookup": "lga_code",
+          "from": {
+            "data": {
+              "url": "data/vic_lga.topo.json",
+              "format": {
+                "type": "topojson",
+                "feature": "vic_lga"
+              }
+            },
+            "key": "properties.lga_code"
+          },
+          "as": "geo"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 0.4
+      },
+      "encoding": {
+        "shape": {
+          "field": "geo",
+          "type": "geojson"
+        },
+        "color": {
+          "field": "service",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "No green bin",
+              "Garden only",
+              "Food and garden",
+              "Food, garden and glass"
             ],
-            "rotate": [
-              -145,
-              0,
-              0
+            "range": [
+              "#C8372D",
+              "#CBDCAC",
+              "#7FB539",
+              "#7A52C7"
             ]
           },
-          "title": {
-            "text": "2018\u20132019",
-            "fontSize": 12,
-            "fontWeight": 600,
-            "anchor": "start",
-            "offset": 4,
-            "subtitle": null
-          },
-          "data": {
-            "url": "data/rollout_by_year.csv",
-            "format": {
-              "type": "csv",
-              "parse": {
-                "lga_code": "string",
-                "streams": "number"
-              }
-            }
-          },
-          "transform": [
-            {
-              "filter": "datum.financial_year == '2018-2019'"
-            },
-            {
-              "lookup": "lga_code",
-              "from": {
-                "data": {
-                  "url": "data/vic_lga.topo.json",
-                  "format": {
-                    "type": "topojson",
-                    "feature": "vic_lga"
-                  }
-                },
-                "key": "properties.lga_code"
-              },
-              "as": "geo"
-            }
+          "sort": [
+            "No green bin",
+            "Garden only",
+            "Food and garden",
+            "Food, garden and glass"
           ],
-          "mark": {
-            "type": "geoshape",
-            "stroke": "#FFFFFF",
-            "strokeWidth": 0.25
-          },
-          "encoding": {
-            "shape": {
-              "field": "geo",
-              "type": "geojson"
-            },
-            "color": {
-              "field": "streams",
-              "type": "ordinal",
-              "scale": {
-                "domain": [
-                  2,
-                  3,
-                  4
-                ],
-                "range": [
-                  "#E4E2DA",
-                  "#7FB539",
-                  "#1F5F4B"
-                ]
-              }
-            },
-            "tooltip": [
-              {
-                "field": "council",
-                "title": "Council"
-              },
-              {
-                "field": "streams",
-                "type": "quantitative",
-                "title": "Bins"
-              }
-            ]
+          "legend": {
+            "title": null,
+            "orient": "bottom",
+            "direction": "horizontal",
+            "offset": 2,
+            "labelFontSize": 11.5,
+            "labelLimit": 220,
+            "columns": 4
           }
         },
+        "tooltip": [
+          {
+            "field": "council",
+            "title": "Council"
+          },
+          {
+            "field": "service",
+            "title": "Kerbside service"
+          },
+          {
+            "field": "year_end",
+            "type": "quantitative",
+            "title": "Year ending",
+            "format": "d"
+          }
+        ]
+      }
+    },
+    {
+      "width": 820,
+      "height": 120,
+      "data": {
+        "url": "data/rollout_by_year.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lga_code": "string",
+            "year_end": "number"
+          }
+        }
+      },
+      "layer": [
         {
-          "width": 290,
-          "height": 208,
-          "projection": {
-            "type": "conicEqualArea",
-            "parallels": [
-              -36,
-              -38
-            ],
-            "rotate": [
-              -145,
-              0,
-              0
-            ]
-          },
-          "title": {
-            "text": "2020\u20132021",
-            "fontSize": 12,
-            "fontWeight": 600,
-            "anchor": "start",
-            "offset": 4,
-            "subtitle": null
-          },
-          "data": {
-            "url": "data/rollout_by_year.csv",
-            "format": {
-              "type": "csv",
-              "parse": {
-                "lga_code": "string",
-                "streams": "number"
-              }
-            }
-          },
           "transform": [
             {
-              "filter": "datum.financial_year == '2020-2021'"
-            },
-            {
-              "lookup": "lga_code",
-              "from": {
-                "data": {
-                  "url": "data/vic_lga.topo.json",
-                  "format": {
-                    "type": "topojson",
-                    "feature": "vic_lga"
-                  }
-                },
-                "key": "properties.lga_code"
-              },
-              "as": "geo"
+              "aggregate": [
+                {
+                  "op": "count",
+                  "as": "n"
+                }
+              ],
+              "groupby": [
+                "year_end",
+                "service"
+              ]
             }
           ],
           "mark": {
-            "type": "geoshape",
-            "stroke": "#FFFFFF",
-            "strokeWidth": 0.25
+            "type": "area",
+            "interpolate": "monotone",
+            "opacity": 0.95
           },
           "encoding": {
-            "shape": {
-              "field": "geo",
-              "type": "geojson"
-            },
-            "color": {
-              "field": "streams",
-              "type": "ordinal",
+            "x": {
+              "field": "year_end",
+              "type": "quantitative",
+              "title": null,
+              "axis": {
+                "format": "d",
+                "tickCount": 9,
+                "labelFontSize": 11
+              },
               "scale": {
                 "domain": [
-                  2,
-                  3,
-                  4
+                  2016,
+                  2024
                 ],
-                "range": [
-                  "#E4E2DA",
-                  "#7FB539",
-                  "#1F5F4B"
-                ]
-              },
-              "legend": {
-                "title": "Kerbside bins",
-                "orient": "right",
-                "offset": 8,
-                "labelLimit": 300,
-                "padding": 0,
-                "titleFontSize": 11,
+                "nice": false
+              }
+            },
+            "y": {
+              "field": "n",
+              "type": "quantitative",
+              "stack": "zero",
+              "title": "Councils",
+              "axis": {
+                "tickCount": 3,
                 "labelFontSize": 11
               }
             },
-            "tooltip": [
-              {
-                "field": "council",
-                "title": "Council"
-              },
-              {
-                "field": "streams",
-                "type": "quantitative",
-                "title": "Bins"
-              }
-            ]
-          }
-        }
-      ],
-      "spacing": 6
-    },
-    {
-      "hconcat": [
-        {
-          "width": 290,
-          "height": 208,
-          "projection": {
-            "type": "conicEqualArea",
-            "parallels": [
-              -36,
-              -38
-            ],
-            "rotate": [
-              -145,
-              0,
-              0
-            ]
-          },
-          "title": {
-            "text": "2021\u20132022",
-            "fontSize": 12,
-            "fontWeight": 600,
-            "anchor": "start",
-            "offset": 4,
-            "subtitle": null
-          },
-          "data": {
-            "url": "data/rollout_by_year.csv",
-            "format": {
-              "type": "csv",
-              "parse": {
-                "lga_code": "string",
-                "streams": "number"
-              }
-            }
-          },
-          "transform": [
-            {
-              "filter": "datum.financial_year == '2021-2022'"
-            },
-            {
-              "lookup": "lga_code",
-              "from": {
-                "data": {
-                  "url": "data/vic_lga.topo.json",
-                  "format": {
-                    "type": "topojson",
-                    "feature": "vic_lga"
-                  }
-                },
-                "key": "properties.lga_code"
-              },
-              "as": "geo"
-            }
-          ],
-          "mark": {
-            "type": "geoshape",
-            "stroke": "#FFFFFF",
-            "strokeWidth": 0.25
-          },
-          "encoding": {
-            "shape": {
-              "field": "geo",
-              "type": "geojson"
-            },
             "color": {
-              "field": "streams",
-              "type": "ordinal",
+              "field": "service",
+              "type": "nominal",
               "scale": {
                 "domain": [
-                  2,
-                  3,
-                  4
+                  "No green bin",
+                  "Garden only",
+                  "Food and garden",
+                  "Food, garden and glass"
                 ],
                 "range": [
-                  "#E4E2DA",
+                  "#C8372D",
+                  "#CBDCAC",
                   "#7FB539",
-                  "#1F5F4B"
+                  "#7A52C7"
                 ]
-              }
+              },
+              "sort": [
+                "No green bin",
+                "Garden only",
+                "Food and garden",
+                "Food, garden and glass"
+              ],
+              "legend": null
+            },
+            "order": {
+              "field": "service",
+              "sort": "descending"
             },
             "tooltip": [
               {
-                "field": "council",
-                "title": "Council"
+                "field": "year_end",
+                "type": "quantitative",
+                "title": "Year ending",
+                "format": "d"
               },
               {
-                "field": "streams",
+                "field": "service",
+                "title": "Kerbside service"
+              },
+              {
+                "field": "n",
                 "type": "quantitative",
-                "title": "Bins"
+                "title": "Councils"
               }
             ]
           }
         },
         {
-          "width": 290,
-          "height": 208,
-          "projection": {
-            "type": "conicEqualArea",
-            "parallels": [
-              -36,
-              -38
-            ],
-            "rotate": [
-              -145,
-              0,
-              0
-            ]
-          },
-          "title": {
-            "text": "2022\u20132023",
-            "fontSize": 12,
-            "fontWeight": 600,
-            "anchor": "start",
-            "offset": 4,
-            "subtitle": null
-          },
-          "data": {
-            "url": "data/rollout_by_year.csv",
-            "format": {
-              "type": "csv",
-              "parse": {
-                "lga_code": "string",
-                "streams": "number"
-              }
-            }
-          },
-          "transform": [
-            {
-              "filter": "datum.financial_year == '2022-2023'"
-            },
-            {
-              "lookup": "lga_code",
-              "from": {
-                "data": {
-                  "url": "data/vic_lga.topo.json",
-                  "format": {
-                    "type": "topojson",
-                    "feature": "vic_lga"
-                  }
-                },
-                "key": "properties.lga_code"
-              },
-              "as": "geo"
-            }
-          ],
           "mark": {
-            "type": "geoshape",
-            "stroke": "#FFFFFF",
-            "strokeWidth": 0.25
+            "type": "rule",
+            "color": "#15181A",
+            "strokeWidth": 2
           },
           "encoding": {
-            "shape": {
-              "field": "geo",
-              "type": "geojson"
-            },
-            "color": {
-              "field": "streams",
-              "type": "ordinal",
+            "x": {
+              "datum": {
+                "expr": "year"
+              },
+              "type": "quantitative",
               "scale": {
                 "domain": [
-                  2,
-                  3,
-                  4
+                  2016,
+                  2024
                 ],
-                "range": [
-                  "#E4E2DA",
-                  "#7FB539",
-                  "#1F5F4B"
-                ]
-              }
-            },
-            "tooltip": [
-              {
-                "field": "council",
-                "title": "Council"
-              },
-              {
-                "field": "streams",
-                "type": "quantitative",
-                "title": "Bins"
-              }
-            ]
-          }
-        },
-        {
-          "width": 290,
-          "height": 208,
-          "projection": {
-            "type": "conicEqualArea",
-            "parallels": [
-              -36,
-              -38
-            ],
-            "rotate": [
-              -145,
-              0,
-              0
-            ]
-          },
-          "title": {
-            "text": "2023\u20132024",
-            "fontSize": 12,
-            "fontWeight": 600,
-            "anchor": "start",
-            "offset": 4,
-            "subtitle": null
-          },
-          "data": {
-            "url": "data/rollout_by_year.csv",
-            "format": {
-              "type": "csv",
-              "parse": {
-                "lga_code": "string",
-                "streams": "number"
+                "nice": false
               }
             }
-          },
-          "transform": [
-            {
-              "filter": "datum.financial_year == '2023-2024'"
-            },
-            {
-              "lookup": "lga_code",
-              "from": {
-                "data": {
-                  "url": "data/vic_lga.topo.json",
-                  "format": {
-                    "type": "topojson",
-                    "feature": "vic_lga"
-                  }
-                },
-                "key": "properties.lga_code"
-              },
-              "as": "geo"
-            }
-          ],
-          "mark": {
-            "type": "geoshape",
-            "stroke": "#FFFFFF",
-            "strokeWidth": 0.25
-          },
-          "encoding": {
-            "shape": {
-              "field": "geo",
-              "type": "geojson"
-            },
-            "color": {
-              "field": "streams",
-              "type": "ordinal",
-              "scale": {
-                "domain": [
-                  2,
-                  3,
-                  4
-                ],
-                "range": [
-                  "#E4E2DA",
-                  "#7FB539",
-                  "#1F5F4B"
-                ]
-              }
-            },
-            "tooltip": [
-              {
-                "field": "council",
-                "title": "Council"
-              },
-              {
-                "field": "streams",
-                "type": "quantitative",
-                "title": "Bins"
-              }
-            ]
           }
         }
-      ],
-      "spacing": 6
+      ]
     }
   ],
-  "spacing": 10,
-  "resolve": {
-    "scale": {
-      "color": "shared"
-    }
-  },
-  "background": null
+  "spacing": 14
 }
