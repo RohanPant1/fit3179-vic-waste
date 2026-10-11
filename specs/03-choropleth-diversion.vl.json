@@ -76,7 +76,7 @@
           "legend": {
             "title": "Diverted (%)",
             "orient": "right",
-            "offset": 4,
+            "offset": 8,
             "labelLimit": 300,
             "padding": 0,
             "titleFontSize": 11,

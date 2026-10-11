@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "width": 620,
+  "width": 540,
   "height": 420,
   "data": {
     "url": "data/vic_lga.topo.json",
@@ -77,8 +77,8 @@
       },
       "legend": {
         "title": "kg / household",
-        "orient": "top-left",
-        "offset": 4,
+        "orient": "right",
+        "offset": 8,
         "labelLimit": 300,
         "padding": 0,
         "titleFontSize": 11,

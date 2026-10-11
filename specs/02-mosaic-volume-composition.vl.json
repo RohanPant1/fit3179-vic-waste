@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "width": 620,
+  "width": 540,
   "height": 330,
   "data": {
     "url": "data/council_snapshot_latest.csv"
