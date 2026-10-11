@@ -4,8 +4,8 @@
     {
       "hconcat": [
         {
-          "width": 300,
-          "height": 215,
+          "width": 290,
+          "height": 208,
           "projection": {
             "type": "conicEqualArea",
             "parallels": [
@@ -95,8 +95,8 @@
           }
         },
         {
-          "width": 300,
-          "height": 215,
+          "width": 290,
+          "height": 208,
           "projection": {
             "type": "conicEqualArea",
             "parallels": [
@@ -186,8 +186,8 @@
           }
         },
         {
-          "width": 300,
-          "height": 215,
+          "width": 290,
+          "height": 208,
           "projection": {
             "type": "conicEqualArea",
             "parallels": [
@@ -291,8 +291,8 @@
     {
       "hconcat": [
         {
-          "width": 300,
-          "height": 215,
+          "width": 290,
+          "height": 208,
           "projection": {
             "type": "conicEqualArea",
             "parallels": [
@@ -382,8 +382,8 @@
           }
         },
         {
-          "width": 300,
-          "height": 215,
+          "width": 290,
+          "height": 208,
           "projection": {
             "type": "conicEqualArea",
             "parallels": [
@@ -473,8 +473,8 @@
           }
         },
         {
-          "width": 300,
-          "height": 215,
+          "width": 290,
+          "height": 208,
           "projection": {
             "type": "conicEqualArea",
             "parallels": [

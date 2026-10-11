@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "width": 540,
+  "width": 500,
   "height": 420,
   "data": {
     "url": "data/vic_lga.topo.json",

@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "hconcat": [
     {
-      "width": 660,
+      "width": 630,
       "height": 420,
       "data": {
         "url": "data/vic_lga.topo.json",
@@ -108,7 +108,7 @@
       }
     },
     {
-      "width": 250,
+      "width": 235,
       "height": 215,
       "title": {
         "text": "Metropolitan Melbourne",
