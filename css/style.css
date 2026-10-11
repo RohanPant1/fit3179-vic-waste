@@ -212,7 +212,11 @@ strong { font-weight: 700; }
   align-items: start;
   margin-bottom: clamp(2rem, 4vw, 3rem);
 }
+/* reversed spread has to swap the COLUMN WIDTHS too, not just the order,
+   or the chart lands in the narrow column and scrolls inside its card */
+.spread--reverse { grid-template-columns: minmax(16rem, 1fr) minmax(0, 1.9fr); }
 .spread--reverse > .card { order: 2; }
+.spread--reverse > .note { order: 1; }
 .spread--full { grid-template-columns: minmax(0, 1fr); }
 .pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: clamp(1.2rem, 2.5vw, 2rem); }
 
@@ -233,6 +237,7 @@ strong { font-weight: 700; }
 }
 
 .chart { overflow-x: auto; margin-inline: -0.2rem; }
+.chart--centre { display: flex; justify-content: center; }
 .chart > div { min-height: 60px; }
 
 .card__foot {
@@ -304,6 +309,8 @@ strong { font-weight: 700; }
 /* ---------- responsive ---------------------------------------------------- */
 @media (max-width: 900px) {
   .spread { grid-template-columns: minmax(0, 1fr); }
+  .spread--reverse { grid-template-columns: minmax(0, 1fr); }
   .spread--reverse > .card { order: 0; }
+  .spread--reverse > .note { order: 1; }
   body { font-size: 16px; }
 }
