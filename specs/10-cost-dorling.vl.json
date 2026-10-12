@@ -210,20 +210,20 @@
       },
       "transform": [
         {
-          "filter": "datum.total_kerbside_t > 85000"
+          "filter": "datum.total_kerbside_t > 90000"
         }
       ],
       "mark": {
         "type": "text",
-        "fontSize": 9,
+        "fontSize": 9.5,
         "font": "IBM Plex Mono",
-        "color": "#15181A",
-        "opacity": 1,
-        "dy": -3,
+        "fontWeight": 500,
+        "color": "#1C2119",
+        "dy": 0,
         "stroke": "#FFFFFF",
-        "strokeWidth": 2.5,
-        "fillOpacity": 1,
-        "strokeOpacity": 0.7
+        "strokeWidth": 1.6,
+        "strokeOpacity": 0.85,
+        "lineBreak": " "
       },
       "encoding": {
         "longitude": {
