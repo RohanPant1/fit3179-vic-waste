@@ -12,9 +12,14 @@
    BUILD is appended to every spec and data request. Browsers cache those
    fetches hard and a normal reload does not clear them, so without this a
    visitor can sit on a stale chart indefinitely. Bump it when specs or data
-   change. */
+   change.
 
-const BUILD = "2026-10-25a";
+   Bump the ?v= on this file's own script tag in index.html at the same time,
+   and the one on the stylesheet. This file cannot cache-bust itself: a
+   returning visitor ran the previous embed.js against the current HTML, so it
+   looked for chart ids that no longer existed and silently rendered nothing. */
+
+const BUILD = "2026-10-25b";
 
 const CHARTS = [
   { el: "#vis-waffle",     spec: "specs/01-waffle-streams.vl.json" },

@@ -10,7 +10,7 @@
   <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
   <!-- versioned for the same reason the specs are: browsers cache these hard
        and a normal reload does not clear them. Bump with BUILD in embed.js. -->
-  <link rel="stylesheet" href="css/style.css?v=2026-10-25a">
+  <link rel="stylesheet" href="css/style.css?v=2026-10-25b">
 
   <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
@@ -692,6 +692,11 @@
   </div>
 </footer>
 
-<script src="js/embed.js"></script>
+<!-- Versioned like the stylesheet and the specs. embed.js carries the cache
+     stamp for everything else, but its own URL was unversioned, so a browser
+     that had seen the old build kept running it. The old script looks for the
+     old chart ids, finds nothing, and fails silently: a blank page with no
+     console error. Bump this with BUILD inside the file. -->
+<script src="js/embed.js?v=2026-10-25b"></script>
 </body>
 </html>
