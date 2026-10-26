@@ -5,8 +5,8 @@
   "axis": {
     "labelFontSize": 12,
     "titleFontSize": 12,
-    "labelColor": "#5A6157",
-    "titleColor": "#2C3329",
+    "labelColor": "#5B6258",
+    "titleColor": "#14171A",
     "domainColor": "#C9CDC4",
     "tickColor": "#C9CDC4",
     "grid": false,
@@ -20,8 +20,8 @@
   "legend": {
     "labelFontSize": 12,
     "titleFontSize": 11,
-    "labelColor": "#3F463C",
-    "titleColor": "#2C3329",
+    "labelColor": "#434A40",
+    "titleColor": "#14171A",
     "titleFont": "Archivo",
     "labelFont": "Archivo",
     "titleFontWeight": 600,
@@ -44,8 +44,8 @@
   },
   "view": {"stroke": null},
   "range": {
-    "category": ["#5C6166", "#E69F00", "#009E73", "#CC79A7", "#0072B2", "#56B4E9", "#D55E00"],
-    "ramp": {"scheme": "viridis"}
+    "category": ["#1F3A93", "#E69F00", "#009E73", "#CC79A7", "#0072B2", "#56B4E9", "#D55E00"],
+    "ramp": ["#CCECE6", "#99D8C9", "#66C2A4", "#2CA25F", "#006D2C"]
   },
   "text": {"font": "Archivo"},
   "mark": {"font": "Archivo"}

@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "description": "Dumbbell chart. Every Victorian council is one row, ordered by what it spends collecting a garbage bin for a year. The hollow dot is the cost of a recycling bin and the solid dot the cost of a garbage bin; the bar joining them is coloured by how much waste the council keeps out of landfill. The dear end of the list is dark, meaning councils that spend most on garbage also bury most of it, and the recycling bin costs about half the garbage bin almost everywhere.",
-  "width": 620,
-  "height": 1030,
+  "description": "Connected dot plot (dumbbell). Every Victorian council is one row, ordered by what it spends to service a garbage bin for a year. The solid dot is the garbage bin, the hollow dot the recycling bin, and the bar between them is coloured by the share the council keeps out of landfill. Shaded bands mark quarters of the list: the dearest quarter keeps a median 39 per cent out of landfill, the cheapest 66 per cent.",
+  "width": 720,
+  "height": 830,
   "data": {
     "url": "data/council_snapshot_latest.csv",
     "format": {
@@ -19,6 +19,10 @@
     {
       "calculate": "datum.garbage_cost_per_bin - datum.recycling_cost_per_bin",
       "as": "gap"
+    },
+    {
+      "calculate": "datum.garbage_cost_per_bin >= 166.5 ? 'dear' : datum.garbage_cost_per_bin >= 138.5 ? 'q3' : datum.garbage_cost_per_bin >= 106 ? 'q2' : 'cheap'",
+      "as": "q"
     }
   ],
   "encoding": {
@@ -27,7 +31,7 @@
       "type": "nominal",
       "title": null,
       "axis": {
-        "labelFontSize": 11,
+        "labelFontSize": 10.5,
         "labelLimit": 180,
         "domain": false,
         "ticks": false,
@@ -44,7 +48,7 @@
             "test": "datum.label === focusCouncil",
             "value": "#111111"
           },
-          "value": "#5A6157"
+          "value": "#5B6258"
         }
       },
       "scale": {
@@ -134,9 +138,44 @@
   },
   "layer": [
     {
+      "description": "Quarters of the list by garbage-bin cost, shaded alternately (a subtle enclosure).",
+      "mark": {
+        "type": "rect",
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {
+          "datum": 0,
+          "type": "quantitative"
+        },
+        "x2": {
+          "datum": 490
+        },
+        "color": {
+          "field": "q",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "dear",
+              "q3",
+              "q2",
+              "cheap"
+            ],
+            "range": [
+              "#F1F3EE",
+              "#FFFFFF",
+              "#F1F3EE",
+              "#FFFFFF"
+            ]
+          },
+          "legend": null
+        }
+      }
+    },
+    {
       "mark": {
         "type": "rule",
-        "strokeWidth": 4,
+        "strokeWidth": 4.5,
         "strokeCap": "round"
       },
       "encoding": {
@@ -150,7 +189,7 @@
             ],
             "nice": false
           },
-          "title": "Cost per bin, a year ($)",
+          "title": null,
           "axis": {
             "format": "$,.0f",
             "orient": "top",
@@ -167,19 +206,29 @@
           "field": "lgprf_diversion_pct",
           "type": "quantitative",
           "scale": {
-            "scheme": "viridis",
+            "type": "threshold",
             "domain": [
-              15,
-              75
+              30,
+              40,
+              50,
+              60
+            ],
+            "range": [
+              "#CCECE6",
+              "#99D8C9",
+              "#66C2A4",
+              "#2CA25F",
+              "#006D2C"
             ]
           },
           "legend": {
-            "title": "Kept out of landfill (%)",
+            "title": "Share kept out of landfill",
             "orient": "top",
             "direction": "horizontal",
             "gradientLength": 200,
             "titleLimit": 300,
-            "offset": 4
+            "offset": 4,
+            "labelExpr": "isFinite(datum.value) ? datum.value + '%' : ''"
           }
         },
         "opacity": {
@@ -240,7 +289,7 @@
         "shape": "circle",
         "size": 58,
         "filled": true,
-        "stroke": "#2C3329",
+        "stroke": "#14171A",
         "strokeWidth": 1.3
       },
       "encoding": {
@@ -258,7 +307,7 @@
             ],
             "range": [
               "#FFFFFF",
-              "#2C3329"
+              "#14171A"
             ]
           },
           "legend": {
@@ -309,7 +358,7 @@
         "fontSize": 11.5,
         "fontWeight": 700,
         "color": "#14171A",
-        "dx": -12,
+        "dx": -9,
         "stroke": "#FFFFFF",
         "strokeWidth": 3,
         "strokeOpacity": 0.9,
@@ -317,11 +366,68 @@
       },
       "encoding": {
         "x": {
-          "field": "garbage_cost_per_bin",
+          "field": "recycling_cost_per_bin",
           "type": "quantitative"
         },
         "text": {
-          "value": "servicing the CBD"
+          "value": "$476 a bin, 28% kept out"
+        }
+      }
+    },
+    {
+      "description": "The finding, written into the empty right-hand side of each quarter.",
+      "data": {
+        "values": [
+          {
+            "Council": "Moorabool Shire",
+            "t": [
+              "Dearest quarter, $167 to $476",
+              "median 39% kept out of landfill"
+            ]
+          },
+          {
+            "Council": "Stonnington City",
+            "t": [
+              "Next quarter, $139 to $164",
+              "median 47%"
+            ]
+          },
+          {
+            "Council": "Hepburn Shire",
+            "t": [
+              "Next quarter, $106 to $138",
+              "median 57%"
+            ]
+          },
+          {
+            "Council": "Manningham City",
+            "t": [
+              "Cheapest quarter, $53 to $105",
+              "median 66% kept out of landfill"
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12.5,
+        "fontWeight": 700,
+        "color": "#14171A",
+        "lineHeight": 16
+      },
+      "encoding": {
+        "x": {
+          "datum": 318,
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "Council",
+          "type": "nominal"
+        },
+        "text": {
+          "field": "t"
         }
       }
     }

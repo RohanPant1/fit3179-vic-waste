@@ -86,22 +86,25 @@
                   30,
                   40,
                   50,
-                  60,
-                  70
+                  60
                 ],
-                "scheme": {
-                  "name": "viridis",
-                  "count": 6
-                }
+                "range": [
+                  "#CCECE6",
+                  "#99D8C9",
+                  "#66C2A4",
+                  "#2CA25F",
+                  "#006D2C"
+                ]
               },
               "legend": {
-                "title": "Kept out of landfill (%)",
+                "title": "Share kept out of landfill, 2024–25",
                 "orient": "none",
                 "legendX": 0,
                 "legendY": 362,
                 "direction": "horizontal",
                 "gradientLength": 210,
-                "titleLimit": 320
+                "titleLimit": 320,
+                "labelExpr": "isFinite(datum.value) ? datum.value + '%' : ''"
               }
             },
             "tooltip": [
@@ -136,12 +139,12 @@
               {
                 "lon": 147.25,
                 "lat": -36.55,
-                "t": "Alpine 74% \u2014 the best in Victoria"
+                "t": "Alpine 74%, the highest"
               },
               {
                 "lon": 141.35,
                 "lat": -36.55,
-                "t": "West Wimmera 16% \u2014 the lowest"
+                "t": "West Wimmera 16%, the lowest"
               }
             ]
           },
@@ -201,12 +204,64 @@
               "type": "quantitative"
             }
           }
+        },
+        {
+          "description": "Outline of the area enlarged at right.",
+          "data": {
+            "values": [
+              {
+                "a": 144.55,
+                "b": -37.55,
+                "c": 145.45,
+                "d": -37.55
+              },
+              {
+                "a": 145.45,
+                "b": -37.55,
+                "c": 145.45,
+                "d": -38.12
+              },
+              {
+                "a": 145.45,
+                "b": -38.12,
+                "c": 144.55,
+                "d": -38.12
+              },
+              {
+                "a": 144.55,
+                "b": -38.12,
+                "c": 144.55,
+                "d": -37.55
+              }
+            ]
+          },
+          "mark": {
+            "type": "rule",
+            "color": "#14171A",
+            "strokeWidth": 0.8
+          },
+          "encoding": {
+            "longitude": {
+              "field": "a",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "b",
+              "type": "quantitative"
+            },
+            "longitude2": {
+              "field": "c"
+            },
+            "latitude2": {
+              "field": "d"
+            }
+          }
         }
       ]
     },
     {
-      "width": 240,
-      "height": 230,
+      "width": 330,
+      "height": 330,
       "projection": {
         "type": "conicEqualArea",
         "parallels": [
@@ -221,7 +276,10 @@
       },
       "title": {
         "text": "Metropolitan Melbourne, enlarged",
-        "fontSize": 12.5
+        "fontSize": 12,
+        "fontWeight": 700,
+        "anchor": "start",
+        "color": "#14171A"
       },
       "data": {
         "url": "data/vic_lga.topo.json",
@@ -287,22 +345,25 @@
               30,
               40,
               50,
-              60,
-              70
+              60
             ],
-            "scheme": {
-              "name": "viridis",
-              "count": 6
-            }
+            "range": [
+              "#CCECE6",
+              "#99D8C9",
+              "#66C2A4",
+              "#2CA25F",
+              "#006D2C"
+            ]
           },
           "legend": {
-            "title": "Kept out of landfill (%)",
+            "title": "Share kept out of landfill, 2024–25",
             "orient": "none",
             "legendX": 0,
             "legendY": 362,
             "direction": "horizontal",
             "gradientLength": 210,
-            "titleLimit": 320
+            "titleLimit": 320,
+            "labelExpr": "isFinite(datum.value) ? datum.value + '%' : ''"
           }
         },
         "tooltip": [

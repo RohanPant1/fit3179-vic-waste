@@ -2,70 +2,69 @@
    Where Victoria's Rubbish Goes
    FIT3179 Data Visualisation 2 — Rohan Pant
 
-   Two grounds, one typeface.
+   Built on the "Depot" design system. Two grounds, one typeface, and one
+   colour scheme per variable across the whole page.
 
-   Ground: light bands carry the content, dark bands punctuate it. Cards are
-   always white with a hairline rule, so "card" means one thing everywhere.
-   The previous three near-identical greys read as a single flat surface.
+   Ground: light bands carry the content, dark bands punctuate it at the
+   hero, the turn and the close. Cards are always white with a hairline
+   rule, so white means "a chart is here" and nothing else.
 
-   Type: Archivo throughout, page and charts alike, so a chart's axis labels
-   are the same typeface as the paragraph beside it. Weight, size and colour
-   carry the hierarchy instead of a second or third family.
+   Type: Archivo throughout, page and charts alike. Weight, size and colour
+   carry the hierarchy instead of a second family.
 
-   Colour: Okabe-Ito, distinguishable under all three common forms of colour
-   vision deficiency. See specs/_palette.json.
+   Colour: stream and service colours are Okabe-Ito based, garbage is the
+   a deep navy. Quantities use single-hue ramps, dark = more. See
+   specs/_palette.json, which must match the tokens below.
    ========================================================================== */
 
 @font-face {
   font-family: "Archivo";
   src: url("../fonts/archivo.woff2") format("woff2");
-  font-weight: 400 800; font-style: normal; font-display: swap;
+  font-weight: 400 900; font-style: normal; font-display: swap;
 }
 
 /* ---------- tokens -------------------------------------------------------- */
 :root {
-  --depot:     #171C18;   /* dark punctuation bands */
-  --depot-2:   #1F261F;
-  --ground:    #E4E7DD;   /* the one content ground */
-  --surface:   #FFFFFF;   /* every card */
-  --ink:       #14171A;
-  --ink-soft:  #434A40;
-  --muted:     #6A7166;
-  --faint:     #949A90;
-  --rule:      #CFD4C8;
-  --rule-dark: #333B34;
-  --on-dark:   #EDF0EA;
-  --on-dark-2: #AEB8AC;
+  --depot:        #171C18;   /* dark punctuation bands */
+  --depot-raised: #222A23;   /* controls on depot */
+  --ground:       #E4E7DD;   /* the one content ground */
+  --surface:      #FFFFFF;   /* every chart card */
+  --ink:          #14171A;
+  --ink-soft:     #434A40;   /* body, 7.3:1 on ground */
+  --muted:        #5B6258;   /* captions and labels, 5.0:1 on ground */
+  --source-ink:   #6A7166;   /* source lines, on white only, 5.0:1 */
+  --rule:         #CFD4C8;
+  --rule-dark:    #333B34;
+  --on-dark:      #EDF0EA;
+  --on-dark-soft: #C0C9BE;
+  --on-dark-muted:#929C90;
 
-  /* Okabe-Ito. Streams. Also set in specs/_palette.json — change both. */
-  --garbage:   #5C6166;
+  /* streams. Also in specs/_palette.json — change both. */
+  --garbage:   #1F3A93;   /* deep navy: no red, and the widest CVD margin from the other streams */
   --recycling: #E69F00;
   --organics:  #009E73;
   --glass:     #CC79A7;
 
-  /* Okabe-Ito. Service levels. */
+  /* service levels */
   --svc-two:   #D55E00;
   --svc-glass: #CC79A7;
   --svc-three: #56B4E9;
   --svc-four:  #0072B2;
 
-  --accent:    #006B52;
+  --accent:         #006B52;
   --accent-on-dark: #6FD3AE;
 
   --sans: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  /* ~10 words a line. Measured in ch, not em: em is relative to each
-     element's own font-size, so the same em value gave small text MORE
-     characters per line, not fewer. The caption class was running at 84
-     characters before this. Verified in the browser at 1280px. */
+  /* ~10 words a line, in ch so small text does not get longer lines */
   --measure: 58ch;
-  --gutter:  clamp(1.1rem, 4vw, 3rem);
+  --gutter:  clamp(1rem, 4vw, 3rem);
   --maxw:    1180px;
+  --band:    clamp(3rem, 5.5vw, 4rem);
 }
 
 /* ---------- base ---------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
@@ -87,31 +86,25 @@ h1, h2, h3, h4 {
   letter-spacing: -0.021em;
   text-wrap: balance;
 }
-
 p { margin: 0; text-wrap: pretty; }
 
 a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-a:focus-visible, button:focus-visible, select:focus-visible {
+a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
   outline: 2px solid var(--accent); outline-offset: 3px;
 }
+.band--dark a:focus-visible, .band--dark select:focus-visible { outline-color: var(--accent-on-dark); }
 
 strong { font-weight: 700; }
-.num, .stat b, .scorecard b { font-variant-numeric: tabular-nums; }
+.num, .scorecard b, .verdict b, .binkey .t { font-variant-numeric: tabular-nums; }
 
 /* ---------- scroll progress rail ----------------------------------------- */
-#rail {
-  position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 60;
-  background: transparent; pointer-events: none;
-}
-#rail i {
-  display: block; height: 100%; width: 0;
-  background: var(--accent); transition: width 90ms linear;
-}
+#rail { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 60; pointer-events: none; }
+#rail i { display: block; height: 100%; width: 0; background: var(--accent-on-dark); transition: width 90ms linear; }
 
 /* ---------- sticky council bar ------------------------------------------- */
 #stickybar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-  background: rgba(23, 28, 24, 0.95);
+  background: rgba(23, 28, 24, 0.96);
   backdrop-filter: blur(8px);
   color: var(--on-dark);
   border-bottom: 1px solid var(--rule-dark);
@@ -119,290 +112,274 @@ strong { font-weight: 700; }
   transition: transform 220ms cubic-bezier(.2,.7,.3,1);
 }
 #stickybar.on { transform: translateY(0); }
-#stickybar .inner {
-  display: flex; align-items: center; gap: 0.6rem 1.4rem; flex-wrap: wrap;
-  padding-block: 0.55rem;
-}
-#stickybar label { font-size: 12px; color: var(--on-dark-2); font-weight: 600; }
+#stickybar .inner { display: flex; align-items: center; gap: 0.6rem 1.4rem; flex-wrap: wrap; padding-block: 0.55rem; }
+#stickybar label { font-size: 12px; color: var(--on-dark-muted); font-weight: 600; }
 #stickybar select {
-  font: 600 14px/1.2 var(--sans);
-  color: var(--on-dark); background: #2A332B;
+  font: 600 14px/1.2 var(--sans); color: var(--on-dark); background: var(--depot-raised);
   border: 1px solid #44503F; border-radius: 3px; padding: 0.3rem 0.45rem;
 }
-#stickybar select option { color: #14171A; background: #FFF; }
-#stickybar .sb-stat { font-size: 13px; color: var(--on-dark-2); }
-#stickybar .sb-stat b {
-  color: var(--on-dark); font-weight: 700; font-variant-numeric: tabular-nums;
-}
+#stickybar select option { color: var(--ink); background: #FFF; }
+#stickybar .sb-stat { font-size: 13px; color: var(--on-dark-soft); }
+#stickybar .sb-stat b { color: var(--on-dark); font-weight: 700; font-variant-numeric: tabular-nums; }
 @media (prefers-reduced-motion: reduce) { #stickybar { transition: none; } }
 
 /* ---------- bands --------------------------------------------------------- */
-.band { width: 100%; padding-block: clamp(3.5rem, 7vw, 6rem); }
+.band { width: 100%; padding-block: var(--band); }
 .band--dark  { background: var(--depot); color: var(--on-dark); }
 .band--light { background: var(--ground); }
+/* two light bands in a row are split by a hairline, not by doubled padding */
+.band--light + .band--light { border-top: 1px solid var(--rule); }
 
-.inner {
-  max-width: var(--maxw);
-  margin-inline: auto;
-  padding-inline: var(--gutter);
-}
+.inner { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
 
 /* ---------- type scale, one size per role --------------------------------- */
-.eyebrow {
+.kicker {
   display: block;
-  font-size: 11px; font-weight: 700; line-height: 1;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  font-size: 13px; font-weight: 600; line-height: 1.2;
   color: var(--muted);
-  margin-bottom: 1.1rem;
+  margin-bottom: 0.9rem;
 }
-.band--dark .eyebrow { color: #8A968A; }
+.kicker b { color: var(--accent); font-weight: 800; margin-right: 0.55rem; font-variant-numeric: tabular-nums; }
+.band--dark .kicker { color: var(--on-dark-muted); }
+.band--dark .kicker b { color: var(--accent-on-dark); }
 
-.h-hero    { font-size: clamp(2.6rem, 7.2vw, 5rem); font-weight: 800; line-height: 0.99; letter-spacing: -0.034em; }
-.h-section { font-size: clamp(1.7rem, 3.3vw, 2.4rem); font-weight: 700; }
+.h-hero    { font-size: clamp(2.6rem, 6.6vw, 5rem); font-weight: 900; line-height: 0.98; letter-spacing: -0.035em; }
+.h-section { font-size: clamp(1.7rem, 3.3vw, 2.4rem); font-weight: 800; line-height: 1.12; letter-spacing: -0.022em; }
 .h-chart   { font-size: 1.0625rem; font-weight: 700; line-height: 1.32; letter-spacing: -0.011em; }
 
-.lede {
-  font-size: clamp(1.08rem, 1.8vw, 1.28rem);
-  line-height: 1.52;
-  max-width: 46ch;
-  color: var(--ink-soft);
-}
-.band--dark .lede { color: #C0C9BE; }
+.lede { font-size: clamp(1.08rem, 1.7vw, 1.25rem); line-height: 1.5; max-width: 46ch; color: var(--ink-soft); }
+.lede + .lede { margin-top: 1rem; }
+.band--dark .lede { color: var(--on-dark-soft); }
+.band--dark .lede strong { color: var(--on-dark); }
 
 .prose { max-width: var(--measure); color: var(--ink-soft); }
-.prose + .prose { margin-top: 0.95rem; }
 
 /* ---------- hero ---------------------------------------------------------- */
-.hero { padding-block: clamp(4.5rem, 11vw, 8rem) clamp(3rem, 6vw, 4.5rem); }
-.hero .h-hero { color: #F3F6F0; max-width: 13ch; }
-.hero .lede { margin-top: 1.5rem; }
-
-.hero-figure { margin-top: clamp(2.4rem, 5vw, 3.6rem); max-width: 58em; }
-
-/* the stream bar — a 100% stacked bar in HTML, and the page's one motif */
-.lidbar { display: flex; height: 32px; border-radius: 2px; overflow: hidden; }
-.lidbar span { display: block; height: 100%; }
-.lidbar--thin { height: 9px; }
-
-.lidkey {
-  display: flex; flex-wrap: wrap; gap: 0.7rem 1.8rem;
-  margin-top: 0.9rem;
-  font-size: 13px; line-height: 1.4;
-  color: #A7B1A5;
+/* Title and lede on the left, the council finder on the right: the viewing
+   path runs title → lede → finder, and the finder sits at the visual centre
+   of the first screen instead of an empty right half. */
+.hero { padding-block: clamp(4rem, 9vw, 6.5rem) clamp(3rem, 6vw, 4.5rem); }
+.hero .inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(19rem, 1fr);
+  column-gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: end;
 }
-.band--light .lidkey { color: var(--muted); }
-.lidkey i {
-  display: inline-block; width: 11px; height: 11px;
-  border-radius: 2px; margin-right: 0.5rem;
-}
-.lidkey b { font-weight: 700; color: inherit; font-variant-numeric: tabular-nums; }
+.hero .h-hero { color: var(--on-dark); max-width: 11ch; }
+.hero .lede { margin-top: 1.4rem; }
+@media (max-width: 900px) { .hero .inner { grid-template-columns: minmax(0, 1fr); row-gap: 2.5rem; } }
 
 /* ---------- section head -------------------------------------------------- */
-/* Two columns: the finding on the left, the detail on the right. A single
-   column capped at a readable measure left the right half of every section
-   head empty, which is the "arbitrary use of white space" the layout rubric
-   marks down. This keeps the short line length and uses the full width. */
 .sectionhead {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
   column-gap: clamp(1.5rem, 4vw, 3.5rem);
-  row-gap: 0.9rem;
-  align-items: start;
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+  row-gap: 0.2rem;
+  align-items: end;
+  margin-bottom: clamp(1.8rem, 3.5vw, 2.6rem);
 }
-.sectionhead .eyebrow { grid-column: 1 / -1; margin-bottom: 0; }
-.sectionhead .h-section { grid-column: 1; margin-bottom: 0; max-width: 20ch; }
-.sectionhead .prose { grid-column: 2; }
-.sectionhead .prose + .prose { margin-top: 0; }
-
+.sectionhead .kicker { grid-column: 1 / -1; }
+.sectionhead .h-section { grid-column: 1; max-width: 20ch; }
+.sectionhead .prose { grid-column: 2; padding-bottom: 0.3rem; }
 @media (max-width: 860px) {
-  .sectionhead { grid-template-columns: minmax(0, 1fr); }
+  .sectionhead { grid-template-columns: minmax(0, 1fr); row-gap: 0.9rem; }
   .sectionhead .h-section, .sectionhead .prose { grid-column: 1; }
 }
 
-/* ---------- dark interstitial --------------------------------------------- */
-.turn .h-section { color: #F3F6F0; max-width: 17ch; font-size: clamp(1.85rem, 3.9vw, 2.9rem); }
-.turn .lede { margin-top: 1.3rem; max-width: 46ch; }
-
-/* ---------- stat row ------------------------------------------------------ */
-.stats {
+/* ---------- the turn ------------------------------------------------------ */
+.turn .h-section { color: var(--on-dark); max-width: 24ch; font-size: clamp(1.85rem, 3.9vw, 2.9rem); }
+/* the two numbers take the width they need; the lede takes the rest, so the
+   biggest type on the page never runs into the text beside it */
+.turn-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1px;
-  background: var(--rule);
-  border-block: 1px solid var(--rule);
-  margin-top: clamp(2.2rem, 4vw, 3.2rem);
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: end;
+  margin-top: 2.2rem;
 }
-.band--dark .stats { background: var(--rule-dark); border-color: var(--rule-dark); }
-
-.stat { background: var(--ground); padding: 1.3rem 1.2rem 1.5rem; }
-.band--dark .stat { background: var(--depot); }
-
-.stat b {
-  display: block;
-  font-size: clamp(1.9rem, 3.4vw, 2.8rem); font-weight: 800; line-height: 1;
-  letter-spacing: -0.034em;
-  margin-bottom: 0.45rem;
+.verdict { display: flex; gap: clamp(1.5rem, 4vw, 3rem); }
+.verdict b {
+  display: block; font-size: clamp(3rem, 6.4vw, 5.25rem); line-height: 0.95; font-weight: 900;
+  letter-spacing: -0.04em; color: var(--on-dark);
 }
-.stat span { font-size: 13.5px; line-height: 1.45; color: var(--muted); display: block; max-width: 30ch; }
-.band--dark .stat span { color: #929C90; }
+.verdict span { display: block; margin-top: 0.6rem; font-size: 14px; color: var(--on-dark-soft); }
+.turn .lede { max-width: 44ch; }
+.svcbar-wrap { margin-top: 2.6rem; }
+.svcbar-wrap h3 { font-size: 15px; font-weight: 700; color: var(--on-dark); margin-bottom: 0.8rem; }
+@media (max-width: 860px) { .turn-grid { grid-template-columns: minmax(0, 1fr); row-gap: 1.6rem; } }
 
-/* Chart containers carry an inline min-height equal to the height the chart
-   actually renders at. Charts mount lazily, so without a reservation the page
-   grows under the reader as each one appears, and a fast scroll can outrun
-   the observer. The numbers were measured in the browser at 1280px; re-measure
-   if a spec's height changes. */
+/* stacked HTML bar: the turn's count of councils by bins offered */
+.lidbar { display: flex; height: 30px; border-radius: 2px; overflow: hidden; gap: 2px; }
+.lidbar span { display: block; height: 100%; }
+.lidkey {
+  display: flex; flex-wrap: wrap; gap: 0.6rem 1.8rem;
+  margin-top: 0.9rem; font-size: 13.5px; line-height: 1.4; color: var(--on-dark-soft);
+}
+.lidkey i { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin-right: 0.5rem; vertical-align: -1px; }
+.lidkey b { font-weight: 800; color: var(--on-dark); font-variant-numeric: tabular-nums; }
 
 /* ---------- chart cards --------------------------------------------------- */
 .spread {
   display: grid;
   grid-template-columns: minmax(0, 1.9fr) minmax(15rem, 1fr);
-  gap: clamp(1.5rem, 3vw, 2.75rem);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
   align-items: start;
-  margin-bottom: clamp(2rem, 4vw, 3rem);
 }
-/* a reversed spread swaps the column widths too, not just the order, or the
-   chart lands in the narrow column and scrolls inside its own card */
 .spread--reverse { grid-template-columns: minmax(15rem, 1fr) minmax(0, 1.9fr); }
 .spread--reverse > .card { order: 2; }
 .spread--reverse > .note { order: 1; }
-.spread--full { grid-template-columns: minmax(0, 1fr); }
+
+/* vertical rhythm between the blocks inside a section */
+.inner > .spread + .spread,
+.inner > .spread + .card,
+.inner > .finding + .card,
+.inner > .finding + .spread,
+.inner > .card + .spread { margin-top: clamp(2rem, 4vw, 2.75rem); }
 
 .card {
   background: var(--surface);
   border: 1px solid var(--rule);
   border-radius: 3px;
-  padding: 1.2rem 1.3rem 1.4rem;
+  padding: 1.2rem 1.3rem 1.3rem;
   min-width: 0;
 }
-.card + .card { margin-top: clamp(1.5rem, 3vw, 2.4rem); }
+.card__head { margin-bottom: 0.9rem; }
+.card__head .h-chart { margin-bottom: 0.35rem; max-width: 40em; }
+.card__head p { font-size: 13.5px; line-height: 1.55; color: var(--muted); max-width: 60ch; }
 
-.card__head { margin-bottom: 1rem; }
-.card__head .h-chart { margin-bottom: 0.4rem; max-width: 34em; }
-.card__head p { font-size: 13.5px; line-height: 1.55; color: var(--muted); max-width: 54ch; }
-
-.chart { overflow-x: auto; margin-inline: -0.2rem; }
+.chart { margin-inline: -0.2rem; }
 .chart--centre { display: flex; justify-content: center; }
 .chart > div { min-height: 60px; }
+/* Charts are sized for a 1280px window. On a narrower one, Vega's SVG keeps
+   its viewBox, so it scales down to the card instead of scrolling inside it.
+   Clicks still land, because SVG hit-testing follows the scaled shapes. */
+.chart .vega-embed, .finder-chart .vega-embed { max-width: 100%; }
+.chart svg, .finder-chart svg { max-width: 100%; height: auto; }
 
 .card__foot {
-  margin-top: 0.9rem; padding-top: 0.8rem;
+  margin-top: 0.8rem; padding-top: 0.7rem;
   border-top: 1px solid var(--rule);
   font-size: 12px; line-height: 1.5;
-  color: var(--faint);
-  max-width: 58ch;
+  color: var(--source-ink);
+  max-width: 70ch;
 }
 
-/* the note column beside a chart */
-.note { padding-top: 0.3rem; }
-.note h4 {
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--muted); margin-bottom: 0.7rem;
-}
-.note p { font-size: 15px; line-height: 1.58; color: var(--ink-soft); max-width: 58ch; }
+/* the side note beside a chart */
+.note { padding-top: 0.2rem; }
+.note p { font-size: 15px; line-height: 1.58; color: var(--ink-soft); max-width: 52ch; }
 .note p + p { margin-top: 0.75rem; }
-.note .big {
-  font-size: 2.25rem; font-weight: 800; line-height: 1; letter-spacing: -0.03em;
-  font-variant-numeric: tabular-nums; color: var(--ink);
-  display: block; margin-bottom: 0.3rem;
+.note .fig {
+  display: block; font-size: 2.25rem; font-weight: 800; line-height: 1; letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums; color: var(--ink); margin-bottom: 0.35rem;
 }
+
+/* the finding strip under a full-width chart: finding left, detail right */
+.finding {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  column-gap: clamp(1.5rem, 4vw, 3.5rem);
+  row-gap: 0.8rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.2rem;
+  margin-top: clamp(1.4rem, 3vw, 1.9rem);
+}
+.finding h4 { font-size: 1.375rem; font-weight: 700; line-height: 1.28; letter-spacing: -0.014em; max-width: 24ch; }
+.finding p { font-size: 15px; line-height: 1.58; color: var(--ink-soft); max-width: 56ch; }
+.finding p + p { margin-top: 0.7rem; }
+@media (max-width: 860px) { .finding { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---------- find your council -------------------------------------------- */
 .finder {
-  background: var(--depot);
+  background: var(--depot-raised);
   border: 1px solid var(--rule-dark);
   border-radius: 3px;
-  padding: 1.3rem 1.4rem 1.5rem;
+  padding: 1.2rem 1.3rem 1.3rem;
   color: var(--on-dark);
 }
-.finder h4 {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
-  text-transform: uppercase; color: #8A968A; margin-bottom: 0.85rem;
-}
+.finder label { display: block; font-size: 15px; font-weight: 700; color: var(--on-dark); margin-bottom: 0.3rem; }
+.finder .hint { font-size: 13px; line-height: 1.45; color: var(--on-dark-muted); margin-bottom: 0.85rem; max-width: 40ch; }
 .finder select {
-  width: 100%; max-width: 24rem;
+  width: 100%;
   font: 600 16px/1.3 var(--sans);
-  color: var(--on-dark);
-  background: #2A332B;
-  border: 1px solid #44503F;
-  border-radius: 3px;
+  color: var(--on-dark); background: var(--depot);
+  border: 1px solid #4A5645; border-radius: 3px;
   padding: 0.6rem 0.7rem;
 }
-.finder select option { color: #14171A; background: #FFF; }
+.finder select option { color: var(--ink); background: #FFF; }
+
+.finder-chart { margin-top: 0.9rem; }
+.finder-key { display: flex; flex-wrap: wrap; gap: 0.25rem 0.9rem; margin-top: 0.3rem; font-size: 12px; color: var(--on-dark-soft); }
+.finder-key i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 0.35rem; }
+.finder-cap { margin-top: 0.3rem; font-size: 12px; color: var(--on-dark-muted); }
 
 .scorecard {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px;
-  margin-top: 1.2rem;
+  margin-top: 1rem;
   background: var(--rule-dark);
   border: 1px solid var(--rule-dark);
 }
-.scorecard div { background: var(--depot); padding: 0.85rem 0.9rem 0.95rem; }
-.scorecard b {
-  display: block; font-size: 1.5rem; font-weight: 800; line-height: 1.05;
-  letter-spacing: -0.03em; color: #F3F6F0; margin-bottom: 0.3rem;
-}
-.scorecard span { display: block; font-size: 12px; line-height: 1.4; color: #929C90; }
-.finder .hint { margin-top: 0.9rem; font-size: 12.5px; color: #8A968A; max-width: 34em; }
+.scorecard div { background: var(--depot); padding: 0.75rem 0.85rem 0.85rem; }
+.scorecard b { display: block; font-size: 1.55rem; font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; color: var(--on-dark); margin-bottom: 0.25rem; }
+.scorecard span { display: block; font-size: 12px; line-height: 1.4; color: var(--on-dark-muted); }
 
-/* ---------- bin explainer ------------------------------------------------- */
-.bins { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1.1rem; margin-top: 2rem; }
-.bin {
-  background: var(--surface); border: 1px solid var(--rule); border-radius: 3px;
-  padding: 0 0 1rem; overflow: hidden;
-}
-.bin i { display: block; height: 9px; }
-.bin h4 { font-size: 15px; font-weight: 700; margin: 0.95rem 1rem 0.4rem; }
-.bin p { font-size: 13.5px; line-height: 1.5; color: var(--muted); margin: 0 1rem; }
-.bin .amt {
-  display: block; margin: 0.7rem 1rem 0;
-  font-size: 12.5px; font-weight: 700; color: var(--ink-soft);
-  font-variant-numeric: tabular-nums;
+/* ---------- bin key ------------------------------------------------------- */
+/* A labelled row under a heavy rule, not four cards: it is a key, and it
+   reads as one object. */
+.binkey { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 2px solid var(--ink); }
+.binkey > div { padding: 0.9rem 1.2rem 0.2rem 0; }
+.binkey > div + div { padding-left: 1.2rem; border-left: 1px solid var(--rule); }
+.binkey h4 { font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; }
+.binkey i { width: 12px; height: 12px; border-radius: 2px; flex: none; }
+.binkey p { font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+.binkey .t { display: block; margin-top: 0.55rem; font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+.binkey .t small { font-size: 12px; font-weight: 600; letter-spacing: 0; color: var(--muted); }
+.keynote { margin-top: 1rem; font-size: 13.5px; line-height: 1.5; color: var(--muted); max-width: 70ch; }
+@media (max-width: 860px) {
+  .binkey { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .binkey > div:nth-child(3) { padding-left: 0; border-left: 0; }
 }
 
 /* ---------- why / who / what / how --------------------------------------- */
-.framing { display: grid; grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr)); gap: 1.6rem 2.6rem; margin-top: 2.2rem; }
-.framing div h4 {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 0.6rem;
+.framing {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.4rem 1.6rem; margin-top: clamp(2rem, 4vw, 2.75rem);
+  border-top: 1px solid var(--rule); padding-top: 1.2rem;
 }
-.framing div p { font-size: 14.5px; line-height: 1.58; color: var(--ink-soft); max-width: 52ch; }
+.framing h4 { font-size: 15px; font-weight: 800; color: var(--accent); margin-bottom: 0.4rem; }
+.framing p { font-size: 14px; line-height: 1.55; color: var(--ink-soft); }
+@media (max-width: 960px) { .framing { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-/* ---------- pull-out finding --------------------------------------------- */
-.callout {
-  border-left: 3px solid var(--accent);
-  padding: 0.1rem 0 0.1rem 1.2rem;
-  margin-top: clamp(1.6rem, 3vw, 2.2rem);
-  max-width: 64ch;
+/* ---------- close and colophon ------------------------------------------- */
+.close .h-section { color: var(--on-dark); max-width: 20ch; }
+.close-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: clamp(2rem, 5vw, 4.5rem); margin-top: 1.6rem;
 }
-.callout h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; max-width: 34ch; }
-.callout p { font-size: 15px; line-height: 1.58; color: var(--ink-soft); max-width: 52ch; }
-.callout p + p { margin-top: 0.6rem; }
-.band--dark .callout { border-left-color: var(--accent-on-dark); }
-.band--dark .callout h4 { color: #F3F6F0; }
-.band--dark .callout p { color: #C0C9BE; }
+.close-grid .lede { max-width: 48ch; }
+@media (max-width: 860px) { .close-grid { grid-template-columns: minmax(0, 1fr); row-gap: 1rem; } }
 
-/* ---------- footer -------------------------------------------------------- */
-.colophon { color: #B1B9AE; }
-.colophon .h-section { color: #F3F6F0; font-size: 1.3rem; margin-bottom: 1.4rem; }
-.colophon h4 {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
-  color: #8A968A; margin: 2rem 0 0.8rem;
-}
-.colophon p, .colophon li { font-size: 13.5px; line-height: 1.62; max-width: 56ch; }
+.colophon { color: #B1B9AE; border-top: 1px solid var(--rule-dark); }
+.colophon .inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: clamp(2rem, 5vw, 4.5rem); }
+.colophon h2 { font-size: 1.3rem; color: var(--on-dark); margin-bottom: 1rem; grid-column: 1 / -1; }
+.colophon h4 { font-size: 13px; font-weight: 700; color: var(--on-dark); margin: 1.6rem 0 0.6rem; }
+.colophon p, .colophon li { font-size: 13.5px; line-height: 1.62; max-width: 60ch; }
 .colophon ul { margin: 0; padding-left: 1.1rem; }
-.colophon li { margin-bottom: 0.5rem; }
+.colophon li { margin-bottom: 0.45rem; }
 .colophon a { color: var(--accent-on-dark); }
+@media (max-width: 860px) { .colophon .inner { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---------- chart text haloes -------------------------------------------- */
-/* Vega draws an annotation's halo as an SVG stroke, and SVG paints stroke
-   OVER fill, so every haloed label on the page rendered as pale outlined text
-   instead of dark text on a light halo. paint-order puts the stroke behind
-   the fill where it belongs. One line here fixes every annotation at once. */
-.chart svg text { paint-order: stroke; }
+/* Vega paints an annotation's halo stroke over its fill; paint-order puts it
+   behind, so haloed labels read as dark text on a light halo. */
+.chart svg text, .finder-chart svg text { paint-order: stroke; }
+
+/* the rollout chart's year slider, styled to match the page */
+.chart .vega-bindings { margin-top: 0.6rem; font: 600 13px/1.4 var(--sans); color: var(--ink-soft); }
+.chart .vega-bind-name { margin-right: 0.6rem; }
+.chart .vega-bindings input[type="range"] { accent-color: var(--accent); width: min(22rem, 60%); vertical-align: middle; }
+.chart .vega-bindings output { margin-left: 0.5rem; font-weight: 800; color: var(--ink); font-variant-numeric: tabular-nums; }
 
 /* ---------- screen-reader only ------------------------------------------- */
 .sr-only {
@@ -412,11 +389,11 @@ strong { font-weight: 700; }
 
 /* ---------- motion, once, and only if welcome ----------------------------- */
 @media (prefers-reduced-motion: no-preference) {
-  .hero .lidbar span { animation: wipe 900ms cubic-bezier(.2,.7,.3,1) both; }
-  .hero .lidbar span:nth-child(2) { animation-delay: 90ms; }
-  .hero .lidbar span:nth-child(3) { animation-delay: 180ms; }
-  .hero .lidbar span:nth-child(4) { animation-delay: 270ms; }
-  @keyframes wipe { from { transform: scaleX(0); transform-origin: left; } }
+  .turn .lidbar span { animation: wipe 900ms cubic-bezier(.2,.7,.3,1) both; transform-origin: left; }
+  .turn .lidbar span:nth-child(2) { animation-delay: 90ms; }
+  .turn .lidbar span:nth-child(3) { animation-delay: 180ms; }
+  .turn .lidbar span:nth-child(4) { animation-delay: 270ms; }
+  @keyframes wipe { from { transform: scaleX(0); } }
 }
 
 /* ---------- responsive ---------------------------------------------------- */

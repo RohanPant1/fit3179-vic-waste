@@ -9,15 +9,8 @@
   ],
   "hconcat": [
     {
-      "width": 740,
-      "height": 420,
-      "data": {
-        "url": "data/vic_lga.topo.json",
-        "format": {
-          "type": "topojson",
-          "feature": "vic_lga"
-        }
-      },
+      "width": 455,
+      "height": 330,
       "projection": {
         "type": "conicEqualArea",
         "parallels": [
@@ -30,113 +23,267 @@
           0
         ]
       },
-      "transform": [
+      "layer": [
         {
-          "lookup": "properties.lga_code",
-          "from": {
-            "data": {
-              "url": "data/council_snapshot_latest.csv",
-              "format": {
-                "type": "csv",
-                "parse": {
-                  "lga_code": "string"
+          "data": {
+            "url": "data/vic_lga.topo.json",
+            "format": {
+              "type": "topojson",
+              "feature": "vic_lga"
+            }
+          },
+          "transform": [
+            {
+              "lookup": "properties.lga_code",
+              "from": {
+                "data": {
+                  "url": "data/council_snapshot_latest.csv",
+                  "format": {
+                    "type": "csv",
+                    "parse": {
+                      "lga_code": "string"
+                    }
+                  }
+                },
+                "key": "lga_code",
+                "fields": [
+                  "Council",
+                  "group",
+                  "bivariate_class",
+                  "seifa_disadvantage",
+                  "lgprf_diversion_pct"
+                ]
+              }
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 0.5
+          },
+          "encoding": {
+            "color": {
+              "field": "bivariate_class",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "low-low",
+                  "mid-low",
+                  "high-low",
+                  "low-mid",
+                  "mid-mid",
+                  "high-mid",
+                  "low-high",
+                  "mid-high",
+                  "high-high"
+                ],
+                "range": [
+                  "#e8e8e8",
+                  "#b8d6be",
+                  "#73ae80",
+                  "#b5c0da",
+                  "#90b2b3",
+                  "#5a9178",
+                  "#6c83b5",
+                  "#567994",
+                  "#2a5a5b"
+                ]
+              },
+              "legend": null
+            },
+            "stroke": {
+              "condition": {
+                "test": "datum.Council === focusCouncil",
+                "value": "#111111"
+              },
+              "value": "#FFFFFF"
+            },
+            "strokeWidth": {
+              "condition": {
+                "test": "datum.Council === focusCouncil",
+                "value": 2.6
+              },
+              "value": 0.5
+            },
+            "tooltip": [
+              {
+                "field": "Council"
+              },
+              {
+                "field": "group",
+                "title": "Council type"
+              },
+              {
+                "field": "seifa_disadvantage",
+                "type": "quantitative",
+                "format": ".0f",
+                "title": "Advantage score (1000 = national average)"
+              },
+              {
+                "field": "lgprf_diversion_pct",
+                "type": "quantitative",
+                "format": ".1f",
+                "title": "Kept out of landfill (%)"
+              }
+            ]
+          }
+        },
+        {
+          "description": "Labels for the better-off, high-diverting councils the note names.",
+          "data": {
+            "values": [
+              {
+                "lon": 146.93,
+                "lat": -36.78,
+                "tx": 147.5,
+                "ty": -36.35,
+                "t": "Alpine",
+                "a": "left"
+              },
+              {
+                "lon": 146.7,
+                "lat": -36.24,
+                "tx": 147.2,
+                "ty": -35.85,
+                "t": "Indigo",
+                "a": "left"
+              },
+              {
+                "lon": 144.62,
+                "lat": -37.34,
+                "tx": 143.75,
+                "ty": -36.75,
+                "t": "Macedon Ranges",
+                "a": "right"
+              },
+              {
+                "lon": 144.05,
+                "lat": -38.31,
+                "tx": 143.4,
+                "ty": -38.75,
+                "t": "Surf Coast",
+                "a": "right"
+              },
+              {
+                "lon": 145.1,
+                "lat": -37.85,
+                "tx": 145.75,
+                "ty": -38.75,
+                "t": [
+                  "Boroondara, Monash, Glen Eira",
+                  "and five more suburbs"
+                ],
+                "a": "left"
+              }
+            ]
+          },
+          "layer": [
+            {
+              "mark": {
+                "type": "rule",
+                "color": "#14171A",
+                "strokeWidth": 0.6,
+                "lineHeight": 14
+              },
+              "encoding": {
+                "longitude": {
+                  "field": "lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "lat",
+                  "type": "quantitative"
+                },
+                "longitude2": {
+                  "field": "tx"
+                },
+                "latitude2": {
+                  "field": "ty"
                 }
               }
             },
-            "key": "lga_code",
-            "fields": [
-              "Council",
-              "group",
-              "bivariate_class",
-              "seifa_disadvantage",
-              "lgprf_diversion_pct"
-            ]
-          }
+            {
+              "transform": [
+                {
+                  "filter": "datum.a === 'left'"
+                }
+              ],
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "middle",
+                "dx": 3,
+                "fontSize": 11.5,
+                "fontWeight": 600,
+                "color": "#14171A",
+                "stroke": "#FFFFFF",
+                "strokeWidth": 3,
+                "lineHeight": 14
+              },
+              "encoding": {
+                "longitude": {
+                  "field": "tx",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "ty",
+                  "type": "quantitative"
+                },
+                "text": {
+                  "field": "t"
+                }
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.a === 'right'"
+                }
+              ],
+              "mark": {
+                "type": "text",
+                "align": "right",
+                "baseline": "middle",
+                "dx": -3,
+                "fontSize": 11.5,
+                "fontWeight": 600,
+                "color": "#14171A",
+                "stroke": "#FFFFFF",
+                "strokeWidth": 3,
+                "lineHeight": 14
+              },
+              "encoding": {
+                "longitude": {
+                  "field": "tx",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "ty",
+                  "type": "quantitative"
+                },
+                "text": {
+                  "field": "t"
+                }
+              }
+            }
+          ]
         }
-      ],
-      "mark": {
-        "type": "geoshape",
-        "stroke": "#FFFFFF",
-        "strokeWidth": 0.5
-      },
-      "encoding": {
-        "color": {
-          "field": "bivariate_class",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "low-low",
-              "mid-low",
-              "high-low",
-              "low-mid",
-              "mid-mid",
-              "high-mid",
-              "low-high",
-              "mid-high",
-              "high-high"
-            ],
-            "range": [
-              "#e8e8e8",
-              "#b8d6be",
-              "#73ae80",
-              "#b5c0da",
-              "#90b2b3",
-              "#5a9178",
-              "#6c83b5",
-              "#567994",
-              "#2a5a5b"
-            ]
-          },
-          "legend": null
-        },
-        "stroke": {
-          "condition": {
-            "test": "datum.Council === focusCouncil",
-            "value": "#111111"
-          },
-          "value": "#FFFFFF"
-        },
-        "strokeWidth": {
-          "condition": {
-            "test": "datum.Council === focusCouncil",
-            "value": 2.6
-          },
-          "value": 0.5
-        },
-        "tooltip": [
-          {
-            "field": "Council"
-          },
-          {
-            "field": "group",
-            "title": "Council type"
-          },
-          {
-            "field": "seifa_disadvantage",
-            "type": "quantitative",
-            "format": ".0f",
-            "title": "Advantage score (1000 = national average)"
-          },
-          {
-            "field": "lgprf_diversion_pct",
-            "type": "quantitative",
-            "format": ".1f",
-            "title": "Kept out of landfill (%)"
-          }
-        ]
-      }
+      ]
     },
     {
-      "width": 118,
-      "height": 118,
+      "width": 96,
+      "height": 96,
       "title": {
         "text": [
-          "How to read the",
-          "colours"
+          "How to read",
+          "the colours"
         ],
         "fontSize": 12,
+        "fontWeight": 700,
         "anchor": "start",
-        "dy": -4
+        "color": "#14171A",
+        "dy": -4,
+        "limit": 150
       },
       "data": {
         "values": [
@@ -202,7 +349,7 @@
             "high"
           ],
           "axis": {
-            "title": "Better off \u2192",
+            "title": "Better off →",
             "labels": false,
             "ticks": false,
             "domain": false,
@@ -221,7 +368,7 @@
             "reverse": true
           },
           "axis": {
-            "title": "Keeps more out \u2192",
+            "title": "Diverts more →",
             "labels": false,
             "ticks": false,
             "domain": false,
@@ -266,5 +413,6 @@
       }
     }
   ],
-  "background": null
+  "background": null,
+  "spacing": 14
 }

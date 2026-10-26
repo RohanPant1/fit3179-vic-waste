@@ -1,259 +1,439 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "description": "Dot plot. Each dot is one of Victoria's 79 councils, stacked into three-point bands by the share of waste it keeps out of landfill, and split into four rows by which bins the council offers. The ten councils with only a garbage and a recycling bin cluster near 31 per cent; the 53 with a green bin centre on 52 per cent; adding a fourth glass bin moves the figure almost not at all.",
+  "description": "Heatmap of Victoria's 79 councils. Rows are the bins a council offers, columns are five-point bands of the share of kerbside waste kept out of landfill in 2024-25, and each cell counts the councils in it, darker meaning more. The median rises from 30.6 per cent with two bins to 53.8 per cent with a green bin, then sits at 52.4 per cent with a glass bin added as well.",
+  "width": 640,
+  "height": 290,
+  "padding": {
+    "top": 30,
+    "left": 4,
+    "right": 6,
+    "bottom": 4
+  },
   "data": {
     "url": "data/council_snapshot_latest.csv",
     "format": {
       "type": "csv"
     }
   },
-  "transform": [
+  "params": [
     {
-      "bin": {
-        "step": 3,
-        "extent": [
-          12,
-          78
-        ]
-      },
-      "field": "lgprf_diversion_pct",
-      "as": "db"
-    },
-    {
-      "calculate": "(datum.db + datum.db_end) / 2",
-      "as": "dmid"
-    },
-    {
-      "window": [
-        {
-          "op": "count",
-          "as": "stack"
-        }
-      ],
-      "groupby": [
-        "service_label",
-        "db"
-      ],
-      "sort": [
-        {
-          "field": "Council"
-        }
-      ]
-    },
-    {
-      "joinaggregate": [
-        {
-          "op": "median",
-          "field": "lgprf_diversion_pct",
-          "as": "med"
-        },
-        {
-          "op": "count",
-          "as": "n"
-        }
-      ],
-      "groupby": [
-        "service_label"
-      ]
-    },
-    {
-      "calculate": "datum.n + (datum.n === 1 ? ' council' : ' councils')",
-      "as": "nlab"
+      "name": "focusCouncil",
+      "value": ""
     }
   ],
-  "facet": {
-    "row": {
+  "transform": [
+    {
+      "calculate": "toNumber(datum.lgprf_diversion_pct)",
+      "as": "div"
+    },
+    {
+      "calculate": "floor(datum.div / 5) * 5",
+      "as": "b0"
+    },
+    {
+      "calculate": "datum.b0 + 5",
+      "as": "b1"
+    },
+    {
+      "calculate": "indexof(['Garbage and recycling only', 'Glass bin but no green bin', 'Green bin, no glass', 'All four bins'], datum.service_label)",
+      "as": "svcOrder"
+    },
+    {
+      "calculate": "datum.b0 + 2.5",
+      "as": "bm"
+    }
+  ],
+  "encoding": {
+    "y": {
       "field": "service_label",
       "type": "nominal",
-      "sort": [
-        "Garbage and recycling only",
-        "Glass bin but no green bin",
-        "Green bin, no glass",
-        "All four bins"
-      ],
-      "title": null,
-      "header": {
-        "labelAngle": 0,
-        "labelAlign": "left",
+      "scale": {
+        "domain": [
+          "Garbage and recycling only",
+          "Glass bin but no green bin",
+          "Green bin, no glass",
+          "All four bins"
+        ],
+        "paddingInner": 0.14
+      },
+      "axis": {
+        "title": null,
+        "domain": false,
+        "ticks": false,
+        "labelPadding": 10,
         "labelFontSize": 12.5,
         "labelFontWeight": 700,
-        "labelPadding": 4,
-        "labelLimit": 240
+        "labelColor": "#14171A",
+        "labelLimit": 200,
+        "labelExpr": "{'Garbage and recycling only': ['Garbage and', 'recycling only (10)'], 'Glass bin but no green bin': ['Glass bin, no', 'green bin (3)'], 'Green bin, no glass': ['Green bin,', 'no glass (53)'], 'All four bins': ['All four', 'bins (13)']}[datum.value]"
       }
     }
   },
-  "spacing": 6,
-  "spec": {
-    "width": 620,
-    "height": 86,
-    "layer": [
-      {
-        "mark": {
-          "type": "rule",
-          "strokeWidth": 2,
-          "strokeDash": [
-            4,
-            3
-          ],
-          "color": "#14171A"
+  "layer": [
+    {
+      "description": "Pale track behind each row, so empty bands read as empty rather than missing.",
+      "mark": {
+        "type": "rect",
+        "color": "#F1F3EE"
+      },
+      "encoding": {
+        "x": {
+          "datum": 10,
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              10,
+              80
+            ],
+            "nice": false
+          },
+          "axis": {
+            "title": "Share of kerbside waste kept out of landfill, 2024–25",
+            "values": [
+              10,
+              20,
+              30,
+              40,
+              50,
+              60,
+              70,
+              80
+            ],
+            "labelExpr": "datum.value + '%'",
+            "domain": false,
+            "ticks": false,
+            "grid": false
+          }
         },
-        "encoding": {
-          "x": {
-            "field": "med",
-            "type": "quantitative"
+        "x2": {
+          "datum": 80
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "n"
+            },
+            {
+              "op": "values",
+              "as": "rows"
+            }
+          ],
+          "groupby": [
+            "service_label",
+            "svcOrder",
+            "b0",
+            "b1",
+            "bm"
+          ]
+        },
+        {
+          "calculate": "join(pluck(datum.rows, 'Council'), ', ')",
+          "as": "names"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "rect",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 2
+          },
+          "encoding": {
+            "x": {
+              "field": "b0",
+              "type": "quantitative"
+            },
+            "x2": {
+              "field": "b1"
+            },
+            "color": {
+              "field": "service_label",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "Garbage and recycling only",
+                  "Glass bin but no green bin",
+                  "Green bin, no glass",
+                  "All four bins"
+                ],
+                "range": [
+                  "#D55E00",
+                  "#CC79A7",
+                  "#56B4E9",
+                  "#0072B2"
+                ]
+              },
+              "legend": null
+            },
+            "opacity": {
+              "field": "n",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  8
+                ],
+                "range": [
+                  0.28,
+                  1
+                ]
+              },
+              "legend": null
+            },
+            "tooltip": [
+              {
+                "field": "service_label",
+                "title": "Bins"
+              },
+              {
+                "field": "b0",
+                "type": "quantitative",
+                "title": "From (%)"
+              },
+              {
+                "field": "b1",
+                "type": "quantitative",
+                "title": "To (%)"
+              },
+              {
+                "field": "n",
+                "type": "quantitative",
+                "title": "Councils"
+              },
+              {
+                "field": "names",
+                "title": "Which"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "fontSize": 12.5,
+            "fontWeight": 800
+          },
+          "encoding": {
+            "x": {
+              "field": "bm",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "n",
+              "type": "quantitative"
+            },
+            "color": {
+              "condition": {
+                "test": "datum.n >= 4",
+                "value": "#FFFFFF"
+              },
+              "value": "#14171A"
+            }
           }
         }
-      },
-      {
-        "mark": {
-          "type": "circle",
-          "size": 95,
-          "stroke": "#FFFFFF",
-          "strokeWidth": 0.8,
-          "opacity": 0.95
-        },
-        "encoding": {
-          "x": {
-            "field": "dmid",
-            "type": "quantitative",
-            "scale": {
-              "domain": [
-                10,
-                80
-              ],
-              "nice": false
-            },
-            "title": "Share of kerbside waste kept out of landfill (%)"
-          },
-          "y": {
-            "field": "stack",
-            "type": "quantitative",
-            "scale": {
-              "domain": [
-                0,
-                9
-              ],
-              "nice": false
-            },
-            "axis": null,
-            "title": null
-          },
-          "color": {
-            "field": "service_label",
-            "type": "nominal",
-            "scale": {
-              "domain": [
-                "Garbage and recycling only",
-                "Glass bin but no green bin",
-                "Green bin, no glass",
-                "All four bins"
-              ],
-              "range": [
-                "#D55E00",
-                "#CC79A7",
-                "#56B4E9",
-                "#0072B2"
-              ]
-            },
-            "legend": {
-              "title": "Bins the council offers, fewest to most",
-              "orient": "bottom",
-              "direction": "horizontal",
-              "columns": 2,
-              "symbolType": "circle",
-              "symbolSize": 110,
-              "offset": 10,
-              "titleLimit": 400
+      ]
+    },
+    {
+      "description": "Row medians.",
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "median",
+              "field": "div",
+              "as": "med"
             }
-          },
-          "tooltip": [
-            {
-              "field": "Council"
-            },
-            {
-              "field": "group",
-              "title": "Council type"
-            },
-            {
-              "field": "lgprf_diversion_pct",
-              "type": "quantitative",
-              "format": ".1f",
-              "title": "Kept out of landfill (%)"
-            },
-            {
-              "field": "diversion_rank",
-              "type": "quantitative",
-              "title": "Rank of 79"
-            },
-            {
-              "field": "service_label",
-              "title": "Bins"
-            }
+          ],
+          "groupby": [
+            "service_label"
           ]
         }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "right",
-          "baseline": "top",
-          "fontSize": 11.5,
-          "color": "#6A7166",
-          "dx": -2,
-          "dy": 2
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "point",
+            "shape": "triangle-down",
+            "filled": true,
+            "size": 90,
+            "color": "#14171A"
+          },
+          "encoding": {
+            "x": {
+              "field": "med",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "service_label",
+              "type": "nominal",
+              "bandPosition": 0
+            }
+          }
         },
-        "encoding": {
-          "x": {
-            "value": 618
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 7,
+            "fontSize": 11.5,
+            "fontWeight": 800,
+            "color": "#14171A",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 3
           },
-          "y": {
-            "value": 0
-          },
-          "text": {
-            "field": "nlab",
-            "type": "nominal",
-            "aggregate": "min"
+          "encoding": {
+            "x": {
+              "field": "med",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "service_label",
+              "type": "nominal",
+              "bandPosition": 0
+            },
+            "yOffset": {
+              "value": -1
+            },
+            "text": {
+              "field": "med",
+              "type": "quantitative",
+              "format": ".1f"
+            }
           }
         }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "left",
-          "baseline": "top",
-          "fontSize": 11.5,
-          "fontWeight": 700,
-          "color": "#14171A",
-          "dx": 5,
-          "dy": 1,
-          "stroke": "#FFFFFF",
-          "strokeWidth": 3,
-          "strokeOpacity": 0.9,
-          "fillOpacity": 1
-        },
-        "encoding": {
-          "x": {
-            "field": "med",
-            "type": "quantitative",
-            "aggregate": "min"
-          },
-          "y": {
-            "value": 0
-          },
-          "text": {
-            "field": "med",
-            "type": "quantitative",
-            "aggregate": "min",
-            "format": ".0f"
+      ]
+    },
+    {
+      "description": "The three councils with a glass bin but no green bin, named on their row.",
+      "data": {
+        "values": [
+          {
+            "service_label": "Glass bin but no green bin",
+            "x": 46,
+            "t": "Yarriambiack 17%, Hindmarsh 23%, Yarra 42%"
           }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#14171A"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
         }
       }
-    ]
-  },
-  "resolve": {
-    "scale": {
-      "y": "shared"
+    },
+    {
+      "description": "The step the section is about.",
+      "data": {
+        "values": [
+          {
+            "x": 80,
+            "y": "Green bin, no glass",
+            "t": [
+              "+23 points with",
+              "a green bin"
+            ]
+          },
+          {
+            "x": 80,
+            "y": "All four bins",
+            "t": [
+              "−1 point with a",
+              "glass bin on top"
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 10,
+        "fontSize": 12,
+        "fontWeight": 800,
+        "color": "#14171A",
+        "lineHeight": 14,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "nominal"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "description": "Your council's cell, ringed.",
+      "transform": [
+        {
+          "filter": "datum.Council === focusCouncil"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "rect",
+            "filled": false,
+            "stroke": "#111111",
+            "strokeWidth": 2.5
+          },
+          "encoding": {
+            "x": {
+              "field": "b0",
+              "type": "quantitative"
+            },
+            "x2": {
+              "field": "b1"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "baseline": "bottom",
+            "dy": -26,
+            "fontSize": 12,
+            "fontWeight": 800,
+            "color": "#111111",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 3.5
+          },
+          "encoding": {
+            "x": {
+              "field": "div",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "Council"
+            }
+          }
+        }
+      ]
     }
-  },
+  ],
   "background": null
 }

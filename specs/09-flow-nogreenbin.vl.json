@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "description": "Flow map. A line runs from each of the 13 Victorian councils with no kerbside green bin to the nearest organics processing plant. Lines are longest in the west, where Glenelg Shire is 103 kilometres from a plant. Yarra City in inner Melbourne has the shortest line at 12 kilometres, closer than the typical council that does run a green bin.",
-  "width": 820,
+  "description": "Origin-destination flow map. A curved arrow from the centre of each of the 13 Victorian councils with no green bin to its nearest organics processing site, coloured by the bins the council offers and labelled with the straight-line distance. Glenelg is 103 kilometres from a site, Hindmarsh 86 and West Wimmera 80; Yarra is 12, Murrindindi 15 and Mansfield 23.",
+  "width": 860,
   "height": 470,
   "projection": {
     "type": "conicEqualArea",
@@ -15,6 +15,12 @@
       0
     ]
   },
+  "params": [
+    {
+      "name": "focusCouncil",
+      "value": ""
+    }
+  ],
   "layer": [
     {
       "data": {
@@ -26,12 +32,13 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#EDEFE8",
-        "stroke": "#D7DBD1",
-        "strokeWidth": 0.6
+        "fill": "#EEF0EA",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 0.7
       }
     },
     {
+      "description": "The 13 councils with no green bin, tinted by the bins they offer.",
       "data": {
         "url": "data/vic_lga.topo.json",
         "format": {
@@ -56,7 +63,8 @@
             "fields": [
               "Council",
               "km_to_organics",
-              "service_label"
+              "service_label",
+              "org_suburb"
             ]
           }
         },
@@ -66,8 +74,7 @@
       ],
       "mark": {
         "type": "geoshape",
-        "stroke": "#FFFFFF",
-        "strokeWidth": 0.8
+        "opacity": 0.3
       },
       "encoding": {
         "color": {
@@ -85,16 +92,27 @@
           },
           "legend": {
             "title": "Councils with no green bin",
-            "orient": "bottom",
-            "direction": "horizontal",
+            "orient": "none",
+            "legendX": 640,
+            "legendY": 4,
             "symbolType": "square",
-            "symbolSize": 140,
-            "offset": 6,
-            "titleLimit": 320
+            "symbolOpacity": 1,
+            "titleLimit": 240
           }
         },
-        "opacity": {
-          "value": 0.55
+        "stroke": {
+          "condition": {
+            "test": "datum.Council === focusCouncil",
+            "value": "#111111"
+          },
+          "value": "#FFFFFF"
+        },
+        "strokeWidth": {
+          "condition": {
+            "test": "datum.Council === focusCouncil",
+            "value": 2.4
+          },
+          "value": 0.7
         },
         "tooltip": [
           {
@@ -108,96 +126,132 @@
             "field": "km_to_organics",
             "type": "quantitative",
             "format": ".0f",
-            "title": "km to nearest organics plant"
+            "title": "km to nearest organics site"
+          },
+          {
+            "field": "org_suburb",
+            "title": "Nearest site"
           }
         ]
       }
     },
     {
+      "description": "Curved flows. Each flow is three points (origin, a control point offset to one side of the midpoint, the site) drawn as a B-spline, so flows bend away from each other and from other councils (Jenny et al. 2018).",
       "data": {
         "url": "data/no_green_bin_flows.csv",
         "format": {
           "type": "csv"
         }
       },
+      "transform": [
+        {
+          "calculate": "+datum.org_lon - +datum.lon",
+          "as": "dlon"
+        },
+        {
+          "calculate": "+datum.org_lat - +datum.lat",
+          "as": "dlat"
+        },
+        {
+          "calculate": "(+datum.lon + +datum.org_lon) / 2 - datum.dlat * 0.3",
+          "as": "clon"
+        },
+        {
+          "calculate": "(+datum.lat + +datum.org_lat) / 2 + datum.dlon * 0.3",
+          "as": "clat"
+        },
+        {
+          "calculate": "[0, 1, 2]",
+          "as": "k"
+        },
+        {
+          "flatten": [
+            "k"
+          ]
+        },
+        {
+          "calculate": "datum.k === 0 ? +datum.lon : datum.k === 1 ? datum.clon : +datum.org_lon",
+          "as": "plon"
+        },
+        {
+          "calculate": "datum.k === 0 ? +datum.lat : datum.k === 1 ? datum.clat : +datum.org_lat",
+          "as": "plat"
+        }
+      ],
       "mark": {
-        "type": "rule",
-        "strokeWidth": 1.6,
-        "strokeCap": "round",
-        "opacity": 0.8
+        "type": "line",
+        "interpolate": "basis",
+        "strokeWidth": 2.2,
+        "strokeCap": "round"
       },
       "encoding": {
         "longitude": {
-          "field": "lon",
+          "field": "plon",
           "type": "quantitative"
         },
         "latitude": {
-          "field": "lat",
+          "field": "plat",
           "type": "quantitative"
         },
-        "longitude2": {
-          "field": "org_lon"
+        "detail": {
+          "field": "Council"
         },
-        "latitude2": {
-          "field": "org_lat"
+        "order": {
+          "field": "k"
         },
         "color": {
-          "datum": "Trip to the nearest organics plant",
-          "scale": {
-            "domain": [
-              "Trip to the nearest organics plant"
-            ],
-            "range": [
-              "#14171A"
-            ]
-          },
-          "legend": {
-            "title": null,
-            "orient": "bottom",
-            "direction": "horizontal",
-            "symbolType": "stroke",
-            "symbolStrokeWidth": 2,
-            "offset": 6,
-            "labelLimit": 320
-          }
+          "field": "service_label",
+          "type": "nominal"
         },
         "tooltip": [
           {
             "field": "Council"
           },
           {
-            "field": "org_suburb",
-            "title": "Nearest plant at"
-          },
-          {
             "field": "km_to_organics",
             "type": "quantitative",
             "format": ".0f",
-            "title": "Distance (km)"
+            "title": "km, straight line"
           },
           {
-            "field": "lgprf_diversion_pct",
-            "type": "quantitative",
-            "format": ".1f",
-            "title": "Kept out of landfill (%)"
+            "field": "org_name",
+            "title": "Nearest organics site"
+          },
+          {
+            "field": "org_suburb",
+            "title": "In"
           }
         ]
       }
     },
     {
+      "description": "Arrowheads at the site end, turned to the direction the flow arrives from.",
       "data": {
         "url": "data/no_green_bin_flows.csv",
         "format": {
           "type": "csv"
         }
       },
+      "transform": [
+        {
+          "calculate": "(+datum.lon + +datum.org_lon) / 2 - (+datum.org_lat - +datum.lat) * 0.3",
+          "as": "clon"
+        },
+        {
+          "calculate": "(+datum.lat + +datum.org_lat) / 2 + (+datum.org_lon - +datum.lon) * 0.3",
+          "as": "clat"
+        },
+        {
+          "calculate": "atan2((+datum.org_lon - datum.clon) * cos(+datum.org_lat * PI / 180), +datum.org_lat - datum.clat) * 180 / PI",
+          "as": "ang"
+        }
+      ],
       "mark": {
         "type": "point",
-        "shape": "diamond",
-        "size": 46,
+        "shape": "triangle-up",
         "filled": true,
-        "color": "#14171A",
-        "opacity": 0.85
+        "size": 70,
+        "opacity": 1
       },
       "encoding": {
         "longitude": {
@@ -208,77 +262,249 @@
           "field": "org_lat",
           "type": "quantitative"
         },
+        "angle": {
+          "field": "ang",
+          "type": "quantitative",
+          "scale": null
+        },
+        "color": {
+          "field": "service_label",
+          "type": "nominal"
+        },
         "tooltip": [
           {
             "field": "org_name",
-            "title": "Plant"
+            "title": "Organics site"
           },
           {
             "field": "org_suburb",
-            "title": "Suburb"
+            "title": "In"
           }
         ]
       }
     },
     {
-      "data": {
-        "url": "data/no_green_bin_flows.csv",
-        "format": {
-          "type": "csv"
-        }
-      },
-      "transform": [
-        {
-          "filter": "datum.km_to_organics > 75 || datum.Council === 'Yarra City'"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "fontSize": 11.5,
-        "fontWeight": 700,
-        "color": "#14171A",
-        "align": "right",
-        "dx": -8,
-        "stroke": "#FFFFFF",
-        "strokeWidth": 3,
-        "strokeOpacity": 0.9,
-        "fillOpacity": 1
-      },
-      "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "Council"
-        }
-      }
-    },
-    {
+      "description": "Council name and distance at the origin of each long or named trip.",
       "data": {
         "values": [
           {
-            "lon": 145.45,
-            "lat": -38.02,
-            "t": "Yarra \u2014 12 km, the shortest trip here"
+            "lon": 141.39,
+            "lat": -37.87,
+            "t": "Glenelg 103 km",
+            "a": "right"
+          },
+          {
+            "lon": 141.73,
+            "lat": -35.95,
+            "t": "Hindmarsh 86 km",
+            "a": "right"
+          },
+          {
+            "lon": 141.28,
+            "lat": -36.78,
+            "t": "West Wimmera 80 km",
+            "a": "right"
+          },
+          {
+            "lon": 142.42,
+            "lat": -35.68,
+            "t": "Yarriambiack 62 km",
+            "a": "right"
+          },
+          {
+            "lon": 143.12,
+            "lat": -35.62,
+            "t": "Buloke 57 km",
+            "a": "left"
+          },
+          {
+            "lon": 146.9,
+            "lat": -37.75,
+            "t": "Wellington 52 km",
+            "a": "left"
+          },
+          {
+            "lon": 146.3,
+            "lat": -36.98,
+            "t": "Mansfield 23 km",
+            "a": "left"
+          }
+        ]
+      },
+      "layer": [
+        {
+          "transform": [
+            {
+              "filter": "datum.a === 'right'"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "right",
+            "baseline": "middle",
+            "dx": -8,
+            "fontSize": 12,
+            "fontWeight": 700,
+            "color": "#14171A",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 3
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.a === 'left'"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 8,
+            "fontSize": 12,
+            "fontWeight": 700,
+            "color": "#14171A",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 3
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "description": "Yarra is too small to label in place, so its label sits in the bay with a leader.",
+      "data": {
+        "values": [
+          {
+            "lon": 144.99,
+            "lat": -37.8,
+            "tx": 144.7,
+            "ty": -38.75,
+            "t": [
+              "Yarra 12 km, but its nearest site",
+              "is a grease-trap service"
+            ]
+          }
+        ]
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "rule",
+            "color": "#14171A",
+            "strokeWidth": 0.7
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "longitude2": {
+              "field": "tx"
+            },
+            "latitude2": {
+              "field": "ty"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "point",
+            "shape": "circle",
+            "size": 120,
+            "filled": false,
+            "stroke": "#14171A",
+            "strokeWidth": 1.6
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "center",
+            "baseline": "top",
+            "dy": 3,
+            "fontSize": 12,
+            "fontWeight": 700,
+            "color": "#14171A",
+            "lineHeight": 15,
+            "stroke": "#FFFFFF",
+            "strokeWidth": 3
+          },
+          "encoding": {
+            "longitude": {
+              "field": "tx",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "ty",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "description": "Murrindindi, labelled under its own short arrow.",
+      "data": {
+        "values": [
+          {
+            "lon": 145.66,
+            "lat": -37.5,
+            "t": "Murrindindi 15 km"
           }
         ]
       },
       "mark": {
         "type": "text",
+        "align": "center",
+        "baseline": "top",
         "fontSize": 12,
         "fontWeight": 700,
         "color": "#14171A",
-        "align": "left",
-        "dx": 8,
         "stroke": "#FFFFFF",
-        "strokeWidth": 3,
-        "strokeOpacity": 0.9,
-        "fillOpacity": 1
+        "strokeWidth": 3
       },
       "encoding": {
         "longitude": {
@@ -295,21 +521,25 @@
       }
     },
     {
+      "description": "How to read the arrows, in the empty north-east corner.",
       "data": {
         "values": [
           {
-            "lon": 144.99,
-            "lat": -37.8
+            "lon": 147.3,
+            "lat": -35.3,
+            "t": [
+              "Arrow: straight-line trip from the council's",
+              "centre to its nearest organics site"
+            ]
           }
         ]
       },
       "mark": {
-        "type": "point",
-        "shape": "circle",
-        "size": 150,
-        "filled": false,
-        "stroke": "#111111",
-        "strokeWidth": 2.2
+        "type": "text",
+        "align": "left",
+        "fontSize": 11.5,
+        "color": "#5B6258",
+        "lineHeight": 15
       },
       "encoding": {
         "longitude": {
@@ -319,14 +549,17 @@
         "latitude": {
           "field": "lat",
           "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
         }
       }
     }
   ],
-  "background": null,
   "resolve": {
     "scale": {
-      "color": "independent"
+      "color": "shared"
     }
-  }
+  },
+  "background": null
 }

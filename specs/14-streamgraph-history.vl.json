@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "description": "Streamgraph of Victorian kerbside tonnage by waste stream from 2001-02 to 2023-24. Total volume grows steadily. The food and garden band widens from the mid-2010s until it overtakes mixed recycling, and a thin separate glass band appears from 2021.",
+  "description": "Streamgraph of Victorian kerbside tonnage by waste stream from 2001-02 to 2023-24, labelled directly. Garbage was 1.10 million tonnes in 2001-02 and 1.11 million in 2023-24. Food and garden grew from 111,000 to 718,000 tonnes and passed mixed recycling in 2020-21. Separate glass bins appear from 2019-20.",
   "width": 860,
-  "height": 320,
+  "height": 300,
   "data": {
     "url": "data/statewide_by_year.csv",
     "format": {
@@ -23,10 +23,80 @@
       ]
     },
     {
-      "calculate": "datum.stream === 'garbage_t' ? 'Garbage' : datum.stream === 'organics_t' ? 'Organics' : datum.stream === 'recycling_t' ? 'Mixed recycling' : 'Glass'",
+      "calculate": "toNumber(datum.tonnes)",
+      "as": "tonnes"
+    },
+    {
+      "calculate": "toNumber(datum.year_end)",
+      "as": "yr"
+    },
+    {
+      "calculate": "{'garbage_t': 'Garbage', 'recycling_t': 'Mixed recycling', 'organics_t': 'Food and garden', 'glass_t': 'Glass'}[datum.stream]",
       "as": "Stream"
+    },
+    {
+      "calculate": "{'garbage_t': 0, 'recycling_t': 1, 'organics_t': 2, 'glass_t': 3}[datum.stream]",
+      "as": "so"
+    },
+    {
+      "stack": "tonnes",
+      "groupby": [
+        "yr"
+      ],
+      "sort": [
+        {
+          "field": "so",
+          "order": "ascending"
+        }
+      ],
+      "offset": "center",
+      "as": [
+        "y0",
+        "y1"
+      ]
+    },
+    {
+      "calculate": "(datum.y0 + datum.y1) / 2",
+      "as": "ym"
     }
   ],
+  "encoding": {
+    "x": {
+      "field": "yr",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          2002,
+          2024
+        ],
+        "nice": false
+      },
+      "axis": {
+        "title": null,
+        "values": [
+          2002,
+          2006,
+          2010,
+          2014,
+          2018,
+          2024
+        ],
+        "labelExpr": "(datum.value - 1) + '–' + substring(datum.value + '', 2)",
+        "domain": false,
+        "ticks": false,
+        "grid": true,
+        "gridColor": "#EEF0EA"
+      }
+    },
+    "y": {
+      "field": "y0",
+      "type": "quantitative",
+      "axis": null,
+      "scale": {
+        "zero": false
+      }
+    }
+  },
   "layer": [
     {
       "params": [
@@ -36,38 +106,20 @@
             "type": "point",
             "fields": [
               "Stream"
-            ]
-          },
-          "bind": "legend"
+            ],
+            "on": "click",
+            "clear": "dblclick"
+          }
         }
       ],
       "mark": {
         "type": "area",
-        "interpolate": "monotone"
+        "interpolate": "monotone",
+        "cursor": "pointer"
       },
       "encoding": {
-        "x": {
-          "field": "year_end",
-          "type": "quantitative",
-          "axis": {
-            "format": "d",
-            "title": null,
-            "tickCount": 8,
-            "labelFontSize": 12
-          },
-          "scale": {
-            "domain": [
-              2002,
-              2024
-            ],
-            "nice": false
-          }
-        },
-        "y": {
-          "aggregate": "sum",
-          "field": "tonnes",
-          "stack": "center",
-          "axis": null
+        "y2": {
+          "field": "y1"
         },
         "color": {
           "field": "Stream",
@@ -76,28 +128,28 @@
             "domain": [
               "Garbage",
               "Mixed recycling",
-              "Organics",
+              "Food and garden",
               "Glass"
             ],
             "range": [
-              "#5C6166",
+              "#1F3A93",
               "#E69F00",
               "#009E73",
               "#CC79A7"
             ]
           },
-          "legend": {
-            "title": "Waste stream \u2014 click to isolate",
-            "orient": "top-left",
-            "offset": 4,
-            "symbolType": "square",
-            "symbolSize": 130,
-            "titleLimit": 340
-          }
+          "legend": null
+        },
+        "detail": {
+          "field": "Stream"
+        },
+        "order": {
+          "field": "so"
         },
         "opacity": {
           "condition": {
             "param": "pickStream",
+            "empty": true,
             "value": 1
           },
           "value": 0.2
@@ -120,55 +172,118 @@
       }
     },
     {
-      "data": {
-        "values": [
-          {
-            "year": 2021
-          }
-        ]
-      },
+      "description": "Direct band labels, in place of a legend.",
+      "transform": [
+        {
+          "filter": "datum.yr === 2009 && datum.Stream !== 'Glass'"
+        }
+      ],
       "mark": {
-        "type": "rule",
-        "strokeDash": [
-          3,
-          3
-        ],
-        "color": "#434A40",
-        "strokeWidth": 1
+        "type": "text",
+        "fontSize": 13,
+        "fontWeight": 800
       },
       "encoding": {
-        "x": {
-          "field": "year",
+        "y": {
+          "field": "ym",
           "type": "quantitative"
+        },
+        "text": {
+          "field": "Stream"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.Stream === 'Mixed recycling'",
+            "value": "#14171A"
+          },
+          "value": "#FFFFFF"
         }
       }
     },
     {
-      "data": {
-        "values": [
-          {
-            "year": 2021,
-            "t": "first separate glass bins"
+      "description": "The finding: garbage tonnes at each end.",
+      "transform": [
+        {
+          "filter": "datum.Stream === 'Garbage' && (datum.yr === 2002 || datum.yr === 2024)"
+        },
+        {
+          "calculate": "format(datum.tonnes / 1e6, '.2f') + ' Mt'",
+          "as": "t"
+        }
+      ],
+      "layer": [
+        {
+          "transform": [
+            {
+              "filter": "datum.yr === 2002"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 8,
+            "fontSize": 12.5,
+            "fontWeight": 800,
+            "color": "#FFFFFF"
+          },
+          "encoding": {
+            "y": {
+              "field": "ym",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "t"
+            }
           }
-        ]
-      },
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.yr === 2024"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "right",
+            "dx": -8,
+            "fontSize": 12.5,
+            "fontWeight": 800,
+            "color": "#FFFFFF"
+          },
+          "encoding": {
+            "y": {
+              "field": "ym",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "description": "Food and garden at each end.",
+      "transform": [
+        {
+          "filter": "datum.Stream === 'Food and garden' && datum.yr === 2024"
+        },
+        {
+          "calculate": "format(datum.tonnes / 1000, ',.0f') + ' kt'",
+          "as": "t"
+        }
+      ],
       "mark": {
         "type": "text",
         "align": "right",
-        "dx": -5,
-        "fontSize": 11.5,
-        "fontWeight": 600,
-        "color": "#14171A",
-        "baseline": "top",
-        "y": 6,
-        "stroke": "#FFFFFF",
-        "strokeWidth": 3,
-        "strokeOpacity": 0.9,
-        "fillOpacity": 1
+        "dx": -8,
+        "fontSize": 12.5,
+        "fontWeight": 800,
+        "color": "#FFFFFF"
       },
       "encoding": {
-        "x": {
-          "field": "year",
+        "y": {
+          "field": "ym",
           "type": "quantitative"
         },
         "text": {
@@ -177,35 +292,87 @@
       }
     },
     {
-      "data": {
-        "values": [
-          {
-            "year": 2015.2,
-            "t": "food and garden overtakes mixed recycling"
+      "description": "When food and garden passed recycling.",
+      "layer": [
+        {
+          "mark": {
+            "type": "rule",
+            "strokeDash": [
+              3,
+              3
+            ],
+            "color": "#14171A",
+            "strokeWidth": 1
+          },
+          "encoding": {
+            "x": {
+              "field": "yr",
+              "type": "quantitative"
+            },
+            "y": {
+              "value": 0
+            },
+            "y2": {
+              "value": 300
+            }
           }
-        ]
-      },
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "right",
+            "baseline": "middle",
+            "dx": -7,
+            "fontSize": 12,
+            "fontWeight": 700,
+            "color": "#FFFFFF",
+            "lineHeight": 15
+          },
+          "encoding": {
+            "y": {
+              "field": "ym",
+              "type": "quantitative"
+            },
+            "text": {
+              "value": [
+                "2020–21: food and garden",
+                "passes the yellow bin"
+              ]
+            }
+          }
+        }
+      ],
+      "transform": [
+        {
+          "filter": "datum.Stream === 'Food and garden' && datum.yr === 2021"
+        }
+      ]
+    },
+    {
+      "description": "Glass is too thin to label inside, so its label sits just above the band's end.",
+      "transform": [
+        {
+          "filter": "datum.Stream === 'Glass' && datum.yr === 2024"
+        }
+      ],
       "mark": {
         "type": "text",
-        "align": "left",
-        "dx": 4,
-        "fontSize": 11.5,
-        "fontWeight": 600,
-        "color": "#14171A",
+        "align": "right",
         "baseline": "bottom",
-        "y": 300,
+        "dy": -6,
+        "fontSize": 12,
+        "fontWeight": 700,
+        "color": "#8E3F6B",
         "stroke": "#FFFFFF",
-        "strokeWidth": 3,
-        "strokeOpacity": 0.9,
-        "fillOpacity": 1
+        "strokeWidth": 3
       },
       "encoding": {
-        "x": {
-          "field": "year",
+        "y": {
+          "field": "y1",
           "type": "quantitative"
         },
         "text": {
-          "field": "t"
+          "value": "Glass, from 2019–20"
         }
       }
     }

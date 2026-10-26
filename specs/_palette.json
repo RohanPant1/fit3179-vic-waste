@@ -1,27 +1,23 @@
 {
-  "note": "Okabe-Ito, the standard colour-vision-deficient-safe qualitative set. Replaces the bin-lid palette, whose red garbage and green organics were indistinguishable under deuteranopia and protanopia. The bin-lid colours survive on the page as words ('the red-lid bin'), never as an encoding.",
-  "source": "Okabe M and Ito K, Color Universal Design (2008)",
+  "note": "Depot palette. Streams and service levels are Okabe-Ito based so they stay distinguishable under deuteranopia, protanopia and tritanopia. Garbage is a deep navy (#1F3A93), not the lid red: red and green lids are the pair colour-blind readers confuse most. Its minimum CIELAB difference from the other three streams is 37 or more under deuteranopia, protanopia and tritanopia, against 20 for the old slate grey. Quantities use ColorBrewer single-hue ramps, light = low, dark = high. Must match the tokens in css/style.css.",
+  "source": "Okabe M and Ito K, Color Universal Design (2008); Brewer C, ColorBrewer 2.0",
   "streams": {
-    "Garbage": "#5C6166",
+    "Garbage": "#1F3A93",
     "Mixed recycling": "#E69F00",
     "Organics": "#009E73",
     "Glass": "#CC79A7"
   },
-  "groups": {
-    "Metro": "#0072B2",
-    "Interface": "#56B4E9",
-    "Regional City": "#009E73",
-    "Large Shire": "#D55E00",
-    "Small Shire": "#CC79A7"
-  },
   "service": {
     "Garbage and recycling only": "#D55E00",
     "Glass bin but no green bin": "#CC79A7",
+    "Green bin, garden only (rollout map)": "#A6D5F2",
     "Green bin, no glass": "#56B4E9",
     "All four bins": "#0072B2"
   },
-  "sequential": "viridis",
-  "diverging": "purpleorange",
+  "diversion": ["#CCECE6", "#99D8C9", "#66C2A4", "#2CA25F", "#006D2C"],
+  "kg_per_household": ["#FEE391", "#FEC44F", "#FE9929", "#D95F0E", "#993404"],
+  "bivariate": "Stevens blue-green 3x3, see spec 12",
   "focus": "#111111",
-  "muted": "#B9BDB4"
+  "context": "#B9BDB4",
+  "land": "#EEF0EA"
 }

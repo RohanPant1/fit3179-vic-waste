@@ -19,9 +19,10 @@
    returning visitor ran the previous embed.js against the current HTML, so it
    looked for chart ids that no longer existed and silently rendered nothing. */
 
-const BUILD = "2026-10-25b";
+const BUILD = "2026-10-27d";
 
 const CHARTS = [
+  { el: "#vis-finder",     spec: "specs/00-finder-strip.vl.json" },
   { el: "#vis-waffle",     spec: "specs/01-waffle-streams.vl.json" },
   { el: "#vis-mosaic",     spec: "specs/02-mosaic-volume-composition.vl.json" },
   { el: "#vis-kghousehold",spec: "specs/03-choropleth-kg-household.vl.json" },
@@ -66,6 +67,7 @@ function stampDataUrls(node) {
 /* ---------------------------------------------------------------- charts -- */
 const views = [];
 let currentFocus = "";
+let chooseCouncil = null;   /* set once the council list has loaded */
 
 /* Charts mount as they come into view rather than all fifteen at once. The
    page is around twenty screens tall, and embedding every chart up front
@@ -100,6 +102,13 @@ async function drawCharts() {
       /* a chart that mounts after the reader has already chosen a council
          still has to show the ring */
       if (currentFocus) applyFocus(result.view, currentFocus);
+      /* the hero strip doubles as a picker: clicking a dot chooses that council */
+      if (target.id === "vis-finder") {
+        result.view.addSignalListener("pick", (_, value) => {
+          const name = value && value.Council && value.Council[0];
+          if (name && chooseCouncil) chooseCouncil(name);
+        });
+      }
     } catch (err) {
       target.textContent = "This chart could not be loaded.";
       console.error(`Failed to embed ${spec}`, err);
@@ -166,22 +175,22 @@ function paintScorecard(row) {
     if (el) el.textContent = value;
   };
   if (!row) {
-    set("sc-div", "—"); set("sc-rank", "pick a council above");
-    set("sc-bins", "—"); set("sc-binsub", "");
-    set("sc-cost", "—"); set("sc-costsub", "");
-    set("sc-kg", "—");   set("sc-kgsub", "");
-    set("sb-name", "Find your council");
-    set("sb-div", "—");
+    set("sc-div", "–");  set("sc-rank", "kept out of landfill");
+    set("sc-bins", "–"); set("sc-binsub", "bins offered");
+    set("sc-cost", "–"); set("sc-costsub", "to service a garbage bin");
+    set("sc-kg", "–");   set("sc-kgsub", "per household, a week");
+    set("sb-name", "None chosen");
+    set("sb-div", "");
     return;
   }
   set("sc-div", fmt.pct(row.lgprf_diversion_pct));
-  set("sc-rank", fmt.ord(row.diversion_rank) + " of 79 councils");
+  set("sc-rank", "kept out of landfill, " + fmt.ord(row.diversion_rank) + " of 79");
   set("sc-bins", String(row.streams));
-  set("sc-binsub", row.service_label);
+  set("sc-binsub", "bins: " + row.service_label.toLowerCase());
   set("sc-cost", fmt.money(row.garbage_cost_per_bin));
-  set("sc-costsub", "a garbage bin, " + fmt.ord(row.cost_rank) + " cheapest");
+  set("sc-costsub", "a garbage bin, " + fmt.ord(row.cost_rank) + " cheapest of 79");
   set("sc-kg", fmt.kg(row.kg_per_household_week));
-  set("sc-kgsub", "per household, every week");
+  set("sc-kgsub", "per household, a week");
   set("sb-name", row.Council);
   set("sb-div", fmt.pct(row.lgprf_diversion_pct) + " kept out of landfill");
 }
@@ -211,13 +220,14 @@ async function wireFinder() {
       o.value = r.Council; o.textContent = r.Council;
       select.appendChild(o);
     }
-    select.addEventListener("change", (e) => {
-      const name = e.target.value;
-      for (const other of selects) other.value = name;
-      setFocus(name);
-      paintScorecard(name ? byName.get(name) : null);
-    });
+    select.addEventListener("change", (e) => chooseCouncil(e.target.value));
   }
+  chooseCouncil = (name) => {
+    if (name && !byName.has(name)) return;
+    for (const other of selects) other.value = name;
+    setFocus(name);
+    paintScorecard(name ? byName.get(name) : null);
+  };
   paintScorecard(null);
 }
 

@@ -49,7 +49,7 @@
           "Glass"
         ],
         "range": [
-          "#5C6166",
+          "#1F3A93",
           "#E69F00",
           "#009E73",
           "#CC79A7"
@@ -63,7 +63,8 @@
         "symbolType": "square",
         "symbolSize": 150,
         "offset": 10,
-        "titleLimit": 400
+        "titleLimit": 400,
+        "labelExpr": "{'Garbage': 'Garbage 47%', 'Organics': 'Food and garden 31%', 'Mixed recycling': 'Mixed recycling 21%', 'Glass': 'Glass 0.7%'}[datum.label] || datum.label"
       }
     },
     "opacity": {

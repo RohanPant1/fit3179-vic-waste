@@ -10,14 +10,14 @@
         "min": 2016,
         "max": 2024,
         "step": 1,
-        "name": "Financial year ending  "
+        "name": "Year ending June "
       }
     }
   ],
   "vconcat": [
     {
-      "width": 800,
-      "height": 430,
+      "width": 560,
+      "height": 320,
       "projection": {
         "type": "conicEqualArea",
         "parallels": [
@@ -81,8 +81,8 @@
             ],
             "range": [
               "#D55E00",
-              "#E69F00",
-              "#009E73",
+              "#A6D5F2",
+              "#56B4E9",
               "#0072B2"
             ]
           },
@@ -123,8 +123,8 @@
       }
     },
     {
-      "width": 800,
-      "height": 130,
+      "width": 560,
+      "height": 120,
       "data": {
         "url": "data/rollout_by_year.csv",
         "format": {
@@ -149,12 +149,43 @@
                 "year_end",
                 "service"
               ]
+            },
+            {
+              "impute": "n",
+              "key": "year_end",
+              "groupby": [
+                "service"
+              ],
+              "value": 0
+            },
+            {
+              "calculate": "indexof(['No green bin', 'Garden only', 'Food and garden', 'Food, garden and glass'], datum.service)",
+              "as": "so"
+            },
+            {
+              "stack": "n",
+              "groupby": [
+                "year_end"
+              ],
+              "sort": [
+                {
+                  "field": "so",
+                  "order": "ascending"
+                }
+              ],
+              "as": [
+                "s0",
+                "s1"
+              ]
+            },
+            {
+              "calculate": "(datum.s0 + datum.s1) / 2",
+              "as": "sm"
             }
           ],
           "mark": {
             "type": "area",
-            "interpolate": "monotone",
-            "opacity": 0.95
+            "interpolate": "linear"
           },
           "encoding": {
             "x": {
@@ -162,9 +193,18 @@
               "type": "quantitative",
               "title": null,
               "axis": {
-                "format": "d",
-                "tickCount": 9,
-                "labelFontSize": 11.5
+                "title": null,
+                "values": [
+                  2016,
+                  2018,
+                  2020,
+                  2022,
+                  2024
+                ],
+                "labelExpr": "(datum.value - 1) + '–' + substring(datum.value + '', 2)",
+                "labelFontSize": 11,
+                "labelAngle": 0,
+                "labelOverlap": true
               },
               "scale": {
                 "domain": [
@@ -175,19 +215,17 @@
               }
             },
             "y": {
-              "field": "n",
+              "field": "s0",
               "type": "quantitative",
-              "stack": "zero",
               "title": "Councils",
               "axis": {
-                "tickCount": 4,
                 "values": [
                   0,
-                  20,
                   40,
-                  60,
                   79
-                ]
+                ],
+                "domain": false,
+                "ticks": false
               }
             },
             "color": {
@@ -202,21 +240,11 @@
                 ],
                 "range": [
                   "#D55E00",
-                  "#E69F00",
-                  "#009E73",
+                  "#A6D5F2",
+                  "#56B4E9",
                   "#0072B2"
                 ]
-              },
-              "sort": [
-                "No green bin",
-                "Garden only",
-                "Food and garden",
-                "Food, garden and glass"
-              ]
-            },
-            "order": {
-              "field": "service",
-              "sort": "descending"
+              }
             },
             "tooltip": [
               {
@@ -234,8 +262,136 @@
                 "type": "quantitative",
                 "title": "Councils"
               }
-            ]
+            ],
+            "y2": {
+              "field": "s1"
+            }
           }
+        },
+        {
+          "description": "Counts at each end of the band chart.",
+          "transform": [
+            {
+              "aggregate": [
+                {
+                  "op": "count",
+                  "as": "n"
+                }
+              ],
+              "groupby": [
+                "year_end",
+                "service"
+              ]
+            },
+            {
+              "impute": "n",
+              "key": "year_end",
+              "groupby": [
+                "service"
+              ],
+              "value": 0
+            },
+            {
+              "calculate": "indexof(['No green bin', 'Garden only', 'Food and garden', 'Food, garden and glass'], datum.service)",
+              "as": "so"
+            },
+            {
+              "stack": "n",
+              "groupby": [
+                "year_end"
+              ],
+              "sort": [
+                {
+                  "field": "so",
+                  "order": "ascending"
+                }
+              ],
+              "as": [
+                "s0",
+                "s1"
+              ]
+            },
+            {
+              "calculate": "(datum.s0 + datum.s1) / 2",
+              "as": "sm"
+            },
+            {
+              "filter": "datum.year_end === 2016 || datum.year_end === 2024"
+            },
+            {
+              "filter": "datum.n >= 5"
+            }
+          ],
+          "layer": [
+            {
+              "transform": [
+                {
+                  "filter": "datum.year_end === 2016"
+                }
+              ],
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 5,
+                "fontSize": 11.5,
+                "fontWeight": 800
+              },
+              "encoding": {
+                "x": {
+                  "field": "year_end",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "field": "sm",
+                  "type": "quantitative"
+                },
+                "text": {
+                  "field": "n"
+                },
+                "color": {
+                  "condition": {
+                    "test": "datum.so === 1",
+                    "value": "#14171A"
+                  },
+                  "value": "#FFFFFF"
+                }
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.year_end === 2024"
+                }
+              ],
+              "mark": {
+                "type": "text",
+                "align": "right",
+                "dx": -6,
+                "fontSize": 11.5,
+                "fontWeight": 800
+              },
+              "encoding": {
+                "x": {
+                  "field": "year_end",
+                  "type": "quantitative"
+                },
+                "y": {
+                  "field": "sm",
+                  "type": "quantitative"
+                },
+                "text": {
+                  "field": "n"
+                },
+                "color": {
+                  "condition": {
+                    "test": "datum.so === 1",
+                    "value": "#14171A"
+                  },
+                  "value": "#FFFFFF"
+                }
+              }
+            }
+          ]
         },
         {
           "mark": {

@@ -1,0 +1,238 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Jitter plot of all 79 Victorian councils by the share of kerbside waste each keeps out of landfill in 2024-25, coloured by the bins it offers. Councils with no green bin cluster at the low end. The reader's chosen council is ringed and named; clicking a dot chooses that council.",
+  "width": 330,
+  "height": 96,
+  "padding": {
+    "top": 18,
+    "left": 2,
+    "right": 8,
+    "bottom": 2
+  },
+  "data": {
+    "url": "data/council_snapshot_latest.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "params": [
+    {
+      "name": "focusCouncil",
+      "value": ""
+    }
+  ],
+  "transform": [
+    {
+      "calculate": "toNumber(datum.lgprf_diversion_pct)",
+      "as": "div"
+    },
+    {
+      "calculate": "toNumber(datum.jitter)",
+      "as": "jit"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "div",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          10,
+          80
+        ],
+        "nice": false
+      },
+      "axis": {
+        "title": null,
+        "values": [
+          20,
+          30,
+          40,
+          50,
+          60,
+          70
+        ],
+        "labelExpr": "datum.value + '%'",
+        "labelColor": "#929C90",
+        "labelFontSize": 11,
+        "domainColor": "#333B34",
+        "tickColor": "#333B34",
+        "grid": false
+      }
+    },
+    "y": {
+      "field": "jit",
+      "type": "quantitative",
+      "axis": null,
+      "scale": {
+        "domain": [
+          -1.2,
+          1.2
+        ]
+      }
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "m": 50.2
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#5B6258",
+        "strokeDash": [
+          3,
+          3
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "m",
+          "type": "quantitative"
+        },
+        "y": null
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "m": 50.2,
+            "t": "median 50%"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "baseline": "bottom",
+        "dy": -4,
+        "y": 0,
+        "fontSize": 10.5,
+        "color": "#929C90"
+      },
+      "encoding": {
+        "x": {
+          "field": "m",
+          "type": "quantitative"
+        },
+        "y": null,
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 46,
+        "opacity": 1,
+        "stroke": "#EDF0EA",
+        "strokeWidth": 0.5,
+        "cursor": "pointer",
+        "strokeOpacity": 0.6
+      },
+      "encoding": {
+        "color": {
+          "field": "service_label",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Garbage and recycling only",
+              "Glass bin but no green bin",
+              "Green bin, no glass",
+              "All four bins"
+            ],
+            "range": [
+              "#D55E00",
+              "#CC79A7",
+              "#56B4E9",
+              "#0072B2"
+            ]
+          },
+          "legend": null
+        },
+        "opacity": {
+          "condition": {
+            "test": "focusCouncil === '' || datum.Council === focusCouncil",
+            "value": 1
+          },
+          "value": 0.45
+        },
+        "tooltip": [
+          {
+            "field": "Council"
+          },
+          {
+            "field": "div",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "% kept out of landfill"
+          },
+          {
+            "field": "service_label",
+            "title": "Bins"
+          }
+        ]
+      },
+      "params": [
+        {
+          "name": "pick",
+          "select": {
+            "type": "point",
+            "fields": [
+              "Council"
+            ],
+            "on": "click",
+            "clear": false,
+            "toggle": false
+          }
+        }
+      ]
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.Council === focusCouncil"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "circle",
+            "size": 150,
+            "filled": false,
+            "stroke": "#EDF0EA",
+            "strokeWidth": 2.2
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "baseline": "bottom",
+            "dy": -9,
+            "fontSize": 12,
+            "fontWeight": 800,
+            "color": "#EDF0EA",
+            "stroke": "#222A23",
+            "strokeWidth": 3
+          },
+          "encoding": {
+            "text": {
+              "field": "Council"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  },
+  "background": null
+}

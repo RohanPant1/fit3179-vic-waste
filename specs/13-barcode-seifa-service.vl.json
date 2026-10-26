@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "description": "Strip plot. Each vertical tick is one Victorian council, placed along the 2021 census index of disadvantage, where 1000 is the national average. The upper row is the 66 councils with a kerbside green bin and the lower row the 13 without. The 13 are spread across the whole range rather than bunched at the disadvantaged end, so missing out on a green bin does not track wealth.",
-  "width": 760,
-  "height": 130,
+  "description": "Unit butterfly chart. Rows are 25-point bands of the 2021 census disadvantage score, higher meaning better off. Each square is one council: the 13 with no green bin build to the left, the 66 with one to the right, coloured by the bins they offer. The 13 sit between 925 and 1050, with a median of 991 against 1003 for councils with a green bin and a national average of 1000.",
+  "width": 500,
+  "height": 290,
   "data": {
     "url": "data/council_snapshot_latest.csv",
     "format": {
@@ -17,166 +17,160 @@
   ],
   "transform": [
     {
-      "calculate": "datum.has_organics === 'True' || datum.has_organics === true ? 'Has a green bin' : 'No green bin'",
-      "as": "svc"
+      "calculate": "toNumber(datum.seifa_disadvantage)",
+      "as": "seifa"
     },
     {
-      "joinaggregate": [
+      "calculate": "floor(datum.seifa / 25) * 25",
+      "as": "band"
+    },
+    {
+      "calculate": "datum.has_organics === 'True' ? 'right' : 'left'",
+      "as": "side"
+    },
+    {
+      "window": [
         {
-          "op": "count",
-          "as": "n"
-        },
-        {
-          "op": "median",
-          "field": "seifa_disadvantage",
-          "as": "med"
+          "op": "row_number",
+          "as": "i"
         }
       ],
       "groupby": [
-        "svc"
+        "band",
+        "side"
+      ],
+      "sort": [
+        {
+          "field": "seifa",
+          "order": "ascending"
+        }
       ]
     },
     {
-      "calculate": "datum.svc + '  (' + datum.n + ' councils)'",
-      "as": "rowlab"
+      "calculate": "datum.side === 'left' ? -(datum.i - 0.5) - 0.6 : (datum.i - 0.5) + 0.6",
+      "as": "x"
+    },
+    {
+      "calculate": "datum.band + 12.5",
+      "as": "y"
     }
   ],
   "encoding": {
     "y": {
-      "field": "rowlab",
-      "type": "nominal",
-      "sort": [
-        "Has a green bin  (66 councils)",
-        "No green bin  (13 councils)"
-      ],
-      "title": null,
+      "field": "y",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          875,
+          1100
+        ],
+        "nice": false,
+        "zero": false
+      },
       "axis": {
-        "labelFontSize": 12.5,
-        "labelFontWeight": 600,
+        "title": "Census disadvantage score, 2021 (higher is better off)",
+        "values": [
+          875,
+          900,
+          925,
+          950,
+          975,
+          1000,
+          1025,
+          1050,
+          1075,
+          1100
+        ],
         "domain": false,
         "ticks": false,
-        "labelPadding": 10,
-        "labelLimit": 220
+        "grid": true,
+        "gridColor": "#EEF0EA",
+        "titleFontWeight": 600
       }
     }
   },
   "layer": [
     {
       "mark": {
-        "type": "tick",
-        "thickness": 2.2,
-        "size": 40,
-        "opacity": 0.9
+        "type": "rule",
+        "color": "#14171A",
+        "strokeWidth": 1
       },
       "encoding": {
         "x": {
-          "field": "seifa_disadvantage",
+          "datum": 0,
           "type": "quantitative",
           "scale": {
             "domain": [
-              870,
-              1110
+              -6.6,
+              17.5
             ],
             "nice": false
           },
-          "title": "More disadvantaged  \u2190    census index of disadvantage, 1000 = national average    \u2192  better off"
+          "axis": null
+        },
+        "y": {
+          "datum": 875
+        },
+        "y2": {
+          "datum": 1100
+        }
+      }
+    },
+    {
+      "description": "One square per council.",
+      "mark": {
+        "type": "square",
+        "size": 170,
+        "opacity": 1,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
         },
         "color": {
-          "field": "svc",
+          "field": "service_label",
           "type": "nominal",
           "scale": {
             "domain": [
-              "Has a green bin",
-              "No green bin"
+              "Garbage and recycling only",
+              "Glass bin but no green bin",
+              "Green bin, no glass",
+              "All four bins"
             ],
             "range": [
-              "#009E73",
-              "#D55E00"
+              "#D55E00",
+              "#CC79A7",
+              "#56B4E9",
+              "#0072B2"
             ]
           },
           "legend": {
             "title": null,
-            "orient": "top-right",
-            "offset": 2,
-            "symbolType": "stroke",
-            "symbolStrokeWidth": 3
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 2,
+            "symbolType": "square",
+            "offset": 10
           }
-        },
-        "opacity": {
-          "condition": {
-            "test": "focusCouncil === '' || datum.Council === focusCouncil",
-            "value": 0.9
-          },
-          "value": 0.2
         },
         "tooltip": [
           {
             "field": "Council"
           },
           {
-            "field": "group",
-            "title": "Council type"
+            "field": "seifa",
+            "type": "quantitative",
+            "title": "Disadvantage score (1000 = national average)"
           },
           {
             "field": "service_label",
             "title": "Bins"
-          },
-          {
-            "field": "seifa_disadvantage",
-            "type": "quantitative",
-            "format": ".0f",
-            "title": "Index score"
-          },
-          {
-            "field": "lgprf_diversion_pct",
-            "type": "quantitative",
-            "format": ".1f",
-            "title": "Kept out of landfill (%)"
           }
         ]
-      }
-    },
-    {
-      "mark": {
-        "type": "tick",
-        "thickness": 2,
-        "size": 56,
-        "color": "#14171A",
-        "opacity": 0.95
-      },
-      "encoding": {
-        "x": {
-          "field": "med",
-          "type": "quantitative",
-          "aggregate": "min"
-        }
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "fontSize": 11.5,
-        "fontWeight": 700,
-        "color": "#14171A",
-        "dy": -34,
-        "align": "center",
-        "stroke": "#FFFFFF",
-        "strokeWidth": 3,
-        "strokeOpacity": 0.9,
-        "fillOpacity": 1
-      },
-      "encoding": {
-        "x": {
-          "field": "med",
-          "type": "quantitative",
-          "aggregate": "min"
-        },
-        "text": {
-          "field": "med",
-          "type": "quantitative",
-          "aggregate": "min",
-          "format": ".0f"
-        }
       }
     },
     {
@@ -185,19 +179,240 @@
           "filter": "datum.Council === focusCouncil"
         }
       ],
-      "mark": {
-        "type": "tick",
-        "thickness": 3.4,
-        "size": 48,
-        "color": "#111111"
-      },
-      "encoding": {
-        "x": {
-          "field": "seifa_disadvantage",
-          "type": "quantitative"
+      "layer": [
+        {
+          "mark": {
+            "type": "square",
+            "size": 330,
+            "filled": false,
+            "stroke": "#111111",
+            "strokeWidth": 2.5
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 14,
+            "fontSize": 12,
+            "fontWeight": 800,
+            "color": "#111111",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 3.5
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "Council"
+            }
+          }
         }
-      }
+      ]
+    },
+    {
+      "description": "Medians and the national average.",
+      "data": {
+        "values": [
+          {
+            "x1": -6.6,
+            "x2": 0,
+            "y": 991,
+            "t": "median 991",
+            "side": "left"
+          },
+          {
+            "x1": 0,
+            "x2": 14.5,
+            "y": 1003,
+            "t": "median 1003",
+            "side": "right"
+          }
+        ]
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "rule",
+            "color": "#14171A",
+            "strokeWidth": 1.4,
+            "strokeDash": [
+              4,
+              3
+            ]
+          },
+          "encoding": {
+            "x": {
+              "field": "x1",
+              "type": "quantitative"
+            },
+            "x2": {
+              "field": "x2"
+            },
+            "y": {
+              "field": "y",
+              "type": "quantitative"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.side === 'left'"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "bottom",
+            "dy": -3,
+            "fontSize": 11.5,
+            "fontWeight": 700,
+            "color": "#14171A",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 3
+          },
+          "encoding": {
+            "x": {
+              "field": "x1",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "y",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.side === 'right'"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dy": 0,
+            "fontSize": 11.5,
+            "fontWeight": 700,
+            "color": "#14171A",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 3,
+            "dx": 6
+          },
+          "encoding": {
+            "x": {
+              "field": "x2",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "y",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "description": "Side headings.",
+      "data": {
+        "values": [
+          {
+            "x": -0.6,
+            "t": "No green bin (13)",
+            "a": "right",
+            "y": 1100
+          },
+          {
+            "x": 0.6,
+            "t": "Green bin (66)",
+            "a": "left",
+            "y": 1100
+          }
+        ]
+      },
+      "layer": [
+        {
+          "transform": [
+            {
+              "filter": "datum.a === 'right'"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "right",
+            "baseline": "bottom",
+            "dy": -8,
+            "fontSize": 12.5,
+            "fontWeight": 800,
+            "color": "#14171A"
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "y",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.a === 'left'"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "bottom",
+            "dy": -8,
+            "fontSize": 12.5,
+            "fontWeight": 800,
+            "color": "#14171A"
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "y",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        }
+      ]
     }
   ],
-  "background": null
+  "background": null,
+  "padding": {
+    "top": 22,
+    "left": 4,
+    "right": 4,
+    "bottom": 4
+  }
 }

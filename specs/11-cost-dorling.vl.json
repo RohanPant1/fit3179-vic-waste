@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "description": "Dorling cartogram. Every Victorian council is a circle with area proportional to the kerbside waste it collects, nudged off its true location only far enough to stop circles overlapping, so the small metropolitan councils carry the same visual weight as the vast rural shires. The filled inner circle is the share kept out of landfill and the fill colour is the cost of a garbage bin.",
+  "description": "Dorling cartogram. Every Victorian council is a circle with area proportional to the kerbside waste it collects in 2023-24, placed as near its real location as overlaps allow. Colour is the share kept out of landfill in 2024-25, on the same scale as the diversion map. Wyndham alone sends about 61,400 tonnes to landfill, as much as the ten lowest-scoring councils combined.",
   "width": 860,
   "height": 500,
   "projection": {
@@ -32,7 +32,7 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#EDEFE8",
+        "fill": "#EEF0EA",
         "stroke": "#D2D7CC",
         "strokeWidth": 1
       }
@@ -44,12 +44,17 @@
           "type": "csv"
         }
       },
+      "transform": [
+        {
+          "calculate": "datum.Council === focusCouncil ? 1 : 0",
+          "as": "isFocus"
+        }
+      ],
       "mark": {
         "type": "point",
         "shape": "circle",
-        "filled": false,
-        "fill": "#FFFFFF",
-        "fillOpacity": 0.6
+        "filled": true,
+        "opacity": 1
       },
       "encoding": {
         "longitude": {
@@ -75,129 +80,70 @@
             ]
           },
           "legend": {
-            "title": "Kerbside waste collected (tonnes)",
+            "title": "Kerbside waste collected, tonnes",
             "orient": "none",
-            "legendX": 6,
-            "legendY": 300,
+            "legendX": 620,
+            "legendY": 4,
+            "direction": "horizontal",
             "values": [
-              20000,
-              60000,
+              5000,
+              40000,
               120000
             ],
             "format": ",.0f",
             "symbolFillColor": "#FFFFFF",
-            "symbolStrokeColor": "#9AA195",
-            "titleLimit": 320
+            "symbolStrokeColor": "#5B6258",
+            "symbolStrokeWidth": 1,
+            "titleLimit": 240
           }
         },
-        "tooltip": [
-          {
-            "field": "Council"
+        "color": {
+          "field": "lgprf_diversion_pct",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              30,
+              40,
+              50,
+              60
+            ],
+            "range": [
+              "#CCECE6",
+              "#99D8C9",
+              "#66C2A4",
+              "#2CA25F",
+              "#006D2C"
+            ]
           },
-          {
-            "field": "group",
-            "title": "Council type"
-          },
-          {
-            "field": "total_kerbside_t",
-            "type": "quantitative",
-            "format": ",.0f",
-            "title": "Kerbside waste (tonnes)"
-          },
-          {
-            "field": "diverted_share",
-            "type": "quantitative",
-            "format": ".0%",
-            "title": "Share kept out of landfill"
-          },
-          {
-            "field": "garbage_cost_per_bin",
-            "type": "quantitative",
-            "format": "$.0f",
-            "title": "Cost per garbage bin"
+          "legend": {
+            "title": "Share kept out of landfill",
+            "orient": "none",
+            "legendX": 620,
+            "legendY": 92,
+            "direction": "horizontal",
+            "gradientLength": 200,
+            "labelExpr": "isFinite(datum.value) ? datum.value + '%' : ''",
+            "titleLimit": 240
           }
-        ],
+        },
         "stroke": {
           "condition": {
             "test": "datum.Council === focusCouncil",
             "value": "#111111"
           },
-          "value": "#9AA195"
+          "value": "#5B6258"
         },
         "strokeWidth": {
           "condition": {
             "test": "datum.Council === focusCouncil",
-            "value": 2.8
+            "value": 3
           },
-          "value": 1
-        }
-      }
-    },
-    {
-      "data": {
-        "url": "data/council_dorling.csv",
-        "format": {
-          "type": "csv"
-        }
-      },
-      "mark": {
-        "type": "point",
-        "shape": "circle",
-        "filled": true,
-        "opacity": 0.95,
-        "stroke": null
-      },
-      "encoding": {
-        "longitude": {
-          "field": "x",
+          "value": 0.6
+        },
+        "order": {
+          "field": "isFocus",
           "type": "quantitative"
-        },
-        "latitude": {
-          "field": "y",
-          "type": "quantitative"
-        },
-        "size": {
-          "field": "diverted_t",
-          "type": "quantitative",
-          "scale": {
-            "type": "linear",
-            "domain": [
-              0,
-              140000
-            ],
-            "range": [
-              0,
-              1700
-            ]
-          }
-        },
-        "color": {
-          "field": "garbage_cost_per_bin",
-          "type": "quantitative",
-          "scale": {
-            "type": "threshold",
-            "domain": [
-              100,
-              130,
-              160,
-              200,
-              250
-            ],
-            "scheme": {
-              "name": "plasma",
-              "count": 6
-            }
-          },
-          "legend": {
-            "title": "Cost of a garbage bin, a year",
-            "orient": "none",
-            "legendX": 6,
-            "legendY": 398,
-            "direction": "horizontal",
-            "gradientLength": 200,
-            "format": "$,.0f",
-            "titleLimit": 320
-          }
         },
         "tooltip": [
           {
@@ -211,24 +157,19 @@
             "field": "total_kerbside_t",
             "type": "quantitative",
             "format": ",.0f",
-            "title": "Kerbside waste (tonnes)"
+            "title": "Kerbside waste, tonnes (2023–24)"
           },
           {
-            "field": "diverted_share",
+            "field": "lgprf_diversion_pct",
             "type": "quantitative",
-            "format": ".0%",
-            "title": "Share kept out of landfill"
-          },
-          {
-            "field": "garbage_cost_per_bin",
-            "type": "quantitative",
-            "format": "$.0f",
-            "title": "Cost per garbage bin"
+            "format": ".1f",
+            "title": "% kept out of landfill (2024–25)"
           }
         ]
       }
     },
     {
+      "description": "The biggest councils by tonnes, labelled in place so readers can find their way without outlines.",
       "data": {
         "url": "data/council_dorling.csv",
         "format": {
@@ -237,18 +178,17 @@
       },
       "transform": [
         {
-          "filter": "datum.total_kerbside_t > 90000"
+          "filter": "+datum.total_kerbside_t > 80000 && datum.lga_name !== 'Wyndham' && datum.lga_name !== 'Greater Geelong'"
         }
       ],
       "mark": {
         "type": "text",
-        "fontSize": 10,
-        "fontWeight": 600,
+        "fontSize": 11,
+        "fontWeight": 700,
         "color": "#14171A",
         "stroke": "#FFFFFF",
-        "strokeWidth": 2,
-        "strokeOpacity": 0.85,
-        "fillOpacity": 1
+        "strokeWidth": 3,
+        "dy": 0
       },
       "encoding": {
         "longitude": {
@@ -267,23 +207,201 @@
     {
       "data": {
         "values": [
-          {
-            "x": 141.0,
-            "y": -34.3,
-            "t": "Ring size is how much a council collects. The filled core is what it keeps out of landfill,"
-          },
-          {
-            "x": 141.0,
-            "y": -34.62,
-            "t": "so a thin ring means most of it is buried. Colour is what a garbage bin costs."
-          }
+          {}
         ]
       },
       "mark": {
         "type": "text",
-        "align": "left",
-        "fontSize": 11.5,
-        "color": "#434A40"
+        "text": "Greater Geelong",
+        "fontSize": 11,
+        "fontWeight": 700,
+        "color": "#14171A",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 3,
+        "align": "right"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 143.15
+        },
+        "latitude": {
+          "datum": -38.0
+        }
+      }
+    },
+    {
+      "description": "The lowest-diversion councils the text names, labelled beside their small circles.",
+      "data": {
+        "values": [
+          {
+            "x": 141.2841,
+            "y": -36.782,
+            "tx": 140.98,
+            "ty": -37.2,
+            "t": "West Wimmera 16%"
+          },
+          {
+            "x": 142.3951,
+            "y": -36.2064,
+            "tx": 142.15,
+            "ty": -35.55,
+            "t": "Yarriambiack 17%"
+          },
+          {
+            "x": 141.734,
+            "y": -36.0611,
+            "tx": 140.98,
+            "ty": -35.75,
+            "t": "Hindmarsh 23%"
+          }
+        ]
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "rule",
+            "color": "#14171A",
+            "strokeWidth": 0.6
+          },
+          "encoding": {
+            "longitude": {
+              "field": "x",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "y",
+              "type": "quantitative"
+            },
+            "longitude2": {
+              "field": "tx"
+            },
+            "latitude2": {
+              "field": "ty"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 3,
+            "fontSize": 12,
+            "fontWeight": 600,
+            "color": "#14171A",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 3
+          },
+          "encoding": {
+            "longitude": {
+              "field": "tx",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "ty",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "description": "The finding: Wyndham's landfill tonnes against the ten lowest councils.",
+      "data": {
+        "values": [
+          {
+            "x": 144.18,
+            "y": -38.2,
+            "tx": 144.0,
+            "ty": -38.95,
+            "t": [
+              "Wyndham 34%: 61,400 t to landfill,",
+              "as much as the ten lowest councils combined"
+            ]
+          }
+        ]
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "rule",
+            "color": "#14171A",
+            "strokeWidth": 0.7
+          },
+          "encoding": {
+            "longitude": {
+              "field": "x",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "y",
+              "type": "quantitative"
+            },
+            "longitude2": {
+              "field": "tx"
+            },
+            "latitude2": {
+              "field": "ty"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dx": 4,
+            "fontSize": 12,
+            "fontWeight": 700,
+            "color": "#14171A",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 3,
+            "lineHeight": 15
+          },
+          "encoding": {
+            "longitude": {
+              "field": "tx",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "ty",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "description": "Your council's name, when one is chosen.",
+      "data": {
+        "url": "data/council_dorling.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.Council === focusCouncil"
+        },
+        {
+          "calculate": "datum.Council + ' ' + format(datum.lgprf_diversion_pct, '.0f') + '%'",
+          "as": "t"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 800,
+        "color": "#111111",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 3.5,
+        "dy": -22
       },
       "encoding": {
         "longitude": {

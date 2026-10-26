@@ -1,15 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "description": "Choropleth map of Victoria's 79 councils shaded by kilograms of kerbside material collected per household per year in 2023-24. Darker councils put out more. Peri-urban and holiday councils are heaviest.",
-  "width": 470,
-  "height": 400,
-  "data": {
-    "url": "data/vic_lga.topo.json",
-    "format": {
-      "type": "topojson",
-      "feature": "vic_lga"
-    }
-  },
+  "description": "Choropleth map of Victoria's 79 councils shaded by kilograms of kerbside waste per household per week in 2023-24, in five classes. Darker councils put out more. Inner Melbourne households put out about 7 kilograms a week; Greater Shepparton, Nillumbik and Indigo about 23.",
+  "width": 580,
+  "height": 360,
   "projection": {
     "type": "conicEqualArea",
     "parallels": [
@@ -28,97 +21,269 @@
       "value": ""
     }
   ],
-  "transform": [
+  "layer": [
     {
-      "lookup": "properties.lga_code",
-      "from": {
-        "data": {
-          "url": "data/council_snapshot_latest.csv",
-          "format": {
-            "type": "csv",
-            "parse": {
-              "lga_code": "string"
+      "data": {
+        "url": "data/vic_lga.topo.json",
+        "format": {
+          "type": "topojson",
+          "feature": "vic_lga"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.lga_code",
+          "from": {
+            "data": {
+              "url": "data/council_snapshot_latest.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "lga_code": "string"
+                }
+              }
+            },
+            "key": "lga_code",
+            "fields": [
+              "Council",
+              "group",
+              "kg_per_household",
+              "kg_per_household_week"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "color": {
+          "field": "kg_per_household_week",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              13,
+              16,
+              19,
+              22
+            ],
+            "range": [
+              "#FEE391",
+              "#FEC44F",
+              "#FE9929",
+              "#D95F0E",
+              "#993404"
+            ]
+          },
+          "legend": {
+            "title": "Kilograms per household, a week",
+            "orient": "none",
+            "legendX": 330,
+            "legendY": 6,
+            "direction": "horizontal",
+            "gradientLength": 210,
+            "titleLimit": 260,
+            "labelExpr": "datum.label"
+          }
+        },
+        "stroke": {
+          "condition": {
+            "test": "datum.Council === focusCouncil",
+            "value": "#111111"
+          },
+          "value": "#FFFFFF"
+        },
+        "strokeWidth": {
+          "condition": {
+            "test": "datum.Council === focusCouncil",
+            "value": 2.4
+          },
+          "value": 0.5
+        },
+        "order": {
+          "condition": {
+            "test": "datum.Council === focusCouncil",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {
+            "field": "Council"
+          },
+          {
+            "field": "group",
+            "title": "Council type"
+          },
+          {
+            "field": "kg_per_household_week",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "kg per household, a week"
+          },
+          {
+            "field": "kg_per_household",
+            "type": "quantitative",
+            "format": ",.0f",
+            "title": "kg per household, a year"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Direct labels on the extremes. Inner Melbourne is too small to label in place, so its label sits in the bay with a leader.",
+      "data": {
+        "values": [
+          {
+            "lon": 145.3861,
+            "lat": -36.3942,
+            "tx": 145.15,
+            "ty": -35.55,
+            "label": "Greater Shepparton 23 kg"
+          },
+          {
+            "lon": 146.6986,
+            "lat": -36.2352,
+            "tx": 146.9,
+            "ty": -35.75,
+            "label": "Indigo 23 kg"
+          },
+          {
+            "lon": 144.98,
+            "lat": -37.81,
+            "tx": 144.35,
+            "ty": -38.75,
+            "label": "Yarra and Melbourne 7 kg"
+          }
+        ]
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "rule",
+            "color": "#14171A",
+            "strokeWidth": 0.7
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "longitude2": {
+              "field": "tx"
+            },
+            "latitude2": {
+              "field": "ty"
             }
           }
         },
-        "key": "lga_code",
-        "fields": [
-          "Council",
-          "group",
-          "kg_per_household",
-          "kg_per_household_week"
-        ]
+        {
+          "mark": {
+            "type": "circle",
+            "size": 18,
+            "color": "#14171A"
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "fontSize": 12,
+            "fontWeight": 600,
+            "color": "#14171A",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 3,
+            "baseline": "middle",
+            "align": "center"
+          },
+          "encoding": {
+            "longitude": {
+              "field": "tx",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "ty",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "label"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "description": "Your council's name, when one is chosen.",
+      "data": {
+        "url": "data/vic_lga_centroids.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "lga_code",
+          "from": {
+            "data": {
+              "url": "data/council_snapshot_latest.csv",
+              "format": {
+                "type": "csv"
+              }
+            },
+            "key": "lga_code",
+            "fields": [
+              "Council",
+              "kg_per_household_week"
+            ]
+          }
+        },
+        {
+          "filter": "datum.Council === focusCouncil"
+        },
+        {
+          "calculate": "datum.Council + ' ' + format(datum.kg_per_household_week, '.1f') + ' kg'",
+          "as": "t"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 800,
+        "color": "#111111",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 3.5,
+        "dy": -12
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
       }
     }
   ],
-  "mark": {
-    "type": "geoshape",
-    "stroke": "#FFFFFF",
-    "strokeWidth": 0.5
-  },
-  "encoding": {
-    "color": {
-      "field": "kg_per_household",
-      "type": "quantitative",
-      "scale": {
-        "type": "threshold",
-        "domain": [
-          600,
-          750,
-          900,
-          1050,
-          1200
-        ],
-        "scheme": {
-          "name": "viridis",
-          "count": 6
-        }
-      },
-      "legend": {
-        "title": "Kilograms per household, a year",
-        "orient": "none",
-        "legendX": 0,
-        "legendY": 346,
-        "direction": "horizontal",
-        "gradientLength": 180,
-        "titleLimit": 300
-      }
-    },
-    "stroke": {
-      "condition": {
-        "test": "datum.Council === focusCouncil",
-        "value": "#111111"
-      },
-      "value": "#FFFFFF"
-    },
-    "strokeWidth": {
-      "condition": {
-        "test": "datum.Council === focusCouncil",
-        "value": 2.4
-      },
-      "value": 0.5
-    },
-    "tooltip": [
-      {
-        "field": "Council"
-      },
-      {
-        "field": "group",
-        "title": "Council type"
-      },
-      {
-        "field": "kg_per_household",
-        "type": "quantitative",
-        "format": ".0f",
-        "title": "kg a year"
-      },
-      {
-        "field": "kg_per_household_week",
-        "type": "quantitative",
-        "format": ".1f",
-        "title": "kg a week"
-      }
-    ]
-  },
   "background": null
 }
