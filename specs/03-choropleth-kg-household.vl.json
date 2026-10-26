@@ -1,7 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "width": 500,
-  "height": 420,
+  "description": "Choropleth map of Victoria's 79 councils shaded by kilograms of kerbside material collected per household per year in 2023-24. Darker councils put out more. Peri-urban and holiday councils are heaviest.",
+  "width": 470,
+  "height": 400,
   "data": {
     "url": "data/vic_lga.topo.json",
     "format": {
@@ -21,6 +22,12 @@
       0
     ]
   },
+  "params": [
+    {
+      "name": "focusCouncil",
+      "value": ""
+    }
+  ],
   "transform": [
     {
       "lookup": "properties.lga_code",
@@ -38,14 +45,10 @@
         "fields": [
           "Council",
           "group",
-          "total_kerbside_t",
-          "households"
+          "kg_per_household",
+          "kg_per_household_week"
         ]
       }
-    },
-    {
-      "calculate": "1000 * datum.total_kerbside_t / datum.households",
-      "as": "kg_per_household"
     }
   ],
   "mark": {
@@ -66,24 +69,34 @@
           1050,
           1200
         ],
-        "range": [
-          "#eff3ff",
-          "#c6dbef",
-          "#9ecae1",
-          "#6baed6",
-          "#3182bd",
-          "#08519c"
-        ]
+        "scheme": {
+          "name": "viridis",
+          "count": 6
+        }
       },
       "legend": {
-        "title": "kg / household",
-        "orient": "right",
-        "offset": 8,
-        "labelLimit": 300,
-        "padding": 0,
-        "titleFontSize": 11,
-        "labelFontSize": 11
+        "title": "Kilograms per household, a year",
+        "orient": "none",
+        "legendX": 0,
+        "legendY": 346,
+        "direction": "horizontal",
+        "gradientLength": 180,
+        "titleLimit": 300
       }
+    },
+    "stroke": {
+      "condition": {
+        "test": "datum.Council === focusCouncil",
+        "value": "#111111"
+      },
+      "value": "#FFFFFF"
+    },
+    "strokeWidth": {
+      "condition": {
+        "test": "datum.Council === focusCouncil",
+        "value": 2.4
+      },
+      "value": 0.5
     },
     "tooltip": [
       {
@@ -91,13 +104,19 @@
       },
       {
         "field": "group",
-        "title": "Type"
+        "title": "Council type"
       },
       {
         "field": "kg_per_household",
         "type": "quantitative",
         "format": ".0f",
-        "title": "kg/household"
+        "title": "kg a year"
+      },
+      {
+        "field": "kg_per_household_week",
+        "type": "quantitative",
+        "format": ".1f",
+        "title": "kg a week"
       }
     ]
   },

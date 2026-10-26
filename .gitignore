@@ -1,6 +1,7 @@
 # build artefacts
 anchor.png
 *.svg.tmp
+.preview/
 
 # OS
 .DS_Store

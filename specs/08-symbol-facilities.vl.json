@@ -1,0 +1,219 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Proportional symbol map. One circle per Victorian council area, with area proportional to the number of waste and resource recovery facilities it contains, from a March 2025 count of 664 sites. Circles are coloured by whether the council area has an organics processing plant. Facilities cluster heavily around Melbourne and along the Hume and Princes corridors, while much of the west has none.",
+  "width": 820,
+  "height": 470,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -36,
+      -38
+    ],
+    "rotate": [
+      -145,
+      0,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/vic_lga.topo.json",
+        "format": {
+          "type": "topojson",
+          "feature": "vic_lga"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#EDEFE8",
+        "stroke": "#D7DBD1",
+        "strokeWidth": 0.6
+      }
+    },
+    {
+      "data": {
+        "url": "data/facilities_by_lga.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.facilities > 0"
+        },
+        {
+          "calculate": "datum.organics_plants > 0 ? 'Has an organics plant' : 'No organics plant'",
+          "as": "orgflag"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "opacity": 0.72,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 0.9
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "facilities",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              1,
+              47
+            ],
+            "range": [
+              22,
+              1500
+            ]
+          },
+          "legend": {
+            "title": "Facilities in the council area",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "symbolFillColor": "#6A7166",
+            "symbolOpacity": 0.65,
+            "values": [
+              1,
+              5,
+              15,
+              30,
+              45
+            ],
+            "offset": 6,
+            "titleLimit": 320
+          }
+        },
+        "color": {
+          "field": "orgflag",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Has an organics plant",
+              "No organics plant"
+            ],
+            "range": [
+              "#009E73",
+              "#D55E00"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "bottom",
+            "direction": "horizontal",
+            "symbolType": "circle",
+            "symbolSize": 140,
+            "offset": 6
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Council"
+          },
+          {
+            "field": "facilities",
+            "type": "quantitative",
+            "title": "Facilities"
+          },
+          {
+            "field": "organics_plants",
+            "type": "quantitative",
+            "title": "Organics plants"
+          },
+          {
+            "field": "mrfs",
+            "type": "quantitative",
+            "title": "Recycling sorting plants"
+          },
+          {
+            "field": "landfills",
+            "type": "quantitative",
+            "title": "Landfills"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 145.22,
+            "lat": -38.08,
+            "t": "Greater Dandenong \u2014 47 sites, the most in the state"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11.5,
+        "fontWeight": 700,
+        "color": "#14171A",
+        "align": "left",
+        "dx": 10,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 3,
+        "strokeOpacity": 0.9,
+        "fillOpacity": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 141.6,
+            "lat": -36.2,
+            "t": "the Wimmera has almost nothing"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11.5,
+        "fontWeight": 700,
+        "color": "#14171A",
+        "align": "left",
+        "dx": 4,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 3,
+        "strokeOpacity": 0.9,
+        "fillOpacity": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    }
+  ],
+  "background": null
+}

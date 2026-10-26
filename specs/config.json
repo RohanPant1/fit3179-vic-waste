@@ -1,52 +1,52 @@
 {
   "font": "Archivo",
   "background": null,
-  "padding": {
-    "top": 4,
-    "left": 4,
-    "right": 16,
-    "bottom": 4
-  },
+  "padding": {"top": 4, "left": 4, "right": 16, "bottom": 4},
   "axis": {
-    "labelFontSize": 11.5,
-    "titleFontSize": 11.5,
-    "labelColor": "#5E6659",
+    "labelFontSize": 12,
+    "titleFontSize": 12,
+    "labelColor": "#5A6157",
     "titleColor": "#2C3329",
     "domainColor": "#C9CDC4",
     "tickColor": "#C9CDC4",
     "grid": false,
-    "labelFont": "IBM Plex Mono",
+    "labelFont": "Archivo",
     "titleFont": "Archivo",
     "titleFontWeight": 600,
-    "titlePadding": 8,
+    "labelFontWeight": 400,
+    "titlePadding": 10,
     "labelPadding": 4
   },
   "legend": {
-    "labelFontSize": 11,
+    "labelFontSize": 12,
     "titleFontSize": 11,
-    "labelColor": "#5E6659",
+    "labelColor": "#3F463C",
     "titleColor": "#2C3329",
     "titleFont": "Archivo",
-    "labelFont": "IBM Plex Mono",
+    "labelFont": "Archivo",
     "titleFontWeight": 600,
+    "labelFontWeight": 400,
     "orient": "top-left",
-    "padding": 0,
-    "offset": 4,
-    "labelLimit": 300
+    "padding": 2,
+    "offset": 6,
+    "labelLimit": 320,
+    "symbolStrokeWidth": 0,
+    "rowPadding": 3,
+    "titlePadding": 5
   },
-  "view": {
-    "stroke": null
+  "title": {
+    "font": "Archivo",
+    "fontWeight": 600,
+    "fontSize": 13,
+    "color": "#2C3329",
+    "anchor": "start",
+    "offset": 8
   },
+  "view": {"stroke": null},
   "range": {
-    "category": [
-      "#C8372D",
-      "#E3A008",
-      "#7FB539",
-      "#7A52C7",
-      "#5A5A5A"
-    ]
+    "category": ["#5C6166", "#E69F00", "#009E73", "#CC79A7", "#0072B2", "#56B4E9", "#D55E00"],
+    "ramp": {"scheme": "viridis"}
   },
-  "text": {
-    "font": "Archivo"
-  }
+  "text": {"font": "Archivo"},
+  "mark": {"font": "Archivo"}
 }

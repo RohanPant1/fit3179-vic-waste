@@ -1,0 +1,341 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Choropleth map of the share of kerbside waste each Victorian council kept out of landfill in 2024-25, with an inset enlarging metropolitan Melbourne. Alpine Shire is highest at 74 per cent and West Wimmera Shire lowest at 16 per cent.",
+  "params": [
+    {
+      "name": "focusCouncil",
+      "value": ""
+    }
+  ],
+  "hconcat": [
+    {
+      "width": 610,
+      "height": 400,
+      "projection": {
+        "type": "conicEqualArea",
+        "parallels": [
+          -36,
+          -38
+        ],
+        "rotate": [
+          -145,
+          0,
+          0
+        ]
+      },
+      "layer": [
+        {
+          "data": {
+            "url": "data/vic_lga.topo.json",
+            "format": {
+              "type": "topojson",
+              "feature": "vic_lga"
+            }
+          },
+          "transform": [
+            {
+              "lookup": "properties.lga_code",
+              "from": {
+                "data": {
+                  "url": "data/council_snapshot_latest.csv",
+                  "format": {
+                    "type": "csv",
+                    "parse": {
+                      "lga_code": "string"
+                    }
+                  }
+                },
+                "key": "lga_code",
+                "fields": [
+                  "Council",
+                  "group",
+                  "lgprf_diversion_pct",
+                  "garbage_cost_per_bin",
+                  "service_label",
+                  "diversion_rank"
+                ]
+              }
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 0.5
+          },
+          "encoding": {
+            "stroke": {
+              "condition": {
+                "test": "datum.Council === focusCouncil",
+                "value": "#111111"
+              },
+              "value": "#FFFFFF"
+            },
+            "strokeWidth": {
+              "condition": {
+                "test": "datum.Council === focusCouncil",
+                "value": 2.6
+              },
+              "value": 0.5
+            },
+            "color": {
+              "field": "lgprf_diversion_pct",
+              "type": "quantitative",
+              "scale": {
+                "type": "threshold",
+                "domain": [
+                  30,
+                  40,
+                  50,
+                  60,
+                  70
+                ],
+                "scheme": {
+                  "name": "viridis",
+                  "count": 6
+                }
+              },
+              "legend": {
+                "title": "Kept out of landfill (%)",
+                "orient": "none",
+                "legendX": 0,
+                "legendY": 362,
+                "direction": "horizontal",
+                "gradientLength": 210,
+                "titleLimit": 320
+              }
+            },
+            "tooltip": [
+              {
+                "field": "Council"
+              },
+              {
+                "field": "group",
+                "title": "Council type"
+              },
+              {
+                "field": "lgprf_diversion_pct",
+                "type": "quantitative",
+                "format": ".1f",
+                "title": "Kept out of landfill (%)"
+              },
+              {
+                "field": "diversion_rank",
+                "type": "quantitative",
+                "title": "Rank of 79"
+              },
+              {
+                "field": "service_label",
+                "title": "Bins"
+              }
+            ]
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "lon": 147.25,
+                "lat": -36.55,
+                "t": "Alpine 74% \u2014 the best in Victoria"
+              },
+              {
+                "lon": 141.35,
+                "lat": -36.55,
+                "t": "West Wimmera 16% \u2014 the lowest"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "fontSize": 11.5,
+            "fontWeight": 700,
+            "color": "#14171A",
+            "align": "left",
+            "dx": 7,
+            "stroke": "#FFFFFF",
+            "strokeWidth": 3,
+            "strokeOpacity": 0.9,
+            "fillOpacity": 1
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "lon": 147.15,
+                "lat": -36.75
+              },
+              {
+                "lon": 141.3,
+                "lat": -36.75
+              }
+            ]
+          },
+          "mark": {
+            "type": "point",
+            "shape": "circle",
+            "size": 30,
+            "filled": true,
+            "color": "#14171A"
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 240,
+      "height": 230,
+      "projection": {
+        "type": "conicEqualArea",
+        "parallels": [
+          -36,
+          -38
+        ],
+        "rotate": [
+          -145,
+          0,
+          0
+        ]
+      },
+      "title": {
+        "text": "Metropolitan Melbourne, enlarged",
+        "fontSize": 12.5
+      },
+      "data": {
+        "url": "data/vic_lga.topo.json",
+        "format": {
+          "type": "topojson",
+          "feature": "vic_lga"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.lga_code",
+          "from": {
+            "data": {
+              "url": "data/council_snapshot_latest.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "lga_code": "string"
+                }
+              }
+            },
+            "key": "lga_code",
+            "fields": [
+              "Council",
+              "group",
+              "lgprf_diversion_pct",
+              "garbage_cost_per_bin",
+              "service_label",
+              "diversion_rank"
+            ]
+          }
+        },
+        {
+          "filter": "datum.group === 'Metro'"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "stroke": {
+          "condition": {
+            "test": "datum.Council === focusCouncil",
+            "value": "#111111"
+          },
+          "value": "#FFFFFF"
+        },
+        "strokeWidth": {
+          "condition": {
+            "test": "datum.Council === focusCouncil",
+            "value": 2.6
+          },
+          "value": 0.5
+        },
+        "color": {
+          "field": "lgprf_diversion_pct",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              30,
+              40,
+              50,
+              60,
+              70
+            ],
+            "scheme": {
+              "name": "viridis",
+              "count": 6
+            }
+          },
+          "legend": {
+            "title": "Kept out of landfill (%)",
+            "orient": "none",
+            "legendX": 0,
+            "legendY": 362,
+            "direction": "horizontal",
+            "gradientLength": 210,
+            "titleLimit": 320
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Council"
+          },
+          {
+            "field": "group",
+            "title": "Council type"
+          },
+          {
+            "field": "lgprf_diversion_pct",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Kept out of landfill (%)"
+          },
+          {
+            "field": "diversion_rank",
+            "type": "quantitative",
+            "title": "Rank of 79"
+          },
+          {
+            "field": "service_label",
+            "title": "Bins"
+          }
+        ]
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "color": "shared"
+    }
+  },
+  "background": null
+}

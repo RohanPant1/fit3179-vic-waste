@@ -1,0 +1,259 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Dot plot. Each dot is one of Victoria's 79 councils, stacked into three-point bands by the share of waste it keeps out of landfill, and split into four rows by which bins the council offers. The ten councils with only a garbage and a recycling bin cluster near 31 per cent; the 53 with a green bin centre on 52 per cent; adding a fourth glass bin moves the figure almost not at all.",
+  "data": {
+    "url": "data/council_snapshot_latest.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "bin": {
+        "step": 3,
+        "extent": [
+          12,
+          78
+        ]
+      },
+      "field": "lgprf_diversion_pct",
+      "as": "db"
+    },
+    {
+      "calculate": "(datum.db + datum.db_end) / 2",
+      "as": "dmid"
+    },
+    {
+      "window": [
+        {
+          "op": "count",
+          "as": "stack"
+        }
+      ],
+      "groupby": [
+        "service_label",
+        "db"
+      ],
+      "sort": [
+        {
+          "field": "Council"
+        }
+      ]
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "median",
+          "field": "lgprf_diversion_pct",
+          "as": "med"
+        },
+        {
+          "op": "count",
+          "as": "n"
+        }
+      ],
+      "groupby": [
+        "service_label"
+      ]
+    },
+    {
+      "calculate": "datum.n + (datum.n === 1 ? ' council' : ' councils')",
+      "as": "nlab"
+    }
+  ],
+  "facet": {
+    "row": {
+      "field": "service_label",
+      "type": "nominal",
+      "sort": [
+        "Garbage and recycling only",
+        "Glass bin but no green bin",
+        "Green bin, no glass",
+        "All four bins"
+      ],
+      "title": null,
+      "header": {
+        "labelAngle": 0,
+        "labelAlign": "left",
+        "labelFontSize": 12.5,
+        "labelFontWeight": 700,
+        "labelPadding": 4,
+        "labelLimit": 240
+      }
+    }
+  },
+  "spacing": 6,
+  "spec": {
+    "width": 620,
+    "height": 86,
+    "layer": [
+      {
+        "mark": {
+          "type": "rule",
+          "strokeWidth": 2,
+          "strokeDash": [
+            4,
+            3
+          ],
+          "color": "#14171A"
+        },
+        "encoding": {
+          "x": {
+            "field": "med",
+            "type": "quantitative"
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "circle",
+          "size": 95,
+          "stroke": "#FFFFFF",
+          "strokeWidth": 0.8,
+          "opacity": 0.95
+        },
+        "encoding": {
+          "x": {
+            "field": "dmid",
+            "type": "quantitative",
+            "scale": {
+              "domain": [
+                10,
+                80
+              ],
+              "nice": false
+            },
+            "title": "Share of kerbside waste kept out of landfill (%)"
+          },
+          "y": {
+            "field": "stack",
+            "type": "quantitative",
+            "scale": {
+              "domain": [
+                0,
+                9
+              ],
+              "nice": false
+            },
+            "axis": null,
+            "title": null
+          },
+          "color": {
+            "field": "service_label",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Garbage and recycling only",
+                "Glass bin but no green bin",
+                "Green bin, no glass",
+                "All four bins"
+              ],
+              "range": [
+                "#D55E00",
+                "#CC79A7",
+                "#56B4E9",
+                "#0072B2"
+              ]
+            },
+            "legend": {
+              "title": "Bins the council offers, fewest to most",
+              "orient": "bottom",
+              "direction": "horizontal",
+              "columns": 2,
+              "symbolType": "circle",
+              "symbolSize": 110,
+              "offset": 10,
+              "titleLimit": 400
+            }
+          },
+          "tooltip": [
+            {
+              "field": "Council"
+            },
+            {
+              "field": "group",
+              "title": "Council type"
+            },
+            {
+              "field": "lgprf_diversion_pct",
+              "type": "quantitative",
+              "format": ".1f",
+              "title": "Kept out of landfill (%)"
+            },
+            {
+              "field": "diversion_rank",
+              "type": "quantitative",
+              "title": "Rank of 79"
+            },
+            {
+              "field": "service_label",
+              "title": "Bins"
+            }
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "baseline": "top",
+          "fontSize": 11.5,
+          "color": "#6A7166",
+          "dx": -2,
+          "dy": 2
+        },
+        "encoding": {
+          "x": {
+            "value": 618
+          },
+          "y": {
+            "value": 0
+          },
+          "text": {
+            "field": "nlab",
+            "type": "nominal",
+            "aggregate": "min"
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "top",
+          "fontSize": 11.5,
+          "fontWeight": 700,
+          "color": "#14171A",
+          "dx": 5,
+          "dy": 1,
+          "stroke": "#FFFFFF",
+          "strokeWidth": 3,
+          "strokeOpacity": 0.9,
+          "fillOpacity": 1
+        },
+        "encoding": {
+          "x": {
+            "field": "med",
+            "type": "quantitative",
+            "aggregate": "min"
+          },
+          "y": {
+            "value": 0
+          },
+          "text": {
+            "field": "med",
+            "type": "quantitative",
+            "aggregate": "min",
+            "format": ".0f"
+          }
+        }
+      }
+    ]
+  },
+  "resolve": {
+    "scale": {
+      "y": "shared"
+    }
+  },
+  "background": null
+}

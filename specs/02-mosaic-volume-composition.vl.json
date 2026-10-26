@@ -1,120 +1,173 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "width": 460,
+  "description": "Mosaic plot of kerbside tonnage in 2023-24. Column width is each council type's share of the state total, so metropolitan councils are the widest at 44 per cent and small shires the narrowest at 3 per cent. Column height is split by waste stream.",
+  "width": 470,
   "height": 330,
   "data": {
-    "url": "data/council_snapshot_latest.csv",
+    "url": "data/mosaic_streams.csv",
     "format": {
       "type": "csv"
     }
   },
-  "transform": [
+  "layer": [
     {
-      "fold": [
-        "garbage_t",
-        "organics_t",
-        "recycling_t",
-        "glass_t"
-      ],
-      "as": [
-        "stream",
-        "tonnes"
-      ]
+      "mark": {
+        "type": "rect",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x0",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {
+            "domain": [
+              0,
+              1
+            ],
+            "nice": false
+          }
+        },
+        "x2": {
+          "field": "x1"
+        },
+        "y": {
+          "field": "y0",
+          "type": "quantitative",
+          "axis": {
+            "format": "%",
+            "title": "Share of that type's own tonnage",
+            "values": [
+              0,
+              0.25,
+              0.5,
+              0.75,
+              1
+            ]
+          },
+          "scale": {
+            "domain": [
+              0,
+              1
+            ],
+            "reverse": true,
+            "nice": false
+          }
+        },
+        "y2": {
+          "field": "y1"
+        },
+        "color": {
+          "field": "Stream",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Garbage",
+              "Mixed recycling",
+              "Organics",
+              "Glass"
+            ],
+            "range": [
+              "#5C6166",
+              "#E69F00",
+              "#009E73",
+              "#CC79A7"
+            ]
+          },
+          "legend": {
+            "title": "Waste stream",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 4,
+            "symbolType": "square",
+            "offset": 8
+          }
+        },
+        "tooltip": [
+          {
+            "field": "group",
+            "title": "Council type"
+          },
+          {
+            "field": "Stream"
+          },
+          {
+            "field": "tonnes",
+            "type": "quantitative",
+            "format": ",.0f",
+            "title": "Tonnes"
+          },
+          {
+            "field": "stream_share",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "% of this type"
+          },
+          {
+            "field": "group_share",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "% of state tonnage"
+          }
+        ]
+      }
     },
     {
-      "calculate": "datum.stream === 'garbage_t' ? 'Garbage' : datum.stream === 'organics_t' ? 'Organics' : datum.stream === 'recycling_t' ? 'Mixed recycling' : 'Glass'",
-      "as": "Stream"
-    },
-    {
-      "aggregate": [
+      "transform": [
         {
-          "op": "sum",
-          "field": "tonnes",
-          "as": "t"
+          "filter": "datum.Stream === 'Garbage'"
         }
       ],
-      "groupby": [
-        "group",
-        "Stream"
-      ]
+      "mark": {
+        "type": "text",
+        "baseline": "bottom",
+        "dy": -16,
+        "fontSize": 12,
+        "fontWeight": 700,
+        "color": "#2C3329"
+      },
+      "encoding": {
+        "x": {
+          "field": "xmid",
+          "type": "quantitative"
+        },
+        "y": {
+          "value": 0
+        },
+        "text": {
+          "field": "group"
+        }
+      }
     },
     {
-      "joinaggregate": [
+      "transform": [
         {
-          "op": "sum",
-          "field": "t",
-          "as": "group_t"
+          "filter": "datum.Stream === 'Garbage'"
         }
       ],
-      "groupby": [
-        "group"
-      ]
+      "mark": {
+        "type": "text",
+        "baseline": "bottom",
+        "dy": -4,
+        "fontSize": 11,
+        "color": "#6A7166"
+      },
+      "encoding": {
+        "x": {
+          "field": "xmid",
+          "type": "quantitative"
+        },
+        "y": {
+          "value": 0
+        },
+        "text": {
+          "field": "group_share",
+          "type": "quantitative",
+          "format": ".0f"
+        }
+      }
     }
   ],
-  "mark": {
-    "type": "bar",
-    "stroke": "white",
-    "strokeWidth": 1
-  },
-  "encoding": {
-    "x": {
-      "field": "group",
-      "type": "nominal",
-      "sort": {
-        "field": "group_t",
-        "order": "descending"
-      },
-      "axis": {
-        "title": null,
-        "labelAngle": 0,
-        "labelFontSize": 12,
-        "domain": false,
-        "ticks": false
-      }
-    },
-    "y": {
-      "field": "t",
-      "type": "quantitative",
-      "stack": "normalize",
-      "axis": {
-        "format": "%",
-        "title": "Share of that type's tonnage"
-      }
-    },
-    "color": {
-      "field": "Stream",
-      "type": "nominal",
-      "scale": {
-        "domain": [
-          "Garbage",
-          "Mixed recycling",
-          "Organics",
-          "Glass"
-        ],
-        "range": [
-          "#C8372D",
-          "#E3A008",
-          "#7FB539",
-          "#7A52C7"
-        ]
-      },
-      "legend": null
-    },
-    "tooltip": [
-      {
-        "field": "group",
-        "title": "Council type"
-      },
-      {
-        "field": "Stream"
-      },
-      {
-        "field": "t",
-        "type": "quantitative",
-        "format": ",.0f",
-        "title": "Tonnes"
-      }
-    ]
-  },
   "background": null
 }

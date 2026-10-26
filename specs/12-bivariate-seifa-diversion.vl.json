@@ -1,8 +1,15 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Bivariate choropleth. Each Victorian council is shaded by two measures at once: how well off it is on the 2021 census index of disadvantage, and how much kerbside waste it keeps out of landfill. The darkest councils score high on both. The two measures move together, but council type is tangled up with both.",
+  "params": [
+    {
+      "name": "focusCouncil",
+      "value": ""
+    }
+  ],
   "hconcat": [
     {
-      "width": 760,
+      "width": 740,
       "height": 420,
       "data": {
         "url": "data/vic_lga.topo.json",
@@ -82,32 +89,55 @@
           },
           "legend": null
         },
+        "stroke": {
+          "condition": {
+            "test": "datum.Council === focusCouncil",
+            "value": "#111111"
+          },
+          "value": "#FFFFFF"
+        },
+        "strokeWidth": {
+          "condition": {
+            "test": "datum.Council === focusCouncil",
+            "value": 2.6
+          },
+          "value": 0.5
+        },
         "tooltip": [
           {
             "field": "Council"
           },
           {
             "field": "group",
-            "title": "Type"
+            "title": "Council type"
           },
           {
             "field": "seifa_disadvantage",
             "type": "quantitative",
             "format": ".0f",
-            "title": "SEIFA (1000 = average)"
+            "title": "Advantage score (1000 = national average)"
           },
           {
             "field": "lgprf_diversion_pct",
             "type": "quantitative",
             "format": ".1f",
-            "title": "Diverted (%)"
+            "title": "Kept out of landfill (%)"
           }
         ]
       }
     },
     {
-      "width": 110,
-      "height": 110,
+      "width": 118,
+      "height": 118,
+      "title": {
+        "text": [
+          "How to read the",
+          "colours"
+        ],
+        "fontSize": 12,
+        "anchor": "start",
+        "dy": -4
+      },
       "data": {
         "values": [
           {
@@ -176,7 +206,7 @@
             "labels": false,
             "ticks": false,
             "domain": false,
-            "titleFontSize": 10
+            "titleFontSize": 11
           }
         },
         "y": {
@@ -187,12 +217,15 @@
             "mid",
             "high"
           ],
+          "scale": {
+            "reverse": true
+          },
           "axis": {
-            "title": "Diverts more \u2192",
+            "title": "Keeps more out \u2192",
             "labels": false,
             "ticks": false,
             "domain": false,
-            "titleFontSize": 10
+            "titleFontSize": 11
           }
         },
         "color": {
@@ -223,10 +256,15 @@
             ]
           },
           "legend": null
-        }
+        },
+        "tooltip": [
+          {
+            "field": "c",
+            "title": "Class"
+          }
+        ]
       }
     }
   ],
-  "spacing": 30,
   "background": null
 }

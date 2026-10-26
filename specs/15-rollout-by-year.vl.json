@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "background": null,
+  "description": "An interactive map with a year slider, above a band chart of the same nine years. It shows what kerbside organics service each Victorian council ran between 2015-16 and 2023-24. Few councils gained a green bin outright; the larger change is garden-only bins beginning to accept food scraps, which went from 3 councils to 55.",
   "params": [
     {
       "name": "year",
@@ -16,8 +16,8 @@
   ],
   "vconcat": [
     {
-      "width": 820,
-      "height": 440,
+      "width": 800,
+      "height": 430,
       "projection": {
         "type": "conicEqualArea",
         "parallels": [
@@ -80,10 +80,10 @@
               "Food, garden and glass"
             ],
             "range": [
-              "#C8372D",
-              "#CBDCAC",
-              "#7FB539",
-              "#7A52C7"
+              "#D55E00",
+              "#E69F00",
+              "#009E73",
+              "#0072B2"
             ]
           },
           "sort": [
@@ -97,9 +97,11 @@
             "orient": "bottom",
             "direction": "horizontal",
             "offset": 2,
-            "labelFontSize": 11.5,
+            "labelFontSize": 12,
             "labelLimit": 220,
-            "columns": 4
+            "columns": 4,
+            "symbolType": "square",
+            "symbolSize": 130
           }
         },
         "tooltip": [
@@ -121,8 +123,8 @@
       }
     },
     {
-      "width": 820,
-      "height": 120,
+      "width": 800,
+      "height": 130,
       "data": {
         "url": "data/rollout_by_year.csv",
         "format": {
@@ -162,7 +164,7 @@
               "axis": {
                 "format": "d",
                 "tickCount": 9,
-                "labelFontSize": 11
+                "labelFontSize": 11.5
               },
               "scale": {
                 "domain": [
@@ -178,8 +180,14 @@
               "stack": "zero",
               "title": "Councils",
               "axis": {
-                "tickCount": 3,
-                "labelFontSize": 11
+                "tickCount": 4,
+                "values": [
+                  0,
+                  20,
+                  40,
+                  60,
+                  79
+                ]
               }
             },
             "color": {
@@ -193,10 +201,10 @@
                   "Food, garden and glass"
                 ],
                 "range": [
-                  "#C8372D",
-                  "#CBDCAC",
-                  "#7FB539",
-                  "#7A52C7"
+                  "#D55E00",
+                  "#E69F00",
+                  "#009E73",
+                  "#0072B2"
                 ]
               },
               "sort": [
@@ -204,8 +212,7 @@
                 "Garden only",
                 "Food and garden",
                 "Food, garden and glass"
-              ],
-              "legend": null
+              ]
             },
             "order": {
               "field": "service",
@@ -220,7 +227,7 @@
               },
               {
                 "field": "service",
-                "title": "Kerbside service"
+                "title": "Service"
               },
               {
                 "field": "n",
@@ -233,27 +240,24 @@
         {
           "mark": {
             "type": "rule",
-            "color": "#15181A",
+            "color": "#14171A",
             "strokeWidth": 2
           },
           "encoding": {
             "x": {
-              "datum": {
-                "expr": "year"
-              },
-              "type": "quantitative",
-              "scale": {
-                "domain": [
-                  2016,
-                  2024
-                ],
-                "nice": false
-              }
+              "field": "year",
+              "type": "quantitative"
             }
-          }
+          },
+          "transform": [
+            {
+              "calculate": "year",
+              "as": "year"
+            }
+          ]
         }
       ]
     }
   ],
-  "spacing": 14
+  "background": null
 }

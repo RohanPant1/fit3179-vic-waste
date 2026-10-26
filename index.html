@@ -8,8 +8,9 @@
   <meta name="author" content="Rohan Pant">
 
   <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css">
+  <!-- versioned for the same reason the specs are: browsers cache these hard
+       and a normal reload does not clear them. Bump with BUILD in embed.js. -->
+  <link rel="stylesheet" href="css/style.css?v=2026-10-25a">
 
   <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
@@ -17,113 +18,155 @@
 </head>
 <body>
 
+<div id="rail"><i></i></div>
+
+<!-- the finder follows the reader once they have scrolled past it -->
+<div id="stickybar">
+  <div class="inner">
+    <label for="council-pick-sticky">Your council</label>
+    <select id="council-pick-sticky" aria-label="Choose a council to highlight on every chart"></select>
+    <span class="sb-stat"><b id="sb-name">Find your council</b></span>
+    <span class="sb-stat" id="sb-div">—</span>
+  </div>
+</div>
+
 <!-- ======================================================= HERO ========= -->
 <header class="band band--dark hero">
   <div class="inner">
     <span class="eyebrow">Kerbside waste across Victoria's 79 councils</span>
     <h1 class="h-hero">Where Victoria's rubbish goes</h1>
     <p class="lede">
-      Every household in Victoria puts out two, three or four bins. Together they add up
-      to 2.35&nbsp;million tonnes a year, and a little over half of it never reaches
-      landfill. Which half depends on something most people never think about: how many
-      bins their council hands out.
+      The average Victorian household puts out about <strong>16 kilograms a
+      week</strong> — a full wheelie bin, every week, from every house in the
+      state. A little over half of it never reaches landfill.
+    </p>
+    <p class="lede" style="margin-top:1rem">
+      Which half, and why, turns out to have almost nothing to do with the
+      thing everyone assumes.
     </p>
 
-    <div class="lidbar" role="img" aria-label="Victoria's kerbside waste by stream: garbage 47 per cent, organics 31 per cent, mixed recycling 21 per cent, glass 1 per cent">
-      <span style="width:47%;background:var(--garbage)"></span>
-      <span style="width:31%;background:var(--organics)"></span>
-      <span style="width:21%;background:var(--recycling)"></span>
-      <span style="width:1%;background:var(--glass)"></span>
-    </div>
-    <div class="lidkey">
-      <span><i style="background:var(--garbage)"></i><b>47%</b> garbage</span>
-      <span><i style="background:var(--organics)"></i><b>31%</b> food and garden</span>
-      <span><i style="background:var(--recycling)"></i><b>21%</b> mixed recycling</span>
-      <span><i style="background:var(--glass)"></i><b>1%</b> glass</span>
+    <div class="hero-figure">
+      <div class="lidbar" role="img" aria-label="Stacked bar of Victoria's kerbside waste by stream in 2023 to 24: garbage 47 per cent, food and garden 31 per cent, mixed recycling 21 per cent, glass under 1 per cent">
+        <span style="width:47.3%;background:var(--garbage)"></span>
+        <span style="width:30.6%;background:var(--organics)"></span>
+        <span style="width:21.4%;background:var(--recycling)"></span>
+        <span style="width:0.7%;background:var(--glass)"></span>
+      </div>
+      <div class="lidkey">
+        <span><i style="background:var(--garbage)"></i><b>47%</b> garbage</span>
+        <span><i style="background:var(--organics)"></i><b>31%</b> food and garden</span>
+        <span><i style="background:var(--recycling)"></i><b>21%</b> mixed recycling</span>
+        <span><i style="background:var(--glass)"></i><b>0.7%</b> glass</span>
+      </div>
     </div>
   </div>
 </header>
 
-<!-- ================================================== WHAT IS THIS ====== -->
-<section class="band band--paper">
+<!-- ================================================== 00 START HERE ===== -->
+<section class="band band--light" id="start">
   <div class="inner">
     <div class="sectionhead">
       <span class="eyebrow">Start here</span>
       <h2 class="h-section">Four bins, and one number that matters</h2>
       <p class="prose">
-        Victoria is moving every council onto a four-bin system. Not every council is
-        there yet, and the gap between those that are and those that are not turns out to
-        explain more about recycling performance than anything else on this page.
+        Victoria is moving every council onto a four-bin system, and not every
+        council is there yet. Throughout this page, <em>diversion</em> means the
+        share of kerbside material kept out of landfill. It is the single number
+        councils are judged on.
       </p>
     </div>
 
     <div class="bins">
       <div class="bin">
         <i style="background:var(--garbage)"></i>
-        <h4>Red lid — garbage</h4>
+        <h4>Garbage — the red-lid bin</h4>
         <p>Everything that goes to landfill. Collected weekly almost everywhere.</p>
         <span class="amt">1,108,000 tonnes a year</span>
       </div>
       <div class="bin">
         <i style="background:var(--organics)"></i>
-        <h4>Lime lid — food and garden</h4>
-        <p>Garden clippings, and in most councils food scraps too. Known as FOGO, short
-           for food organics and garden organics.</p>
+        <h4>Food and garden — the lime lid</h4>
+        <p>Garden clippings, and in most councils food scraps too. Known as FOGO,
+           short for food organics and garden organics.</p>
         <span class="amt">718,000 tonnes a year</span>
       </div>
       <div class="bin">
         <i style="background:var(--recycling)"></i>
-        <h4>Yellow lid — mixed recycling</h4>
-        <p>Paper, plastics and metals, sorted at a materials recovery facility, or MRF.</p>
+        <h4>Mixed recycling — the yellow lid</h4>
+        <p>Paper, plastics and metals, sorted at a materials recovery facility,
+           or MRF.</p>
         <span class="amt">503,000 tonnes a year</span>
       </div>
       <div class="bin">
         <i style="background:var(--glass)"></i>
-        <h4>Purple lid — glass</h4>
-        <p>Glass kept separate so it does not shatter and contaminate the yellow bin.
-           Only 16 councils had one in 2023–24.</p>
+        <h4>Glass — the purple lid</h4>
+        <p>Glass kept separate so it does not shatter and contaminate the yellow
+           bin. Only 16 councils had one in 2023–24.</p>
         <span class="amt">16,000 tonnes a year</span>
       </div>
+    </div>
+
+    <p class="prose" style="margin-top:1.6rem;font-size:14.5px;max-width:56ch">
+      Colours on this page are a colour-blind-safe set, not the real lid colours,
+      so that every chart stays readable. The same colour means the same stream
+      everywhere.
+    </p>
+
+    <!-- --------------------------------------------- find your council -- -->
+    <div class="finder" id="finder" style="margin-top:clamp(2rem,4vw,3rem)">
+      <h4>Find your council</h4>
+      <label for="council-pick" class="sr-only">Choose a council</label>
+      <select id="council-pick" aria-label="Choose a council to highlight on every chart"></select>
+      <div class="scorecard">
+        <div><b id="sc-div">—</b><span id="sc-rank">pick a council above</span></div>
+        <div><b id="sc-bins">—</b><span id="sc-binsub">bins</span></div>
+        <div><b id="sc-cost">—</b><span id="sc-costsub">a garbage bin</span></div>
+        <div><b id="sc-kg">—</b><span id="sc-kgsub">per household, a week</span></div>
+      </div>
+      <p class="hint">
+        Your council is then ringed in black on every chart below that shows
+        individual councils — seven of them — so you can follow it down the page.
+      </p>
     </div>
 
     <div class="framing">
       <div>
         <h4>Why</h4>
-        <p>Councils publish their waste figures, but only one council at a time and in
-          spreadsheets nobody reads. Put side by side, they show a gap in service that
+        <p>Councils publish their waste figures, but one council at a time and in
+          spreadsheets nobody reads. Side by side they show a gap in service that
           residents have no easy way to see.</p>
       </div>
       <div>
         <h4>Who</h4>
-        <p>Any Victorian who puts a bin out. No statistical background assumed, and every
-          term defined where it first appears.</p>
+        <p>Any Victorian who puts a bin out. No statistical background assumed,
+          and every term defined where it first appears.</p>
       </div>
       <div>
         <h4>What</h4>
-        <p>Five government datasets: 23 years of kerbside tonnages and five years of
-          service costs for all 79 councils, plus council boundaries, 664 waste facilities
-          and the 2021 census socio-economic indexes. All listed at the foot of the page.</p>
+        <p>Five government datasets: 23 years of kerbside tonnages and five years
+          of service costs for all 79 councils, plus council boundaries, 664
+          waste facilities and the 2021 census socio-economic indexes. All listed
+          at the foot of the page.</p>
       </div>
       <div>
         <h4>How</h4>
-        <p><em>Diversion</em> is the share of kerbside material kept out of landfill. It
-          is the single number councils are judged on, and it anchors most of what
-          follows. Maps carry anything geographic, because the pattern here is about
-          where you live.</p>
+        <p>Maps carry anything geographic, because much of the pattern here is
+          about where you live. Distributions use one dot per council rather than
+          a smoothed curve, so you can count the councils behind every claim.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================== 1. HOW MUCH =========== -->
+<!-- ============================================== 01 HOW MUCH =========== -->
 <section class="band band--light" id="volumes">
   <div class="inner">
     <div class="sectionhead">
       <span class="eyebrow">01 — How much</span>
       <h2 class="h-section">The green bin now outweighs the recycling bin</h2>
       <p class="prose">
-        Most people picture recycling as the yellow bin. By weight it is the smallest of
-        the three that matter. Food and garden waste overtook it years ago.
+        Most people picture recycling as the yellow bin. By weight it is the
+        smallest of the three that matter.
       </p>
     </div>
 
@@ -131,35 +174,38 @@
       <div class="card">
         <div class="card__head">
           <h3 class="h-chart">What 2.35 million tonnes is made of</h3>
-          <p>Each square is one per cent of Victoria's kerbside collection, 2023–24.</p>
+          <p>Each square is one per cent of Victoria's kerbside collection,
+            2023–24. Click a colour in the key to isolate it.</p>
         </div>
-        <div class="chart chart--centre"><div id="vis-01-waffle"></div></div>
-        <div class="card__foot">Recycling Victoria, VLGAS 2025.03</div>
+        <div class="chart chart--centre"><div id="vis-waffle" style="min-height:369px"></div></div>
+        <div class="card__foot">Recycling Victoria, VLGAS release 2025.03</div>
       </div>
       <div class="note">
         <h4>What to look at</h4>
-        <p><span class="big">31%</span> of everything collected at the kerb is now food
-          and garden waste, against 21 per cent in the yellow recycling bin.</p>
-        <p>Nearly half still goes straight to landfill. Shrinking that red block is what
-          every policy on this page is trying to do.</p>
+        <p><span class="big">31%</span> of everything collected at the kerb is
+          food and garden waste, against 21 per cent in the yellow bin.</p>
+        <p>Nearly half still goes straight to landfill. Shrinking that dark block
+          is what every policy on this page is trying to do.</p>
       </div>
     </div>
 
     <div class="spread spread--reverse">
       <div class="card">
         <div class="card__head">
-          <h3 class="h-chart">Every council type splits its waste differently</h3>
-          <p>Share of each council type's total kerbside tonnage, by stream, 2023–24.</p>
+          <h3 class="h-chart">Metropolitan councils are nearly half the problem</h3>
+          <p>Column width is each council type's share of state tonnage; height
+            splits that tonnage by stream. 2023–24.</p>
         </div>
-        <div class="chart"><div id="vis-02-mosaic"></div></div>
-        <div class="card__foot">Recycling Victoria, VLGAS 2025.03</div>
+        <div class="chart"><div id="vis-mosaic" style="min-height:407px"></div></div>
+        <div class="card__foot">Recycling Victoria, VLGAS release 2025.03</div>
       </div>
       <div class="note">
         <h4>What to look at</h4>
-        <p>Regional cities put the largest share through the green bin. Small shires put
-          the most into landfill.</p>
-        <p>That is the first hint that the useful split is not city against country, but
-          large councils against small ones.</p>
+        <p>Metropolitan Melbourne is <strong>44 per cent</strong> of everything
+          Victoria collects. The 19 small shires are under three per cent.</p>
+        <p>So a council type can perform badly and still barely move the state
+          total — worth holding onto when the maps below make the west look
+          alarming.</p>
       </div>
     </div>
 
@@ -167,83 +213,96 @@
       <div class="card">
         <div class="card__head">
           <h3 class="h-chart">How much each household puts out</h3>
-          <p>Kilograms of kerbside material per household per year, 2023&ndash;24.
-            Measured per household rather than per person, because bins are issued to
-            properties.</p>
+          <p>Kilograms of kerbside material per household per year, 2023–24.
+            Measured per household rather than per person, because bins are
+            issued to properties.</p>
         </div>
-        <div class="chart"><div id="vis-03-kghousehold"></div></div>
-        <div class="card__foot">Recycling Victoria, VLGAS 2025.03</div>
+        <div class="chart"><div id="vis-kghousehold" style="min-height:408px"></div></div>
+        <div class="card__foot">Recycling Victoria, VLGAS release 2025.03</div>
       </div>
       <div class="note">
         <h4>What to look at</h4>
-        <p>Volume is not the same as performance. Some of the heaviest councils are also
-          among the best at keeping it out of landfill.</p>
-        <p>Holiday and peri-urban councils sit high: larger blocks mean more garden waste,
-          and visitor populations are not counted in the household figure.</p>
+        <p>Holiday and peri-urban councils sit high: larger blocks mean more
+          garden waste, and visitors are not counted in the household figure.</p>
+        <p>But volume is not performance. Some of the heaviest councils are also
+          the best at keeping it out of landfill — which is the question the next
+          section asks.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================== 2. HOW WELL =========== -->
-<section class="band band--paper" id="performance">
+<!-- ============================================== 02 HOW WELL =========== -->
+<section class="band band--light" id="performance">
   <div class="inner">
     <div class="sectionhead">
       <span class="eyebrow">02 — How well</span>
       <h2 class="h-section">Half of it stays out of landfill, but only just</h2>
       <p class="prose">
-        Councils report how much of what they collect avoids landfill. The median council
-        manages about half. The spread behind that median runs from 16 per cent to 74.
+        The median council keeps about half its kerbside waste out of landfill.
+        The spread behind that median runs from 16 per cent to 74.
       </p>
     </div>
 
-    <div class="card" style="margin-bottom:clamp(1.5rem,3vw,2.4rem)">
+    <div class="card">
       <div class="card__head">
         <h3 class="h-chart">Diversion rates across the state, 2024–25</h3>
-        <p>Share of kerbside material kept out of landfill. Metropolitan Melbourne is
-          shown separately because its councils are too small to read at state scale.</p>
+        <p>Share of kerbside material kept out of landfill. Metropolitan
+          Melbourne is enlarged because its councils are too small to read at
+          state scale.</p>
       </div>
-      <div class="chart"><div id="vis-04-choropleth"></div></div>
-      <div class="card__foot">Local Government Victoria, LGPRF indicator WC5, 2024–25</div>
+      <div class="chart"><div id="vis-diversion" style="min-height:441px"></div></div>
+      <div class="card__foot">Local Government Victoria, LGPRF indicator WC5,
+        2024–25. Each council's own reported figure.</div>
     </div>
 
     <div class="stats">
       <div class="stat"><b>74%</b><span>Alpine Shire, the best in the state</span></div>
-      <div class="stat"><b>16%</b><span>West Wimmera Shire, the worst</span></div>
+      <div class="stat"><b>16%</b><span>West Wimmera Shire, the lowest</span></div>
       <div class="stat"><b>50%</b><span>the median council</span></div>
       <div class="stat"><b>58</b><span>percentage points between top and bottom</span></div>
     </div>
 
     <div class="card" style="margin-top:clamp(2rem,4vw,3rem)">
       <div class="card__head">
-        <h3 class="h-chart">The five council types sit almost on top of each other</h3>
-        <p>One dot per council. The bar marks each type's median, 2024–25.
-          Regional cities, not metropolitan councils, have the highest median in the state
-          at 55 per cent; small shires are lowest at 41. Every group overlaps nearly every
-          other, so knowing a council's category tells you very little about how it
-          performs.</p>
+        <h3 class="h-chart">Knowing a council's type tells you very little</h3>
+        <p>One dot per council, grouped by type, coloured by which bins it
+          offers. The bar marks each type's median. Click a colour in the key to
+          isolate it. 2024–25.</p>
       </div>
-      <div class="chart"><div id="vis-05-beeswarm"></div></div>
-      <div class="card__foot">Local Government Victoria, LGPRF indicator WC5, 2024–25</div>
+      <div class="chart"><div id="vis-beeswarm" style="min-height:455px"></div></div>
+      <div class="card__foot">Local Government Victoria, LGPRF indicator WC5, and
+        Recycling Victoria, VLGAS release 2025.03</div>
     </div>
 
-    <div class="spread spread--reverse">
-      <div class="card">
-        <div class="card__head">
-          <h3 class="h-chart">More is collected for recycling, less of it survives</h3>
-          <p>Share of kerbside recycling collected but never recovered, statewide.</p>
-        </div>
-        <div class="chart"><div id="vis-06-slope"></div></div>
-        <div class="card__foot">Recycling Victoria, VLGAS 2025.03. Includes contamination
-          and process loss, not contamination alone.</div>
+    <div class="callout">
+      <h4>Every type overlaps nearly every other</h4>
+      <p>Regional cities have the highest median in the state at 55 per cent and
+        small shires the lowest at 41, but the ranges sit almost on top of one
+        another.</p>
+      <p>The colours are the clue. Within every single council type, the dots on
+        the left are the councils missing a bin.</p>
+    </div>
+
+    <div class="card" style="margin-top:clamp(2rem,4vw,3rem)">
+      <div class="card__head">
+        <h3 class="h-chart">More is collected for recycling, less of it survives</h3>
+        <p>Tonnes put in the yellow bin each year against tonnes actually
+          recovered. The shaded gap is the difference.</p>
       </div>
-      <div class="note">
-        <h4>What to look at</h4>
-        <p><span class="big">18.7%</span> of what goes in the yellow bin never becomes
-          anything, up from 5.3 per cent in 2015–16.</p>
-        <p>The jump starts in 2017–18, when China stopped accepting the world's imported
-          recycling and Victoria's processing market fell apart.</p>
-      </div>
+      <div class="chart"><div id="vis-difference" style="min-height:348px"></div></div>
+      <div class="card__foot">Recycling Victoria, VLGAS release 2025.03.
+        "Never recovered" covers contamination and processing losses together,
+        not contamination alone.</div>
+    </div>
+
+    <div class="callout">
+      <h4>Nearly a fifth of the yellow bin is lost</h4>
+      <p>18.7 per cent of what Victorians put in the recycling bin in 2023–24
+        never became anything, up from 5.3 per cent in 2015–16.</p>
+      <p>The widening starts around 2017–18. Several things changed in the
+        recycling industry over those years, and this data can show the loss but
+        cannot attribute it to any one of them.</p>
     </div>
   </div>
 </section>
@@ -254,223 +313,287 @@
     <span class="eyebrow">So what actually explains it?</span>
     <h2 class="h-section">It is not the city–country divide</h2>
     <p class="lede">
-      Metropolitan councils keep 50.2 per cent out of landfill. Regional councils keep
-      50.5. They spend $138 and $141 a bin. The comparison everyone reaches for first is
-      a rounding error.
+      Metropolitan councils keep 50.2 per cent out of landfill. Regional councils
+      keep 50.5. They spend $138 and $141 a bin. The comparison everyone reaches
+      for first is a rounding error.
     </p>
     <p class="lede" style="margin-top:1rem">
-      What separates a good council from a poor one is far more ordinary: how many bins
-      it gives you.
+      What separates a good council from a poor one is far more ordinary: which
+      bins it gives you.
     </p>
-    <div class="lidbar lidbar--thin" style="margin-top:2.4rem">
-      <span style="width:13%;background:var(--garbage)"></span>
-      <span style="width:71%;background:var(--organics)"></span>
-      <span style="width:16%;background:var(--glass)"></span>
-    </div>
-    <div class="lidkey">
-      <span><i style="background:var(--garbage)"></i><b>13</b> councils on two bins</span>
-      <span><i style="background:var(--organics)"></i><b>56</b> on three</span>
-      <span><i style="background:var(--glass)"></i><b>12</b> on four</span>
+    <div class="hero-figure" style="margin-top:2.4rem">
+      <div class="lidbar lidbar--thin" role="img" aria-label="Stacked bar: 10 councils have only a garbage and recycling bin, 3 have a glass bin but no green bin, 53 have a green bin and no glass, 13 have all four bins">
+        <span style="width:12.7%;background:var(--svc-two)"></span>
+        <span style="width:3.8%;background:var(--svc-glass)"></span>
+        <span style="width:67.1%;background:var(--svc-three)"></span>
+        <span style="width:16.4%;background:var(--svc-four)"></span>
+      </div>
+      <div class="lidkey">
+        <span><i style="background:var(--svc-two)"></i><b>10</b> garbage and recycling only</span>
+        <span><i style="background:var(--svc-glass)"></i><b>3</b> glass but no green bin</span>
+        <span><i style="background:var(--svc-three)"></i><b>53</b> green bin, no glass</span>
+        <span><i style="background:var(--svc-four)"></i><b>13</b> all four bins</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================== 3. THE BINS =========== -->
+<!-- ============================================== 03 THE MECHANISM ====== -->
 <section class="band band--light" id="bins">
   <div class="inner">
     <div class="sectionhead">
       <span class="eyebrow">03 — The mechanism</span>
-      <h2 class="h-section">A green bin is worth twenty points of diversion</h2>
+      <h2 class="h-section">A green bin is worth twenty-three points of diversion</h2>
       <p class="prose">
-        Councils with a food and garden bin keep about half their waste out of landfill.
-        Councils without one manage barely a third. Nothing else in this data comes close
-        to that effect.
+        Councils with a food and garden bin keep a median 52.6 per cent out of
+        landfill. Councils without one manage 29.6. Nothing else in this data
+        comes close to that effect.
       </p>
-    </div>
-
-    <div class="spread">
-      <div class="card">
-        <div class="card__head">
-          <h3 class="h-chart">Where councils fall, by how many bins they offer</h3>
-          <p>Each curve shows how councils with that service are spread across the
-            diversion range, 2024–25.</p>
-        </div>
-        <div class="chart"><div id="vis-07-density"></div></div>
-        <div class="card__foot">Recycling Victoria and Local Government Victoria</div>
-      </div>
-      <div class="note">
-        <h4>What to look at</h4>
-        <p>The red curve is the ten councils still on two bins. Its peak sits around
-          <strong>31 per cent</strong>.</p>
-        <p>Add a green bin and the whole distribution shifts right, to a median of 52.
-          Adding a fourth bin for glass barely moves it again — the gain is almost
-          entirely in that third bin.</p>
-      </div>
     </div>
 
     <div class="card">
       <div class="card__head">
-        <h3 class="h-chart">Thirteen councils still have no green bin</h3>
-        <p>Councils without a kerbside food and garden collection, 2023–24.</p>
+        <h3 class="h-chart">Where councils fall, by the bins they offer</h3>
+        <p>Every dot is one council. Dots stack where several councils land in
+          the same three-point band, so each row's height shows how many
+          councils are behind it. Dashed line marks the row median. 2024–25.</p>
       </div>
-      <div class="chart"><div id="vis-08-nogreenbin"></div></div>
-      <div class="card__foot">Recycling Victoria, VLGAS 2025.03</div>
+      <div class="chart"><div id="vis-dotplot" style="min-height:419px"></div></div>
+      <div class="card__foot">Local Government Victoria, LGPRF indicator WC5, and
+        Recycling Victoria, VLGAS release 2025.03</div>
     </div>
 
-    <div class="spread spread--full" style="margin-top:1.6rem">
-      <div class="note" style="max-width:52em">
-        <h4>The exception worth noticing</h4>
-        <p>Twelve of the thirteen are rural shires in the state's west and east, where
-          long distances to a processing facility make a green bin expensive to run.
-          <strong>Yarra is the thirteenth</strong> — an inner-Melbourne council four
-          kilometres from the CBD, where the obstacle is not distance but apartments with
-          nowhere to put a third bin.</p>
-      </div>
+    <div class="callout">
+      <h4>Three councils bought the bin that does not help</h4>
+      <p>Adding a green bin moves the median from 30.6 to 53.8 per cent. Adding a
+        fourth bin for glass on top of that moves it to 52.4 — in other words,
+        not at all. The gain is almost entirely in the third bin.</p>
+      <p>Which makes the third row worth a second look. <strong>Hindmarsh, Yarra
+        and Yarriambiack</strong> run a separate glass bin but still have no
+        green bin. Hindmarsh and Yarriambiack rank 77th and 78th of 79 for
+        diversion.</p>
+      <p>Three councils is three councils, not a trend — the row is deliberately
+        drawn so you can count them. But they are the only councils in Victoria
+        to have added the bin worth nothing before the bin worth twenty-three
+        points.</p>
     </div>
   </div>
 </section>
 
-<!-- ================================================ 4. COST ============= -->
-<section class="band band--paper" id="costs">
+<!-- ============================================== 04 HOW FAR ============ -->
+<section class="band band--light" id="distance">
   <div class="inner">
     <div class="sectionhead">
-      <span class="eyebrow">04 — What it costs</span>
-      <h2 class="h-section">Councils that keep more out of landfill spend less, not more</h2>
+      <span class="eyebrow">04 — Why some councils cannot</span>
+      <h2 class="h-section">A green bin needs somewhere for the food to go</h2>
       <p class="prose">
-        Recycling is usually assumed to be the expensive option. Across Victoria's
-        councils the relationship runs the other way, and reasonably strongly.
+        Food and garden waste has to be trucked to a composting plant. Where
+        there is no plant within reach, the bin is expensive to run — which is
+        the usual explanation for the councils that do not have one.
       </p>
-    </div>
-
-    <div class="spread">
-      <div class="card">
-        <div class="card__head">
-          <h3 class="h-chart">Cost against diversion, and how four councils moved</h3>
-          <p>Grey dots are all 79 councils in 2024–25. Dashed lines mark the state
-            medians. Coloured paths trace four councils across five years.</p>
-        </div>
-        <div class="chart"><div id="vis-09-trajectory"></div></div>
-        <div class="card__foot">Local Government Victoria, LGPRF indicators WC3 and WC5</div>
-      </div>
-      <div class="note">
-        <h4>What to look at</h4>
-        <p>Most councils sit in the green or the plain quadrants. Very few manage to
-          spend a lot and still bury most of it.</p>
-        <p><strong>Knox</strong> and <strong>Greater Bendigo</strong> moved up and to the
-          left: better results, lower cost. <strong>Casey</strong> and
-          <strong>Yarra</strong> went the other way.</p>
-        <p>A likely reason is the landfill levy. A tonne in the green bin avoids a charge
-          that has been rising steeply, so diverting waste is now often the cheaper
-          option.</p>
-      </div>
     </div>
 
     <div class="card">
       <div class="card__head">
-        <h3 class="h-chart">How much each council handles, how much it saves, and what it costs</h3>
-        <p>A Dorling cartogram. Every council is a circle sized by the waste it collects
-          and nudged off its real location only as far as needed to stop circles
-          overlapping, so the 22 small metropolitan councils carry the same visual weight
-          as the vast rural shires. The filled part of each circle is the share kept out
-          of landfill: a thin ring means most of it is buried. Colour is the cost of a
-          garbage bin.</p>
+        <h3 class="h-chart">Victoria's 664 waste facilities are not evenly spread</h3>
+        <p>One circle per council area, sized by how many waste and resource
+          recovery facilities sit inside it, coloured by whether any of them
+          processes organics. March 2025.</p>
       </div>
-      <div class="chart"><div id="vis-10-dorling"></div></div>
-      <div class="card__foot">Recycling Victoria and Local Government Victoria, 2023–24
-        and 2024–25. Circle areas are proportional to tonnes, so the smallest shires are
-        genuinely tiny. Positions solved for this page.</div>
+      <div class="chart"><div id="vis-facilities" style="min-height:482px"></div></div>
+      <div class="card__foot">Recycling Victoria, waste and resource recovery
+        infrastructure map data, March 2025. Seven of the 664 sites are recorded
+        against alpine resorts or suburbs rather than councils and are not
+        mapped.</div>
+    </div>
+
+    <div class="callout">
+      <h4>Infrastructure follows population, and population follows the coast</h4>
+      <p>Greater Dandenong alone holds 47 sites. Across the Wimmera and the
+        Mallee there are council areas with none at all.</p>
+    </div>
+
+    <div class="card" style="margin-top:clamp(2rem,4vw,3rem)">
+      <div class="card__head">
+        <h3 class="h-chart">How far the food would have to travel</h3>
+        <p>A line from each of the 13 councils with no green bin to the nearest
+          organics processing plant. Diamonds mark the plants.</p>
+      </div>
+      <div class="chart"><div id="vis-flow" style="min-height:482px"></div></div>
+      <div class="card__foot">Recycling Victoria, VLGAS release 2025.03 and waste
+        infrastructure map data, March 2025. Straight-line distance from the
+        council's centre, not road distance. "Organics recycling" in the source
+        covers all organics processing, not composting alone.</div>
+    </div>
+
+    <div class="callout">
+      <h4>Distance explains twelve of the thirteen</h4>
+      <p>Glenelg is 103 kilometres from the nearest plant, Hindmarsh 86, West
+        Wimmera 80. The typical council that does run a green bin is 13
+        kilometres away.</p>
+      <p><strong>Yarra is the exception.</strong> An inner-Melbourne council four
+        kilometres from the CBD, it sits 12 kilometres from a plant — closer than
+        the median council with a green bin. Distance is not what is stopping
+        Yarra.</p>
     </div>
   </div>
 </section>
 
-<!-- ============================================== 5. EQUITY ============= -->
+<!-- ================================================ 05 COST ============= -->
+<section class="band band--light" id="costs">
+  <div class="inner">
+    <div class="sectionhead">
+      <span class="eyebrow">05 — What it costs</span>
+      <h2 class="h-section">The councils that bury the most also pay the most</h2>
+      <p class="prose">
+        Recycling is usually assumed to be the expensive option. Across Victoria
+        the relationship runs the other way.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card__head">
+        <h3 class="h-chart">What your council spends on each of your bins</h3>
+        <p>One row per council, ordered by what a garbage bin costs. The hollow
+          dot is the recycling bin, the solid dot the garbage bin, and the bar
+          between them is coloured by how much the council keeps out of landfill.
+          2024–25.</p>
+      </div>
+      <div class="chart"><div id="vis-dumbbell" style="min-height:1136px"></div></div>
+      <div class="card__foot">Local Government Victoria, LGPRF indicators WC3 and
+        WC5, 2024–25. Cost is the council's own reported direct cost per
+        kerbside bin lift service, per year.</div>
+    </div>
+
+    <div class="callout">
+      <h4>Two things read straight off the chart</h4>
+      <p>The recycling bin costs about half the garbage bin — $72 against $138
+        for the median council, and cheaper in 75 of the 79. The four near the
+        bottom with the hollow dot on the right are the exceptions.</p>
+      <p>And the colour darkens as you go down the list. Councils in the
+        cheapest quarter keep a median 66 per cent out of landfill; councils in
+        the dearest quarter keep 39.</p>
+      <p>The two move together, which is not the same as one causing the other.
+        Small remote councils face high costs and long distances to a processing
+        plant at the same time, and both are in this chart.</p>
+    </div>
+
+    <div class="card" style="margin-top:clamp(2rem,4vw,3rem)">
+      <div class="card__head">
+        <h3 class="h-chart">How much each council handles, saves, and spends</h3>
+        <p>A Dorling cartogram. Every council is a circle sized by the waste it
+          collects, nudged off its real location only as far as needed to stop
+          circles overlapping, so the 22 small metropolitan councils carry the
+          same visual weight as the vast rural shires.</p>
+      </div>
+      <div class="chart"><div id="vis-dorling" style="min-height:513px"></div></div>
+      <div class="card__foot">Recycling Victoria and Local Government Victoria,
+        2023–24 and 2024–25. Circle areas are proportional to tonnes, so the
+        smallest shires are genuinely tiny. Positions solved for this page.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================== 06 EQUITY ============= -->
 <section class="band band--light" id="equity">
   <div class="inner">
     <div class="sectionhead">
-      <span class="eyebrow">05 — Who gets what</span>
+      <span class="eyebrow">06 — Who gets what</span>
       <h2 class="h-section">Better-off councils divert more, but they are not the ones getting the bins</h2>
       <p class="prose">
-        If performance tracks advantage, the obvious worry is that poorer areas are being
-        left without services. The data supports the first half of that and not the second.
+        If performance tracks advantage, the obvious worry is that poorer areas
+        are being left without services. The data supports the first half of that
+        and not the second.
       </p>
     </div>
 
     <div class="card">
       <div class="card__head">
         <h3 class="h-chart">Socio-economic position against diversion</h3>
-        <p>Two measures on one map. Across: the ABS index of disadvantage, where 1000 is
-          the national average. Down: the share kept out of landfill. The darkest
-          blue-green councils score high on both.</p>
+        <p>Two measures on one map. Across: the census index of disadvantage,
+          where 1000 is the national average. Down: the share kept out of
+          landfill. The darkest councils score high on both.</p>
       </div>
-      <div class="chart"><div id="vis-11-bivariate"></div></div>
-      <div class="card__foot">ABS SEIFA 2021 and Local Government Victoria, 2024–25.
-        An association, not a cause — see the note below.</div>
+      <div class="chart"><div id="vis-bivariate" style="min-height:470px"></div></div>
+      <div class="card__foot">ABS SEIFA 2021 and Local Government Victoria,
+        2024–25. An association, not a cause — see the note below.</div>
     </div>
 
-    <div class="spread" style="margin-top:clamp(1.6rem,3vw,2.4rem)">
-      <div class="card">
-        <div class="card__head">
-          <h3 class="h-chart">Missing out on a green bin is not about disadvantage</h3>
-          <p>How councils with and without a food and garden bin are spread across the
-            socio-economic scale.</p>
-        </div>
-        <div class="chart"><div id="vis-12-seifaservice"></div></div>
-        <div class="card__foot">ABS SEIFA 2021 and Recycling Victoria, VLGAS 2025.03</div>
+    <div class="card" style="margin-top:clamp(2rem,4vw,3rem)">
+      <div class="card__head">
+        <h3 class="h-chart">Missing out on a green bin is not about disadvantage</h3>
+        <p>Every council is one tick. The upper row is the 66 councils with a
+          green bin, the lower row the 13 without. Black ticks mark each row's
+          median.</p>
       </div>
-      <div class="note">
-        <h4>What to look at</h4>
-        <p>The two curves sit almost exactly on top of each other. Median 982 for
-          councils with a green bin, 968 for those without.</p>
-        <p>So service access tracks council size and distance, not wealth. Worth stating
-          plainly, because it is the opposite of what the first map might suggest.</p>
-        <p><strong>A caution.</strong> Metropolitan councils score highest on advantage
-          but only middling on diversion, while regional cities score lower and divert
-          most. The relationship is real but tangled up with council type.</p>
-      </div>
+      <div class="chart"><div id="vis-barcode" style="min-height:187px"></div></div>
+      <div class="card__foot">ABS SEIFA 2021 and Recycling Victoria, VLGAS
+        release 2025.03</div>
+    </div>
+
+    <div class="callout">
+      <h4>The 13 are scattered, not clustered</h4>
+      <p>The two rows have almost the same median — 1003 for councils with a
+        green bin, 991 for those without, against a national average of 1000 —
+        and the 13 are spread across the whole range rather than bunched at the
+        disadvantaged end.</p>
+      <p>So service access tracks council size and distance, not wealth. Worth
+        stating plainly, because it is the opposite of what the map above might
+        suggest.</p>
+      <p><strong>A caution on that map.</strong> Metropolitan councils score
+        highest on advantage but only middling on diversion, while regional
+        cities score lower and divert most. The relationship is real but tangled
+        up with council type.</p>
     </div>
   </div>
 </section>
 
-<!-- ============================================== 6. CHANGE ============= -->
-<section class="band band--paper" id="change">
+<!-- ============================================== 07 CHANGE ============= -->
+<section class="band band--light" id="change">
   <div class="inner">
     <div class="sectionhead">
-      <span class="eyebrow">06 — What changed</span>
-      <h2 class="h-section">Twenty years of slow repair, and one sharp shock</h2>
+      <span class="eyebrow">07 — What changed</span>
+      <h2 class="h-section">Twenty years of slow repair</h2>
       <p class="prose">
-        The green bin did not arrive all at once. It spread council by council over a
-        decade, while the recycling system it sat alongside took the worst hit in its
-        history.
+        The green bin did not arrive all at once. It spread council by council
+        over a decade.
       </p>
-    </div>
-
-    <div class="card" style="margin-bottom:clamp(1.5rem,3vw,2.4rem)">
-      <div class="card__head">
-        <h3 class="h-chart">Four streams, 2001–02 to 2023–24</h3>
-        <p>Tonnes collected across Victoria each year. Band thickness is tonnage.</p>
-      </div>
-      <div class="chart"><div id="vis-13-streamgraph"></div></div>
-      <div class="card__foot">Recycling Victoria, VLGAS 2025.03. Reporting before 2015 is
-        patchy, so early years are indicative.</div>
     </div>
 
     <div class="card">
       <div class="card__head">
-        <h3 class="h-chart">The rollout was mostly existing bins learning to take food</h3>
-        <p>Drag the slider to move through the years. Only 27 councils gained a green bin
-          they did not have before. The bigger shift was garden-only bins starting to
-          accept food scraps as well: 3 councils in 2015–16, 55 by 2023–24. The band
-          chart underneath shows all nine years at once, with a line marking the year on
-          the map.</p>
+        <h3 class="h-chart">Four streams, 2001–02 to 2023–24</h3>
+        <p>Tonnes collected across Victoria each year; band thickness is tonnage.
+          Click a colour in the key to isolate a stream.</p>
       </div>
-      <div class="chart"><div id="vis-14-rollout"></div></div>
-      <div class="card__foot">Recycling Victoria, VLGAS 2025.03</div>
+      <div class="chart"><div id="vis-stream" style="min-height:349px"></div></div>
+      <div class="card__foot">Recycling Victoria, VLGAS release 2025.03.
+        Reporting before 2015 is patchy, so the early years are indicative.</div>
+    </div>
+
+    <div class="callout">
+      <h4>The green band overtakes the yellow one around 2015</h4>
+      <p>Total volume grows steadily across the whole period. The separate glass
+        band appears only at the right-hand end, from 2021.</p>
+    </div>
+
+    <div class="card" style="margin-top:clamp(2rem,4vw,3rem)">
+      <div class="card__head">
+        <h3 class="h-chart">Mostly it was existing bins learning to take food</h3>
+        <p>Drag the slider to move through the years. Only 14 councils gained a
+          green bin they did not have before. The bigger shift was garden-only
+          bins starting to accept food scraps as well. The band chart underneath
+          shows all nine years at once, with a line marking the year on the
+          map.</p>
+      </div>
+      <div class="chart"><div id="vis-rollout" style="min-height:634px"></div></div>
+      <div class="card__foot">Recycling Victoria, VLGAS release 2025.03</div>
     </div>
 
     <div class="stats">
-      <div class="stat"><b>3 → 55</b><span>councils with a food and garden bin, 2015–16 to 2023–24</span></div>
+      <div class="stat"><b>3 → 55</b><span>councils taking food in the green bin, 2015–16 to 2023–24</span></div>
+      <div class="stat"><b>52 → 66</b><span>councils with any green bin at all</span></div>
       <div class="stat"><b>0 → 16</b><span>councils with a separate glass bin</span></div>
-      <div class="stat"><b>13</b><span>still on two bins</span></div>
       <div class="stat"><b>2030</b><span>the state's deadline for four bins everywhere</span></div>
     </div>
   </div>
@@ -480,17 +603,23 @@
 <section class="band band--dark">
   <div class="inner">
     <span class="eyebrow">Where that leaves it</span>
-    <h2 class="h-section" style="color:#F2F5EF;max-width:20ch">Thirteen councils are one bin away</h2>
+    <h2 class="h-section" style="color:#F3F6F0;max-width:20ch">Thirteen councils are one bin away</h2>
     <p class="lede" style="margin-top:1.4rem">
-      Victoria's recycling story is usually told as a contest between the city and the
-      bush. The numbers do not support that. What they show instead is a service gap:
-      thirteen councils, most of them small and remote, still running the two-bin system
-      the rest of the state left behind — and diverting barely a third of their waste
-      as a result.
+      Victoria's recycling story is usually told as a contest between the city
+      and the bush. The numbers do not support that. What they show instead is a
+      service gap: thirteen councils, most of them small and remote, still
+      without the green bin the rest of the state has — and keeping barely
+      30 per cent of their waste out of landfill as a result.
     </p>
     <p class="lede" style="margin-top:1rem">
-      The state has set 2030 as the deadline for four bins everywhere. On the rollout's
-      current pace, that is the single change that would move these numbers most.
+      Twelve of them are a long way from anywhere that could process the food.
+      Yarra is twelve kilometres from a plant. Three of them already found the
+      money for a fourth bin, and spent it on glass.
+    </p>
+    <p class="lede" style="margin-top:1rem">
+      The state has set 2030 as the deadline for four bins everywhere. On the
+      rollout's current pace, the third bin is the one that would move these
+      numbers most.
     </p>
   </div>
 </section>
@@ -501,11 +630,14 @@
     <hr style="border:0;border-top:1px solid var(--rule-dark);margin-bottom:2.5rem">
     <h2 class="h-section">About this visualisation</h2>
     <p>
-      By <strong style="color:#E7EAE4">Rohan Pant</strong>, October 2026. Created for
-      FIT3179 Data Visualisation, Monash University. Built with Vega-Lite. Every chart's
-      specification is in the
+      By <strong style="color:#E7EAE4">Rohan Pant</strong>, October 2026. Created
+      for FIT3179 Data Visualisation, Monash University. Built with Vega-Lite v6.
+      Every chart's specification is in the
       <a href="https://github.com/RohanPant1/fit3179-vic-waste/tree/main/specs">specs folder</a>
-      of this repository.
+      of this repository, alongside
+      <a href="https://github.com/RohanPant1/fit3179-vic-waste/blob/main/prep.py">prep.py</a>,
+      the script that joins the five source datasets into the files these charts
+      read.
     </p>
 
     <h4>Data sources</h4>
@@ -513,15 +645,16 @@
       <li>Recycling Victoria, <em>Victorian Local Government Annual Waste Services
         Survey</em>, release 2025.03, covering 2001–02 to 2023–24.
         <a href="https://discover.data.vic.gov.au/dataset/victorian-local-government-waste-data-dashboard">data.vic.gov.au</a>. CC&nbsp;BY&nbsp;4.0.</li>
-      <li>Local Government Victoria, <em>Local Government Performance Reporting Framework
-        full council dataset</em>, November 2025 release, covering 2020–21 to 2024–25.
+      <li>Local Government Victoria, <em>Local Government Performance Reporting
+        Framework full council dataset</em>, November 2025 release, covering
+        2020–21 to 2024–25.
         <a href="https://discover.data.vic.gov.au/dataset/local-government-performance-reporting">data.vic.gov.au</a>. CC&nbsp;BY&nbsp;4.0.</li>
-      <li>Recycling Victoria, <em>Victoria's waste and resource recovery infrastructure
-        map data</em>, March 2025. The catalogue advertises an October 2025 release, but
-        that file is not retrievable.
+      <li>Recycling Victoria, <em>Victoria's waste and resource recovery
+        infrastructure map data</em>, March 2025. The catalogue advertises an
+        October 2025 release, but that file is not retrievable.
         <a href="https://discover.data.vic.gov.au/dataset/victoria-s-waste-and-resource-recovery-infrastructure-map-data">data.vic.gov.au</a>. CC&nbsp;BY&nbsp;4.0.</li>
-      <li>Australian Bureau of Statistics, <em>Local Government Areas 2025</em>, ASGS
-        Edition 3, GDA2020.
+      <li>Australian Bureau of Statistics, <em>Local Government Areas 2025</em>,
+        ASGS Edition 3, GDA2020.
         <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files">abs.gov.au</a>. CC&nbsp;BY&nbsp;4.0.</li>
       <li>Australian Bureau of Statistics, <em>Socio-Economic Indexes for Areas
         (SEIFA) 2021</em>, by Local Government Area.
@@ -530,21 +663,31 @@
 
     <h4>Notes on the data</h4>
     <ul>
-      <li>Diversion figures are each council's own reported result under the performance
-        reporting framework, not a figure derived here. Where a longer run of years was
-        needed, diversion is computed from tonnages instead; the two agree closely.</li>
-      <li>"Collected but not recovered" covers contamination and processing losses
-        together, not contamination alone.</li>
-      <li>Victoria's container deposit scheme began in November 2023, so it falls only
-        partly inside the latest year of data and is not treated as a measured effect.</li>
+      <li>Diversion figures are each council's own reported result under the
+        performance reporting framework, not a figure derived here. Where a
+        longer run of years was needed, diversion is computed from tonnages
+        instead; the two agree closely.</li>
+      <li>"Never recovered" covers contamination and processing losses together,
+        not contamination alone.</li>
+      <li>"No green bin" means 13 councils with no kerbside organics collection.
+        "Only two bins" means the 10 of those that also have no glass bin. The
+        other three run a glass bin instead.</li>
+      <li>Distances to processing plants are straight-line from the council's
+        geographic centre, which understates the real road journey.</li>
+      <li>Victoria's container deposit scheme began in November 2023, so it falls
+        only partly inside the latest year of data and is not treated as a
+        measured effect.</li>
+      <li>Colours use the Okabe-Ito palette, which stays distinguishable under
+        all three common forms of colour vision deficiency. They are not the
+        real bin lid colours.</li>
     </ul>
 
     <h4>Use of generative AI</h4>
     <p>
-      Generative AI (Claude) was used to locate and verify the data sources, to debug
-      Vega-Lite specifications, to compute the Dorling cartogram circle positions, and to
-      copy-edit the narrative text. All figures were computed directly from the source
-      datasets listed above.
+      Generative AI (Claude) was used to locate and verify the data sources, to
+      debug Vega-Lite specifications, to compute the Dorling cartogram circle
+      positions, and to copy-edit the narrative text. All figures were computed
+      directly from the source datasets listed above.
     </p>
   </div>
 </footer>

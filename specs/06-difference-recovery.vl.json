@@ -1,0 +1,310 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Difference chart. The upper line is the tonnage Victorian councils collected in the yellow recycling bin each year from 2015-16 to 2023-24; the lower line is the tonnage actually recovered. The shaded gap between them is material collected for recycling that never became anything, and it widens from 5 per cent of the stream to 19 per cent.",
+  "width": 790,
+  "height": 320,
+  "data": {
+    "url": "data/statewide_by_year.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.year_end >= 2016"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "opacity": 0.3,
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "x": {
+          "field": "year_end",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              2016,
+              2024.9
+            ],
+            "nice": false
+          },
+          "axis": {
+            "format": "d",
+            "title": null,
+            "tickCount": 9,
+            "labelFontSize": 12
+          }
+        },
+        "y": {
+          "field": "recycled_t",
+          "type": "quantitative",
+          "title": "Tonnes a year",
+          "axis": {
+            "format": ",.0f"
+          },
+          "scale": {
+            "domain": [
+              0,
+              620000
+            ]
+          }
+        },
+        "y2": {
+          "field": "recycling_t"
+        },
+        "color": {
+          "datum": "Collected but never recovered",
+          "scale": {
+            "domain": [
+              "Collected for recycling",
+              "Actually recovered",
+              "Collected but never recovered"
+            ],
+            "range": [
+              "#5C6166",
+              "#009E73",
+              "#E69F00"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top-left",
+            "offset": 6,
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 3,
+            "labelFontSize": 12
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.6,
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "x": {
+          "field": "year_end",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "recycling_t",
+          "type": "quantitative"
+        },
+        "color": {
+          "datum": "Collected for recycling",
+          "scale": {
+            "domain": [
+              "Collected for recycling",
+              "Actually recovered",
+              "Collected but never recovered"
+            ],
+            "range": [
+              "#5C6166",
+              "#009E73",
+              "#E69F00"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top-left",
+            "offset": 6,
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 3,
+            "labelFontSize": 12
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.6,
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "x": {
+          "field": "year_end",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "recycled_t",
+          "type": "quantitative"
+        },
+        "color": {
+          "datum": "Actually recovered",
+          "scale": {
+            "domain": [
+              "Collected for recycling",
+              "Actually recovered",
+              "Collected but never recovered"
+            ],
+            "range": [
+              "#5C6166",
+              "#009E73",
+              "#E69F00"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top-left",
+            "offset": 6,
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 3,
+            "labelFontSize": 12
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 14,
+        "opacity": 0
+      },
+      "encoding": {
+        "x": {
+          "field": "year_end",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "financial_year",
+            "title": "Year"
+          },
+          {
+            "field": "recycling_t",
+            "type": "quantitative",
+            "format": ",.0f",
+            "title": "Collected (tonnes)"
+          },
+          {
+            "field": "recycled_t",
+            "type": "quantitative",
+            "format": ",.0f",
+            "title": "Recovered (tonnes)"
+          },
+          {
+            "field": "not_recovered_pct",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Never recovered (%)"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 2021.4,
+            "y": 505000,
+            "t": "the gap is what never becomes anything"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#8A6000",
+        "align": "center",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 3,
+        "strokeOpacity": 0.9,
+        "fillOpacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 2016,
+            "y": 36000,
+            "t": "5.3% lost in 2015-16"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12.5,
+        "fontWeight": 700,
+        "color": "#14171A",
+        "align": "left",
+        "dx": 2,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 3,
+        "strokeOpacity": 0.9,
+        "fillOpacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 2024,
+            "y": 128000,
+            "t": "18.7% lost in 2023-24"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12.5,
+        "fontWeight": 700,
+        "color": "#14171A",
+        "align": "right",
+        "dx": -2,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 3,
+        "strokeOpacity": 0.9,
+        "fillOpacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    }
+  ],
+  "background": null
+}

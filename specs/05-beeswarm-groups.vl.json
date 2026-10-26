@@ -1,13 +1,20 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "width": 860,
-  "height": 300,
+  "description": "Beeswarm plot. One dot per Victorian council, placed by the share of waste it keeps out of landfill and grouped into rows by council type. Dots are coloured by which kerbside bins the council offers. The five council types overlap almost completely, while within every type the councils without a green bin sit to the left.",
+  "width": 800,
+  "height": 330,
   "data": {
     "url": "data/council_snapshot_latest.csv",
     "format": {
       "type": "csv"
     }
   },
+  "params": [
+    {
+      "name": "focusCouncil",
+      "value": ""
+    }
+  ],
   "encoding": {
     "y": {
       "field": "group",
@@ -22,8 +29,10 @@
       "axis": {
         "title": null,
         "labelFontSize": 13,
+        "labelFontWeight": 600,
         "domain": false,
-        "ticks": false
+        "ticks": false,
+        "labelPadding": 8
       }
     }
   },
@@ -32,9 +41,9 @@
       "mark": {
         "type": "tick",
         "thickness": 3,
-        "size": 46,
-        "color": "#1A1A1A",
-        "opacity": 0.85
+        "size": 54,
+        "color": "#14171A",
+        "opacity": 0.75
       },
       "encoding": {
         "x": {
@@ -47,17 +56,25 @@
               80
             ]
           },
-          "title": "Diverted from landfill (%)"
-        }
+          "title": "Share of kerbside waste kept out of landfill (%)"
+        },
+        "tooltip": [
+          {
+            "aggregate": "median",
+            "field": "lgprf_diversion_pct",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Median for this council type"
+          }
+        ]
       }
     },
     {
       "mark": {
         "type": "circle",
-        "size": 110,
-        "opacity": 0.8,
-        "stroke": "white",
-        "strokeWidth": 0.6
+        "size": 125,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 0.8
       },
       "encoding": {
         "x": {
@@ -68,39 +85,56 @@
           "field": "jitter",
           "type": "quantitative",
           "scale": {
+            "domain": [
+              -1,
+              1
+            ],
             "range": [
-              -17,
-              17
+              -19,
+              19
             ]
           }
         },
         "color": {
-          "field": "group",
+          "field": "service_label",
           "type": "nominal",
-          "sort": [
-            "Metro",
-            "Interface",
-            "Regional City",
-            "Large Shire",
-            "Small Shire"
-          ],
           "scale": {
             "domain": [
-              "Metro",
-              "Interface",
-              "Regional City",
-              "Large Shire",
-              "Small Shire"
+              "Garbage and recycling only",
+              "Glass bin but no green bin",
+              "Green bin, no glass",
+              "All four bins"
             ],
             "range": [
-              "#13496B",
-              "#4F93C0",
-              "#8A8F86",
-              "#B5562A",
-              "#6E5887"
+              "#D55E00",
+              "#CC79A7",
+              "#56B4E9",
+              "#0072B2"
             ]
           },
-          "legend": null
+          "legend": {
+            "title": "Bins the council offers \u2014 click to isolate",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 2,
+            "offset": 12,
+            "symbolType": "circle",
+            "symbolSize": 110,
+            "titleLimit": 420
+          }
+        },
+        "opacity": {
+          "condition": [
+            {
+              "test": "focusCouncil !== '' && datum.Council === focusCouncil",
+              "value": 1
+            },
+            {
+              "param": "pickSvc",
+              "value": 0.85
+            }
+          ],
+          "value": 0.12
         },
         "tooltip": [
           {
@@ -108,15 +142,112 @@
           },
           {
             "field": "group",
-            "title": "Type"
+            "title": "Council type"
           },
           {
             "field": "lgprf_diversion_pct",
             "type": "quantitative",
             "format": ".1f",
-            "title": "Diverted (%)"
+            "title": "Kept out of landfill (%)"
+          },
+          {
+            "field": "diversion_rank",
+            "type": "quantitative",
+            "title": "Rank of 79"
+          },
+          {
+            "field": "service_label",
+            "title": "Bins"
           }
         ]
+      },
+      "params": [
+        {
+          "name": "pickSvc",
+          "select": {
+            "type": "point",
+            "fields": [
+              "service_label"
+            ]
+          },
+          "bind": "legend"
+        }
+      ]
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.Council === focusCouncil"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "size": 300,
+        "filled": false,
+        "stroke": "#111111",
+        "strokeWidth": 2.4
+      },
+      "encoding": {
+        "x": {
+          "field": "lgprf_diversion_pct",
+          "type": "quantitative"
+        },
+        "yOffset": {
+          "field": "jitter",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -1,
+              1
+            ],
+            "range": [
+              -19,
+              19
+            ]
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.Council === focusCouncil"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "dy": -20,
+        "fontSize": 12,
+        "fontWeight": 700,
+        "color": "#111111",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 3,
+        "strokeOpacity": 0.9,
+        "fillOpacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "lgprf_diversion_pct",
+          "type": "quantitative"
+        },
+        "yOffset": {
+          "field": "jitter",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -1,
+              1
+            ],
+            "range": [
+              -19,
+              19
+            ]
+          }
+        },
+        "text": {
+          "field": "Council"
+        }
       }
     }
   ],

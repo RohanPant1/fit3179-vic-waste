@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "background": null,
-  "width": 880,
+  "description": "Dorling cartogram. Every Victorian council is a circle with area proportional to the kerbside waste it collects, nudged off its true location only far enough to stop circles overlapping, so the small metropolitan councils carry the same visual weight as the vast rural shires. The filled inner circle is the share kept out of landfill and the fill colour is the cost of a garbage bin.",
+  "width": 860,
   "height": 500,
   "projection": {
     "type": "conicEqualArea",
@@ -15,6 +15,12 @@
       0
     ]
   },
+  "params": [
+    {
+      "name": "focusCouncil",
+      "value": ""
+    }
+  ],
   "layer": [
     {
       "data": {
@@ -26,8 +32,8 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#DFE2DA",
-        "stroke": "#C3C8BD",
+        "fill": "#EDEFE8",
+        "stroke": "#D2D7CC",
         "strokeWidth": 1
       }
     },
@@ -42,10 +48,8 @@
         "type": "point",
         "shape": "circle",
         "filled": false,
-        "stroke": "#8A9186",
-        "strokeWidth": 1,
         "fill": "#FFFFFF",
-        "fillOpacity": 0.55
+        "fillOpacity": 0.6
       },
       "encoding": {
         "longitude": {
@@ -70,12 +74,25 @@
               1700
             ]
           },
-          "legend": null
+          "legend": {
+            "title": "Kerbside waste collected (tonnes)",
+            "orient": "none",
+            "legendX": 6,
+            "legendY": 300,
+            "values": [
+              20000,
+              60000,
+              120000
+            ],
+            "format": ",.0f",
+            "symbolFillColor": "#FFFFFF",
+            "symbolStrokeColor": "#9AA195",
+            "titleLimit": 320
+          }
         },
         "tooltip": [
           {
-            "field": "Council",
-            "title": "Council"
+            "field": "Council"
           },
           {
             "field": "group",
@@ -97,9 +114,23 @@
             "field": "garbage_cost_per_bin",
             "type": "quantitative",
             "format": "$.0f",
-            "title": "Cost per bin"
+            "title": "Cost per garbage bin"
           }
-        ]
+        ],
+        "stroke": {
+          "condition": {
+            "test": "datum.Council === focusCouncil",
+            "value": "#111111"
+          },
+          "value": "#9AA195"
+        },
+        "strokeWidth": {
+          "condition": {
+            "test": "datum.Council === focusCouncil",
+            "value": 2.8
+          },
+          "value": 1
+        }
       }
     },
     {
@@ -138,8 +169,7 @@
               0,
               1700
             ]
-          },
-          "legend": null
+          }
         },
         "color": {
           "field": "garbage_cost_per_bin",
@@ -153,28 +183,25 @@
               200,
               250
             ],
-            "range": [
-              "#2E6B3E",
-              "#7FB539",
-              "#D9CB4E",
-              "#E3A008",
-              "#D2622B",
-              "#C8372D"
-            ]
+            "scheme": {
+              "name": "plasma",
+              "count": 6
+            }
           },
           "legend": {
-            "title": "Cost per bin",
-            "orient": "right",
-            "offset": 8,
-            "format": "$.0f",
-            "titleFontSize": 11,
-            "labelFontSize": 11
+            "title": "Cost of a garbage bin, a year",
+            "orient": "none",
+            "legendX": 6,
+            "legendY": 398,
+            "direction": "horizontal",
+            "gradientLength": 200,
+            "format": "$,.0f",
+            "titleLimit": 320
           }
         },
         "tooltip": [
           {
-            "field": "Council",
-            "title": "Council"
+            "field": "Council"
           },
           {
             "field": "group",
@@ -196,7 +223,7 @@
             "field": "garbage_cost_per_bin",
             "type": "quantitative",
             "format": "$.0f",
-            "title": "Cost per bin"
+            "title": "Cost per garbage bin"
           }
         ]
       }
@@ -215,15 +242,13 @@
       ],
       "mark": {
         "type": "text",
-        "fontSize": 9.5,
-        "font": "IBM Plex Mono",
-        "fontWeight": 500,
-        "color": "#1C2119",
-        "dy": 0,
+        "fontSize": 10,
+        "fontWeight": 600,
+        "color": "#14171A",
         "stroke": "#FFFFFF",
-        "strokeWidth": 1.6,
+        "strokeWidth": 2,
         "strokeOpacity": 0.85,
-        "lineBreak": " "
+        "fillOpacity": 1
       },
       "encoding": {
         "longitude": {
@@ -244,13 +269,13 @@
         "values": [
           {
             "x": 141.0,
-            "y": -34.25,
-            "t": "Circle size is how much a council collects. The filled part is what it keeps out of landfill."
+            "y": -34.3,
+            "t": "Ring size is how much a council collects. The filled core is what it keeps out of landfill,"
           },
           {
             "x": 141.0,
-            "y": -34.58,
-            "t": "A thin ring means most of it is buried. Colour is the cost of a garbage bin."
+            "y": -34.62,
+            "t": "so a thin ring means most of it is buried. Colour is what a garbage bin costs."
           }
         ]
       },
@@ -258,8 +283,7 @@
         "type": "text",
         "align": "left",
         "fontSize": 11.5,
-        "color": "#3E453B",
-        "font": "Source Serif 4"
+        "color": "#434A40"
       },
       "encoding": {
         "longitude": {
@@ -275,5 +299,6 @@
         }
       }
     }
-  ]
+  ],
+  "background": null
 }

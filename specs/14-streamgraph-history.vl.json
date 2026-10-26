@@ -1,0 +1,214 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Streamgraph of Victorian kerbside tonnage by waste stream from 2001-02 to 2023-24. Total volume grows steadily. The food and garden band widens from the mid-2010s until it overtakes mixed recycling, and a thin separate glass band appears from 2021.",
+  "width": 860,
+  "height": 320,
+  "data": {
+    "url": "data/statewide_by_year.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "fold": [
+        "garbage_t",
+        "recycling_t",
+        "organics_t",
+        "glass_t"
+      ],
+      "as": [
+        "stream",
+        "tonnes"
+      ]
+    },
+    {
+      "calculate": "datum.stream === 'garbage_t' ? 'Garbage' : datum.stream === 'organics_t' ? 'Organics' : datum.stream === 'recycling_t' ? 'Mixed recycling' : 'Glass'",
+      "as": "Stream"
+    }
+  ],
+  "layer": [
+    {
+      "params": [
+        {
+          "name": "pickStream",
+          "select": {
+            "type": "point",
+            "fields": [
+              "Stream"
+            ]
+          },
+          "bind": "legend"
+        }
+      ],
+      "mark": {
+        "type": "area",
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "x": {
+          "field": "year_end",
+          "type": "quantitative",
+          "axis": {
+            "format": "d",
+            "title": null,
+            "tickCount": 8,
+            "labelFontSize": 12
+          },
+          "scale": {
+            "domain": [
+              2002,
+              2024
+            ],
+            "nice": false
+          }
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "tonnes",
+          "stack": "center",
+          "axis": null
+        },
+        "color": {
+          "field": "Stream",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Garbage",
+              "Mixed recycling",
+              "Organics",
+              "Glass"
+            ],
+            "range": [
+              "#5C6166",
+              "#E69F00",
+              "#009E73",
+              "#CC79A7"
+            ]
+          },
+          "legend": {
+            "title": "Waste stream \u2014 click to isolate",
+            "orient": "top-left",
+            "offset": 4,
+            "symbolType": "square",
+            "symbolSize": 130,
+            "titleLimit": 340
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "pickStream",
+            "value": 1
+          },
+          "value": 0.2
+        },
+        "tooltip": [
+          {
+            "field": "financial_year",
+            "title": "Year"
+          },
+          {
+            "field": "Stream"
+          },
+          {
+            "field": "tonnes",
+            "type": "quantitative",
+            "format": ",.0f",
+            "title": "Tonnes"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2021
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          3,
+          3
+        ],
+        "color": "#434A40",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2021,
+            "t": "first separate glass bins"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -5,
+        "fontSize": 11.5,
+        "fontWeight": 600,
+        "color": "#14171A",
+        "baseline": "top",
+        "y": 6,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 3,
+        "strokeOpacity": 0.9,
+        "fillOpacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2015.2,
+            "t": "food and garden overtakes mixed recycling"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 4,
+        "fontSize": 11.5,
+        "fontWeight": 600,
+        "color": "#14171A",
+        "baseline": "bottom",
+        "y": 300,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 3,
+        "strokeOpacity": 0.9,
+        "fillOpacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    }
+  ],
+  "background": null
+}

@@ -1,0 +1,330 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Dumbbell chart. Every Victorian council is one row, ordered by what it spends collecting a garbage bin for a year. The hollow dot is the cost of a recycling bin and the solid dot the cost of a garbage bin; the bar joining them is coloured by how much waste the council keeps out of landfill. The dear end of the list is dark, meaning councils that spend most on garbage also bury most of it, and the recycling bin costs about half the garbage bin almost everywhere.",
+  "width": 620,
+  "height": 1030,
+  "data": {
+    "url": "data/council_snapshot_latest.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "params": [
+    {
+      "name": "focusCouncil",
+      "value": ""
+    }
+  ],
+  "transform": [
+    {
+      "calculate": "datum.garbage_cost_per_bin - datum.recycling_cost_per_bin",
+      "as": "gap"
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "Council",
+      "type": "nominal",
+      "title": null,
+      "axis": {
+        "labelFontSize": 11,
+        "labelLimit": 180,
+        "domain": false,
+        "ticks": false,
+        "labelPadding": 4,
+        "labelFontWeight": {
+          "condition": {
+            "test": "datum.label === focusCouncil",
+            "value": 700
+          },
+          "value": 400
+        },
+        "labelColor": {
+          "condition": {
+            "test": "datum.label === focusCouncil",
+            "value": "#111111"
+          },
+          "value": "#5A6157"
+        }
+      },
+      "scale": {
+        "domain": [
+          "Melbourne City",
+          "Northern Grampians Shire",
+          "Hindmarsh Shire",
+          "Yarriambiack Shire",
+          "Mount Alexander Shire",
+          "Towong Shire",
+          "Ararat Rural City",
+          "Hume City",
+          "Glenelg Shire",
+          "Moorabool Shire",
+          "Brimbank City",
+          "Ballarat City",
+          "Wellington Shire",
+          "South Gippsland Shire",
+          "Central Goldfields Shire",
+          "Port Phillip City",
+          "Maribyrnong City",
+          "Greater Dandenong City",
+          "Golden Plains Shire",
+          "Moira Shire",
+          "Moyne Shire",
+          "Wyndham City",
+          "Loddon Shire",
+          "Baw Baw Shire",
+          "Melton City",
+          "West Wimmera Shire",
+          "Latrobe City",
+          "Greater Geelong City",
+          "Gannawarra Shire",
+          "Stonnington City",
+          "Casey City",
+          "Corangamite Shire",
+          "Kingston City",
+          "Campaspe Shire",
+          "Murrindindi Shire",
+          "Maroondah City",
+          "Frankston City",
+          "Cardinia Shire",
+          "Moonee Valley City",
+          "Strathbogie Shire",
+          "Hobsons Bay City",
+          "Greater Bendigo City",
+          "Southern Grampians Shire",
+          "Indigo Shire",
+          "Darebin City",
+          "Merri-bek City",
+          "Pyrenees Shire",
+          "Whitehorse City",
+          "Hepburn Shire",
+          "Wangaratta Rural City",
+          "Banyule City",
+          "Mansfield Shire",
+          "Boroondara City",
+          "Whittlesea City",
+          "Alpine Shire",
+          "Swan Hill Rural City",
+          "Yarra Ranges Shire",
+          "Macedon Ranges Shire",
+          "Glen Eira City",
+          "Horsham Rural City",
+          "Colac Otway Shire",
+          "Borough of Queenscliffe",
+          "Bayside City",
+          "Greater Shepparton",
+          "Yarra City",
+          "Surf Coast Shire",
+          "Nillumbik Shire",
+          "Knox City",
+          "Manningham City",
+          "Buloke Shire",
+          "Mornington Peninsula Shire",
+          "Warrnambool City",
+          "Monash City",
+          "Bass Coast Shire",
+          "Wodonga City",
+          "Benalla Rural City",
+          "East Gippsland Shire",
+          "Mitchell Shire",
+          "Mildura Rural City"
+        ]
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 4,
+        "strokeCap": "round"
+      },
+      "encoding": {
+        "x": {
+          "field": "recycling_cost_per_bin",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              490
+            ],
+            "nice": false
+          },
+          "title": "Cost per bin, a year ($)",
+          "axis": {
+            "format": "$,.0f",
+            "orient": "top",
+            "tickCount": 6,
+            "grid": true,
+            "gridColor": "#E8EAE3",
+            "gridWidth": 1
+          }
+        },
+        "x2": {
+          "field": "garbage_cost_per_bin"
+        },
+        "color": {
+          "field": "lgprf_diversion_pct",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "viridis",
+            "domain": [
+              15,
+              75
+            ]
+          },
+          "legend": {
+            "title": "Kept out of landfill (%)",
+            "orient": "top",
+            "direction": "horizontal",
+            "gradientLength": 200,
+            "titleLimit": 300,
+            "offset": 4
+          }
+        },
+        "opacity": {
+          "condition": {
+            "test": "focusCouncil === '' || datum.Council === focusCouncil",
+            "value": 1
+          },
+          "value": 0.22
+        },
+        "tooltip": [
+          {
+            "field": "Council"
+          },
+          {
+            "field": "group",
+            "title": "Council type"
+          },
+          {
+            "field": "recycling_cost_per_bin",
+            "type": "quantitative",
+            "format": "$.0f",
+            "title": "Recycling bin"
+          },
+          {
+            "field": "garbage_cost_per_bin",
+            "type": "quantitative",
+            "format": "$.0f",
+            "title": "Garbage bin"
+          },
+          {
+            "field": "lgprf_diversion_pct",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Kept out of landfill (%)"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "fold": [
+            "recycling_cost_per_bin",
+            "garbage_cost_per_bin"
+          ],
+          "as": [
+            "costtype",
+            "cost"
+          ]
+        },
+        {
+          "calculate": "datum.costtype === 'garbage_cost_per_bin' ? 'Garbage bin' : 'Recycling bin'",
+          "as": "binlabel"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "size": 58,
+        "filled": true,
+        "stroke": "#2C3329",
+        "strokeWidth": 1.3
+      },
+      "encoding": {
+        "x": {
+          "field": "cost",
+          "type": "quantitative"
+        },
+        "fill": {
+          "field": "binlabel",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Recycling bin",
+              "Garbage bin"
+            ],
+            "range": [
+              "#FFFFFF",
+              "#2C3329"
+            ]
+          },
+          "legend": {
+            "title": "Cost of one bin, a year",
+            "orient": "top",
+            "direction": "horizontal",
+            "symbolType": "circle",
+            "symbolSize": 120,
+            "symbolStrokeColor": "#2C3329",
+            "symbolStrokeWidth": 1.4,
+            "titleLimit": 300,
+            "offset": 4
+          }
+        },
+        "opacity": {
+          "condition": {
+            "test": "focusCouncil === '' || datum.Council === focusCouncil",
+            "value": 1
+          },
+          "value": 0.22
+        },
+        "tooltip": [
+          {
+            "field": "Council"
+          },
+          {
+            "field": "binlabel",
+            "title": "Bin"
+          },
+          {
+            "field": "cost",
+            "type": "quantitative",
+            "format": "$.0f",
+            "title": "Cost a year"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.Council === 'Melbourne City'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "fontSize": 11.5,
+        "fontWeight": 700,
+        "color": "#14171A",
+        "dx": -12,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 3,
+        "strokeOpacity": 0.9,
+        "fillOpacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "garbage_cost_per_bin",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "servicing the CBD"
+        }
+      }
+    }
+  ],
+  "background": null
+}

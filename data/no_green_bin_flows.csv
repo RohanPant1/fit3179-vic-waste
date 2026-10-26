@@ -1,0 +1,14 @@
+Council,lga_code,group,lon,lat,org_lon,org_lat,org_name,org_suburb,km_to_organics,lgprf_diversion_pct,streams,has_glass,service_label
+Yarra City,27350,Metro,144.9921,-37.7978,145.0049,-37.6898,Cleanaway Thomastown Grease Trap Services,Thomastown,12.0602,42.2345,3,True,Glass bin but no green bin
+Murrindindi Shire,25620,Small Shire,145.6307,-37.3112,145.7697,-37.2355,Goulburn River Trout,Alexandra,14.9021,31.5906,2,False,Garbage and recycling only
+Mansfield Shire,24250,Small Shire,146.2102,-37.1993,146.452,-37.1348,Boggy Corner Waste Transfer Station (Organics),Mount Buller,22.5968,40.0889,2,False,Garbage and recycling only
+Golden Plains Shire,22490,Large Shire,143.7478,-37.8613,144.058,-37.9743,Good Dirt Lethbridge,Lethbridge,29.9716,29.6269,2,False,Garbage and recycling only
+Mount Alexander Shire,25430,Large Shire,144.1932,-37.0508,144.4505,-37.2305,Central Recycling (Organics),Kyneton,30.3217,31.8938,2,False,Garbage and recycling only
+Mitchell Shire,24850,Large Shire,144.9983,-37.1356,144.8483,-37.4302,SJ Sheahan,Darraweit Guim,35.3471,35.4209,2,False,Garbage and recycling only
+Loddon Shire,23940,Small Shire,143.8671,-36.3639,143.9585,-36.7077,Bio Gro (Newbridge),Newbridge,39.0914,25.2315,2,False,Garbage and recycling only
+Wellington Shire,26810,Large Shire,146.8917,-37.7897,146.5673,-38.182,Pine Mulch Haulage,Traralgon,52.0681,26.3465,2,False,Garbage and recycling only
+Buloke Shire,21270,Small Shire,143.0048,-35.9124,143.2793,-35.4549,Ultima Transfer Station (Organics),Ultima,56.5886,41.1436,2,False,Garbage and recycling only
+Yarriambiack Shire,27630,Small Shire,142.3951,-36.2064,142.1858,-36.7417,Horsham Green Waste Processing,Horsham,62.392,16.8522,3,True,Glass bin but no green bin
+West Wimmera Shire,26890,Small Shire,141.2841,-36.782,142.1858,-36.7417,Horsham Green Waste Processing,Horsham,80.4506,15.7147,2,False,Garbage and recycling only
+Hindmarsh Shire,22980,Small Shire,141.734,-36.0611,142.1858,-36.7417,Horsham Green Waste Processing,Horsham,85.8017,22.9246,3,True,Glass bin but no green bin
+Glenelg Shire,22410,Large Shire,141.3857,-37.8705,142.4921,-38.1713,Pomala Pty Ltd,Woolsthorpe,102.5253,27.2782,2,False,Garbage and recycling only

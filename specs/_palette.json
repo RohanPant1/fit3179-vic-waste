@@ -1,16 +1,27 @@
 {
+  "note": "Okabe-Ito, the standard colour-vision-deficient-safe qualitative set. Replaces the bin-lid palette, whose red garbage and green organics were indistinguishable under deuteranopia and protanopia. The bin-lid colours survive on the page as words ('the red-lid bin'), never as an encoding.",
+  "source": "Okabe M and Ito K, Color Universal Design (2008)",
+  "streams": {
+    "Garbage": "#5C6166",
+    "Mixed recycling": "#E69F00",
+    "Organics": "#009E73",
+    "Glass": "#CC79A7"
+  },
   "groups": {
-    "Metro": "#13496B",
-    "Interface": "#4F93C0",
-    "Regional City": "#8A8F86",
-    "Large Shire": "#B5562A",
-    "Small Shire": "#6E5887"
+    "Metro": "#0072B2",
+    "Interface": "#56B4E9",
+    "Regional City": "#009E73",
+    "Large Shire": "#D55E00",
+    "Small Shire": "#CC79A7"
   },
-  "bins": {
-    "Garbage": "#C8372D",
-    "Mixed recycling": "#E3A008",
-    "Organics": "#7FB539",
-    "Glass": "#7A52C7"
+  "service": {
+    "Garbage and recycling only": "#D55E00",
+    "Glass bin but no green bin": "#CC79A7",
+    "Green bin, no glass": "#56B4E9",
+    "All four bins": "#0072B2"
   },
-  "note": "Bin-lid colours encode waste streams only. Council groups use the blue/amber set so the two never collide."
+  "sequential": "viridis",
+  "diverging": "purpleorange",
+  "focus": "#111111",
+  "muted": "#B9BDB4"
 }

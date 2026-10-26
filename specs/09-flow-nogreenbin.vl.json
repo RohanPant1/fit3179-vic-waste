@@ -1,0 +1,332 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Flow map. A line runs from each of the 13 Victorian councils with no kerbside green bin to the nearest organics processing plant. Lines are longest in the west, where Glenelg Shire is 103 kilometres from a plant. Yarra City in inner Melbourne has the shortest line at 12 kilometres, closer than the typical council that does run a green bin.",
+  "width": 820,
+  "height": 470,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -36,
+      -38
+    ],
+    "rotate": [
+      -145,
+      0,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/vic_lga.topo.json",
+        "format": {
+          "type": "topojson",
+          "feature": "vic_lga"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#EDEFE8",
+        "stroke": "#D7DBD1",
+        "strokeWidth": 0.6
+      }
+    },
+    {
+      "data": {
+        "url": "data/vic_lga.topo.json",
+        "format": {
+          "type": "topojson",
+          "feature": "vic_lga"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.lga_code",
+          "from": {
+            "data": {
+              "url": "data/no_green_bin_flows.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "lga_code": "string"
+                }
+              }
+            },
+            "key": "lga_code",
+            "fields": [
+              "Council",
+              "km_to_organics",
+              "service_label"
+            ]
+          }
+        },
+        {
+          "filter": "isValid(datum.Council)"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 0.8
+      },
+      "encoding": {
+        "color": {
+          "field": "service_label",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Garbage and recycling only",
+              "Glass bin but no green bin"
+            ],
+            "range": [
+              "#D55E00",
+              "#CC79A7"
+            ]
+          },
+          "legend": {
+            "title": "Councils with no green bin",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "symbolType": "square",
+            "symbolSize": 140,
+            "offset": 6,
+            "titleLimit": 320
+          }
+        },
+        "opacity": {
+          "value": 0.55
+        },
+        "tooltip": [
+          {
+            "field": "Council"
+          },
+          {
+            "field": "service_label",
+            "title": "Bins"
+          },
+          {
+            "field": "km_to_organics",
+            "type": "quantitative",
+            "format": ".0f",
+            "title": "km to nearest organics plant"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/no_green_bin_flows.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 1.6,
+        "strokeCap": "round",
+        "opacity": 0.8
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "org_lon"
+        },
+        "latitude2": {
+          "field": "org_lat"
+        },
+        "color": {
+          "datum": "Trip to the nearest organics plant",
+          "scale": {
+            "domain": [
+              "Trip to the nearest organics plant"
+            ],
+            "range": [
+              "#14171A"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "bottom",
+            "direction": "horizontal",
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 2,
+            "offset": 6,
+            "labelLimit": 320
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Council"
+          },
+          {
+            "field": "org_suburb",
+            "title": "Nearest plant at"
+          },
+          {
+            "field": "km_to_organics",
+            "type": "quantitative",
+            "format": ".0f",
+            "title": "Distance (km)"
+          },
+          {
+            "field": "lgprf_diversion_pct",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "Kept out of landfill (%)"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/no_green_bin_flows.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "mark": {
+        "type": "point",
+        "shape": "diamond",
+        "size": 46,
+        "filled": true,
+        "color": "#14171A",
+        "opacity": 0.85
+      },
+      "encoding": {
+        "longitude": {
+          "field": "org_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "org_lat",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "org_name",
+            "title": "Plant"
+          },
+          {
+            "field": "org_suburb",
+            "title": "Suburb"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/no_green_bin_flows.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.km_to_organics > 75 || datum.Council === 'Yarra City'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11.5,
+        "fontWeight": 700,
+        "color": "#14171A",
+        "align": "right",
+        "dx": -8,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 3,
+        "strokeOpacity": 0.9,
+        "fillOpacity": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "Council"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 145.45,
+            "lat": -38.02,
+            "t": "Yarra \u2014 12 km, the shortest trip here"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 700,
+        "color": "#14171A",
+        "align": "left",
+        "dx": 8,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 3,
+        "strokeOpacity": 0.9,
+        "fillOpacity": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 144.99,
+            "lat": -37.8
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "size": 150,
+        "filled": false,
+        "stroke": "#111111",
+        "strokeWidth": 2.2
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    }
+  ],
+  "background": null,
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  }
+}

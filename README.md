@@ -14,13 +14,15 @@ Author: Rohan Pant. Built with [Vega-Lite](https://vega.github.io/vega-lite/).
 |---|---|
 | `index.html` | the visualisation — a single scrollable page |
 | `specs/` | one Vega-Lite JSON specification per chart, plus the shared `config.json` |
-| `data/` | the datasets the page loads (~540 KB total) |
+| `data/` | the datasets the page loads (~670 KB total) |
 | `css/`, `js/`, `fonts/` | styling, embed script, self-hosted webfonts |
 | `sketch/` | the hand-drawn design sketch |
+| `prep.py` | joins the five source datasets into the files in `data/` |
+| `verify.sh` | renders every spec with `vl2svg` to catch errors a browser hides |
 
 ## Data sources
 
-All four sources are Australian government open data under
+All five sources are Australian government open data under
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 - Recycling Victoria, *Victorian Local Government Annual Waste Services Survey*,
@@ -35,6 +37,9 @@ All four sources are Australian government open data under
 - Australian Bureau of Statistics, *Local Government Areas 2025*, ASGS Edition 3,
   GDA2020 — council boundaries, simplified to 81 KB with mapshaper.
   [abs.gov.au](https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files)
+- Australian Bureau of Statistics, *Socio-Economic Indexes for Areas (SEIFA) 2021*,
+  by Local Government Area.
+  [abs.gov.au](https://www.abs.gov.au/statistics/people/people-and-communities/socio-economic-indexes-areas-seifa-australia/latest-release)
 
 ## Use of generative AI
 
@@ -56,6 +61,21 @@ python -m http.server 8777
 ```
 
 then open <http://localhost:8777>.
+
+## Checking the charts
+
+```bash
+./verify.sh                      # every spec
+./verify.sh 10-dumbbell-cost     # just one
+```
+
+`verify.sh` renders each specification with `vl2svg`, which fails loudly. A browser
+usually renders nothing and says very little, so check here first.
+
+Specs, data and the stylesheet are all requested with a version stamp — `BUILD` in
+`js/embed.js` and the `?v=` on the stylesheet link. Bump both when you change a spec, a
+data file or the CSS, or browsers will keep serving the old one; a normal reload does
+not clear those fetches.
 
 **Opening `index.html` directly from the file system will not work** — the browser blocks
 the page from fetching the spec and data files over `file://`, so every chart comes up

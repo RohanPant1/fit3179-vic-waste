@@ -1,16 +1,31 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "width": 330,
-  "height": 320,
+  "description": "Waffle chart. One hundred squares, each one per cent of the 2.35 million tonnes Victorian councils collected at the kerb in 2023-24. Garbage fills 47 squares, food and garden waste 31, mixed recycling 21 and glass 1.",
+  "width": 300,
+  "height": 300,
   "data": {
     "url": "data/waffle_streams.csv",
     "format": {
       "type": "csv"
     }
   },
+  "params": [
+    {
+      "name": "pick",
+      "select": {
+        "type": "point",
+        "fields": [
+          "stream"
+        ]
+      },
+      "bind": "legend"
+    }
+  ],
   "mark": {
     "type": "square",
-    "size": 680
+    "size": 620,
+    "stroke": "#FFFFFF",
+    "strokeWidth": 2
   },
   "encoding": {
     "x": {
@@ -21,10 +36,7 @@
     "y": {
       "field": "row",
       "type": "ordinal",
-      "axis": null,
-      "scale": {
-        "reverse": false
-      }
+      "axis": null
     },
     "color": {
       "field": "stream",
@@ -37,13 +49,29 @@
           "Glass"
         ],
         "range": [
-          "#C8372D",
-          "#E3A008",
-          "#7FB539",
-          "#7A52C7"
+          "#5C6166",
+          "#E69F00",
+          "#009E73",
+          "#CC79A7"
         ]
       },
-      "legend": null
+      "legend": {
+        "title": "One square = 1% of what Victoria collects",
+        "orient": "bottom",
+        "direction": "horizontal",
+        "columns": 2,
+        "symbolType": "square",
+        "symbolSize": 150,
+        "offset": 10,
+        "titleLimit": 400
+      }
+    },
+    "opacity": {
+      "condition": {
+        "param": "pick",
+        "value": 1
+      },
+      "value": 0.18
     },
     "tooltip": [
       {
