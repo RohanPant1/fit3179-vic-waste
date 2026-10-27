@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "description": "Heatmap of Victoria's 79 councils. Rows are the bins a council offers, columns are five-point bands of the share of kerbside waste kept out of landfill in 2024-25, and each cell counts the councils in it, darker meaning more. The median rises from 30.6 per cent with two bins to 53.8 per cent with a green bin, then sits at 52.4 per cent with a glass bin added as well.",
+  "description": "Heatmap counting Victoria's 79 councils. Rows are the bins a council offers; columns are five-point bands of the share of kerbside waste kept out of landfill in 2024-25. The number in each square is how many councils fall in that band, and darker squares hold more councils. The median rises from 30.6 per cent with two bins to 53.8 per cent with a green bin, then sits at 52.4 per cent with a glass bin added as well.",
   "width": 640,
   "height": 290,
   "padding": {
@@ -183,7 +183,23 @@
                   1
                 ]
               },
-              "legend": null
+              "legend": {
+                "title": "Number of councils in a square (79 councils in total)",
+                "orient": "top",
+                "direction": "horizontal",
+                "values": [
+                  1,
+                  4,
+                  8
+                ],
+                "symbolType": "square",
+                "symbolSize": 260,
+                "symbolFillColor": "#56B4E9",
+                "symbolStrokeWidth": 0,
+                "titleLimit": 420,
+                "offset": 20,
+                "labelFontSize": 12
+              }
             },
             "tooltip": [
               {
