@@ -412,11 +412,104 @@ strong { font-weight: 700; }
   @keyframes wipe { from { transform: scaleX(0); } }
 }
 
+/* ---------- the layout grid ----------------------------------------------- */
+/* One grid for the whole page. Every two-column block uses the same two
+   tracks, a wide one for charts and headings and a narrow one for notes, so
+   the page has exactly four vertical sight-lines at 1280px: the left page
+   edge, the right edge of the wide track, the left edge of the narrow track
+   and the right page edge. Nothing else starts or ends anywhere else. */
+:root {
+  --track-a: minmax(0, 1.9fr);
+  --track-b: minmax(15rem, 1fr);
+  --track-gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+.hero .inner,
+.sectionhead,
+.spread, .spread--reverse,
+.turn-grid,
+.close-grid,
+.colophon .inner {
+  grid-template-columns: var(--track-a) var(--track-b);
+  column-gap: var(--track-gap);
+}
+/* a reversed spread would add two more sight-lines, so it reads like a normal one */
+.spread--reverse > .card { order: 0; }
+.spread--reverse > .note { order: 1; }
+.turn-grid .verdict { grid-column: 1; }
+
+/* ---------- ten words a line ---------------------------------------------- */
+/* Measures set in ch and then checked line by line in the rendered page: no
+   line of running text holds more than ten words at 1280px. */
+.lede                   { max-width: 31ch; }
+.hero .lede             { max-width: 36ch; }
+.prose                  { max-width: 36ch; }
+.card__head .h-chart    { max-width: 40ch; }
+.card__head .takeaway   { max-width: 32ch; }
+.note p                 { max-width: 31ch; }
+.keynote                { max-width: 32ch; }
+.finder .hint           { max-width: 34ch; }
+.finder-cap             { max-width: 36ch; }
+.colophon p, .colophon li { max-width: 38ch; }
+.turn .h-section        { max-width: 20ch; }
+.close-grid .lede       { max-width: 31ch; }
+
+/* The hairline above a source line runs the full width of its card, so it
+   sits on the card's edges; only the text inside is held to the measure. */
+.card__foot { max-width: none; padding-right: max(0px, calc(100% - 56ch)); }
+
+/* A section closes on one row of the page grid: what it found, in the wide
+   track, and the question it hands to the next section, in the narrow track
+   directly under that section's intro. The hairline runs the whole row. */
+.wrap {
+  display: grid;
+  grid-template-columns: var(--track-a) var(--track-b);
+  column-gap: var(--track-gap);
+  align-items: start;
+  max-width: none;
+  padding: 1.1rem 0 0;
+}
+.wrap-sum  { grid-column: 1; font-size: 20px; line-height: 1.5; color: var(--ink); max-width: 28ch; }
+.wrap-next { grid-column: 2; font-size: 17px; line-height: 1.55; color: var(--ink-soft); max-width: 30ch; padding-top: 0.15rem; }
+@media (max-width: 900px) {
+  .wrap { grid-template-columns: minmax(0, 1fr); row-gap: 0.8rem; }
+  .wrap-next { grid-column: 1; }
+}
+
+/* Section heads align at the top, so the heading and the intro beside it
+   share one horizontal sight-line however long the intro runs. */
+.sectionhead { align-items: start; }
+.sectionhead .prose { padding-bottom: 0; }
+
+/* The bin key and the why/who/what/how row share one four-column grid built
+   from the page tracks: the wide track split in three, then the narrow track.
+   The last divider therefore sits on the wide track's right edge and the
+   fourth column's text starts on the narrow track's sight-line. */
+.binkey, .framing {
+  grid-template-columns: repeat(3, minmax(0, 0.6333fr)) var(--track-gap) var(--track-b);
+  column-gap: 0; gap: 0;
+}
+/* the fourth item spans the gap track, so its divider sits on the gap's left
+   edge (the wide track's right edge) and its padding is exactly the gap */
+.binkey > div:nth-child(4), .framing > div:nth-child(4) { grid-column: 4 / 6; }
+.binkey > div, .framing > div { padding: 0.9rem 1.2rem 0.2rem 0; }
+.framing > div { padding-top: 0; }
+.binkey > div + div, .framing > div + div { padding-left: 1.2rem; border-left: 1px solid var(--rule); }
+.binkey > div:nth-child(4), .framing > div:nth-child(4) { padding-left: var(--track-gap); }
+
+/* waffle sits on the card's left edge like every other chart */
+.chart--centre { justify-content: flex-start; }
+
 /* ---------- responsive ---------------------------------------------------- */
 @media (max-width: 900px) {
-  .spread, .spread--reverse { grid-template-columns: minmax(0, 1fr); }
+  .spread, .spread--reverse, .hero .inner, .turn-grid, .close-grid, .colophon .inner { grid-template-columns: minmax(0, 1fr); }
   .spread--reverse > .card { order: 0; }
   .spread--reverse > .note { order: 1; }
   body { font-size: 16px; }
   #stickybar .sb-stat { display: none; }
+}
+@media (max-width: 900px) {
+  .binkey, .framing { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1rem; }
+  .binkey > div:nth-child(4), .framing > div:nth-child(4) { grid-column: auto; }
+  .binkey > div:nth-child(3), .framing > div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .binkey > div:nth-child(4), .framing > div:nth-child(4) { padding-left: 1.2rem; }
 }
