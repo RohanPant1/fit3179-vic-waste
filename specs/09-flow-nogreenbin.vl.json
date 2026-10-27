@@ -590,6 +590,38 @@
           "field": "t"
         }
       }
+    },
+    {
+      "description": "Key entry for the arrows, under the two legends.",
+      "data": {
+        "values": [
+          {
+            "lon": 148.2,
+            "lat": -35.55,
+            "t": "→  trip to the nearest organics site"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#D55E00"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
     }
   ],
   "resolve": {

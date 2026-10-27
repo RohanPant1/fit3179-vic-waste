@@ -19,14 +19,13 @@
    returning visitor ran the previous embed.js against the current HTML, so it
    looked for chart ids that no longer existed and silently rendered nothing. */
 
-const BUILD = "2026-10-27f";
+const BUILD = "2026-10-27g";
 
 const CHARTS = [
   { el: "#vis-finder",     spec: "specs/00-finder-strip.vl.json" },
   { el: "#vis-waffle",     spec: "specs/01-waffle-streams.vl.json" },
   { el: "#vis-kghousehold",spec: "specs/03-choropleth-kg-household.vl.json" },
   { el: "#vis-diversion",  spec: "specs/04-choropleth-diversion.vl.json" },
-  { el: "#vis-beeswarm",   spec: "specs/05-beeswarm-groups.vl.json" },
   { el: "#vis-dotplot",    spec: "specs/07-dotplot-bincount.vl.json" },
   { el: "#vis-flow",       spec: "specs/09-flow-nogreenbin.vl.json" },
   { el: "#vis-cost",       spec: "specs/10-boxplot-cost.vl.json" },

@@ -252,6 +252,10 @@
           "groupby": [
             "service_label"
           ]
+        },
+        {
+          "calculate": "'median ' + format(datum.med, '.1f') + '%'",
+          "as": "medlab"
         }
       ],
       "layer": [
@@ -301,9 +305,7 @@
               "value": -1
             },
             "text": {
-              "field": "med",
-              "type": "quantitative",
-              "format": ".1f"
+              "field": "medlab"
             }
           }
         }

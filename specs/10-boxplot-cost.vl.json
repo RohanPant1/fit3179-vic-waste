@@ -209,6 +209,10 @@
           "groupby": [
             "q"
           ]
+        },
+        {
+          "calculate": "'median ' + format(datum.med, '.0f') + '%'",
+          "as": "medlab"
         }
       ],
       "mark": {
@@ -216,7 +220,7 @@
         "align": "left",
         "baseline": "middle",
         "dx": 40,
-        "fontSize": 12.5,
+        "fontSize": 12,
         "fontWeight": 800,
         "color": "#14171A",
         "stroke": "#FFFFFF",
@@ -228,9 +232,7 @@
           "type": "quantitative"
         },
         "text": {
-          "field": "med",
-          "type": "quantitative",
-          "format": ".0f"
+          "field": "medlab"
         }
       }
     },
