@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "description": "Origin-destination flow map. A curved arrow from the centre of each of the 13 Victorian councils with no green bin to its nearest organics processing site, coloured by the bins the council offers and labelled with the straight-line distance. Glenelg is 103 kilometres from a site, Hindmarsh 86 and West Wimmera 80; Yarra is 12, Murrindindi 15 and Mansfield 23.",
+  "description": "Flow map combined with proportional symbols. Green circles show organics processing sites in each council area, sized by how many there are (76 sites in 37 council areas, most around Melbourne and the regional cities). The 13 councils with no green bin are shaded, with a curved arrow from each to its nearest site, labelled with the straight-line distance. The western shires are 60 to 103 km from a site; Yarra, Murrindindi and Mansfield are within about 25 km.",
   "width": 860,
   "height": 470,
   "projection": {
@@ -131,6 +131,77 @@
           {
             "field": "org_suburb",
             "title": "Nearest site"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Organics processing sites, one circle per council area, sized by how many sites it holds.",
+      "data": {
+        "url": "data/facilities_by_lga.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "transform": [
+        {
+          "filter": "+datum.organics_plants > 0"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "color": "#009E73",
+        "opacity": 0.75,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "organics_plants",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              0,
+              8
+            ],
+            "range": [
+              0,
+              420
+            ]
+          },
+          "legend": {
+            "title": "Organics sites in the area",
+            "orient": "none",
+            "legendX": 640,
+            "legendY": 70,
+            "direction": "horizontal",
+            "values": [
+              1,
+              4,
+              8
+            ],
+            "symbolFillColor": "#009E73",
+            "symbolStrokeColor": "#FFFFFF",
+            "titleLimit": 240
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Council"
+          },
+          {
+            "field": "organics_plants",
+            "type": "quantitative",
+            "title": "Organics sites"
           }
         ]
       }
@@ -505,41 +576,6 @@
         "color": "#14171A",
         "stroke": "#FFFFFF",
         "strokeWidth": 3
-      },
-      "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "t"
-        }
-      }
-    },
-    {
-      "description": "How to read the arrows, in the empty north-east corner.",
-      "data": {
-        "values": [
-          {
-            "lon": 147.3,
-            "lat": -35.3,
-            "t": [
-              "Arrow: straight-line trip from the council's",
-              "centre to its nearest organics site"
-            ]
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "fontSize": 11.5,
-        "color": "#5B6258",
-        "lineHeight": 15
       },
       "encoding": {
         "longitude": {

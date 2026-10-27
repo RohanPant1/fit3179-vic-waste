@@ -9,8 +9,8 @@
   ],
   "hconcat": [
     {
-      "width": 455,
-      "height": 330,
+      "width": 380,
+      "height": 290,
       "projection": {
         "type": "conicEqualArea",
         "parallels": [
@@ -271,8 +271,8 @@
       ]
     },
     {
-      "width": 96,
-      "height": 96,
+      "width": 126,
+      "height": 126,
       "title": {
         "text": [
           "How to read",
@@ -282,8 +282,7 @@
         "fontWeight": 700,
         "anchor": "start",
         "color": "#14171A",
-        "dy": -4,
-        "limit": 150
+        "dy": -4
       },
       "data": {
         "values": [
@@ -350,10 +349,16 @@
           ],
           "axis": {
             "title": "Better off →",
-            "labels": false,
+            "labels": true,
             "ticks": false,
             "domain": false,
-            "titleFontSize": 11
+            "titleFontSize": 11.5,
+            "labelExpr": "{'low': '887–985', 'mid': '986–1021', 'high': '1027–1093'}[datum.value]",
+            "labelAngle": -45,
+            "labelAlign": "right",
+            "labelFontSize": 10.5,
+            "labelColor": "#434A40",
+            "titlePadding": 6
           }
         },
         "y": {
@@ -369,10 +374,14 @@
           },
           "axis": {
             "title": "Diverts more →",
-            "labels": false,
+            "labels": true,
             "ticks": false,
             "domain": false,
-            "titleFontSize": 11
+            "titleFontSize": 11.5,
+            "labelExpr": "{'low': '16–42%', 'mid': '42–56%', 'high': '57–74%'}[datum.value]",
+            "labelFontSize": 10.5,
+            "labelColor": "#434A40",
+            "titlePadding": 6
           }
         },
         "color": {

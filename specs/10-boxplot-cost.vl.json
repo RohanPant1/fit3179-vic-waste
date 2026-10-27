@@ -1,0 +1,296 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Box plot with jittered dots. Victoria's 79 councils are split into four groups of about 20 by what they spend to service a garbage bin in 2024-25. The median share kept out of landfill falls from 66 per cent in the cheapest group to 57, 47 and 39 per cent in the dearest. Six of the 13 councils without a green bin are in the dearest group.",
+  "width": 470,
+  "height": 320,
+  "data": {
+    "url": "data/council_snapshot_latest.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "params": [
+    {
+      "name": "focusCouncil",
+      "value": ""
+    }
+  ],
+  "transform": [
+    {
+      "calculate": "toNumber(datum.garbage_cost_per_bin)",
+      "as": "cost"
+    },
+    {
+      "calculate": "toNumber(datum.lgprf_diversion_pct)",
+      "as": "div"
+    },
+    {
+      "calculate": "datum.cost <= 105.31 ? 'Cheapest' : datum.cost <= 138.24 ? 'Second' : datum.cost <= 163.95 ? 'Third' : 'Dearest'",
+      "as": "q"
+    },
+    {
+      "calculate": "{'Cheapest': ['Cheapest', '$53–$105'], 'Second': ['Second', '$106–$138'], 'Third': ['Third', '$139–$164'], 'Dearest': ['Dearest', '$167–$476']}[datum.q]",
+      "as": "qlab"
+    },
+    {
+      "calculate": "toNumber(datum.jitter)",
+      "as": "jit"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "q",
+      "type": "nominal",
+      "sort": [
+        "Cheapest",
+        "Second",
+        "Third",
+        "Dearest"
+      ],
+      "scale": {
+        "paddingInner": 0.25,
+        "paddingOuter": 0.15
+      },
+      "axis": {
+        "title": "Councils grouped by what a garbage bin costs them a year",
+        "labelExpr": "{'Cheapest': ['Cheapest', '$53–$105'], 'Second': ['Second', '$106–$138'], 'Third': ['Third', '$139–$164'], 'Dearest': ['Dearest', '$167–$476']}[datum.value]",
+        "labelAngle": 0,
+        "labelFontSize": 12,
+        "labelColor": "#14171A",
+        "labelFontWeight": 600,
+        "domain": false,
+        "ticks": false,
+        "labelPadding": 8,
+        "titlePadding": 12
+      }
+    },
+    "y": {
+      "field": "div",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          0,
+          80
+        ],
+        "nice": false
+      },
+      "axis": {
+        "title": "Share kept out of landfill",
+        "values": [
+          0,
+          20,
+          40,
+          60,
+          80
+        ],
+        "labelExpr": "datum.value + '%'",
+        "grid": true,
+        "gridColor": "#EEF0EA",
+        "domain": false,
+        "ticks": false
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "boxplot",
+        "extent": "min-max",
+        "size": 70,
+        "color": "#E4E7DD",
+        "opacity": 1,
+        "median": {
+          "color": "#14171A",
+          "strokeWidth": 2.5
+        },
+        "rule": {
+          "color": "#9AA195"
+        },
+        "box": {
+          "stroke": "#9AA195",
+          "strokeWidth": 1
+        },
+        "ticks": false
+      },
+      "encoding": {
+        "color": {
+          "value": "#E4E7DD"
+        },
+        "tooltip": null
+      }
+    },
+    {
+      "description": "Every council, spread sideways inside its group so no dot hides another.",
+      "mark": {
+        "type": "circle",
+        "size": 60,
+        "opacity": 1,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 0.8
+      },
+      "encoding": {
+        "xOffset": {
+          "field": "jit",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -1.4,
+              1.4
+            ]
+          }
+        },
+        "color": {
+          "field": "service_label",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Garbage and recycling only",
+              "Glass bin but no green bin",
+              "Green bin, no glass",
+              "All four bins"
+            ],
+            "range": [
+              "#D55E00",
+              "#CC79A7",
+              "#56B4E9",
+              "#0072B2"
+            ]
+          },
+          "legend": {
+            "title": "Bins the council offers",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 2,
+            "symbolType": "circle",
+            "offset": 14
+          }
+        },
+        "opacity": {
+          "condition": {
+            "test": "focusCouncil === '' || datum.Council === focusCouncil",
+            "value": 1
+          },
+          "value": 0.35
+        },
+        "tooltip": [
+          {
+            "field": "Council"
+          },
+          {
+            "field": "cost",
+            "type": "quantitative",
+            "format": "$,.0f",
+            "title": "Garbage bin, a year"
+          },
+          {
+            "field": "div",
+            "type": "quantitative",
+            "format": ".1f",
+            "title": "% kept out of landfill"
+          },
+          {
+            "field": "service_label",
+            "title": "Bins"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Median value written beside each box.",
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "median",
+              "field": "div",
+              "as": "med"
+            }
+          ],
+          "groupby": [
+            "q"
+          ]
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 40,
+        "fontSize": 12.5,
+        "fontWeight": 800,
+        "color": "#14171A",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "y": {
+          "field": "med",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "med",
+          "type": "quantitative",
+          "format": ".0f"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.Council === focusCouncil"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "circle",
+            "size": 170,
+            "filled": false,
+            "stroke": "#111111",
+            "strokeWidth": 2.4
+          },
+          "encoding": {
+            "xOffset": {
+              "field": "jit",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  -1.4,
+                  1.4
+                ]
+              }
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "baseline": "bottom",
+            "dy": -10,
+            "fontSize": 12,
+            "fontWeight": 800,
+            "color": "#111111",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 3.5
+          },
+          "encoding": {
+            "xOffset": {
+              "field": "jit",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  -1.4,
+                  1.4
+                ]
+              }
+            },
+            "text": {
+              "field": "Council"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "background": null
+}

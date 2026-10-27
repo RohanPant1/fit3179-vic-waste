@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "description": "Jitter plot of all 79 Victorian councils by the share of kerbside waste each keeps out of landfill in 2024-25, coloured by the bins it offers. Councils with no green bin cluster at the low end. The reader's chosen council is ringed and named; clicking a dot chooses that council.",
   "width": 330,
-  "height": 96,
+  "height": 88,
   "padding": {
     "top": 18,
     "left": 2,
@@ -43,7 +43,7 @@
         "nice": false
       },
       "axis": {
-        "title": null,
+        "title": "Share kept out of landfill →",
         "values": [
           20,
           30,
@@ -57,7 +57,11 @@
         "labelFontSize": 11,
         "domainColor": "#333B34",
         "tickColor": "#333B34",
-        "grid": false
+        "grid": false,
+        "titleColor": "#C0C9BE",
+        "titleFontSize": 11,
+        "titleFontWeight": 600,
+        "titlePadding": 6
       }
     },
     "y": {
