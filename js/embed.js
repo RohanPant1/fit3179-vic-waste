@@ -19,7 +19,7 @@
    returning visitor ran the previous embed.js against the current HTML, so it
    looked for chart ids that no longer existed and silently rendered nothing. */
 
-const BUILD = "2026-10-27k";
+const BUILD = "2026-10-27l";
 
 const CHARTS = [
   { el: "#vis-finder",     spec: "specs/00-finder-strip.vl.json" },

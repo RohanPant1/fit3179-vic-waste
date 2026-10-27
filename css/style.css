@@ -496,8 +496,6 @@ strong { font-weight: 700; }
 .binkey > div + div, .framing > div + div { padding-left: 1.2rem; border-left: 1px solid var(--rule); }
 .binkey > div:nth-child(4), .framing > div:nth-child(4) { padding-left: var(--track-gap); }
 
-/* waffle sits on the card's left edge like every other chart */
-.chart--centre { justify-content: flex-start; }
 
 /* ---------- responsive ---------------------------------------------------- */
 @media (max-width: 900px) {
